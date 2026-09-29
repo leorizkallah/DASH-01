@@ -12,11 +12,11 @@ account** (your supervisor submits the student-account form), from the EPFL netw
 ## 1. One-time setup (login node)
 
 ```bash
-ssh ncmorand@izar.hpc.epfl.ch
-(public key added for passwordless access)
+ssh rizkalla@izar.hpc.epfl.ch
+# SSH key authentication can be configured for passwordless access.
 
 # get the code onto the cluster (either clone, or rsync from the laptop):
-git clone <your-repo-url> ~/running_robot
+git clone https://github.com/leorizkallah/DASH-01.git ~/running_robot
 #   rsync -av --exclude .venv --exclude training/runs ./ <gaspar>@izar.hpc.epfl.ch:running_robot/
 
 # venv, exactly per the SCITAS python-venv guide (pip runs on the LOGIN node — internet on
@@ -104,18 +104,18 @@ plot you only need a few small files, not the ~1 GB of checkpoints:
 RUN=m3_speed_v3
 mkdir -p training/runs/$RUN
 for f in final_model.zip vecnormalize.pkl resolved_config.json curriculum.json progress.csv training_plots.png; do
-  scp ncmorand@izar.hpc.epfl.ch:running_robot/training/runs/$RUN/$f training/runs/$RUN/ ; done
+  scp rizkalla@izar.hpc.epfl.ch:running_robot/training/runs/$RUN/$f training/runs/$RUN/ ; done
 
 # just the latest training plot:
-scp ncmorand@izar.hpc.epfl.ch:running_robot/training/runs/$RUN/training_plots.png training/runs/$RUN/
+scp rizkalla@izar.hpc.epfl.ch:running_robot/training/runs/$RUN/training_plots.png training/runs/$RUN/
 # the whole run dir incl. every checkpoint (~1 GB): scp -r
-scp -r ncmorand@izar.hpc.epfl.ch:running_robot/training/runs/$RUN ./training/runs/
+scp -r rizkalla@izar.hpc.epfl.ch:running_robot/training/runs/$RUN ./training/runs/
 ```
 
 **macOS / Linux** (rsync available, transfers only what changed):
 
 ```bash
-rsync -av ncmorand@izar.hpc.epfl.ch:running_robot/training/runs/ ./training/runs/
+rsync -av rizkalla@izar.hpc.epfl.ch:running_robot/training/runs/ ./training/runs/
 ```
 
 Videos: render locally after pulling the files above (`python training/evaluate.py

@@ -1,6 +1,16 @@
 # DASH-01 — bipedal robot 100 m sprint
 
-Master-thesis project: a custom biped (DASH-01) learning to sprint 100 m with RL.
+This repository continues the work from [nathmo/running_robot](https://github.com/nathmo/running_robot),
+developed by [nathmo](https://github.com/nathmo) for his master's thesis on DASH-01,
+a custom biped learning to sprint 100 m with reinforcement learning (RL).
+
+I am continuing this work as part of my master's semester project at EPFL, building on
+the RL training pipeline that nathmo already implemented. The original robot code,
+training pipeline, and experiments are his work; this repository is where I develop
+the continuation of that project.
+
+The original Git history and [Mozilla Public License 2.0](LICENSE) are preserved.
+
 Two self-contained halves:
 
 - **[`training/`](training/README.md)** — the RL training stack (MuJoCo + PPO): teach DASH-01 to
