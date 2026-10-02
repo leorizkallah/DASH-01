@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DASH-01 Control</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<!-- header + banners scroll together and stick: a rejection raised from a panel at the bottom of
+     the page (system-ID, playback) must stay on screen where you are, not 2000 px above. -->
+<div id="topbar">
+  <header id="header">
+    <div class="hgroup">
+      <span class="brand">🤖 DASH-01</span>
+      <span id="mode-badge" class="badge">—</span>
+      <span id="calib-badge" class="badge">—</span>
+      <span id="lamp-zero" class="lamp">●&nbsp;zeroed</span>
+      <span id="lamp-ws" class="lamp">●&nbsp;workspace</span>
+      <span id="guards" class="guards" title="Software safety limits. Unticking one disables it until the daemon restarts.">
+        <span class="guards-label">guards</span>
+        <label><input type="checkbox" class="gk" data-bypass="workspace" checked>workspace</label>
+        <label><input type="checkbox" class="gk" data-bypass="speed" checked>speed</label>
+        <label><input type="checkbox" class="gk" data-bypass="torque" checked>torque</label>
+        <label><input type="checkbox" class="gk" data-bypass="tracking" checked>tracking</label>
+      </span>
+      <span id="daemon-dot" class="dot" title="daemon">●</span>
+      <span id="loop-info" class="loopinfo"></span>
+    </div>
+    <div class="hgroup">
+      <button id="btn-limp" class="btn">Limp</button>
+      <button id="btn-estop" class="btn estop">E-STOP</button>
+    </div>
+  </header>
+
+  <div id="banner" class="banner hidden"></div>
+  <div id="reject-banner" class="banner warn hidden"></div>
+</div>
+
+<main id="main">
+
+  <!-- ======================== row: zeroing · workspace · gyro · manual ======================== -->
+  <div class="prow">
+  <section class="panel" id="panel-calib">
+    <h2>Zeroing
+      <span class="hint">encoders wake at a random angle/direction — everything is locked until
+      the robot is re-zeroed; re-calibrate any time</span></h2>
+
+    <div id="wiz-summary" class="hidden">
+      <div class="row">
+        <span id="calib-summary-text"></span>
+        <span class="spacer"></span>
+        <button id="btn-recal-zero" class="btn">📍 Re-zero (re-capture + re-check directions)</button>
+        <button id="btn-recal-reset" class="btn">Reset calibration</button>
+      </div>
+    </div>
+
+    <div id="wiz-steps">
+      <div id="wiz-step1">
+        <h3>1 — Zero pose</h3>
+        <p>Physically pose the robot in its <b>URDF zero pose</b> (the CAD assembly pose used for
+        the workspace ground truth), then capture it. Motors are limp — move the legs by hand.</p>
+        <div id="wiz-live" class="wiz-live"></div>
+        <button id="btn-set-zero" class="btn primary">📍 Set zero (capture all 6)</button>
+      </div>
+
+      <div id="wiz-step2" class="hidden">
+        <h3>2 — Direction check</h3>
+        <p>Backdrive each joint in its <b>positive direction</b>: <b>thigh</b> swings FORWARD,
+        <b>cam</b> moves DOWN, <b>abduction</b> lifts the FOOT OFF THE GROUND — same for both legs.
+        The live number must <b>increase</b>. Wrong way? <i>Flip</i>, then <i>Confirm</i>.
+        One joint's zero came out wrong? Pose <b>just that joint</b> and hit its <b>📍 Zero</b> —
+        the other five keep theirs; re-confirm that joint's direction afterwards.</p>
+        <div id="wiz-cards" class="wiz-cards"></div>
+        <div class="row">
+          <button id="btn-wiz-back" class="btn">↩ Re-capture zero</button>
+          <button id="btn-wiz-done" class="btn primary" disabled>Finish calibration</button>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="panel" id="panel-workspace">
+    <h2>Safe workspace
+      <span class="hint">record a sweep → review &amp; edit → save / share</span>
+      <span id="ws-source" class="hint"></span></h2>
+
+    <div class="row" style="margin-top:2px">
+      <span class="hint">working on:</span>
+      <div class="tabs" id="ws-tabs" style="margin-bottom:0">
+        <button class="tab active" data-leg="right">right leg</button>
+        <button class="tab" data-leg="left">left leg</button>
+      </div>
+      <span class="spacer"></span>
+      <span class="hint">loaded:</span>
+      <span id="ws-legs-loaded" class="leg-badges"></span>
+    </div>
+
+    <!-- Step 1 — record a sweep -->
+    <div class="step" id="ws-step-record">
+      <div class="step-h"><span class="step-n">1</span> Record a sweep
+        <span class="hint">— per leg, one continuous take</span></div>
+      <p class="step-note">Motors go limp — <b>backdrive the <span class="wsrec-legname">right</span>
+        leg by hand</b>. A single pass captures <b>abduction, cam and hip together</b>; sweep the
+        whole reachable range in one motion (do extra passes if you missed a corner — they add up).
+        The yellow trail shows what you've covered so far. Hit <b>Process</b> when it looks complete.</p>
+      <div class="row">
+        <button id="btn-wsrec-mode" class="btn">Enter sweep mode</button>
+        <button id="btn-wsrec-take" class="btn" disabled>▶ start pass</button>
+        <button id="btn-wsrec-undo" class="btn small" disabled>undo last pass</button>
+        <span id="wsrec-status" class="hint"></span>
+      </div>
+      <div class="row small">
+        margin <input type="number" id="wsrec-margin" class="num small" value="3" step="0.5">°
+        grid <input type="number" id="wsrec-grid" class="num small" value="1" step="0.5">°
+        dilate <input type="number" id="wsrec-dilate" class="num small" value="2" step="0.5">°
+        <label title="Sweep the EDGE of where the leg may go and come back to the start; the area
+your trail encloses becomes the safe region. Turn this off to keep only the swept line itself —
+which the margin will then erode away unless you swept a wide band.">
+          <input type="checkbox" id="wsrec-close" checked> close the traced loop</label>
+        <span class="spacer"></span>
+        <button id="btn-wsrec-process" class="btn small primary" disabled>Process → build workspace</button>
+      </div>
+    </div>
+
+    <!-- Step 2 — review / edit -->
+    <div class="step" id="ws-step-edit">
+      <div class="step-h"><span class="step-n">2</span> Review &amp; edit the safe region</div>
+      <p class="step-note">Green cells are the safe (cam, hip) region; the bar is the safe abduction
+        range. Touch it up by hand if needed, then <b>Apply to robot</b> to arm the live safety check.</p>
+
+      <div class="ws-abd">
+        <canvas id="ws-abd-canvas" width="640" height="70"></canvas>
+        <div class="row small">
+          abduction safe: <input type="number" id="abd-min" class="num small" step="0.5">
+          … <input type="number" id="abd-max" class="num small" step="0.5"> °
+          <button id="btn-abd-apply" class="btn small">apply</button>
+        </div>
+      </div>
+
+      <div class="toolbar" id="ws-toolbar">
+        <button class="tool active" data-tool="pan" title="pan/zoom">✋</button>
+        <button class="tool" data-tool="draw" title="draw safe cells">✏️</button>
+        <button class="tool" data-tool="erase" title="erase cells">🧽</button>
+        <button class="tool" data-tool="fill" title="flood fill">🪣</button>
+        <select id="brush-size" class="num small">
+          <option value="1">1px</option><option value="3" selected>3px</option>
+          <option value="5">5px</option><option value="9">9px</option>
+        </select>
+        <button id="btn-undo" class="btn small">↩ undo</button>
+        <button id="btn-redo" class="btn small">↪ redo</button>
+        <span class="spacer"></span>
+        <button id="btn-ws-apply" class="btn small primary">Apply to robot</button>
+        <button id="btn-ws-revert" class="btn small">Revert</button>
+      </div>
+      <div class="row small" id="ws-extent-row">
+        <span class="hint">canvas span — drawing past an edge grows it by itself; the sweep only
+          sets where it starts:</span>
+        cam <input type="number" id="ws-cam-lo" class="num small" step="1">
+        … <input type="number" id="ws-cam-hi" class="num small" step="1">°
+        thigh <input type="number" id="ws-th-lo" class="num small" step="1">
+        … <input type="number" id="ws-th-hi" class="num small" step="1">°
+        <button id="btn-ws-resize" class="btn small">resize</button>
+        <button id="btn-ws-grow-max" class="btn small">grow to limit</button>
+        <span id="ws-extent-hint" class="hint"></span>
+      </div>
+      <div class="canvas-wrap">
+        <canvas id="ws-canvas" width="900" height="620"></canvas>
+        <div id="ws-coords" class="coords"></div>
+      </div>
+      <div id="ws-stats" class="hint"></div>
+    </div>
+
+    <!-- Step 3 — save / share -->
+    <div class="step" id="ws-step-save">
+      <div class="step-h"><span class="step-n">3</span> Save &amp; share</div>
+      <div class="row small">
+        <button id="btn-ws-mirror" class="btn small">⇄ copy right → left</button>
+        <span class="hint">normalized frames coincide between legs; flip an axis only if a direction
+          convention turns out inverted:</span>
+        <label><input type="checkbox" id="mir-abd"> abd</label>
+        <label><input type="checkbox" id="mir-cam"> cam</label>
+        <label><input type="checkbox" id="mir-thigh"> thigh</label>
+      </div>
+      <div class="row">
+        <input type="text" id="ws-name" class="txt" placeholder="workspace name" value="workspace_web">
+        <button id="btn-ws-save" class="btn small">💾 Save on robot</button>
+        <select id="ws-files" class="txt small"></select>
+        <button id="btn-ws-load" class="btn small">Load</button>
+      </div>
+      <div class="row">
+        <button id="btn-ws-export" class="btn small">⬇ Export file</button>
+        <label class="btn small file-btn">⬆ Import file<input type="file" id="ws-import" accept=".npz" hidden></label>
+        <span class="hint">file contains:</span>
+        <span id="ws-legs-loaded2" class="leg-badges"></span>
+      </div>
+      <p class="step-note">Export writes <b>every leg currently loaded</b> into one <code>.npz</code>
+        (both legs, or whichever one you have). Import <b>merges</b> a file's legs into what's already
+        loaded — so a right-only file and a left-only file can be imported one after the other to
+        combine them into a both-legs workspace.</p>
+    </div>
+  </section>
+  <section class="panel" id="panel-sensors">
+    <h2>Gyro calibration
+      <span class="hint">Sense HAT (B): Waveshare 9-DOF IMU + air + light + analog, on the Pi's
+        I2C bus — live</span>
+      <span id="sns-status" class="hint"></span></h2>
+
+    <div id="sns-down" class="sns-down hidden"></div>
+
+    <div id="sns-body" class="sns-wrap">
+      <div class="sns-att">
+        <canvas id="sns-horizon" width="230" height="230"></canvas>
+        <div class="sns-att-vals">
+          <span>roll <b id="sns-roll">—</b>°</span>
+          <span>pitch <b id="sns-pitch">—</b>°</span>
+          <span>yaw <b id="sns-yaw">—</b>°</span>
+        </div>
+        <div id="sns-mount" class="hint"></div>
+      </div>
+
+      <div class="sns-cols">
+        <div class="sns-group">
+          <div class="sns-gh">Accelerometer <span class="hint">g</span></div>
+          <div class="sns-grid" id="sns-acc"></div>
+        </div>
+        <div class="sns-group">
+          <div class="sns-gh">Gyroscope <span class="hint">°/s, bias-corrected</span></div>
+          <div class="sns-grid" id="sns-gyr"></div>
+        </div>
+        <div class="sns-group">
+          <div class="sns-gh">Magnetometer <span class="hint">µT — uncalibrated, and the motors
+            move it; NOT fused into the attitude</span></div>
+          <div class="sns-grid" id="sns-mag"></div>
+        </div>
+        <div class="sns-group">
+          <div class="sns-gh">Air <span class="hint">SHTC3 + LPS22HB</span></div>
+          <div class="sns-grid" id="sns-air"></div>
+        </div>
+        <div class="sns-group">
+          <div class="sns-gh">Light <span class="hint">TCS34725</span></div>
+          <div class="sns-grid" id="sns-light"></div>
+          <div class="row small"><span class="hint">colour</span><i id="sns-swatch" class="sns-swatch"></i></div>
+        </div>
+        <div class="sns-group">
+          <div class="sns-gh">Analog in <span class="hint">ADS1015, V — cycled one channel at a time</span></div>
+          <div class="sns-grid" id="sns-adc"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ---------------- IMU mount calibration ---------------- -->
+    <div class="step" id="sns-mountcal">
+      <div class="step-h">IMU mount &amp; frame
+        <span class="hint">the HAT is bolted UNDER the robot — until this is done, every value
+          above is in the chip's own axes, not the robot's</span></div>
+
+      <div class="sns-cal-grid">
+        <div class="sns-cal-steps">
+          <div class="sns-cal-step">
+            <b>1 — Upright reference</b>
+            <span class="hint">Hang the robot on the test rig in its upright pose and let it settle.
+              This captures the direction of gravity in chip axes, which fixes the tilt — and
+              absorbs both mount misalignment and accelerometer bias into one reference. Its
+              repeatability is the accuracy ceiling of everything below.</span>
+            <div class="row small">
+              <button id="btn-cap-level" class="btn small primary">📍 Capture upright</button>
+              <span id="cap-level-status" class="hint"></span>
+            </div>
+          </div>
+
+          <div class="sns-cal-step">
+            <b>2 — Zero gyro</b>
+            <span class="hint">Averages the gyro's zero-rate offset over 1.5 s. The robot must be
+              completely still; the attitude filter restarts from the accelerometer afterwards.
+              Redo it after the robot warms up — the offset drifts with temperature.</span>
+            <div class="row small">
+              <button id="btn-gyro-bias" class="btn small primary">⌖ Zero gyro (hold still)</button>
+              <span id="sns-bias" class="hint"></span>
+            </div>
+          </div>
+
+          <div class="sns-cal-step">
+            <b>3 — Axes: tilt sequence</b>
+            <span class="hint">Gravity cannot see rotation <i>about</i> the vertical, so it cannot
+              tell pitch from roll by itself. Start the sequence, then tilt the robot
+              <b>forward, left, right, backward</b>, 10–20° each, coming back upright in between.
+              Each tilt is captured automatically once it is held still. Forward/backward and
+              left/right check each other; if the result is the wrong way round, flip it.</span>
+            <div class="row small">
+              <button id="btn-seq" class="btn small primary">▶ Start tilt sequence</button>
+              <span id="seq-live" class="seq-live"></span>
+            </div>
+            <div id="seq-msg" class="seq-msg hidden"></div>
+            <div id="seq-tilts" class="seq-tilts"></div>
+            <div id="seq-axes" class="seq-axes"></div>
+            <div id="seq-checks" class="hint"></div>
+            <div class="row small">
+              <button id="btn-flip-fa" class="btn small toggle" title="Treat the forward/backward
+tilts the other way round (the robot's front was the other end)">⇄ flip fore/aft</button>
+              <button id="btn-flip-lat" class="btn small toggle" title="Treat the left/right tilts
+the other way round">⇄ flip left/right</button>
+              <span class="spacer"></span>
+              <button id="btn-mount-reset" class="btn small">Reset mount calibration</button>
+            </div>
+          </div>
+
+          <div class="sns-cal-step">
+            <b>4 — Noise <span class="hint">record while the robot stands still</span></b>
+            <span class="hint">Records the IMU at its full rate: accelerometer and gyro noise
+              (RMS and density), what is left of the gyro zero, and the pitch/roll jitter the
+              ⚖ Balance loop steers on. A record where the robot moved is flagged, not trusted.
+              The raw data is saved under data/imu_noise/.</span>
+            <div class="row small">
+              <button id="btn-noise" class="btn small">● Record</button>
+              <span id="noise-status" class="hint"></span>
+            </div>
+            <div id="noise-result" class="noise-result"></div>
+          </div>
+        </div>
+
+        <div class="sns-cal-view">
+          <canvas id="sns-frame-canvas" width="380" height="330"></canvas>
+          <div class="row small">
+            <label><input type="checkbox" id="frame-showmesh" checked> base mesh</label>
+            <label><input type="checkbox" id="frame-showlive" checked> live up-vector</label>
+            <span class="spacer"></span>
+            <span class="hint">drag to orbit, wheel to zoom</span>
+          </div>
+          <div id="sns-frame-legend" class="hint"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="chart-legend">
+      <span><i class="sw" style="background:#4da3ff"></i>pitch °</span>
+      <span><i class="sw dash" style="background:#f2f2f2"></i>roll °</span>
+      <span><i class="sw" style="background:#e0a020"></i>|ω| °/s</span>
+      <span><i class="sw" style="background:#2c9e3f"></i>|a| g</span>
+      <span><i class="sw" style="background:#e04545"></i>air °C</span>
+      <span class="hint">last 60 s, auto-scaled</span>
+    </div>
+    <div class="sns-charts">
+      <div class="sns-chart"><span>attitude</span><canvas id="sns-c-att" width="300" height="46"></canvas></div>
+      <div class="sns-chart"><span>rotation rate</span><canvas id="sns-c-gyr" width="300" height="46"></canvas></div>
+      <div class="sns-chart"><span>acceleration</span><canvas id="sns-c-acc" width="300" height="46"></canvas></div>
+      <div class="sns-chart"><span>temperature</span><canvas id="sns-c-temp" width="300" height="46"></canvas></div>
+    </div>
+  </section>
+  <section class="panel" id="panel-manual">
+    <h2>Manual control <span class="hint">sliders track the live motor position — grab one to jog
+      that joint, or type an exact angle</span></h2>
+    <div class="row">
+      <button id="btn-hold" class="btn primary">Hold pose (enter manual)</button>
+      <button id="btn-home" class="btn" title="Slow guided move to the standing pose: soles flat,
+torso level, abduction 0, CoM over the soles (cam +46°, thigh +11.1° on both legs). Only right when
+the drives were zeroed in the homing pose.">🏠 Home (slow → standing pose)</button>
+      <button id="btn-center" class="btn" title="Slew both legs to the centre of the largest safe
+box in the workspace — the pose with the most room in every direction. Same slow guided move as
+Home, and like Home it works from a pose outside the safe region.">⌖ Centre (max room)</button>
+      <span id="home-status" class="hint"></span>
+      <button id="btn-release" class="btn">Release → limp</button>
+      <span class="spacer"></span>
+      <label class="override"><input type="checkbox" id="chk-override">
+        <span>⚠ override safe workspace</span></label>
+      <label>slew <input type="number" id="inp-slew" value="60" min="5" max="240" step="5"
+        class="num small"> °/s</label>
+      <label title="speed of the homing move">home <input type="number" id="inp-home-slew"
+        value="20" min="5" max="120" step="5" class="num small"> °/s</label>
+    </div>
+    <div class="row bal-row">
+      <button id="btn-balance" class="btn" title="IMU balance around the standing pose (press 🏠 Home
+first). Pitch: P+D shift the CoM along the soles, I levels the torso. Roll: P+D shift the CoM
+sideways. Stop HOLDS the pose; a tilt beyond 15° is a fall and goes limp. It cannot save a real
+push: 66 mm soles recover ~8 N for 0.2 s at most.">⚖ Balance: start</button>
+      <span id="bal-status" class="hint mono"></span>
+      <span class="spacer"></span>
+    </div>
+    <div class="row bal-row">
+      <span class="hint" title="The CoM trims shape the STANDING POSE itself: 🏠 Home drives to the
+trimmed pose, and while the robot holds it (Home arrived, or Balance stopped) moving a trim
+re-poses it — no PID needed. Saved on the robot.">CoM trim (standing pose):</span>
+      <span id="bal-trim-where" class="hint mono" title="A jog, Hold, ⌖ Centre or leaving MANUAL
+ends the standing hold: from then on a trim is only stored, and the robot takes it at the next
+🏠 Home."></span>
+      <label title="where the CoM sits along the soles (+ = toward the toes); feet stay flat,
+torso level">fore/aft
+        <button class="btn small bal-step" data-bal-step="bal-comx" data-d="-1">◀</button>
+        <input type="range" id="bal-comx" min="-25" max="25" step="1" value="0">
+        <button class="btn small bal-step" data-bal-step="bal-comx" data-d="1">▶</button>
+        <span id="bal-comx-val" class="mono">+0</span> mm</label>
+      <label title="where the CoM sits between the feet (+ = left); both hips roll together,
+the soles roll by the same small angle">lateral
+        <button class="btn small bal-step" data-bal-step="bal-comy" data-d="-1">◀</button>
+        <input type="range" id="bal-comy" min="-25" max="25" step="1" value="0">
+        <button class="btn small bal-step" data-bal-step="bal-comy" data-d="1">▶</button>
+        <span id="bal-comy-val" class="mono">+0</span> mm</label>
+      <label title="torso pitch the loop holds (+ = leaning forward): corrects an IMU mount that is
+not quite level. Only used while ⚖ Balance runs.">pitch setpoint
+        <button class="btn small bal-step" data-bal-step="bal-pitch" data-d="-0.1">◀</button>
+        <input type="number" id="bal-pitch" value="0" min="-5" max="5" step="0.1" class="num small">
+        <button class="btn small bal-step" data-bal-step="bal-pitch" data-d="0.1">▶</button> °</label>
+    </div>
+    <div class="row bal-row" id="bal-joint-trim">
+      <span class="hint" title="Per-joint trim on the STANDING POSE, for when the solved pose is
+right but this robot does not stand in it — a joint zeroed a little out, or one hip that simply
+sits differently. It moves 🏠 Home, the standing hold, and the pose ⚖ Balance regulates around.
+It does NOT touch a policy run, PLAYBACK or the manual sliders. Saved on the robot.">joint trim
+        (standing pose):</span>
+      <span id="bal-jtrim-where" class="hint mono"></span>
+      <button id="btn-jtrim-zero" class="btn small" title="Put every joint trim back to 0">zero all</button>
+    </div>
+    <div class="row bal-row" id="bal-joint-trim-rows"></div>
+    <div class="row bal-row" id="bal-gains">
+      <span class="hint" title="Live: applies to a running loop at once, and is saved on the robot.
+Pitch Kp/Kd: mm of CoM shift per deg of tilt (per deg/s). Ki: deg of torso posture per deg·s.
+Roll Kp/Kd: mm of sideways CoM shift per deg (per deg/s) — NEGATIVE on purpose (see balance.py).
+If it oscillates: lower Kp first, then Kd (the servo lags ~0.1 s, so too much D also rings).">PID gains:</span>
+      <label>pitch Kp <input type="number" class="num small" data-gain="kp" step="0.1"></label>
+      <label>Kd <input type="number" class="num small" data-gain="kd" step="0.05"></label>
+      <label>Ki <input type="number" class="num small" data-gain="ki" step="0.05"></label>
+      <label>roll Kp <input type="number" class="num small" data-gain="kp_roll" step="0.5"></label>
+      <label>roll Kd <input type="number" class="num small" data-gain="kd_roll" step="0.05"></label>
+      <button id="btn-gains-default" class="btn small">defaults</button>
+    </div>
+    <div id="manual-rows"></div>
+  </section>
+  </div>
+
+  <!-- ======================== row: telemetry ======================== -->
+  <div class="prow">
+  <section class="panel wide" id="panel-telemetry">
+    <h2>Telemetry <span class="hint">raw°, normalized°, A, °C — live</span></h2>
+    <div class="chart-legend">
+      <span><i class="sw" style="background:#4da3ff"></i>position (normalized °)</span>
+      <span><i class="sw dash" style="background:#f2f2f2"></i>commanded target °
+        <span class="hint">— gap = nothing commanded (limp)</span></span>
+      <span><i class="sw" style="background:#e0a020"></i>current (A)</span>
+      <span><i class="sw" style="background:#e04545"></i>temperature (°C)</span>
+      <span><i class="sw dash" style="background:#e04545"></i>80 °C limit</span>
+      <span class="hint">one card per motor: position, current, temperature. Auto-scaled — the two
+        numbers at the left edge are that chart's range; gridlines and the labels under the bottom
+        chart are the time axis.</span>
+      <label class="tel-span">window
+        <select id="tel-span" class="sel">
+          <option value="30">30 s</option>
+          <option value="60">60 s</option>
+          <option value="120">2 min</option>
+          <option value="300">5 min</option>
+          <option value="600">10 min</option>
+        </select>
+      </label>
+    </div>
+    <div id="motor-cards" class="motor-cards"></div>
+  </section>
+  </div>
+
+  <!-- ======================== row: digital twin ======================== -->
+  <div class="prow">
+  <section class="panel wide" id="panel-ee">
+    <h2>Digital twin — homing-pose MJCF
+      <span class="hint">qpos = sign · normalized° (0° = the homing pose the drives are zeroed in) ∙
+        drag to orbit, wheel to zoom ∙ axes: x red fwd, y green left, z blue up ∙ yellow = the
+        fixed world marker (level ring + plumb line); the base turns about the torso origin, pale
+        axes turn with it</span>
+    </h2>
+    <div class="twin-wrap">
+      <canvas id="twin-canvas"></canvas>
+      <div class="twin-views">
+        <button class="btn small" data-twin-view="left">left side</button>
+        <button class="btn small" data-twin-view="right">right side</button>
+        <button class="btn small" data-twin-view="front">front</button>
+        <button class="btn small" data-twin-view="iso">3/4</button>
+        <label class="twin-imu" title="Tilt the twin's base by the IMU's pitch and roll (yaw stays 0:
+it drifts). Needs the IMU mount calibration."><input type="checkbox" id="twin-imu" checked> IMU
+          pitch/roll</label>
+      </div>
+      <div id="twin-att" class="twin-att"></div>
+      <div id="twin-banner" class="twin-banner hidden"></div>
+    </div>
+    <div id="twin-status" class="hint mono"></div>
+    <div class="row small" id="twin-signs">
+      <span class="hint">joint sign (motor + → MJCF qpos +); display only, nothing on the robot reads it:</span>
+    </div>
+  </section>
+  </div>
+
+  <!-- ======================== row: gait: draw · play back · policy inference ======================== -->
+  <div class="prow">
+  <section class="panel" id="panel-trajectory">
+    <h2>Gait trajectory
+      <span class="hint">teach/draw each leg → process &amp; save → play</span></h2>
+
+    <div class="row" style="margin-top:2px">
+      <span class="hint">working on:</span>
+      <div class="tabs" id="traj-tabs" style="margin-bottom:0">
+        <button class="tab active" data-leg="right">right leg</button>
+        <button class="tab" data-leg="left">left leg</button>
+      </div>
+      <span class="spacer"></span>
+      <span class="hint">shown gait has:</span>
+      <span id="traj-legs-loaded" class="leg-badges"></span>
+    </div>
+
+    <!-- Step 1 — teach or draw one leg -->
+    <div class="step" id="traj-step-record">
+      <div class="step-h"><span class="step-n">1</span>
+        Teach or draw the <span class="traj-legname">right</span>-leg loop</div>
+      <p class="step-note"><b>One leg at a time.</b> Record (or draw) this leg, then switch the tab
+        above to the other leg and do the same — or do one side and use <b>⇄ copy to other leg</b> in
+        step 3. Both legs live in the <b>same</b> gait file, so give them the same name.</p>
+
+      <details class="rec-block" open>
+        <summary>A · Teach by hand — backdrive the leg, motors limp</summary>
+        <div class="row">
+          <button id="btn-rec-mode" class="btn">Enter teach mode</button>
+          <button id="btn-rec-take" class="btn" disabled>▶ start take</button>
+          <button id="btn-rec-center" class="btn small" disabled>📍 capture center</button>
+          <button id="btn-rec-undo" class="btn small" disabled>undo take</button>
+          <button id="btn-rec-reset" class="btn small">reset all</button>
+          <span id="rec-status" class="hint"></span>
+        </div>
+        <div class="row small">
+          name <input type="text" id="rec-name" class="txt small" value="gait_web">
+          harmonics <input type="number" id="rec-harmonics" class="num small" value="8" min="1" max="30">
+          split <input type="number" id="rec-split" class="num small" value="0.5" min="0.1" max="0.9" step="0.05">
+          left phase <input type="number" id="rec-leftphase" class="num small" value="0.5" min="0" max="1" step="0.05">
+          <span class="spacer"></span>
+          <button id="btn-rec-finish" class="btn small primary">Process + save</button>
+        </div>
+      </details>
+
+      <details class="rec-block">
+        <summary>B · Draw the loop on the plot below instead</summary>
+        <div class="toolbar" style="margin-bottom:0">
+          <button class="tool active" data-ttool="pan" title="pan/zoom">✋</button>
+          <button class="tool" data-ttool="draw" title="draw path">✏️</button>
+          <button id="btn-traj-clear" class="btn small">clear stroke</button>
+          <button id="btn-traj-reverse" class="btn small">⇄ reverse</button>
+          <span class="spacer"></span>
+          <input type="text" id="traj-name" class="txt" value="gait_drawn" placeholder="trajectory name">
+          <button id="btn-traj-usepath" class="btn small primary">Use drawn path →</button>
+        </div>
+      </details>
+    </div>
+
+    <!-- Step 2 — review -->
+    <div class="step" id="traj-step-view">
+      <div class="step-h"><span class="step-n">2</span> Review both legs</div>
+      <div class="canvas-wrap">
+        <canvas id="traj-canvas" width="900" height="620"></canvas>
+        <div id="traj-coords" class="coords"></div>
+      </div>
+      <div id="traj-stats" class="hint"></div>
+    </div>
+
+    <!-- Step 3 — combine legs, preview, share -->
+    <div class="step" id="traj-step-save">
+      <div class="step-h"><span class="step-n">3</span> Combine legs, preview &amp; share</div>
+      <div class="row">
+        <select id="traj-files" class="txt small"></select>
+        <button id="btn-traj-show" class="btn small">Show on plots</button>
+        <button id="btn-traj-preview" class="btn small">▶ preview both legs</button>
+        <button id="btn-traj-copyleg" class="btn small">⇄ copy to other leg</button>
+      </div>
+      <div class="row">
+        <button id="btn-traj-export" class="btn small">⬇ Export file</button>
+        <label class="btn small file-btn">⬆ Import file<input type="file" id="traj-import" accept=".npz" hidden></label>
+        <span class="hint">a gait file holds one loop with a right and/or left leg — export/import
+          moves the whole file.</span>
+      </div>
+    </div>
+  </section>
+  <section class="panel" id="panel-playback">
+    <h2>Gait playback</h2>
+    <div class="row">
+      <select id="pb-file" class="txt"></select>
+      <select id="pb-legs" class="txt small">
+        <option value="both">both legs</option><option value="right">right only</option>
+        <option value="left">left only</option>
+      </select>
+      <select id="pb-mode" class="txt small">
+        <option value="position">position mode</option>
+        <option value="current">current (torque-capped)</option>
+      </select>
+    </div>
+    <div class="row">
+      <label title="Hard limit 0.4 s = 2.5 Hz (daemon.PERIOD_MIN), set after a part failed on a
+high-cadence run. The cam reaches its motor's no-load speed at 3.5 Hz on this gait, so beyond
+that the command is kinematically impossible, not just hard to track.">period
+        <input type="range" id="pb-period" min="0.4" max="20" value="8" step="0.1">
+        <span id="pb-period-val">8</span> s/cycle <span id="pb-period-hz" class="hint">(0.13 Hz)</span></label>
+      <label>left phase <input type="range" id="pb-leftphase" min="0" max="1" value="0.5" step="0.05">
+        <span id="pb-leftphase-val">0.5</span></label>
+    </div>
+    <div class="row small" id="pb-current-params">
+      I-limit <input type="number" id="pb-ilimit" class="num small" value="3" step="0.5"> A
+      kp <input type="number" id="pb-kp" class="num small" value="0.8" step="0.1">
+      ki <input type="number" id="pb-ki" class="num small" value="0.4" step="0.1">
+      kd <input type="number" id="pb-kd" class="num small" value="0.02" step="0.01">
+      ramp <input type="number" id="pb-ramp" class="num small" value="3" step="0.5"> s
+    </div>
+    <div class="row small">
+      tracking limit <input type="number" id="pb-trackerr" class="num small" value="30" step="5"> °
+      <label title="Tracking error alone stops being a fault signal at high cadence: the drive lags
+because it cannot keep up, not because the leg is jammed. Unchecking decouples ONLY this check —
+workspace, runaway speed, over-temperature, motor faults and the E-STOP button all still latch.">
+        <input type="checkbox" id="pb-trackerr-estop" checked> E-STOP on tracking error</label>
+      <span id="pb-trackerr-state" class="hint"></span>
+    </div>
+    <div class="row">
+      <button id="btn-pb-start" class="btn primary">▶ Play</button>
+      <button id="btn-pb-stop" class="btn">■ Stop</button>
+      <div class="phasebar"><div id="pb-phase" class="phasefill"></div></div>
+    </div>
+  </section>
+  <section class="panel" id="panel-policy">
+    <h2>Policy inference
+      <span class="hint">run a trained policy bundle — the .npz carries the whole controller
+        architecture it must run with (estimator + policy MLPs, impedance gains, gait
+        reconstruction, observation statistics)</span></h2>
+
+    <div class="row">
+      <select id="pol-file" class="txt"></select>
+      <button id="btn-pol-refresh" class="btn small">⟳ rescan</button>
+      <label class="btn small file-btn">⬆ Upload bundle<input type="file" id="pol-upload"
+        accept=".npz" hidden></label>
+      <span id="pol-count" class="hint"></span>
+    </div>
+    <p class="step-note">Bundles are exported with <code>robot/deploy/export_policy.py</code>,
+      which writes them to <code>robot/deploy/bundles/</code>; an upload here lands in
+      <code>webui/data/policies/</code>. Both directories are offered above, and the tag after each
+      name says which one it came from. A bundle is loadable by numpy alone and cannot execute
+      code.</p>
+
+    <div id="pol-info" class="hidden"></div>
+    <div id="pol-preflight"></div>
+
+    <div class="step">
+      <div class="step-h">Dress rehearsal
+        <span class="hint">— runs the bundle's full control law on this machine with a mock bus
+          and mock IMU: proves the export + runtime end to end, energises nothing</span></div>
+      <div class="row">
+        <button id="btn-pol-rehearse" class="btn primary" disabled>▶ Rehearse (mock)</button>
+        <button id="btn-pol-rehearse-stop" class="btn" disabled>■ Stop</button>
+        <label>for <input id="pol-seconds" type="number" class="num small" value="5" min="1"
+          max="30"> s</label>
+        <label title="While the rehearsal runs, draw the pose it is COMMANDING in the digital twin
+above instead of the (motionless) live telemetry. Nothing is energised either way — this is the
+only way to watch a dry run."><input type="checkbox" id="pol-twin" checked> drive the digital
+          twin</label>
+        <span id="pol-rehearse-status" class="hint"></span>
+      </div>
+      <pre id="pol-log" class="pol-log hidden"></pre>
+    </div>
+
+    <div class="step" id="pol-run-step">
+      <div class="step-h">Real run <span class="hint">— on the drives, in force control, under the
+        deploy safety governor</span></div>
+      <div class="warn-box">
+        <b>⚠ The torso must be physically supported.</b>
+        A fall is the expected outcome of removing the support, not a surprise. Gantry, boom, or
+        hands. If the bundle above reports <b>railed</b> axes, the policy has never experienced
+        those degrees of freedom and there is nothing in it that stabilises them — it is open-loop
+        there. If it reports none (a v2 free-plant run), it has at least been asked to balance in
+        simulation, which is not the same as having done it on this machine.
+        <br><br>
+        The run happens <b>inside this daemon</b>, not in a subprocess: the CAN bus has exactly one
+        owner, so <code>run_policy.py</code> refuses to start while the web UI is up. It is the same
+        control law and the same governor either way — the deploy package is imported, not
+        reimplemented.
+      </div>
+      <div class="row">
+        <span id="pol-cmd-velocity">
+          <label>forward <input id="pol-v" type="number" class="num small" value="0" step="0.05">
+            m/s</label>
+          <label>yaw <input id="pol-yaw" type="number" class="num small" value="0" step="0.1">
+            rad/s</label>
+        </span>
+        <label>for <input id="pol-secs" type="number" class="num small" value="10" min="1"
+          max="60"> s</label>
+        <span id="pol-cmd-box" class="hint"></span>
+      </div>
+      <div class="row">
+        <label class="chk"><input type="checkbox" id="pol-supported">
+          the torso is supported and I expect it to fall</label>
+      </div>
+      <div id="pol-acks"></div>
+      <div class="row">
+        <button id="btn-pol-arm" class="btn danger" disabled>▶ Arm &amp; run</button>
+        <button id="btn-pol-run-stop" class="btn" disabled>■ End run (soft)</button>
+        <button id="btn-pol-run-kill" class="btn" disabled>✖ Kill (limp now)</button>
+        <span id="pol-run-status" class="hint"></span>
+      </div>
+
+      <!-- The v2 task channel. Shown only while a run that HAS one is live, and in ONE of its two
+           shapes: a joystick bundle gets the speed slider, the older run/stop lineage gets the two
+           buttons. Either way this is a command to the POLICY, not to the governor — the pair
+           above takes the machine away from it; this asks it for something. -->
+      <div id="pol-command" class="pol-command hidden">
+        <div class="step-h">Gait command
+          <span class="hint" id="pol-command-blurb">— commands to the <b>policy</b>, at full
+            gains, with the governor untouched; nothing here ends the run.</span></div>
+        <div class="row" id="pol-cmd-speed">
+          <span id="pol-speed-val" class="pol-speedbig">0.00 m/s</span>
+          <input id="pol-speed" type="range" class="pol-slider" min="0" max="3" step="0.05"
+                 value="0" disabled aria-label="commanded speed, metres per second">
+          <button id="btn-pol-zero" class="btn small" disabled>⇤ 0 · walk in place</button>
+          <button id="btn-pol-switch" class="btn small hidden" disabled
+                  title="the policy's own RUN/STOP input (task[1]); STOP is a learned behaviour, not a brake">switch: RUN</button>
+        </div>
+        <div class="row" id="pol-cmd-flag">
+          <button id="btn-pol-go" class="btn go" disabled>▶▶ RUN</button>
+          <button id="btn-pol-halt" class="btn halt" disabled>◼ STOP (brake)</button>
+        </div>
+        <!-- THE HEADING. v3 policies carry an integrated-gyro bearing in the observation and are
+             penalised for leaving zero, so "straight ahead" is whatever direction the estimate was
+             zeroed at -- which is where the robot was pointing when the policy started. The readout
+             is the policy's own number, not a ground truth, and that is the point: if it says 2 deg
+             while the robot is visibly crossing the floor, the integral has walked and re-aiming is
+             the fix. -->
+        <div class="row hidden" id="pol-cmd-heading">
+          <span id="pol-heading-val" class="pol-heading">0&deg;</span>
+          <button id="btn-pol-aim" class="btn small" disabled>&#8982; this way is straight</button>
+          <span id="pol-heading-note" class="hint"></span>
+        </div>
+        <div class="row">
+          <span id="pol-command-state" class="pol-cmdstate">stopped</span>
+          <span id="pol-command-note" class="hint"></span>
+        </div>
+      </div>
+
+      <div id="pol-run" class="hidden"></div>
+      <details class="pol-headless">
+        <summary>headless equivalent — same law, no browser, web UI stopped</summary>
+        <pre id="pol-cmd" class="pol-cmd">select a bundle above</pre>
+      </details>
+    </div>
+  </section>
+  </div>
+
+  <!-- ======================== row: identification: thermal · dynamic · limbs & inertia · files ======================== -->
+  <div class="prow">
+  <section class="panel" id="panel-thermal">
+    <h2>Thermal identification
+      <span class="hint">deposit a known heat in one motor, measure how hot it gets — fits the
+        lumped model</span></h2>
+
+    <div class="warn-box">
+      <b>⚠ Declare how the rotor is held before a burst.</b>
+      <b>Clamped</b> holds ONE motor at full torque, in one direction, for up to three minutes:
+      the joint is held, must not move, and sustained motion aborts the run because it means the
+      fixture is failing. <b>Free</b> is for a motor off the robot with <b>nothing on the
+      shaft</b>: it tracks a position-mode sine, so every half-cycle the drive has to decelerate
+      and re-accelerate its own rotor inertia. Net work per cycle is ~zero — what goes in is I²R,
+      which is exactly what the fit integrates.
+      <br><br>
+      <b>The sine cannot command a current.</b> I&nbsp;=&nbsp;J·α/Kt is set by physics, so the
+      current knob is a <i>target</i>: the run integrates the current the drive actually measures,
+      stops early with the achieved number if the sine cannot draw a useful fraction of the target
+      (raise the frequency or the amplitude), and aborts the moment measured I²·dt reaches the
+      deposit the winding-rise gate approved — position mode has no current cap, so the integral
+      is the wall.
+      <br><br>
+      <b>Nothing may be attached to the shaft in free mode.</b> A leg on the shaft turns the sine
+      into a pendulum drive with a gravity load the budget was not sized for — and a leg on
+      <i>current-mode</i> excitation is the <b>free-JOINT dither retracted on 2026-08-29</b>,
+      which self-excited through the drive's ~10&nbsp;ms actuation delay (25&nbsp;500&nbsp;ERPM
+      in 0.21&nbsp;s on right.cam). The sine survives that delay because it is position-mode —
+      the drive's own loop closes the fast loop, like the identify wiggle above.
+    </div>
+
+    <div class="row wrap">
+      <label>Motor <select id="th-motor" class="sel"></select></label>
+      <label>Current <input id="th-amps" type="number" class="num small" value="20" step="0.5"
+             min="0.5" max="30"> A</label>
+      <label>Duration <input id="th-dur" type="range" min="1" max="180" step="1" value="60">
+             <b id="th-dur-val">60 s</b></label>
+      <label>Ambient <input id="th-ambient" type="number" class="num small" step="0.5"> °C</label>
+      <label>Probe <select id="th-probe" class="sel">
+        <option value="case">case (IR / contact on the housing)</option>
+        <option value="winding">winding (thermocouple in the slot)</option>
+        <option value="drive">the drive's own reading</option>
+      </select></label>
+    </div>
+
+    <div class="row wrap th-identrow">
+      <span class="hint">Not sure that is the joint you think it is?</span>
+      <button id="btn-th-ident" class="btn">↔ Wiggle 5° for 2 s to identify</button>
+      <button id="btn-th-ident-stop" class="btn" disabled>■ Stop</button>
+      <span id="th-ident-note" class="hint">holds the other five in place and reports which joint actually moved</span>
+    </div>
+    <div id="th-ident" class="th-ident hidden"></div>
+
+    <div id="th-predict" class="th-predict"></div>
+
+    <div class="row wrap hidden" id="th-sine-row">
+      <span class="hint">free-rotor sine:</span>
+      <label>freq <input id="th-freq" type="number" class="num small" value="6" step="0.5"
+             min="0.5" max="25"> Hz</label>
+      <label>amplitude <input id="th-amp" type="number" class="num small" value="20" step="1"
+             min="1" max="60"> °</label>
+      <span id="th-sine-note" class="hint"></span>
+    </div>
+
+    <div class="row wrap">
+      <label>Rotor <select id="th-rotor" class="sel">
+        <option value="blocked">clamped — joint held, must not turn</option>
+        <option value="free">free — off the robot, nothing on the shaft: tracks a sine</option>
+      </select></label>
+      <label class="chk"><input type="checkbox" id="th-confirm">
+        <span id="th-confirm-label">the joint is clamped and cannot turn</span></label>
+      <button id="btn-th-suggest" class="btn">suggest</button>
+      <button id="btn-th-start" class="btn primary" disabled>▶ Start burst</button>
+      <button id="btn-th-stop" class="btn" disabled>■ Stop</button>
+    </div>
+
+    <div id="th-live" class="th-live hidden"></div>
+
+    <div class="row wrap">
+      <label>Start temp <input id="th-tstart" type="number" class="num small" step="0.1"> °C</label>
+      <label>Peak temp <input id="th-tpeak" type="number" class="num small" step="0.1"> °C</label>
+      <label>read <input id="th-tpeak-at" type="number" class="num small" step="1"> s after the burst</label>
+      <input id="th-notes" class="txt" placeholder="notes (optional)">
+      <button id="btn-th-save" class="btn primary">Save burst</button>
+    </div>
+
+    <div id="th-progress" class="th-progress"></div>
+
+    <table class="tbl small">
+      <thead><tr><th>when</th><th>dur</th><th>I rms</th><th>operator</th><th>drive</th><th></th></tr></thead>
+      <tbody id="th-runs"></tbody>
+    </table>
+
+    <div class="step">
+      <h3>Cooldown curve <span class="hint">the half of the experiment that pins the case time
+        constant — follow it for at least 15 minutes</span></h3>
+      <div class="row wrap">
+        <button id="btn-th-cool-start" class="btn">Start a cooldown curve</button>
+        <label>at <input id="th-cool-t" type="number" class="num small" step="1"> s</label>
+        <label>temp <input id="th-cool-temp" type="number" class="num small" step="0.1"> °C</label>
+        <button id="btn-th-cool-add" class="btn">+ point</button>
+      </div>
+      <div id="th-cool-body"></div>
+    </div>
+  </section>
+  <section class="panel" id="panel-measure">
+    <h2>Dynamic identification — measurement
+      <span class="hint">excite ONE leg with position chirps, log torque at 200 Hz → derive Kt,
+        reflected inertia &amp; friction. The base is fixed; the leg moves freely in the workspace.</span></h2>
+
+    <div class="row" style="margin-top:2px">
+      <span class="hint">measure leg:</span>
+      <div class="tabs" id="meas-tabs" style="margin-bottom:0">
+        <button class="tab active" data-leg="right">right leg</button>
+        <button class="tab" data-leg="left">left leg</button>
+      </div>
+      <span class="spacer"></span>
+      <span class="hint">profile:</span>
+      <button id="meas-prof-static" class="btn small">quasi-static (gravity/Kt)</button>
+      <button id="meas-prof-dyn" class="btn small primary">dynamic (chirp)</button>
+    </div>
+
+    <div class="step">
+      <div class="step-h"><span class="step-n">1</span> Excitation
+        <span class="hint">— per-joint amplitude &amp; frequency sweep; the whole path is
+          workspace-checked before it can start</span></div>
+      <p class="step-note">The chirp is centred on the leg's <b>current pose</b>: from a pose near a
+        hard limit — or outside the drawn workspace — every amplitude is refused and the run never
+        starts. Hit <b>⌖ Centre legs</b> to park both legs where the safe workspace leaves the most
+        room in every direction; the amplitudes below are then trimmed to what fits. The reason for
+        any refusal appears in red next to the buttons.</p>
+      <div class="row">
+        <button id="btn-meas-center" class="btn" title="Slew both legs to the centre of the largest
+safe box in the workspace — the pose that leaves the most excitation room on every joint. Works
+even when a leg is currently parked outside the safe region.">⌖ Centre legs (max room)</button>
+        <button id="btn-meas-fit" class="btn" title="Size the excitation to this pose: 80% of the safe
+travel each joint has here, and the chirp frequency that puts that sine at 80% of the motor's no-load
+speed. Amplitude and frequency trade off (peak speed = 2*pi*f*A), so more range costs frequency.">⤢ Fit excitation (80%)</button>
+        <span id="meas-room" class="hint"></span>
+      </div>
+      <table class="meas-grid">
+        <thead><tr><th>joint</th><th>amplitude °</th><th>start Hz</th><th>end Hz (chirp)</th></tr></thead>
+        <tbody id="meas-joint-rows"></tbody>
+      </table>
+      <div class="row small">
+        duration <input type="number" id="meas-duration" class="num small" value="20" step="1"> s
+        ramp <input type="number" id="meas-ramp" class="num small" value="2" step="0.5"> s
+        <label title="hold the other leg at its pose (else limp)"><input type="checkbox" id="meas-holdother" checked> hold other leg</label>
+        <label class="override"><input type="checkbox" id="meas-override"> ⚠ override workspace</label>
+      </div>
+      <div class="row">
+        <button id="btn-meas-start" class="btn primary">▶ Run measurement</button>
+        <button id="btn-meas-stop" class="btn">■ Stop</button>
+        <div class="phasebar"><div id="meas-phase" class="phasefill"></div></div>
+        <span id="meas-status" class="hint"></span>
+      </div>
+      <div class="row small">
+        <span class="hint">live current (excited leg):</span>
+        <canvas id="meas-chart" width="620" height="70"></canvas>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-h"><span class="step-n">2</span> Save &amp; captured runs</div>
+      <div class="row">
+        <input type="text" id="meas-name" class="txt" value="measure_right_dyn" placeholder="run name">
+        <button id="btn-meas-finish" class="btn small primary">💾 Save this run</button>
+        <span class="hint">capture a slow (quasi-static) run <b>and</b> a fast (dynamic) run per leg
+          for the best fit.</span>
+      </div>
+      <div id="meas-runs" class="meas-runs"></div>
+    </div>
+
+    <div class="step">
+      <div class="step-h"><span class="step-n">3</span> Drive PID gains
+        <span class="hint">— the drive's <b>position-loop</b> gains, read off the motor driver
+          boards. Recorded with each run so the estimator can model the loop; editing them here
+          does <b>not</b> change the boards. The inner current/speed loops are stored too
+          (dynstore.DRIVE_GAINS). Note ki = kd = 0: the position loop is P-only, so a loaded joint
+          settles short of its target.</span></div>
+      <table class="meas-grid"><thead><tr><th>motor</th><th>kp</th><th>ki</th><th>kd</th></tr></thead>
+        <tbody id="meas-pid-rows"></tbody></table>
+    </div>
+
+    <div class="step">
+      <div class="step-h"><span class="step-n">4</span> Run identification</div>
+      <p class="step-note">Fits Kt, reflected rotor inertia and viscous/Coulomb friction from the
+        saved runs (needs mujoco + scipy on this host). If unavailable, export the runs and run
+        <code>python -m identification.run</code> on the dev machine, then import the JSON below.</p>
+      <div class="row">
+        <button id="btn-identify-run" class="btn primary">⚙ Identify from saved runs</button>
+        <label class="btn small file-btn">⬆ Import identified_params.json<input type="file" id="identify-import" accept=".json" hidden></label>
+        <span id="identify-status" class="hint"></span>
+      </div>
+    </div>
+  </section>
+  <section class="panel" id="panel-limbs">
+    <h2>Limbs &amp; inertia
+      <span class="hint">enter each weighed limb mass; compare the CAD inertia tensor with the
+        identified one — eigenvalues are frame-invariant, so this tells wrong-values from wrong-frame</span></h2>
+    <div class="limbs-wrap">
+      <div class="limbs-list" id="limbs-list"></div>
+      <div class="limbs-detail">
+        <canvas id="limb-canvas" width="420" height="380"></canvas>
+        <div class="row small">
+          <label><input type="checkbox" id="limb-align"> align CAD → identified frame</label>
+          <label><input type="checkbox" id="limb-showmesh" checked> show mesh</label>
+          <span class="spacer"></span>
+          <span class="hint">🟦 CAD  🟧 identified</span>
+        </div>
+        <div id="limb-readout" class="limb-readout"></div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-h">Actuator parameters <span class="hint">(from identification)</span></div>
+      <table class="meas-grid" id="actuator-table">
+        <thead><tr><th>motor</th><th>Kt (Nm/A)</th><th>rotor inertia (kg·m²)</th>
+          <th>viscous (Nm·s)</th><th>Coulomb (Nm)</th><th>fit resid (Nm)</th></tr></thead>
+        <tbody id="actuator-rows"></tbody>
+      </table>
+      <div id="identify-summary" class="hint"></div>
+    </div>
+  </section>
+  <section class="panel" id="panel-files">
+    <h2>File manager
+      <span class="hint">permanently delete a saved workspace-calibration or gait file you no
+        longer need</span></h2>
+    <div class="row">
+      <select id="del-kind" class="txt small">
+        <option value="workspace">workspace (calibration)</option>
+        <option value="trajectory">gait pattern</option>
+      </select>
+      <select id="del-file" class="txt"></select>
+      <button id="btn-del-file" class="btn">🗑 Delete…</button>
+    </div>
+    <div class="row hidden" id="del-confirm-row">
+      <span class="del-warn">Delete <b id="del-confirm-name"></b> permanently? This cannot be undone.</span>
+      <span class="spacer"></span>
+      <button id="btn-del-confirm" class="btn estop">Yes, delete</button>
+      <button id="btn-del-cancel" class="btn">Cancel</button>
+    </div>
+  </section>
+  </div>
+
+  <!-- ======================== row: mock tools (simulated motors only) ======================== -->
+  <div class="prow hidden" id="row-mock">
+  <section class="panel" id="panel-mock">
+    <h2>Mock tools <span class="hint">simulated motors only</span></h2>
+    <div class="row">
+      <button id="btn-mock-sweep-right" class="btn small">auto-sweep right leg</button>
+      <button id="btn-mock-sweep-left" class="btn small">auto-sweep left leg</button>
+      <button id="btn-mock-stop" class="btn small">stop sweeps</button>
+    </div>
+    <div class="row">
+      <span class="hint">simulated IMU pose — what the tilt sequence asks for (the mock mounts
+        the HAT at a known rotation, so the procedure can be checked against the answer it should
+        find):</span>
+    </div>
+    <div class="row">
+      <button data-mock-pose="still" class="btn small">upright &amp; still</button>
+      <button data-mock-pose="fwd" class="btn small">tilt forward</button>
+      <button data-mock-pose="left" class="btn small">tilt left</button>
+      <button data-mock-pose="right" class="btn small">tilt right</button>
+      <button data-mock-pose="back" class="btn small">tilt backward</button>
+    </div>
+  </section>
+  </div>
+
+</main>
+
+<script src="/static/twin3d.js"></script>
+<script src="/static/app.js"></script>
+<script src="/static/inertia3d.js"></script>
+<script src="/static/sysid.js"></script>
+<script src="/static/sensors.js"></script>
+<script src="/static/thermal.js"></script>
+<script src="/static/policy.js"></script>
+</body>
+</html>

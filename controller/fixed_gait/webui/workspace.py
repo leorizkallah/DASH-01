@@ -1,0 +1,323 @@
+"""Safe-workspace store for the web UI — NORMALIZED zero-pose frame everywhere.
+
+Wraps the proven building blocks of fixed_gait/calibrate_workspace.py (grid rasterize + dilate +
+erode) and fixed_gait/joint_limits.py (JointLimits check object), but keeps all angles in the
+normalized frame (zero pose == 0), so saved workspaces survive motor power cycles.
+
+Per-leg data format (the `legs` dict):
+    abd_observed (lo, hi)   abd_safe (lo, hi)          # normalized deg
+    knee_grid bool[nc, nt]  knee_cam_origin  knee_thigh_origin  knee_grid_deg
+    samples float[N, 3] | None                          # backdriven scatter (abd, cam, thigh)
+"""
+import base64
+import io
+import os
+import threading
+
+import numpy as np
+
+import paths
+import calibration as calib_mod
+import calibrate_workspace as cw          # fixed_gait/ — grid morphology + processing
+import joint_limits                        # fixed_gait/ — the check object
+
+MAX_SCATTER = 4000
+
+
+def occupied_box(grid):
+    """(cam_lo, cam_hi, thigh_lo, thigh_hi) CELL INDICES of the grid's occupied bounding box, or
+    None if nothing is occupied. Inclusive on both ends.
+
+    Cached on the leg dict by _rebuild_limits, because daemon._widen_to_workspace needs it on every
+    hard-bounds lookup and that lookup is on the hot path: _validate_pose asks for it once per
+    joint, and measure_defaults validates 480 poses in a single request. Computing it there made
+    _hard_bounds 45x slower (0.2 -> 10.2 us) and measure_defaults slow enough on the Pi that the
+    UI proxy gave up at 4 s and reported the control process unreachable while it was perfectly
+    alive. The grid only changes when it is edited, so it is computed there instead."""
+    if grid is None:
+        return None
+    g = np.asarray(grid, bool)
+    if not g.size or not g.any():
+        return None
+    ci = np.flatnonzero(g.any(axis=1))
+    ti = np.flatnonzero(g.any(axis=0))
+    return (int(ci[0]), int(ci[-1]), int(ti[0]), int(ti[-1]))
+
+
+def _region_warning(knee, margin_deg, dilate_deg, close_region):
+    """Say WHY the built region came out empty, in terms the operator can act on.
+
+    An empty result has several distinct causes needing different answers, so "region is EMPTY" on
+    its own sent people back to re-sweep when the fix was a number in a box."""
+    if knee["safe_grid"].any():
+        return ""
+    if not close_region:
+        return ("the built region is EMPTY — region-closing is off, so only the swept line itself "
+                "counts, and a line is thinner than the {:g} deg margin. Turn closing on."
+                .format(margin_deg))
+    if not knee.get("enclosed_cells"):
+        return ("the sweep does not CLOSE — nothing is enclosed by it, so there is no region to "
+                "keep. Trace all the way round the edge of where the leg may go and come back to "
+                "where you started; the yellow trail shows what has been swept so far.")
+    if dilate_deg < margin_deg:
+        return ("the built region is EMPTY — the {:g} deg margin eats more than the {:g} deg "
+                "dilation adds, so any enclosed area thinner than {:g} deg disappears. Sweep a "
+                "wider loop or reduce the margin."
+                .format(margin_deg, dilate_deg, margin_deg - dilate_deg))
+    return ("the built region is EMPTY — the enclosed area is thinner than the {:g} deg margin. "
+            "Sweep a wider loop or reduce the margin.".format(margin_deg))
+
+
+class WorkspaceStore:
+    def __init__(self):
+        self._lock = threading.Lock()
+        self.legs = {}                    # leg -> dict (see module docstring)
+        self.source = None                # filename this came from (display only)
+        self.limits = None                # joint_limits.JointLimits in NORMALIZED frame
+        self._active_path = os.path.join(paths.DATA, "workspace_active.npz")
+        if os.path.exists(self._active_path):
+            try:
+                with np.load(self._active_path) as z:
+                    self._set_legs(_legs_from_npz(z), str(z["source"]) if "source" in z.files
+                                   else "workspace_active.npz")
+                print(f"restored active workspace ({sorted(self.legs)}) from {self._active_path}")
+            except (ValueError, OSError, KeyError) as e:
+                print(f"(could not restore active workspace: {e})")
+
+    # ------------------------------------------------------------------ core state
+    def _rebuild_limits(self):
+        """JointLimits over normalized angles. zero == 0 by construction of the frame."""
+        legs = {}
+        for leg, d in self.legs.items():
+            d["knee_occupied"] = occupied_box(d.get("knee_grid"))
+            legs[leg] = dict(
+                abd_safe=tuple(d["abd_safe"]), abd_observed=tuple(d["abd_observed"]),
+                abd_zero=0.0,
+                knee_grid=d["knee_grid"], knee_cam_origin=d["knee_cam_origin"],
+                knee_thigh_origin=d["knee_thigh_origin"], knee_grid_deg=d["knee_grid_deg"],
+                knee_zero=np.zeros(2),
+            )
+        self.limits = joint_limits.JointLimits(legs) if legs else None
+
+    def _set_legs(self, legs, source):
+        with self._lock:
+            self.legs.update(legs)
+            self.source = source
+            self._rebuild_limits()
+
+    def _persist_active(self):
+        try:
+            np.savez(self._active_path, **_legs_to_npz(self.legs, self.source or "active"))
+        except OSError as e:
+            print(f"(could not persist active workspace: {e})")
+
+    # ------------------------------------------------------------------ mutations
+    def apply_grid(self, leg, grid, cam_origin, thigh_origin, grid_deg):
+        if leg not in self.legs:
+            self.legs[leg] = dict(abd_observed=(-1.0, 1.0), abd_safe=(-1.0, 1.0), samples=None)
+        with self._lock:
+            d = self.legs[leg]
+            d["knee_grid"] = np.ascontiguousarray(grid.astype(bool))
+            d["knee_cam_origin"] = float(cam_origin)
+            d["knee_thigh_origin"] = float(thigh_origin)
+            d["knee_grid_deg"] = float(grid_deg)
+            self._rebuild_limits()
+        self._persist_active()
+
+    def apply_abduction(self, leg, safe_lo, safe_hi):
+        if leg not in self.legs:
+            return False, f"no workspace for {leg} leg yet"
+        with self._lock:
+            self.legs[leg]["abd_safe"] = (float(safe_lo), float(safe_hi))
+            self._rebuild_limits()
+        self._persist_active()
+        return True, ""
+
+    def mirror(self, from_leg, to_leg, flips=None):
+        """Copy one leg's workspace onto the other. In the normalized zero-pose frame the two
+        legs' workspaces coincide (per-leg URDF sign conventions mirror the geometry), so a plain
+        copy is the default; per-axis sign flips are available if a convention turns out inverted.
+        flips: {"abd": bool, "cam": bool, "thigh": bool}."""
+        if from_leg not in self.legs:
+            return False, f"no workspace for {from_leg} leg"
+        if from_leg == to_leg:
+            return False, "source and destination leg are the same"
+        f = flips or {}
+        src = self.legs[from_leg]
+        grid = src["knee_grid"].copy()
+        cam_o, thigh_o = src["knee_cam_origin"], src["knee_thigh_origin"]
+        res = src["knee_grid_deg"]
+        if f.get("cam"):
+            grid = grid[::-1, :]
+            cam_o = -(cam_o + grid.shape[0] * res)
+        if f.get("thigh"):
+            grid = grid[:, ::-1]
+            thigh_o = -(thigh_o + grid.shape[1] * res)
+
+        def _interval(iv, flip):
+            return (-iv[1], -iv[0]) if flip else tuple(iv)
+
+        samples = src.get("samples")
+        if samples is not None:
+            samples = samples.copy()
+            for col, key in ((0, "abd"), (1, "cam"), (2, "thigh")):
+                if f.get(key):
+                    samples[:, col] = -samples[:, col]
+        dst = dict(abd_observed=_interval(src["abd_observed"], f.get("abd")),
+                   abd_safe=_interval(src["abd_safe"], f.get("abd")),
+                   knee_grid=np.ascontiguousarray(grid),
+                   knee_cam_origin=float(cam_o), knee_thigh_origin=float(thigh_o),
+                   knee_grid_deg=float(res), samples=samples)
+        self._set_legs({to_leg: dst}, f"{self.source or 'workspace'} (+{from_leg}→{to_leg} mirror)")
+        self._persist_active()
+        return True, ""
+
+    def process_segments(self, leg, segments, margin_deg=3.0, grid_deg=1.0, dilate_deg=2.0,
+                         close_region=True):
+        """Build a leg workspace from normalized backdriven segments — the exact pipeline of
+        calibrate_workspace.process_and_export (:227-277), minus file/plot I/O.
+
+        Each segment is one take and goes through as its own PATH, so the sweep is rasterized as
+        the line the leg actually travelled and `close_region` can fill what that line encloses.
+        Sweeping the boundary of the reachable region and having the inside come out filled is the
+        whole point: before this, tracing an outline produced a broken ring of about 100 cells
+        where the operator had outlined roughly 2400."""
+        samples = np.concatenate(segments, axis=0)         # [N,3] abd, cam, thigh (normalized)
+        abd = samples[:, 0]
+        lo, hi = float(abd.min()), float(abd.max())
+        safe_lo, safe_hi = lo + margin_deg, hi - margin_deg
+        warn = ""
+        if safe_lo >= safe_hi:
+            warn = (f"margin {margin_deg:g} deg empties the abduction range "
+                    f"[{lo:.1f},{hi:.1f}] — reduce it or sweep wider")
+        paths = [(np.asarray(g)[:, 1], np.asarray(g)[:, 2]) for g in segments if len(g)]
+        knee = cw._knee_grid(samples[:, 1], samples[:, 2], grid_deg, dilate_deg, margin_deg,
+                             paths=paths, close_region=close_region)
+        why = _region_warning(knee, margin_deg, dilate_deg, close_region)
+        if why:
+            warn = (warn + "; " if warn else "") + why
+        legs = {leg: dict(abd_observed=(lo, hi), abd_safe=(safe_lo, safe_hi),
+                          knee_grid=knee["safe_grid"],
+                          knee_cam_origin=knee["cam_origin"], knee_thigh_origin=knee["thigh_origin"],
+                          knee_grid_deg=knee["grid_deg"],
+                          samples=samples[:: max(1, len(samples) // (MAX_SCATTER * 4))])}
+        self._set_legs(legs, f"web sweep ({leg})")
+        self._persist_active()
+        return warn
+
+    # ------------------------------------------------------------------ files
+    def save(self, name):
+        safe = _safe_name(name)
+        path = os.path.join(paths.WORKSPACE_DIR, safe + ".npz")
+        np.savez(path, **_legs_to_npz(self.legs, safe))
+        with self._lock:
+            self.source = safe + ".npz"
+        self._persist_active()
+        return path
+
+    def export_bytes(self, name=None):
+        if name:
+            path = os.path.join(paths.WORKSPACE_DIR, _safe_name(name) + ".npz")
+            with open(path, "rb") as f:
+                return f.read(), os.path.basename(path)
+        buf = io.BytesIO()
+        np.savez(buf, **_legs_to_npz(self.legs, self.source or "export"))
+        return buf.getvalue(), "workspace_export.npz"
+
+    def import_bytes(self, blob, filename, legacy_signs=None):
+        """Auto-detect and import: normalized webui workspace / legacy joint_limits.npz /
+        legacy raw sweep (raw_{leg}.npz with zero). Returns a description string."""
+        z = np.load(io.BytesIO(blob), allow_pickle=False)
+        if "frame" in z.files:                                  # webui normalized format
+            self._set_legs(_legs_from_npz(z), filename)
+            self._persist_active()
+            return f"imported normalized workspace ({sorted(self.legs)})"
+        if any(k.endswith("_abd_safe_min") for k in z.files):    # legacy joint_limits.npz
+            legs = calib_mod.convert_legacy_limits(z, signs=legacy_signs)
+            self._set_legs(legs, filename + " (legacy, normalized via stored zero)")
+            self._persist_active()
+            return f"converted legacy joint_limits ({sorted(legs)}) via stored zero pose"
+        if "has_zero" in z.files and "p0" in z.files:            # legacy raw sweep segments
+            leg, segments = calib_mod.convert_legacy_raw_segments(z, signs=legacy_signs and
+                                                                  legacy_signs.get("any"))
+            warn = self.process_segments(leg, segments)
+            return f"rebuilt {leg} workspace from legacy raw sweep" + (f" ({warn})" if warn else "")
+        raise ValueError("unrecognized npz: not a webui workspace, joint_limits, or raw sweep file")
+
+    def delete_file(self, name):
+        """Delete a saved workspace file. The active (currently-loaded) workspace is untouched —
+        only the on-disk copy goes away."""
+        base = _safe_name(name)            # sanitized: no path traversal
+        path = os.path.join(paths.WORKSPACE_DIR, base + ".npz")
+        if not os.path.exists(path):
+            return False, f"workspace '{name}' not found"
+        os.remove(path)
+        with self._lock:
+            if self.source == base + ".npz":
+                self.source = None          # display-only; keeps the active workspace loaded
+        return True, ""
+
+    def list_files(self):
+        return sorted(f for f in os.listdir(paths.WORKSPACE_DIR) if f.endswith(".npz"))
+
+    # ------------------------------------------------------------------ serialization for the UI
+    def leg_json(self, leg):
+        d = self.legs.get(leg)
+        if d is None:
+            return None
+        grid = d["knee_grid"]
+        out = dict(
+            abd_observed=list(np.round(d["abd_observed"], 2)),
+            abd_safe=list(np.round(d["abd_safe"], 2)),
+            knee=dict(cam_origin=d["knee_cam_origin"], thigh_origin=d["knee_thigh_origin"],
+                      res_deg=d["knee_grid_deg"], shape=list(grid.shape),
+                      grid_b64=base64.b64encode(np.packbits(grid)).decode()),
+        )
+        s = d.get("samples")
+        if s is not None and len(s):
+            step = max(1, len(s) // MAX_SCATTER)
+            out["samples"] = np.round(s[::step, 1:3], 2).tolist()      # (cam, thigh) scatter
+            out["abd_samples"] = np.round(s[::step, 0], 2).tolist()
+        return out
+
+
+# ===================================================================== npz (de)serialization
+def _safe_name(name):
+    keep = "".join(c for c in (name or "") if c.isalnum() or c in "-_ .").strip()
+    keep = keep.replace(" ", "_")
+    if keep.lower().endswith(".npz"):          # UI file lists carry the extension — don't double it
+        keep = keep[:-4]
+    return keep or "workspace"
+
+
+def _legs_to_npz(legs, source):
+    flat = {"frame": "normalized", "source": source}
+    for leg, d in legs.items():
+        flat[f"{leg}_abd_observed_min"], flat[f"{leg}_abd_observed_max"] = d["abd_observed"]
+        flat[f"{leg}_abd_safe_min"], flat[f"{leg}_abd_safe_max"] = d["abd_safe"]
+        flat[f"{leg}_abd_zero"] = 0.0
+        flat[f"{leg}_knee_grid"] = d["knee_grid"]
+        flat[f"{leg}_knee_cam_origin"] = d["knee_cam_origin"]
+        flat[f"{leg}_knee_thigh_origin"] = d["knee_thigh_origin"]
+        flat[f"{leg}_knee_grid_deg"] = d["knee_grid_deg"]
+        flat[f"{leg}_knee_zero"] = np.zeros(2)
+        if d.get("samples") is not None:
+            flat[f"{leg}_samples"] = d["samples"]
+    return flat
+
+
+def _legs_from_npz(z):
+    legs = {}
+    for leg in ("left", "right"):
+        if f"{leg}_abd_safe_min" not in z.files:
+            continue
+        legs[leg] = dict(
+            abd_observed=(float(z[f"{leg}_abd_observed_min"]), float(z[f"{leg}_abd_observed_max"])),
+            abd_safe=(float(z[f"{leg}_abd_safe_min"]), float(z[f"{leg}_abd_safe_max"])),
+            knee_grid=z[f"{leg}_knee_grid"].astype(bool),
+            knee_cam_origin=float(z[f"{leg}_knee_cam_origin"]),
+            knee_thigh_origin=float(z[f"{leg}_knee_thigh_origin"]),
+            knee_grid_deg=float(z[f"{leg}_knee_grid_deg"]),
+            samples=z[f"{leg}_samples"] if f"{leg}_samples" in z.files else None,
+        )
+    return legs

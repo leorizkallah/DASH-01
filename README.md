@@ -2,7 +2,7 @@
 
 This repository continues the work from [nathmo/running_robot](https://github.com/nathmo/running_robot),
 developed by [nathmo](https://github.com/nathmo) for his master's thesis on DASH-01,
-a custom biped learning to sprint 100 m with reinforcement learning (RL).
+a custom biped learning to walk, stand and sprint with reinforcement learning (RL).
 
 I am continuing this work as part of my master's semester project at EPFL, building on
 the RL training pipeline that nathmo already implemented. The original robot code,
@@ -11,33 +11,63 @@ the continuation of that project.
 
 The original Git history and [Mozilla Public License 2.0](LICENSE) are preserved.
 
-Two self-contained halves:
+The current code includes the training stacks and the software that runs the policies on the
+real robot:
 
-- **[`training/`](training/README.md)** — the RL training stack (MuJoCo + PPO): teach DASH-01 to
-  sprint 100 m from a standing start and stop. Clone, venv, `pip install -r
-  training/requirements.txt`, train. Includes SLURM scripts for the EPFL Izar cluster
-  ([training/slurm/README.md](training/slurm/README.md)).
-- **[`robot/`](robot/README.md)** — the physical robot: CAD, simulation-model build, motor/CAN
-  tools, the fixed-gait demo + web control UI. Will eventually move to its own repo.
+| folder | what |
+|---|---|
+| [`controller/`](controller/README.md) | everything that runs on the robot's Raspberry Pi: the web control UI ([`fixed_gait/webui/`](controller/fixed_gait/webui/README.md)), the policy deployment stack ([`deploy/`](controller/deploy/README.md)), motor/CAN tools, identification, the hardware model |
+| `RLframework/` | MJX/JAX PPO training for the flat-foot DASH-01 walker (joystick-commanded). Launch on Izar with `slurm/izar_dash.sh` |
+| [`BalanceRL/`](BalanceRL/README.md) | push-recovery stander that writes the MIT force-control frame directly; a side quest off `RLframework/` |
+| [`sprint_runner/`](sprint_runner/README.md) | the restored `walk_mit` stack and the 3.06 m/s runner (`sprint_m3_mit_s0`), kept so it can still be run, measured and filmed. Not deployable on the current flat-foot robot |
+| `dash-01CAD/` | the current robot's CAD export (MJCF + meshes) that the training plants and the web UI's digital twin are built from |
 
-## 30-second start
+## What is deployed
 
-```bash
-python -m venv .venv
-# activate it — PowerShell: .venv\Scripts\Activate.ps1 | Git Bash: source .venv/Scripts/activate
-#                | Linux/macOS: source .venv/bin/activate
-pip install -r training/requirements.txt
-python training/smoke_test.py
-python training/train.py --preset m2_sprint --steps 240000000 --n-envs 20 --subproc
+The Pi runs the web UI (`controller/fixed_gait/webui/server.py`, systemd units in
+`controller/fixed_gait/webui/systemd/`). Policies reach it as bundles in
+`controller/deploy/bundles/`:
+
+- `bal5_s0.npz` — the BalanceRL stander (v3 bundle).
+- `dash_joy3_lr_s2_180M.npz` — the best RLframework walker.
+
+Older bundles, the analytic in-air gait demo, the browser MJCF viewer and the URDF patch tools
+were removed on 2026-09-30; they live in git history.
+
+## Run the included policies locally
+
+From the repository root in Windows PowerShell, install the sprint runner dependencies into
+the existing project environment. MuJoCo **3.13.0** is required to reproduce this policy's
+behavior; 3.14.0 caused an early fall in the local replay.
+
+```powershell
+.\.venv\Scripts\python.exe -m pip install -r sprint_runner/walk_mit/requirements.txt
+.\.venv\Scripts\python.exe sprint_runner/walk_mit/evaluate.py --run sprint_runner/walk_mit/runs/sprint_m3_mit_s0 --viewer
 ```
 
-Everything else: [training/README.md](training/README.md).
+The sprint runner uses the older robot model with lateral motion, roll and yaw constrained.
+For the current flat-foot robot's walking policy, use the separate joystick player (no JAX
+installation is needed for this player):
+
+```powershell
+.\.venv\Scripts\python.exe RLframework/tools/play_joystick.py --bundle controller/deploy/bundles/dash_joy3_lr_s2_180M.npz --start-stick 0.25
+```
+
+Focus the viewer and use **W/S** to change speed, **Space** to request a stop, and **R** to reset.
+The walker is not a guaranteed stander at zero command; the balance policy is a separate bundle.
+
+The original SCITAS setup for `rizkalla` is archived in [docs/legacy-scitas.md](docs/legacy-scitas.md).
+Current training uses `RLframework/` and its separate JAX/MJX requirements and `dash-v2`
+cluster environment. The old `training/slurm/` commands no longer apply.
+
+## Tests
+
+```bash
+python -m pytest controller/fixed_gait/webui/tests controller/deploy/tests
+```
 
 ## History
 
-The previous experimentation stack (per-step PD policies, per-cycle Fourier gaits, the
-experiments/framework/orchestrator machinery) was removed on 2026-07-17 after a literature
-review — it lives in git history before that date. The current stack is the reviewed state of
-the art: per-step re-parameterized Fourier gait + residuals (CPG-RL/PMTG hybrid), phase-gated
-contact scheduling, dense-speed + clock-cost sprint reward, efficiency shaping, milestone
-base-DOF curriculum.
+Earlier stacks (`RL/`, `framework/`, `experiments/`, `orchestrator/`, `training/`, `robot/`,
+`walk_v2`..`walk_v4`) were removed as each was superseded and live in git history. `walk_mit/`
+survives only inside `sprint_runner/`.

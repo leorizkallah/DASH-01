@@ -1,3 +1,14 @@
 # shell scripts must stay LF — they execute on the Linux cluster
 *.sh text eol=lf
 *.sbatch text eol=lf
+
+# Preserve policy archives, model assets and results byte-for-byte on Windows.
+*.zip binary
+*.pkl binary
+*.npz binary
+*.npy binary
+*.msgpack binary
+*.stl binary
+*.mp4 binary
+*.png binary
+*.pdf binary

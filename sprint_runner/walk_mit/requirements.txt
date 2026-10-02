@@ -1,0 +1,19 @@
+# Restored DASH-01 sprint training stack. From the repository root:
+#   python -m venv .venv && .venv/Scripts/activate  (Windows)  |  source .venv/bin/activate (Linux)
+#   python -m pip install -r sprint_runner/walk_mit/requirements.txt
+# On the Izar cluster GPUs (V100, sm_70) install torch from the cu126 index instead — see
+# docs/legacy-scitas.md (recent default wheels dropped Volta support; CPU torch also works,
+# the bottleneck is the MuJoCo envs, not the MLP).
+# The shipped sprint policy was validated with this simulator version.
+mujoco==3.13.0
+stable-baselines3>=2.3
+gymnasium>=0.29
+torch>=2.2
+numpy>=1.26
+tensorboard>=2.15
+matplotlib>=3.8
+imageio>=2.34
+imageio-ffmpeg>=0.4.9
+pillow>=10.0
+tqdm>=4.66
+rich>=13.0
