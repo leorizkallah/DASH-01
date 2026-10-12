@@ -60,6 +60,9 @@ class Sim:
         mp = model_path or (ROOT / "RLframework" / m["model_path"])
         self.model = mujoco.MjModel.from_xml_path(str(mp))
         self.data = mujoco.MjData(self.model)
+        self.base_bid = mujoco.mj_name2id(self.model, mujoco.mjtObj.mjOBJ_BODY, "torso")
+        if self.base_bid < 0:
+            raise ValueError("The walker model must contain the 'torso' body")
 
         self.control_dt = float(m["control_dt"])
         self.substeps = max(1, int(round(self.control_dt / self.model.opt.timestep)))
@@ -98,8 +101,7 @@ class Sim:
     # ---------------------------------------------------------------- sensing
     def _grav_body(self):
         """Unit gravity in the base frame -- R.T @ [0,0,-1], as env._grav_body."""
-        bid = mujoco.mj_name2id(self.model, mujoco.mjtObj.mjOBJ_BODY, "bodyNCS-v1")
-        R = self.data.xmat[bid].reshape(3, 3)
+        R = self.data.xmat[self.base_bid].reshape(3, 3)
         return R.T @ np.array([0.0, 0.0, -1.0])
 
     def _gyro(self):
@@ -192,8 +194,7 @@ class Sim:
         half turn a perfectly obedient robot reads as running backwards. Rotate the world velocity into
         the base frame and take its x component, exactly as env._vel_body does for the reward.
         """
-        bid = mujoco.mj_name2id(self.model, mujoco.mjtObj.mjOBJ_BODY, "bodyNCS-v1")
-        R = self.data.xmat[bid].reshape(3, 3)
+        R = self.data.xmat[self.base_bid].reshape(3, 3)
         return float((R.T @ np.asarray(self.data.qvel[0:3], float))[0])
 
     def speed_world(self):

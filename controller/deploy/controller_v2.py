@@ -313,6 +313,9 @@ class PolicyControllerV2:
         self.resync_warmup = int(r.get("warmup_cycles", 0))
         self.resync_active = False           # flips true the first time note_contact() is called
 
+        self.stop_adapter = m.get('stop_adapter', {})
+        if self.stop_adapter.get('enabled') and self.stop_adapter.get('version') != 1:
+            raise ValueError('Unsupported STOP command adapter version')
         self._alloc()
 
     def _alloc(self):
@@ -349,6 +352,9 @@ class PolicyControllerV2:
         # history of frame_0 alone, with no second measurement in it.
         self._primed = False
         self.n_steps = 0
+        self._stop_previous = True
+        self._stop_filtered = self._stop_v0 = self._stop_started = self._stop_duration = 0.0
+        self._stop_target, self._stop_hold = 0.0, True
 
     # ------------------------------------------------------------------ command channel
     def set_run(self, run):
@@ -477,6 +483,8 @@ class PolicyControllerV2:
     def _task(self):
         """The two task entries, exactly as `DashEnvV2._task` builds them."""
         if self.command_kind == "speed":
+            if self.stop_adapter.get('enabled'):
+                return self._stop_target / self.v_max, float(not self._stop_hold)
             # task[1] is reserved (a yaw command later) so the width stays 2 -- held at ONE, not
             # zero. Under v2 semantics this channel is the distance-to-go ramp: 1.0 means "the line
             # is far away", 0 means "brake now". A joystick bundle that shipped 0 here would hold
@@ -622,6 +630,23 @@ class PolicyControllerV2:
         else:
             self._push_frame(self._proprio(motor_pos, motor_vel, motor_tau, grav, gyro))
         obs = self._obs()
+
+        if self.stop_adapter.get('enabled'):
+            try:
+                from .stop_schedule import advance
+            except ImportError:
+                from stop_schedule import advance
+            a = self.stop_adapter
+            estimate = self.net.estimate_velocity(self.net.normalize(obs))[0]
+            estimate = (estimate * a['velocity_std'] + a['velocity_mean']) / a['velocity_scale']
+            estimate = float(np.nan_to_num(estimate, nan=0.0, posinf=self.v_max, neginf=0.0))
+            (self._stop_filtered, self._stop_v0, self._stop_started, self._stop_duration,
+             self._stop_target, self._stop_hold, _) = advance(
+                not self._run, self._stop_previous, self._v_cmd, estimate,
+                self._stop_filtered, self._stop_v0, self._stop_started, self._stop_duration,
+                self.n_steps * self.control_dt, self.control_dt, a['decel'], a['minimum_s'], self.v_max)
+            self._stop_previous = not self._run
+            obs = self._obs()
 
         # 2) policy. Mean action, clipped -- the robot never samples.
         action, vel_est = self.net(obs)

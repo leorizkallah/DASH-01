@@ -12,3 +12,9 @@
 *.mp4 binary
 *.png binary
 *.pdf binary
+
+# The report manifest hashes file bytes, including line endings. Preserve its
+# frozen evidence and generated artifacts exactly across Windows/Linux checkouts.
+/report/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/report/figures/** linguist-generated=true
+/report/data/code/** linguist-generated=true

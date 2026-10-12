@@ -35,6 +35,7 @@ from flax import struct
 import gait
 import networks as nets
 import env as env_mod
+from stop_adapter import prepare as prepare_stop
 from env import DashEnvV2, EnvParams
 from plant import Override
 
@@ -230,6 +231,7 @@ class PPO:
             def one(carry, _):
                 env_state, obs, key = carry
                 key, k = jax.random.split(key)
+                env_state, obs = prepare_stop(net, params, stats, env, env_state, obs)
                 nobs = stats.normalize(obs)
                 mu, log_std, value, _ = policy_fwd(params, nobs)
                 a = nets.sample(k, mu, log_std)
@@ -255,6 +257,7 @@ class PPO:
                 return (env_state, obs2, key), (tr, metrics)
             (env_state, obs, key), (tr, metrics) = jax.lax.scan(one, (env_state, obs, key), None,
                                                                length=self.n_steps)
+            env_state, obs = prepare_stop(net, params, stats, env, env_state, obs)
             nobs_last = stats.normalize(obs)
             _, _, last_value, _ = policy_fwd(params, nobs_last)
             # raw-obs moments for the stats update
@@ -267,7 +270,7 @@ class PPO:
 
         self._gae = jax.jit(gae_fn, static_argnums=(2, 3))
 
-        def loss_fn(params, stats, obs, act, old_lp, adv, ret, mask, clip_range, ent_coef):
+        def loss_fn(params, stats, obs, act, old_lp, adv, ret, mask, clip_range, ent_coef, rehearsal=None):
             mu, log_std, value, _ = policy_fwd(params, obs)
             lp = nets.log_prob(mu, log_std, act, mask)
             ratio = jnp.exp(lp - old_lp)
@@ -298,15 +301,25 @@ class PPO:
             mu_out = jnp.mean((jnp.abs(mu) > 1.0).astype(jnp.float32))
             total = (pg + cfg.vf_coef * vf - ent_coef * ent + cfg.w_sym * sym + cfg.w_knob_loss * knob
                      + cfg.w_bound * bound)
+            bc, bc_hold, bc_walk = jnp.zeros(()), jnp.zeros(()), jnp.zeros(())
+            if cfg.stop_rehearsal_coef > 0:
+                from stop04_metrics import rehearsal_loss
+                if rehearsal is None:
+                    raise ValueError('Rehearsal enabled without demonstration minibatch')
+                dx,dy = rehearsal
+                predicted = net.apply(params, dx, method=net.actor_mean)
+                bc, bc_hold, bc_walk = rehearsal_loss(predicted, dy, jnp)
+                total = total + cfg.stop_rehearsal_coef * bc
             approx_kl = jnp.mean((ratio - 1.0) - jnp.log(ratio))
             clipfrac = jnp.mean((jnp.abs(ratio - 1.0) > clip_range).astype(jnp.float32))
             return total, dict(pg=pg, vf=vf, ent=ent, sym=sym, kl=approx_kl, clipfrac=clipfrac,
-                               bound=bound, mu_out=mu_out)
+                               bound=bound, mu_out=mu_out, rehearsal=bc,
+                               rehearsal_hold=bc_hold, rehearsal_walk=bc_walk)
 
-        def update_mb(params, opt_state, stats, batch, clip_range, ent_coef, log_std_clamp):
+        def update_mb(params, opt_state, stats, batch, clip_range, ent_coef, log_std_clamp, rehearsal=None):
             obs, act, old_lp, adv, ret, mask = batch
             (loss, aux), grads = jax.value_and_grad(loss_fn, has_aux=True)(
-                params, stats, obs, act, old_lp, adv, ret, mask, clip_range, ent_coef)
+                params, stats, obs, act, old_lp, adv, ret, mask, clip_range, ent_coef, rehearsal)
             updates, opt_state = self.tx.update(grads, opt_state, params)
             params = optax.apply_updates(params, updates)
             params = _clamp_log_std(params, log_std_clamp)
@@ -765,9 +778,13 @@ class PPO:
                 for i in range(self.n_minibatches):
                     idx = perm[i * self.mb_size:(i + 1) * self.mb_size]
                     mb = tuple(x[idx] for x in data)
+                    rehearsal = None
+                    if cfg.stop_rehearsal_coef > 0:
+                        self.key, kr = jax.random.split(self.key)
+                        rehearsal = self.rehearsal_sample(kr)
                     self.params, self.opt_state, loss, aux = self._update_mb(
                         self.params, self.opt_state, stats_used, mb, float(cfg.clip_range),
-                        float(self.ent_coef), float(self.log_std_clamp))
+                        float(self.ent_coef), float(self.log_std_clamp), rehearsal)
                     n_mb += 1
                     for kk, v in aux.items():
                         aux_acc[kk] = aux_acc.get(kk, 0.0) + float(v)
@@ -863,8 +880,9 @@ class PPO:
             self.lr_now = float(min(max(self.lr_now, float(cfg.lr_kl_min)), _ceil))
             self.opt_state = _set_lr(self.opt_state, self.lr_now)
         # ---- obs stats (after the update, from the rollout's raw observations)
-        self.stats = self.stats.update(b_mean, b_var, float(b_n))
-        if getattr(cfg, "sym_obs_stats", True) and not self.env.library_mode:
+        if not cfg.freeze_obs_stats:
+            self.stats = self.stats.update(b_mean, b_var, float(b_n))
+        if not cfg.freeze_obs_stats and getattr(cfg, "sym_obs_stats", True) and not self.env.library_mode:
             self.stats = self._symmetrize_stats(self.stats)
         d_steps = self.batch
         self.step += d_steps
@@ -917,6 +935,9 @@ class PPO:
             "train/loss_vf": aux_acc.get("vf", 0.0) / max(n_mb, 1),
             "train/entropy": aux_acc.get("ent", 0.0) / max(n_mb, 1),
             "train/loss_sym": aux_acc.get("sym", 0.0) / max(n_mb, 1),
+            "train/rehearsal_loss": aux_acc.get("rehearsal", 0.0) / max(n_mb, 1),
+            "train/rehearsal_hold_mse": aux_acc.get("rehearsal_hold", 0.0) / max(n_mb, 1),
+            "train/rehearsal_walk_mse": aux_acc.get("rehearsal_walk", 0.0) / max(n_mb, 1),
             "train/bound_loss": aux_acc.get("bound", 0.0) / max(n_mb, 1),
             "train/mu_out_frac": aux_acc.get("mu_out", 0.0) / max(n_mb, 1),
             "train/approx_kl": aux_acc.get("kl", 0.0) / max(n_mb, 1),
@@ -1002,9 +1023,15 @@ class PPO:
                         state = state.replace(stop_cmd=(jnp.asarray(ladder) <= 1e-6).astype(jnp.float32))
                     else:
                         state = state.replace(stop_cmd=jnp.zeros_like(state.cmd_left))
+                    if self.cfg.stop_adapter:
+                        state = state.replace(stop_previous=state.stop_cmd > .5, effective_speed=ladder,
+                                              effective_hold=state.stop_cmd > .5)
+                        obs = obs.at[:, env.actor_dim-3].set(ladder/self.cfg.v_max)
+                        obs = obs.at[:, env.actor_dim-2].set(1.0-state.stop_cmd)
 
                 def body(carry):
                     state, obs, alive, first_end, dist, tline, fin, fell, trk, yaw, settled, t = carry
+                    state, obs = prepare_stop(net, p, stats, env, state, obs)
                     a = jnp.clip(net.apply(p, stats.normalize(obs), method=net.actor_mean), -1.0, 1.0)
                     state2, obs2, r, done, info = env.step(state, a, params)
                     ending = alive & done

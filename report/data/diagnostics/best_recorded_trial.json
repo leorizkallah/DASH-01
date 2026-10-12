@@ -1,0 +1,23 @@
+{
+  "env": 23,
+  "criterion": "Longest survival after STOP among qualifying moving approaches in the final_ramp recording; all trials fail the five-second hold",
+  "episode": {
+    "command_mps": 2.0,
+    "approach_ok": true,
+    "incoming_mps": 1.6774394512176514,
+    "stop_success": false,
+    "survived_stop": false,
+    "ramp_s": 5.15061616897583,
+    "longest_quiet_hold_s": 0.0,
+    "hold_start_s": null,
+    "stop_time_s": null,
+    "final_stop_speed_mps": null,
+    "support_fraction": 0.0,
+    "termination_s": 9.99,
+    "termination_reasons": [
+      "tip"
+    ],
+    "restart_ok": false,
+    "restart_speed_mps": null
+  }
+}

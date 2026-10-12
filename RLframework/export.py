@@ -179,6 +179,11 @@ def export(run, out, checkpoint=None, brake=None, brake_window_s=None):
         "policy_hidden": [int(arrays["pi_w0"].shape[0]), int(arrays["pi_w1"].shape[0])],
         "task_brake_m": float(cfg.task_brake_m), "sprint_dist_m": float(cfg.sprint_dist_m),
         "objective": str(cfg.objective),
+        "stop_adapter": {"version": 1, "enabled": cfg.stop_adapter,
+                         "decel": cfg.stop_ramp_decel, "minimum_s": cfg.stop_ramp_min_s,
+                         "velocity_mean": float(agent.stats.mean[env.actor_dim]),
+                         "velocity_std": float(np.sqrt(agent.stats.var[env.actor_dim] + 1e-8)),
+                         "velocity_scale": float(cfg.obs_scales['base_vel'])},
         # the speed the income saturates at, which is NOT the joystick's scale -- see "v_max" and
         # "command" below for the command channel's own units.
         "v_ceiling": float(cfg.v_ceiling),

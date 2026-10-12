@@ -1,0 +1,11 @@
+{
+  "source": "controller/deploy/bundles/dash_joy3_lr_s2_180M.npz",
+  "sha256": "b095ad572cb80db7704018e3fd3f41cb05c073f2dda103ca54f4927a753beaeb",
+  "source_run": "dash_joy3_lr_s2",
+  "source_step": 180486144,
+  "actor_max_abs_error": 3.4927882441859737e-07,
+  "estimator_max_abs_error": 4.568018150408193e-07,
+  "critic": "fresh initialization; fitted before PPO",
+  "exploration_std": 0.16933798789978027,
+  "normalization": "frozen; privileged mean=0 variance=1"
+}

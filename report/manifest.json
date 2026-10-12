@@ -1,0 +1,497 @@
+{
+  "collection_date": "2026-10-12",
+  "generated_at_utc": "2026-10-12T09:12:11.657561+00:00",
+  "inputs": [
+    {
+      "source": "docs/experiments/stop01_20261002_v2/best_stop_eval.json",
+      "copy": "data/stop01_20261002_v2/best_stop_eval.json",
+      "sha256": "fc439ca996226ea9d8e56e98f2447dcdb3fb17f6a24bef827d8e2c919216a0f0"
+    },
+    {
+      "source": "docs/experiments/stop01_20261002_v2/critic_prefit.json",
+      "copy": "data/stop01_20261002_v2/critic_prefit.json",
+      "sha256": "15a856c79c2b09d4ad3833181df15e3de3ffc0fb4a57818cc7989807e78a1264"
+    },
+    {
+      "source": "docs/experiments/stop01_20261002_v2/eval.csv",
+      "copy": "data/stop01_20261002_v2/eval.csv",
+      "sha256": "788f3ec0e9f6695044ff4b1bc2b5f0dacb8f617f832a24f7a08de2135cc873b4"
+    },
+    {
+      "source": "docs/experiments/stop01_20261002_v2/progress.csv",
+      "copy": "data/stop01_20261002_v2/progress.csv",
+      "sha256": "762bd95cb5c2a7e4c12b3444564e58966467a09154dd20beac1c9dcbf57a8dd7"
+    },
+    {
+      "source": "docs/experiments/stop01_20261002_v2/resolved_config.json",
+      "copy": "data/stop01_20261002_v2/resolved_config.json",
+      "sha256": "8ae8e1baf8fa113927979c82eb08ad6f123d0821b94f45232027b872cba62718"
+    },
+    {
+      "source": "docs/experiments/stop01_20261002_v2/stop_baseline.json",
+      "copy": "data/stop01_20261002_v2/stop_baseline.json",
+      "sha256": "8c0343687148a12709978b03737f8d057cec9e2faea56f3b4bb0cbe9cb6c2c57"
+    },
+    {
+      "source": "docs/experiments/stop01_20261002_v2/stop_evaluations.jsonl",
+      "copy": "data/stop01_20261002_v2/stop_evaluations.jsonl",
+      "sha256": "c495cbf607ef415068fc5014d1d045ff13a65b417aa1ff599fb5e6e9df06311f"
+    },
+    {
+      "source": "docs/experiments/stop01_20261002_v2/STOP_PROGRESS.md",
+      "copy": "data/stop01_20261002_v2/STOP_PROGRESS.md",
+      "sha256": "416c1ff0b376a61c4daf3e20ae8b76c9d26ee9885728333b5636d97eedc490c7"
+    },
+    {
+      "source": "docs/experiments/stop01_20261002_v2/warmstart.json",
+      "copy": "data/stop01_20261002_v2/warmstart.json",
+      "sha256": "9b7463b6757e4b890ff26553f031adb89d4882778e1beef49f3975747dc10756"
+    },
+    {
+      "source": "docs/experiments/stop02_20261006_v3/best_stop_eval.json",
+      "copy": "data/stop02_20261006_v3/best_stop_eval.json",
+      "sha256": "00fbab13f8b6004fbf7db5831f00b3143bda0c699cbcd642793e3ecc6f2cc2c2"
+    },
+    {
+      "source": "docs/experiments/stop02_20261006_v3/critic_prefit.json",
+      "copy": "data/stop02_20261006_v3/critic_prefit.json",
+      "sha256": "af10c3fa6b0c69616a98bcd49b4d6dfbd6e152ada607e40e087af1734ae33196"
+    },
+    {
+      "source": "docs/experiments/stop02_20261006_v3/eval.csv",
+      "copy": "data/stop02_20261006_v3/eval.csv",
+      "sha256": "a3a3685864f7cb86df1eeeac7088f6674c047f2de6906351db935168eeefd82f"
+    },
+    {
+      "source": "docs/experiments/stop02_20261006_v3/final.json",
+      "copy": "data/stop02_20261006_v3/final.json",
+      "sha256": "b3420b985fd5907a7b7fc260fa448f5dfc478508e36bf058bf42ba8fc860945c"
+    },
+    {
+      "source": "docs/experiments/stop02_20261006_v3/progress.csv",
+      "copy": "data/stop02_20261006_v3/progress.csv",
+      "sha256": "535739544c64d8a36d117ed0a0e4e721a6a7e0ea92ffefde00546a61b086c678"
+    },
+    {
+      "source": "docs/experiments/stop02_20261006_v3/resolved_config.json",
+      "copy": "data/stop02_20261006_v3/resolved_config.json",
+      "sha256": "8cc8b46575992a8d0ddb87b794605a8e6fd517d34f9cbc6f150a26a052098d11"
+    },
+    {
+      "source": "docs/experiments/stop02_20261006_v3/source-manifest.json",
+      "copy": "data/stop02_20261006_v3/source-manifest.json",
+      "sha256": "476b1776c45982d3a89c13bec54103f9970bde3efa5fa6c274aa7d23cd39fa8a"
+    },
+    {
+      "source": "docs/experiments/stop02_20261006_v3/STATUS.md",
+      "copy": "data/stop02_20261006_v3/STATUS.md",
+      "sha256": "cd77d41cdf3f354236beb1ab7a52d02cbe484e071f4475c2a76da0dbc424884b"
+    },
+    {
+      "source": "docs/experiments/stop02_20261006_v3/stop_baseline.json",
+      "copy": "data/stop02_20261006_v3/stop_baseline.json",
+      "sha256": "70707c617ea43ae1986821176cc58d25ebc8500207006132b1227f750d18808e"
+    },
+    {
+      "source": "docs/experiments/stop02_20261006_v3/stop_evaluations.jsonl",
+      "copy": "data/stop02_20261006_v3/stop_evaluations.jsonl",
+      "sha256": "9eaa9288d71abe5b693496f9fea825d1d7c525ab59b6bca517ba35d0746ae518"
+    },
+    {
+      "source": "docs/experiments/stop02_20261006_v3/STOP_PROGRESS.md",
+      "copy": "data/stop02_20261006_v3/STOP_PROGRESS.md",
+      "sha256": "8c89fe9f49caf6e445326d6a6cece042dbee4699b6687792a5080bc0c6537ba4"
+    },
+    {
+      "source": "docs/experiments/stop02_20261006_v3/warmstart.json",
+      "copy": "data/stop02_20261006_v3/warmstart.json",
+      "sha256": "e0f7e99956481da7ea38085f0567aa07e2ef8f288486312d32db05acc01d8b1f"
+    },
+    {
+      "source": "docs/experiments/stop03_20261007_v1/best_stop_eval.json",
+      "copy": "data/stop03_20261007_v1/best_stop_eval.json",
+      "sha256": "73d94172a804270786f55a8a87ef37e5fedfcb0dde46037dd61f9fb20f52cce4"
+    },
+    {
+      "source": "docs/experiments/stop03_20261007_v1/critic_prefit.json",
+      "copy": "data/stop03_20261007_v1/critic_prefit.json",
+      "sha256": "3edcb3744b70164001e2cd3035b06a8b27cea6bb0a695877ec317c366febe16f"
+    },
+    {
+      "source": "docs/experiments/stop03_20261007_v1/eval.csv",
+      "copy": "data/stop03_20261007_v1/eval.csv",
+      "sha256": "bee912e72eae2f31c5ede577b393ddb593a6b7869004e76d64211556bd440dad"
+    },
+    {
+      "source": "docs/experiments/stop03_20261007_v1/final.json",
+      "copy": "data/stop03_20261007_v1/final.json",
+      "sha256": "5c3891df4679159ffa619fa60c22c5ebb4305dee5022883315ffbcee02a0c801"
+    },
+    {
+      "source": "docs/experiments/stop03_20261007_v1/imitation.json",
+      "copy": "data/stop03_20261007_v1/imitation.json",
+      "sha256": "ab6a1f88e0e96f84bd0b53fd62364939d7d212ed979ab8b920016be1c7b874e6"
+    },
+    {
+      "source": "docs/experiments/stop03_20261007_v1/progress.csv",
+      "copy": "data/stop03_20261007_v1/progress.csv",
+      "sha256": "c4e2ebb578f3570ec28cf5b173b69381c981fc6e7db704c280bea0a289b36258"
+    },
+    {
+      "source": "docs/experiments/stop03_20261007_v1/resolved_config.json",
+      "copy": "data/stop03_20261007_v1/resolved_config.json",
+      "sha256": "5e9af6a991667db48ebcb4d05adba16eedec7681da2ca730dac574e90b069ff3"
+    },
+    {
+      "source": "docs/experiments/stop03_20261007_v1/source-manifest.json",
+      "copy": "data/stop03_20261007_v1/source-manifest.json",
+      "sha256": "bd5e06f645d9f4655e334b7e3f82fa06b4aff9f045d53534446ad1d18f9e8911"
+    },
+    {
+      "source": "docs/experiments/stop03_20261007_v1/STATUS.md",
+      "copy": "data/stop03_20261007_v1/STATUS.md",
+      "sha256": "ca7e01f271bbc1f18e7c465433e63f21dceb2b2b713068afa4d9863322cf583a"
+    },
+    {
+      "source": "docs/experiments/stop03_20261007_v1/stop_baseline.json",
+      "copy": "data/stop03_20261007_v1/stop_baseline.json",
+      "sha256": "b114a57320ba59fd5977970cd65d9e1b777bd82f21778f820dc69cb28c397f43"
+    },
+    {
+      "source": "docs/experiments/stop03_20261007_v1/stop_evaluations.jsonl",
+      "copy": "data/stop03_20261007_v1/stop_evaluations.jsonl",
+      "sha256": "fd02c023638378042754b3196f730f77d3062e777f2a8ad0bcbbf610150a0926"
+    },
+    {
+      "source": "docs/experiments/stop03_20261007_v1/STOP_PROGRESS.md",
+      "copy": "data/stop03_20261007_v1/STOP_PROGRESS.md",
+      "sha256": "9156ea2eb2c8c3fd3548c08f9f8548a892f25cf300bc41f94c7ccab0721e3bb0"
+    },
+    {
+      "source": "docs/experiments/stop03_20261007_v1/warmstart.json",
+      "copy": "data/stop03_20261007_v1/warmstart.json",
+      "sha256": "e0f7e99956481da7ea38085f0567aa07e2ef8f288486312d32db05acc01d8b1f"
+    },
+    {
+      "source": "docs/stop-training-report.md",
+      "copy": "data/notes/stop-training-report.md",
+      "sha256": "e715343587cc15f8319dd87f9f9f61139a1e8325ab171fbe1c0545728632ed29"
+    },
+    {
+      "source": "docs/stop02-training-plan.md",
+      "copy": "data/notes/stop02-training-plan.md",
+      "sha256": "9dacb4f79e25a8e141cd6bebefc4c1cb5753e40b550725fd0be993e8afe84a32"
+    },
+    {
+      "source": "docs/stop02-experiment-report.md",
+      "copy": "data/notes/stop02-experiment-report.md",
+      "sha256": "8ebee3b1db833444a9a356bbed76b60e817b558bb0b3734087bf9a1faee8eefc"
+    },
+    {
+      "source": "docs/stop03-experiment-report.md",
+      "copy": "data/notes/stop03-experiment-report.md",
+      "sha256": "bf0758ca9d8fd1588c99474940dceb2422d9ef26d451bcf2c020f0f1ad93bcdc"
+    },
+    {
+      "source": "docs/stop04-experiment-report.md",
+      "copy": "data/notes/stop04-experiment-report.md",
+      "sha256": "f69826de3055c9d098f04c1a4bd6d7364b9b96a0f553f620ae7bb9ec176b2134"
+    },
+    {
+      "source": "RLframework/results/stop02_checks/best_recorded_trial.json",
+      "copy": "data/diagnostics/best_recorded_trial.json",
+      "sha256": "0973a4dac5e7cddb83f90a35b06c8e44bcbcfcb221231e1f106da2002da8b2e0"
+    },
+    {
+      "source": "RLframework/results/stop02_checks/final_abrupt.json",
+      "copy": "data/diagnostics/final_abrupt.json",
+      "sha256": "b81543fdc190b147319279e7e8f9555e411b2da81eb0c188f0ffbefa580b82bb"
+    },
+    {
+      "source": "RLframework/results/stop02_checks/final_ramp.json",
+      "copy": "data/diagnostics/final_ramp.json",
+      "sha256": "8ea5f73408c53df3acf259f95c8b3b6e1addd3fe39d9f6927188d5b7eabcada9"
+    },
+    {
+      "source": "RLframework/results/stop02_checks/final_standing.json",
+      "copy": "data/diagnostics/final_standing.json",
+      "sha256": "058442631a24e4161204a4632bd4e617248858b4f69cc98d5275dde5ed8a02d7"
+    },
+    {
+      "source": "RLframework/results/stop02_checks/source_abrupt.json",
+      "copy": "data/diagnostics/source_abrupt.json",
+      "sha256": "4f1ae68fe7b48abadebbbd1f9922f2fb8968a1de1ec57d65cbc3d9033da5d976"
+    },
+    {
+      "source": "RLframework/results/stop02_checks/source_ramp.json",
+      "copy": "data/diagnostics/source_ramp.json",
+      "sha256": "ce3f6953e5fc6fbd6a940d8bdfb00c042ac4a442aeb55335ce141b992426ef3c"
+    },
+    {
+      "source": "RLframework/results/stop02_checks/stance_probe.json",
+      "copy": "data/diagnostics/stance_probe.json",
+      "sha256": "33130bfa4d29c8bbbf43e2673918707186b85885350c17c8eaf28d4173db418a"
+    },
+    {
+      "source": "RLframework/results/stop02_checks/stance_probe_v1.json",
+      "copy": "data/diagnostics/stance_probe_v1.json",
+      "sha256": "27b0df8141897fd7f8d6518a684a15285691c0a50729b41759fe2ab21436dfbb"
+    },
+    {
+      "source": "RLframework/env.py",
+      "copy": "data/code/RLframework/env.py",
+      "sha256": "478e0a51f36a74eefe451a4f05042fda609bb6ceae455cb64668316f9e82ceac"
+    },
+    {
+      "source": "RLframework/config.py",
+      "copy": "data/code/RLframework/config.py",
+      "sha256": "e7bb00d2ea41d6a5e5f331110469c9e58c4a09a9344ba4632420207da4ba01eb"
+    },
+    {
+      "source": "RLframework/gait.py",
+      "copy": "data/code/RLframework/gait.py",
+      "sha256": "e81ae2f9c9811f13a1116890c8cdc3117fe863b23133ea085536d865adb488ef"
+    },
+    {
+      "source": "RLframework/drive.py",
+      "copy": "data/code/RLframework/drive.py",
+      "sha256": "4bea41da8446d37bc49378eb8f0a371263ac0d5233f69c271c6c85c3a785a01f"
+    },
+    {
+      "source": "RLframework/networks.py",
+      "copy": "data/code/RLframework/networks.py",
+      "sha256": "4d2d81ed117fb537d9ffd44e4a08e5fd9af50c33485a88be7e08f5ef02cb88e7"
+    },
+    {
+      "source": "RLframework/ppo.py",
+      "copy": "data/code/RLframework/ppo.py",
+      "sha256": "a7ceb3e903284411eaae3dc11e860de4280b26535a78121f06eccdf34176699c"
+    },
+    {
+      "source": "RLframework/standing_imitation.py",
+      "copy": "data/code/RLframework/standing_imitation.py",
+      "sha256": "8038f9c11350c39fce6f69fa222180fdd817d0d5e9025724e5e81152f3ff8dcc"
+    },
+    {
+      "source": "RLframework/stop_eval.py",
+      "copy": "data/code/RLframework/stop_eval.py",
+      "sha256": "af22acc8b9afd47948de171f5815d31f74561e6c6b31168e8e6f7f216a5dcefe"
+    },
+    {
+      "source": "RLframework/stop02_metrics.py",
+      "copy": "data/code/RLframework/stop02_metrics.py",
+      "sha256": "a643826d8b75da86fa5823f13743d8bf5427a66af0d397860f4d53ef3c4e1343"
+    },
+    {
+      "source": "RLframework/stop_adapter.py",
+      "copy": "data/code/RLframework/stop_adapter.py",
+      "sha256": "686906f590bb034e9629e1a7c38ccfe78d0ddb46a3f0278370d09ed5539373d4"
+    },
+    {
+      "source": "controller/deploy/controller_v2.py",
+      "copy": "data/code/controller/deploy/controller_v2.py",
+      "sha256": "e20d48b1611d38f220bd41f76dd87b9c6c5941b0990033a773df000aa0eeb4e0"
+    },
+    {
+      "source": "controller/deploy/stop_schedule.py",
+      "copy": "data/code/controller/deploy/stop_schedule.py",
+      "sha256": "7783a4f27296285287bfc38551a6ac6d34207aad59c3aa7804be79239bdae333"
+    },
+    {
+      "source": "RLframework/results/dash_joy3_lr_s2_180M_ladder.mp4",
+      "copy": "videos/source_walking.mp4",
+      "sha256": "8dc26792c5ece8ec2e945edb5426919b0d8c526653ce799898c578856c62abf7"
+    },
+    {
+      "source": "RLframework/results/stop01_replay/final_stop_1mps.mp4",
+      "copy": "videos/stop01_abrupt_failure.mp4",
+      "sha256": "a30b9006d126cc645e8b3913f8f24c3b61882c08c48c469335516f6e9857fa66"
+    },
+    {
+      "source": "RLframework/results/stop02_checks/final_ramp_1mps.mp4",
+      "copy": "videos/stop02_ramp_failure.mp4",
+      "sha256": "2632e713fc8601170f234b9a27b98453e2db41f8d4c41beadcbd06a776308a2f"
+    },
+    {
+      "source": "RLframework/results/stop02_checks/longest_upright_stop_trial23.mp4",
+      "copy": "videos/stop02_longest_survival.mp4",
+      "sha256": "99d07e66c04da5790d610aee59394ebf0b41d82d40acccf15aaca01660b69c67"
+    },
+    {
+      "source": "RLframework/results/stop02_checks/stance_feasibility.mp4",
+      "copy": "videos/nominal_stance_teacher.mp4",
+      "sha256": "2abed7b15b5d128d8c6469cf8e428f2936679e586feb4f0eb28b68a55e0632f5"
+    },
+    {
+      "trial": 1,
+      "source": "RLframework/results/stop02_checks/final_ramp.npz",
+      "source_sha256": "ac4dcd0f757c75b94668d7531f043cf79c1978a2e7f85e54b896bbcf1acdde86",
+      "stop_s": 3.0,
+      "hold_s": 5.0,
+      "first_termination_s": 5.75
+    }
+  ],
+  "videos": [
+    {
+      "file": "videos/source_walking.mp4",
+      "source": "RLframework/results/dash_joy3_lr_s2_180M_ladder.mp4",
+      "title": "Original walking policy",
+      "caption": "Historical 180M walking-source evaluation. Background locomotion capability, not a STOP-03 result; a pre-existing command-ladder recording.",
+      "duration_s": 31.54,
+      "fps": 50.0,
+      "size": [
+        640,
+        480
+      ]
+    },
+    {
+      "file": "videos/stop01_abrupt_failure.mp4",
+      "source": "RLframework/results/stop01_replay/final_stop_1mps.mp4",
+      "title": "Abrupt STOP failure",
+      "caption": "STOP-01B final policy, requested 1 m/s. Historical trace replay illustrating failure after STOP; not a successful hold.",
+      "duration_s": 10.1,
+      "fps": 30.0,
+      "size": [
+        960,
+        640
+      ]
+    },
+    {
+      "file": "videos/stop02_ramp_failure.mp4",
+      "source": "RLframework/results/stop02_checks/final_ramp_1mps.mp4",
+      "title": "Smooth reference, continued failure",
+      "caption": "STOP-01B final policy with the STOP-02 command adapter, trial 1 at 1 m/s. This is a command-only diagnostic, not the trained STOP-02 standing policy.",
+      "duration_s": 7.77,
+      "fps": 30.0,
+      "size": [
+        960,
+        640
+      ]
+    },
+    {
+      "file": "videos/stop02_longest_survival.mp4",
+      "source": "RLframework/results/stop02_checks/longest_upright_stop_trial23.mp4",
+      "title": "Longest recorded survival after STOP",
+      "caption": "Selected for survival, not success: trial 23, requested 2 m/s, STOP at 3.65 s, ramp 5.151 s, tip at 9.99 s. Zero quiet hold. Half-speed replay.",
+      "duration_s": 21.97,
+      "fps": 30.0,
+      "size": [
+        960,
+        640
+      ]
+    },
+    {
+      "file": "videos/nominal_stance_teacher.mp4",
+      "source": "RLframework/results/stop02_checks/stance_feasibility.mp4",
+      "title": "Fixed nominal stance feasibility",
+      "caption": "Zero-action controller: nominal PD targets and gains, not zero torque. This illustrates a feasible teacher stance, not a learned STOP policy. Probe resets disable joint noise; corrected aggregate diagnostic is 31/32 holds.",
+      "duration_s": 12.0,
+      "fps": 30.0,
+      "size": [
+        960,
+        640
+      ]
+    }
+  ],
+  "outputs": {
+    "architecture.md": "c204f2a5d5b37a22099c1f711508098e189f52f126b8d9947d544872a63ac074",
+    "assets.md": "bde45d4b3fee3610fa061b25ef38718a26dba19967ea3e83a862be1f91c39af9",
+    "data/code/controller/deploy/controller_v2.py": "e20d48b1611d38f220bd41f76dd87b9c6c5941b0990033a773df000aa0eeb4e0",
+    "data/code/controller/deploy/stop_schedule.py": "7783a4f27296285287bfc38551a6ac6d34207aad59c3aa7804be79239bdae333",
+    "data/code/RLframework/config.py": "e7bb00d2ea41d6a5e5f331110469c9e58c4a09a9344ba4632420207da4ba01eb",
+    "data/code/RLframework/drive.py": "4bea41da8446d37bc49378eb8f0a371263ac0d5233f69c271c6c85c3a785a01f",
+    "data/code/RLframework/env.py": "478e0a51f36a74eefe451a4f05042fda609bb6ceae455cb64668316f9e82ceac",
+    "data/code/RLframework/gait.py": "e81ae2f9c9811f13a1116890c8cdc3117fe863b23133ea085536d865adb488ef",
+    "data/code/RLframework/networks.py": "4d2d81ed117fb537d9ffd44e4a08e5fd9af50c33485a88be7e08f5ef02cb88e7",
+    "data/code/RLframework/ppo.py": "a7ceb3e903284411eaae3dc11e860de4280b26535a78121f06eccdf34176699c",
+    "data/code/RLframework/standing_imitation.py": "8038f9c11350c39fce6f69fa222180fdd817d0d5e9025724e5e81152f3ff8dcc",
+    "data/code/RLframework/stop02_metrics.py": "a643826d8b75da86fa5823f13743d8bf5427a66af0d397860f4d53ef3c4e1343",
+    "data/code/RLframework/stop_adapter.py": "686906f590bb034e9629e1a7c38ccfe78d0ddb46a3f0278370d09ed5539373d4",
+    "data/code/RLframework/stop_eval.py": "af22acc8b9afd47948de171f5815d31f74561e6c6b31168e8e6f7f216a5dcefe",
+    "data/diagnostics/best_recorded_trial.json": "0973a4dac5e7cddb83f90a35b06c8e44bcbcfcb221231e1f106da2002da8b2e0",
+    "data/diagnostics/final_abrupt.json": "b81543fdc190b147319279e7e8f9555e411b2da81eb0c188f0ffbefa580b82bb",
+    "data/diagnostics/final_ramp.json": "8ea5f73408c53df3acf259f95c8b3b6e1addd3fe39d9f6927188d5b7eabcada9",
+    "data/diagnostics/final_standing.json": "058442631a24e4161204a4632bd4e617248858b4f69cc98d5275dde5ed8a02d7",
+    "data/diagnostics/source_abrupt.json": "4f1ae68fe7b48abadebbbd1f9922f2fb8968a1de1ec57d65cbc3d9033da5d976",
+    "data/diagnostics/source_ramp.json": "ce3f6953e5fc6fbd6a940d8bdfb00c042ac4a442aeb55335ce141b992426ef3c",
+    "data/diagnostics/stance_probe.json": "33130bfa4d29c8bbbf43e2673918707186b85885350c17c8eaf28d4173db418a",
+    "data/diagnostics/stance_probe_v1.json": "27b0df8141897fd7f8d6518a684a15285691c0a50729b41759fe2ab21436dfbb",
+    "data/notes/stop-training-report.md": "e715343587cc15f8319dd87f9f9f61139a1e8325ab171fbe1c0545728632ed29",
+    "data/notes/stop02-experiment-report.md": "8ebee3b1db833444a9a356bbed76b60e817b558bb0b3734087bf9a1faee8eefc",
+    "data/notes/stop02-training-plan.md": "9dacb4f79e25a8e141cd6bebefc4c1cb5753e40b550725fd0be993e8afe84a32",
+    "data/notes/stop03-experiment-report.md": "bf0758ca9d8fd1588c99474940dceb2422d9ef26d451bcf2c020f0f1ad93bcdc",
+    "data/notes/stop04-experiment-report.md": "f69826de3055c9d098f04c1a4bd6d7364b9b96a0f553f620ae7bb9ec176b2134",
+    "data/ramp_trial_1.csv": "f952fb9c36555cc349513bd664b9524f00d998d4b83b6d33369fba39886ed89e",
+    "data/ramp_trial_1.json": "72002d9bd89309ec4445ca0490f9d5044d4aee25a58400780115b72c127c9648",
+    "data/stop01_20261002_v2/best_stop_eval.json": "fc439ca996226ea9d8e56e98f2447dcdb3fb17f6a24bef827d8e2c919216a0f0",
+    "data/stop01_20261002_v2/critic_prefit.json": "15a856c79c2b09d4ad3833181df15e3de3ffc0fb4a57818cc7989807e78a1264",
+    "data/stop01_20261002_v2/eval.csv": "788f3ec0e9f6695044ff4b1bc2b5f0dacb8f617f832a24f7a08de2135cc873b4",
+    "data/stop01_20261002_v2/progress.csv": "762bd95cb5c2a7e4c12b3444564e58966467a09154dd20beac1c9dcbf57a8dd7",
+    "data/stop01_20261002_v2/resolved_config.json": "8ae8e1baf8fa113927979c82eb08ad6f123d0821b94f45232027b872cba62718",
+    "data/stop01_20261002_v2/stop_baseline.json": "8c0343687148a12709978b03737f8d057cec9e2faea56f3b4bb0cbe9cb6c2c57",
+    "data/stop01_20261002_v2/stop_evaluations.jsonl": "c495cbf607ef415068fc5014d1d045ff13a65b417aa1ff599fb5e6e9df06311f",
+    "data/stop01_20261002_v2/STOP_PROGRESS.md": "416c1ff0b376a61c4daf3e20ae8b76c9d26ee9885728333b5636d97eedc490c7",
+    "data/stop01_20261002_v2/warmstart.json": "9b7463b6757e4b890ff26553f031adb89d4882778e1beef49f3975747dc10756",
+    "data/stop02_20261006_v3/best_stop_eval.json": "00fbab13f8b6004fbf7db5831f00b3143bda0c699cbcd642793e3ecc6f2cc2c2",
+    "data/stop02_20261006_v3/critic_prefit.json": "af10c3fa6b0c69616a98bcd49b4d6dfbd6e152ada607e40e087af1734ae33196",
+    "data/stop02_20261006_v3/eval.csv": "a3a3685864f7cb86df1eeeac7088f6674c047f2de6906351db935168eeefd82f",
+    "data/stop02_20261006_v3/final.json": "b3420b985fd5907a7b7fc260fa448f5dfc478508e36bf058bf42ba8fc860945c",
+    "data/stop02_20261006_v3/progress.csv": "535739544c64d8a36d117ed0a0e4e721a6a7e0ea92ffefde00546a61b086c678",
+    "data/stop02_20261006_v3/resolved_config.json": "8cc8b46575992a8d0ddb87b794605a8e6fd517d34f9cbc6f150a26a052098d11",
+    "data/stop02_20261006_v3/source-manifest.json": "476b1776c45982d3a89c13bec54103f9970bde3efa5fa6c274aa7d23cd39fa8a",
+    "data/stop02_20261006_v3/STATUS.md": "cd77d41cdf3f354236beb1ab7a52d02cbe484e071f4475c2a76da0dbc424884b",
+    "data/stop02_20261006_v3/stop_baseline.json": "70707c617ea43ae1986821176cc58d25ebc8500207006132b1227f750d18808e",
+    "data/stop02_20261006_v3/stop_evaluations.jsonl": "9eaa9288d71abe5b693496f9fea825d1d7c525ab59b6bca517ba35d0746ae518",
+    "data/stop02_20261006_v3/STOP_PROGRESS.md": "8c89fe9f49caf6e445326d6a6cece042dbee4699b6687792a5080bc0c6537ba4",
+    "data/stop02_20261006_v3/warmstart.json": "e0f7e99956481da7ea38085f0567aa07e2ef8f288486312d32db05acc01d8b1f",
+    "data/stop03_20261007_v1/best_stop_eval.json": "73d94172a804270786f55a8a87ef37e5fedfcb0dde46037dd61f9fb20f52cce4",
+    "data/stop03_20261007_v1/critic_prefit.json": "3edcb3744b70164001e2cd3035b06a8b27cea6bb0a695877ec317c366febe16f",
+    "data/stop03_20261007_v1/eval.csv": "bee912e72eae2f31c5ede577b393ddb593a6b7869004e76d64211556bd440dad",
+    "data/stop03_20261007_v1/final.json": "5c3891df4679159ffa619fa60c22c5ebb4305dee5022883315ffbcee02a0c801",
+    "data/stop03_20261007_v1/imitation.json": "ab6a1f88e0e96f84bd0b53fd62364939d7d212ed979ab8b920016be1c7b874e6",
+    "data/stop03_20261007_v1/progress.csv": "c4e2ebb578f3570ec28cf5b173b69381c981fc6e7db704c280bea0a289b36258",
+    "data/stop03_20261007_v1/resolved_config.json": "5e9af6a991667db48ebcb4d05adba16eedec7681da2ca730dac574e90b069ff3",
+    "data/stop03_20261007_v1/source-manifest.json": "bd5e06f645d9f4655e334b7e3f82fa06b4aff9f045d53534446ad1d18f9e8911",
+    "data/stop03_20261007_v1/STATUS.md": "ca7e01f271bbc1f18e7c465433e63f21dceb2b2b713068afa4d9863322cf583a",
+    "data/stop03_20261007_v1/stop_baseline.json": "b114a57320ba59fd5977970cd65d9e1b777bd82f21778f820dc69cb28c397f43",
+    "data/stop03_20261007_v1/stop_evaluations.jsonl": "fd02c023638378042754b3196f730f77d3062e777f2a8ad0bcbbf610150a0926",
+    "data/stop03_20261007_v1/STOP_PROGRESS.md": "9156ea2eb2c8c3fd3548c08f9f8548a892f25cf300bc41f94c7ccab0721e3bb0",
+    "data/stop03_20261007_v1/warmstart.json": "e0f7e99956481da7ea38085f0567aa07e2ef8f288486312d32db05acc01d8b1f",
+    "evaluation.md": "680493dec0f75410ae8460b814a3e0c4222899c3509d5e1e2de8b67e95108067",
+    "experiments.md": "e9c31a1458e8f4addc1668985d135623a2b783566d306a484ccacb3435bbff6c",
+    "figures/control_architecture.pdf": "cb70ef4143e8e6ff3dc6df992da2615f12aed465cd0e98682400da898415dd96",
+    "figures/control_architecture.png": "34d42475dd8909272dab031b269e1604eee600e3ce00699edc1a5ad50a67c9ed",
+    "figures/control_architecture.svg": "5536bc621d03dd742876b191363348d7ceff8879ed9b70c4dafdc548df286b36",
+    "figures/imitation_fit.pdf": "498b28cc3e29798cc6e233329f4f55d53c8e969a84551bee676f3085338e9090",
+    "figures/imitation_fit.png": "4e4f1efbad2ad8bd035658d9192ce41b27a9ac5c72a04ec852529339557649d7",
+    "figures/imitation_fit.svg": "40a10af4f4b7a7674f8b197cba9133efb7dd53b7b18647b9a919179a186f29cc",
+    "figures/quiet_periods.pdf": "ba0b1c3fa254f114e0e1fcce14fb723598259a0cac3184fe3e28fca0fbf87990",
+    "figures/quiet_periods.png": "4c427d689cc54069f41a0cb86ca962f853ab986ce865e7b64bfcf4866af1bd74",
+    "figures/quiet_periods.svg": "81b110a0132d425ceca7b9d94aae8c212ef71dc3c260c0bf72cf2ef996f6b857",
+    "figures/ramp_trace.pdf": "fbf6fc1422c5e5a9772133e4acbce3142de1ff153a0978c37c8c2c255ca09ff4",
+    "figures/ramp_trace.png": "62d83c10b350c767b02b2a340733ea15bdc3c418e87c14a5648fa670c01042a9",
+    "figures/ramp_trace.svg": "c44301636a7b8e7ad27794fd1b5f0fb26e3c3bfb557a0d9be8f0a21a969e743f",
+    "figures/standing_comparison.pdf": "92e3fb07b070c685fd9d8ebde72f39d5819868c2d87d801e1d83ad2fde7895ed",
+    "figures/standing_comparison.png": "6ebbd2a1d78859633eed6a4afaa7c2f93d36ccc196d4ad8a8862103a059af572",
+    "figures/standing_comparison.svg": "6603257894b3cdb1865e8d88bf457fadb3dbd73230f4179413eb6fa9291c4edd",
+    "figures/stop03_outcomes.pdf": "c31c4569144bb666785e35557d59339d66f8686688219f97d06ce25fa71e4302",
+    "figures/stop03_outcomes.png": "4006ce311452cbe96c4d91bfd3591c83cc9f51a493094cc161f1268a858583e6",
+    "figures/stop03_outcomes.svg": "d33bf9daea3ccd0e5c91cff92dc0695c75afe73b8c42e703ab6db8f4b75d1415",
+    "figures/walking_retention.pdf": "7a368389ca464f9b7ff60d11a8cc168a570d87055609d9fc5ba2822a1dfd93ad",
+    "figures/walking_retention.png": "04d10fe6a22b8040933d27e9c86208ccaed888c03ce025fd001f610a30b3eeb7",
+    "figures/walking_retention.svg": "9f56074aa418d03793694d8a68bae73d9564720359f447e35819906c55b38122",
+    "index.html": "7f480336e0cfe10bcf5d8283c5c1db862e3301eb841b484dbdc31487ac7c4dba",
+    "presentation.md": "c565b4ab747ca4885003eaa6525fc25b7c84251e4025c8789b705ccb666bd576",
+    "README.md": "6397920c49284c2c68eaef31fe0792b9fb198aaffa69e8d4e1d7251e3ba9368b",
+    "scripts/build_report.py": "b13007b1b18cb7ecf86c2b92bd99a2a47b52e0be40bc35039b898c03072d3285",
+    "tables/experiment_evaluations.csv": "f8af178aaff356a7a2f7417db27b0b0501de6b51d925eae8e0216f3079202e58",
+    "tables/imitation_updates.csv": "d94c67aa6dd32873237b8d8e756eff9b4e9016f0da0eaa521d6bb8e2c8f6bf3e",
+    "tables/stop03_trials.csv": "771dcb6a37f411c16f7bb32f7b798bb4d5e0c9ff3294e9e55ab0a9472f5acca7",
+    "videos/nominal_stance_teacher.mp4": "2abed7b15b5d128d8c6469cf8e428f2936679e586feb4f0eb28b68a55e0632f5",
+    "videos/source_walking.mp4": "8dc26792c5ece8ec2e945edb5426919b0d8c526653ce799898c578856c62abf7",
+    "videos/stop01_abrupt_failure.mp4": "a30b9006d126cc645e8b3913f8f24c3b61882c08c48c469335516f6e9857fa66",
+    "videos/stop02_longest_survival.mp4": "99d07e66c04da5790d610aee59394ebf0b41d82d40acccf15aaca01660b69c67",
+    "videos/stop02_ramp_failure.mp4": "2632e713fc8601170f234b9a27b98453e2db41f8d4c41beadcbd06a776308a2f",
+    "work-log.md": "5bfb966c199925d8bd2c9d58ac771fa194e2001089f8849380f524c4d66de420"
+  }
+}

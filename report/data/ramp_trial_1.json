@@ -1,0 +1,8 @@
+{
+  "trial": 1,
+  "source": "RLframework/results/stop02_checks/final_ramp.npz",
+  "source_sha256": "ac4dcd0f757c75b94668d7531f043cf79c1978a2e7f85e54b896bbcf1acdde86",
+  "stop_s": 3.0,
+  "hold_s": 5.0,
+  "first_termination_s": 5.75
+}

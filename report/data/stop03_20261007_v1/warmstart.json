@@ -1,0 +1,11 @@
+{
+  "source": "RLframework/results/stop01_replay/dash_stop01b_final.npz",
+  "sha256": "ec047be7388993f1c0ce6164a514a0272808688e1c26602f4bd8cc30ef848a88",
+  "source_run": "dash_stop01b_s0",
+  "source_step": 20054016,
+  "actor_max_abs_error": 4.197336002098595e-07,
+  "estimator_max_abs_error": 5.949334755950275e-07,
+  "critic": "fresh initialization; fitted before PPO",
+  "exploration_std": 0.11989908665418625,
+  "normalization": "frozen; privileged mean=0 variance=1"
+}

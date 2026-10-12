@@ -56,6 +56,13 @@ installation is needed for this player):
 Focus the viewer and use **W/S** to change speed, **Space** to request a stop, and **R** to reset.
 The walker is not a guaranteed stander at zero command; the balance policy is a separate bundle.
 
+The stopping fine-tuning experiment, reward changes, evaluation protocol and SCITAS
+progress are recorded in [the stopping training report](docs/stop-training-report.md).
+For a concise overview, figures, videos and the current control architecture, start
+with the [report workspace](report/README.md) or [visual gallery](report/index.html).
+The [experiment index](docs/experiments/README.md) identifies each recorded run and
+explains which artifacts are versioned.
+
 The original SCITAS setup for `rizkalla` is archived in [docs/legacy-scitas.md](docs/legacy-scitas.md).
 Current training uses `RLframework/` and its separate JAX/MJX requirements and `dash-v2`
 cluster environment. The old `training/slurm/` commands no longer apply.

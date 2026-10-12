@@ -250,6 +250,20 @@ class Config:
     # price an abrupt one.
     stop_flag: bool = False
     cmd_stop_frac: float = 0.0              # FINAL share of command draws that are STOP (ramped with the band)
+    cmd_stop_duration_s: tuple = (0.0, 0.0) # positive bounds override STOP duration only
+    stop_adapter: bool = False             # STOP-02 shared WALK/BRAKE/HOLD command adapter
+    stop_ramp_decel: float = 0.5
+    stop_ramp_min_s: float = 2.0
+    stop_dense_hold: bool = False
+    stop_standing_stage: bool = False      # evaluation from near-stance, no moving approach
+    stop_imitation_init: bool = False      # actor-only HOLD/RUN imitation before PPO
+    stop_rehearsal_coef: float = 0.0       # continued actor imitation in PPO loss
+    stop_reset_frac: float = -1.0          # >=0 overrides STOP share at episode reset only
+    w_stand_hold: float = 0.0               # sustained, supported stillness income during STOP
+    w_stop_brake_income: float = 0.0       # bounded dense income w/(1 + horizontal_speed/0.5)
+    stand_hold_speed: float = 0.15         # m/s, smooth reward width (not success threshold)
+    stand_hold_gyro: float = 0.5           # rad/s
+    stand_hold_joint_rms: float = 1.0      # rad/s
     w_stop_amp: float = 0.0                 # -w * sum_family amp^2 * sum_k w_k^2 (a_k^2 + b_k^2), STOP only
     # STOP's far field. Under STOP the only pull toward rest is the Laplace kernel, and at sigma 0.3 it
     # is flat where a walker lives: 3*exp(-1.24/0.3) = 0.05/tick at 1.24 m/s. Measured on the dash_joy2
@@ -561,6 +575,7 @@ class Config:
     warmstart_reset_log_std: bool = True
     warmstart_obs_count_cap: float = 100_000.0
     warmstart_var_floor: float = 1.0e-2
+    freeze_obs_stats: bool = False         # preserve an exported actor's normalization during fine-tuning
     # ----- evaluation and the keeper (v3) ------------------------------------------------------
     # v2 kept "the checkpoint with the most survivors, then the best tracking", scored on whatever
     # commands the env drew that episode and on world-x speed. Two checkpoints were therefore never
@@ -598,6 +613,7 @@ class Config:
     eval_every_rollouts: int = 400          # greedy 16-env dash eval (the determinism-gap rule): every
                                             # 7.4 M steps; a full 60 s greedy episode costs ~200 s on a V100
     checkpoint_every_steps: int = 5_000_000
+    eval_stop_transitions: bool = False    # fixed walk -> STOP -> restart benchmark and keeper
 
 
 # ----- presets ------------------------------------------------------------------------------
@@ -906,7 +922,58 @@ _DASH_JOY3 = dict(
                       ("shape_scale", "eff_scale", "stance_ratio"), "dr_scale"),
 )
 
+# STOP-01: conservative fine-tuning of dash_joy3_lr_s2 ckpt_180486144.
+# Keep the learned observation/action contract. Nominal-plant pilot; no cold-start ramps.
+# eff_scale and stance_ratio come from the deployed bundle's checkpoint metadata.
+_DASH_STOP = dict(
+    _DASH_JOY3,
+    w_stand_hold=3.0, w_stand_pose=2.0, stop_bill_floor=0.05,
+    w_stop_speed=0.0, w_stop_brake_income=4.0,
+    cmd_stop_frac=0.25, cmd_stop_duration_s=(6.0, 10.0),
+    cmd_range=(0.05, 0.85), cmd_curriculum_steps=0,
+    track_sigma_steps=0, shape_curriculum_steps=0, efficiency_ramp_steps=0,
+    efficiency_target=0.5001216000000078,
+    gait_curriculum_steps=0, stance_ratio_final=0.5349720319999982,
+    gait_freq_floor_steps=0, jitter_curriculum_steps=0,
+    dr_enable=False, dr_curriculum_steps=0, curriculum_order=(),
+    total_steps=20_000_000, n_envs=1024, n_steps=64,
+    learning_rate=5.0e-5, lr_final=1.0e-5, lr_warmup_updates=1000,
+    # The current adaptive-LR branch bypasses the minibatch warmup schedule.
+    lr_kl_adaptive=False, target_kl=0.015,
+    warmstart_reset_log_std=False, warmstart_obs_count_cap=0.0, warmstart_var_floor=0.0,
+    freeze_obs_stats=True,
+    max_log_std=-1.6094379124341003, std_anneal_target=0.12,
+    ent_coef=0.001, ent_final=0.0,
+    eval_stop_transitions=True, eval_every_rollouts=32, checkpoint_every_steps=1_000_000,
+)
+
 PRESETS = {
+    "dash_stop04_rehearsal": lambda: _cfg(model_path="model/dash01_free.xml",
+        **dict(_FAST, **dict(_DASH_STOP, stop_adapter=True, stop_dense_hold=True,
+            stop_standing_stage=True, stop_reset_frac=0.75, stop_rehearsal_coef=1.0,
+            cmd_stop_duration_s=(16.0, 18.0), episode_s=30.0,
+            obs_noise_enable=False, total_steps=1_000_000,
+            eval_every_rollouts=4, checkpoint_every_steps=250_000,
+            lr_warmup_updates=100, w_stop_brake_income=0.0,
+            w_stand_pose=0.5, w_stop_amp=1.0))),
+    "dash_stop03_imitation": lambda: _cfg(model_path="model/dash01_free.xml",
+        **dict(_FAST, **dict(_DASH_STOP, stop_adapter=True, stop_dense_hold=True,
+            stop_standing_stage=True, stop_reset_frac=0.75, stop_imitation_init=True,
+            cmd_stop_duration_s=(16.0, 18.0), episode_s=30.0,
+            obs_noise_enable=False, total_steps=2_000_000,
+            eval_every_rollouts=8, checkpoint_every_steps=500_000,
+            lr_warmup_updates=100, w_stop_brake_income=0.0,
+            w_stand_pose=0.5, w_stop_amp=1.0))),
+    "dash_stop02_stand": lambda: _cfg(model_path="model/dash01_free.xml",
+        **dict(_FAST, **dict(_DASH_STOP, stop_adapter=True, stop_dense_hold=True,
+            stop_standing_stage=True, stop_reset_frac=0.75,
+            cmd_stop_duration_s=(16.0, 18.0), episode_s=30.0,
+            obs_noise_enable=False, total_steps=2_000_000,
+            eval_every_rollouts=8, checkpoint_every_steps=500_000,
+            lr_warmup_updates=100, w_stop_brake_income=0.0,
+            w_stand_pose=0.5, w_stop_amp=1.0))),
+    "dash_stop": lambda: _cfg(model_path="model/dash01_free.xml",
+                              **dict(_FAST, **_DASH_STOP)),
     # The recipe.  One run, random weights, free plant, 450 M steps.
     "dash": lambda: _cfg(model_path="model/dash01_free.xml", **_DASH, **_FAST),
 

@@ -111,11 +111,12 @@ def run_eval(agent, cfg, eval_env):
                                        
                                        bringup_scale=float(getattr(cfg, "bringup_target", 1.0)),
                                        bringup_p_drop=0.5, bringup_p_held=0.5)
-    ev_bu = agent.evaluate(params=pb, ladder=lad, n_max_steps=int(6.0 / eval_env.control_dt), seed=2000)
+    ev_bu = (agent.evaluate(params=pb, ladder=lad, n_max_steps=int(6.0 / eval_env.control_dt), seed=2000)
+             if cfg.bringup_enable or not cfg.eval_stop_transitions else None)
     # and the same ladder over the band the curriculum is actually commanding right now
     p = agent.env_params
     ev_cur = None
-    if float(p.cmd_hi) - float(p.cmd_lo) < 0.95:
+    if cfg.cmd_curriculum_steps > 0 and float(p.cmd_hi) - float(p.cmd_lo) < 0.95:
         lad_c = command_ladder(cfg, n, float(p.cmd_lo), float(p.cmd_hi))
         ev_cur = agent.evaluate(params=pt, ladder=lad_c, n_max_steps=n_track, seed=3000)
     return ev, ev_bu, ev_cur
@@ -148,11 +149,17 @@ def main():
     ap.add_argument("--n-steps", type=int, default=None, help="rollout length per env")
     ap.add_argument("--resume", default=None, help="'auto' or a ckpt_*.msgpack of THIS run")
     ap.add_argument("--warm-start", default=None, help="another run's .msgpack (weights + obs stats)")
+    ap.add_argument("--warm-bundle", default=None, help="restore actor/estimator from a deployed NPZ; fresh critic")
+    ap.add_argument('--rehearsal-data', default=None, help='STOP-03 normalized demonstration NPZ')
     ap.add_argument("--seed", type=int, default=None)
     ap.add_argument("--eval-envs", type=int, default=16)
     ap.add_argument("--no-eval", action="store_true")
     ap.add_argument("--description", default=None)
     args = ap.parse_args()
+    if args.warm_bundle and args.warm_start:
+        ap.error('choose --warm-bundle or --warm-start')
+    if args.warm_bundle and args.devices != 1:
+        ap.error('--warm-bundle currently requires --devices 1 for critic prefit')
 
     if args.config:
         d = json.loads(Path(args.config).read_text())
@@ -230,6 +237,19 @@ def main():
             raise SystemExit("[train] no readable checkpoint to resume from")
     elif warm is not None:
         agent.load(warm, warm_start=True)
+    elif args.warm_bundle:
+        from bundle_warmstart import restore_bundle
+        restore_bundle(agent, args.warm_bundle)
+
+    if cfg.stop_imitation_init and (args.no_eval or args.devices != 1 or
+                                   (resume_ckpt is None and not args.warm_bundle)):
+        raise SystemExit('Standing imitation requires --warm-bundle, evaluation, and one device')
+
+    if cfg.stop_rehearsal_coef > 0:
+        if not args.rehearsal_data or not args.warm_start or args.no_eval or args.devices != 1:
+            raise SystemExit('Rehearsal requires --rehearsal-data, --warm-start, evaluation, one device')
+        from rehearsal import attach
+        attach(agent, args.rehearsal_data, args.warm_start)
 
     # env reset (a resumed run restarts its episodes; the plant draws are fresh)
     agent.key, k = jax.random.split(agent.key)
@@ -237,6 +257,24 @@ def main():
     agent.reset_envs(k)
     agent.obs.block_until_ready()
     print(f"[train] reset {agent.n_envs} envs on {agent.n_dev} device(s) in {time.time() - t:.1f}s")
+    stop_evaluator = None
+    if cfg.eval_stop_transitions and eval_env is not None:
+        from stop_eval import StopEvaluator, record_stop_eval
+        stop_evaluator = StopEvaluator(agent, eval_env)
+        if not (run / 'stop_baseline.json').exists():
+            baseline_walk, _, _ = run_eval(agent, cfg, eval_env)
+            record_stop_eval(agent, stop_evaluator, run, baseline_walk)
+        baseline_stop = json.loads((run / 'stop_baseline.json').read_text())
+        if (baseline_stop['stop_reward_floor_fraction'] or 0.0) > 0.5:
+            raise SystemExit('STOP baseline hits the reward floor on >50% of live ticks; review reward budget before training')
+    if cfg.stop_imitation_init and resume_ckpt is None:
+        from standing_imitation import initialize
+        initialize(agent, eval_env, stop_evaluator, baseline_stop,
+                   lambda: run_eval(agent, cfg, eval_env)[0])
+    if args.warm_bundle and resume_ckpt is None:
+        from bundle_warmstart import prefit_critic
+        prefit_critic(agent)
+        agent.save(run / 'ckpt_0.msgpack')
 
     best_score = None
     _bj = run / "best_eval.json"
@@ -291,6 +329,16 @@ def main():
         if eval_env is not None and cfg.eval_every_rollouts > 0 and agent.rollout_n % cfg.eval_every_rollouts == 0:
             t = time.time()
             ev, ev_bu, ev_cur = run_eval(agent, cfg, eval_env)
+            if stop_evaluator is not None:
+                stop_result = record_stop_eval(agent, stop_evaluator, run, ev)
+                if cfg.stop_rehearsal_coef > 0:
+                    from stop04_metrics import preservation_failed
+                    if preservation_failed(baseline_stop, stop_result):
+                        agent.save(run / 'guard_rejected.msgpack')
+                        (run/'guard_stop.json').write_text(json.dumps(dict(step=agent.step,
+                            reason='walking retention failed or hold success fell >10 percentage points',
+                            result=stop_result),indent=2)+'\n')
+                        raise SystemExit('Preservation guard stopped this pilot; rejected checkpoint saved')
             ev_row = {"step": agent.step, "finishes": ev["finishes"], "falls": ev["falls"], "n": ev["n"],
                       "t_line_mean": ev["t_line_mean"], "dist_mean": ev["dist_mean"],
                       "speed_mean": ev["speed_mean"], "track_err": ev["track_err_mean"],
@@ -361,6 +409,10 @@ def main():
             agent.save(run / f"ckpt_{agent.step}.msgpack")
             last_ckpt = agent.step
     agent.save(run / "final.msgpack")
+    if stop_evaluator is not None and cfg.stop_adapter:
+        # The pilot budget need not end on an evaluation interval.
+        final_walk, _, _ = run_eval(agent, cfg, eval_env)
+        record_stop_eval(agent, stop_evaluator, run, final_walk)
     try:
         from plot_training import plot_run
         plot_run(run)
