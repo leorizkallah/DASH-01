@@ -1,4 +1,4 @@
-# DASH-01 — bipedal robot 100 m sprint
+# DASH-01 v2 — walking and autonomous stopping
 
 This repository continues the work from [nathmo/running_robot](https://github.com/nathmo/running_robot),
 developed by [nathmo](https://github.com/nathmo) for his master's thesis on DASH-01,
@@ -11,6 +11,40 @@ the continuation of that project.
 
 The original Git history and [Mozilla Public License 2.0](LICENSE) are preserved.
 
+## Purpose of this branch
+
+The `dash-01-v2` branch prepares for the new CAD model and a new policy-training
+campaign. The model will be supplied later; its dedicated folder is
+[`dash-01CAD-v2/`](dash-01CAD-v2/README.md).
+
+Once the new model is available, we will integrate and validate it in simulation,
+then redo training to find a policy for the revised robot. First, we will optimize
+its walking gait and teach the policy to adapt that gait to different target
+speeds. The demonstration will stay within walking speeds; transitions between
+walking and running gaits are outside its scope.
+
+We will then train and validate the complete Robotics Day demonstration:
+
+1. **Automatic startup and standing.** From a defined initial position, the robot
+   starts automatically, reaches an upright stance, and maintains balance while
+   remaining robust to perturbations.
+2. **START and joystick speed control.** After a `START` command, the robot walks.
+   The operator can increase or decrease its target speed using joystick-style
+   control, and the robot adapts its walking gait accordingly.
+3. **STOP and autonomous standing.** After a `STOP` command, the goal is for the
+   robot to decelerate, stop without physical assistance, and remain upright in a
+   stable stance.
+
+These are planned capabilities, not demonstrated results for the new model.
+Training changes, evaluations, useful plots and videos will continue to be
+documented in the [report workspace](report/README.md).
+
+## Existing code and reference policies
+
+The code, policies and results below come from the previous robot models. They
+provide a starting point and historical references; they have not been validated
+against the forthcoming v2 CAD model.
+
 The current code includes the training stacks and the software that runs the policies on the
 real robot:
 
@@ -21,6 +55,7 @@ real robot:
 | [`BalanceRL/`](BalanceRL/README.md) | push-recovery stander that writes the MIT force-control frame directly; a side quest off `RLframework/` |
 | [`sprint_runner/`](sprint_runner/README.md) | the restored `walk_mit` stack and the 3.06 m/s runner (`sprint_m3_mit_s0`), kept so it can still be run, measured and filmed. Not deployable on the current flat-foot robot |
 | `dash-01CAD/` | the current robot's CAD export (MJCF + meshes) that the training plants and the web UI's digital twin are built from |
+| [`dash-01CAD-v2/`](dash-01CAD-v2/README.md) | reserved for the forthcoming CAD model; no model files have been supplied yet |
 
 ## What is deployed
 
