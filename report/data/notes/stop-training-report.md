@@ -3,6 +3,37 @@
 This is a living experiment record for the final project report. Dates and times
 use Europe/Zurich. Planned outcomes are distinguished from measured results.
 
+2026-10-13: STOP-06 completed both full 5,046,272-step budgets normally on
+12 October (timed 21:52, feedback 23:54 Zurich), with no successful moving stops
+in any recorded evaluation. Final standing holds: timed 32/32, feedback 30/32.
+Final walking retention passed only for timed. Both selected keepers remain the
+source, which is also what the automatic multi-seed assessments/videos evaluate.
+Metrics and plots downloaded; see [STOP-06 outcome](experiments/stop06_20261012_v1/STATUS.md).
+
+2026-10-12: user approved [STOP-06](stop06-experiment-report.md), a matched comparison
+of timed and feedback HOLD transitions, each with up to five million new steps.
+Both arms retain rehearsal and strict keeper selection, use a longer settling
+window and permit temporary retention regressions through a grace/patience guard.
+Settling-time diagnostics, graphs, three-seed assessment and replay are automated.
+Submission observations are recorded in [STOP-06 status](experiments/stop06_20261012_v1/STATUS.md).
+Array **3216469** was submitted: timed arm running on `i03`, feedback arm queued
+behind it at 19:50:47 Europe/Zurich. All 33 SCITAS preflight tests passed.
+
+2026-10-12, 19:21 status check: STOP-05 job 3216384 ended at 19:14:28 after
+28m03s. The preservation guard stopped PPO at 262,144 steps because walking and
+standing retention failed; moving-stop success remained 0/32. The selected keeper
+therefore remains the source policy. Three-seed assessment and replay rendering
+completed; no moving-stop successes were observed and no follow-on job was launched.
+See [STOP-05 outcome and evidence](experiments/stop05_20261012_v1/STATUS.md).
+
+2026-10-12: approved [STOP-05 low-speed moving-stop pilot](stop05-experiment-report.md)
+from the STOP-04 262,144-step keeper. Train alternating RUN/STOP at 0.25–0.5 m/s
+with continued standing/walking rehearsal, separate standing preservation checks,
+and the unchanged five-second quiet hold requirement. The final-evaluation guard
+gap is fixed. Submission and outcomes: [STOP-05 status](experiments/stop05_20261012_v1/STATUS.md).
+Job **3216384** was confirmed running on `i35` at 18:46:42 Europe/Zurich.
+All 25 SCITAS preflight tests passed. Training results are pending.
+
 2026-10-12: the [report workspace](../report/README.md) now collects the experiment
 story, current control architecture, seven figures, five labeled simulation videos,
 evaluation criteria, presentation outline, copied evidence and a rebuild script.
@@ -391,6 +422,15 @@ The local progress renderer also exposes `time/env_steps` from the training CSV;
 this reporting-only adjustment is outside the immutable v2 training snapshot.
 
 ### Decisions after the pilot
+
+2026-10-12 completion check: STOP-04 job 3215784 completed at 11:38:43 Zurich,
+after 28 min 51 s and 1,048,576 PPO steps. The 262,144-step keeper achieved
+29/32, 32/32 and 30/32 holds on three evaluation seeds, passing the standing review
+gate. Paired STOP-03 diagnostics identified angular motion as the blocking
+quietness criterion in surviving final-policy failures. Final STOP-04 repeated
+evaluations differ and include a walking-retention failure; retain the selected
+keeper. See [full outcome and limitations](stop04-experiment-report.md#completed-outcome---12-october-2026).
+Moving STOP remains unvalidated; no next-stage job was submitted in this check.
 
 2026-10-12: user approved the [STOP-04 diagnostic and preservation pilot](stop04-experiment-report.md).
 Compare STOP-03 best/final quietness conditions, then conditionally continue from

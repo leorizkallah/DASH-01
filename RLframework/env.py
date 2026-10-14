@@ -218,6 +218,9 @@ class EnvState:
     stop_v0: jnp.ndarray
     stop_estimate: jnp.ndarray
     stop_prepared_t: jnp.ndarray
+    stop_ready_s: jnp.ndarray
+    stop_gate_timeout: jnp.ndarray
+    stop_gate_speed: jnp.ndarray
     effective_speed: jnp.ndarray
     effective_hold: jnp.ndarray
     stop_phase: jnp.ndarray
@@ -586,6 +589,10 @@ class DashEnvV2:
         if c.stop_reset_frac >= 0:
             stop0 = (jax.random.uniform(jax.random.fold_in(k_cmd0, 702)) < c.stop_reset_frac).astype(jnp.float32)
             cmd_left0 = jnp.where(stop0 > 0.5, c.cmd_stop_duration_s[0], cmd_left0)
+        if c.stop_motion_training:
+            from stop04_metrics import command_duration
+            cmd_left0 = command_duration(stop0, jax.random.uniform(jax.random.fold_in(k_cmd0, 703)),
+                                         c.stop_run_duration_s, c.cmd_stop_duration_s, jnp)
         hold_s0 = jnp.asarray(params.hold_s, jnp.float32)      # probe override wins when set
         grace0 = jnp.zeros(())
         if c.bringup_enable:
@@ -634,6 +641,7 @@ class DashEnvV2:
             v_cmd=v_cmd0, cmd_left=cmd_left0, stop_cmd=stop0, hold_s=hold_s0, grace_left=grace0,
             stop_previous=stop0 > 0.5, stop_started=jnp.zeros(()), stop_duration=jnp.zeros(()),
             stop_v0=jnp.zeros(()), stop_estimate=jnp.zeros(()), stop_prepared_t=jnp.full((), -1.0),
+            stop_ready_s=jnp.zeros(()), stop_gate_timeout=jnp.zeros((), bool), stop_gate_speed=jnp.zeros(()),
             effective_speed=v_cmd0 * (1.0 - stop0), effective_hold=stop0 > 0.5,
             stop_phase=jnp.where(stop0 > 0.5, 2, 0),
             stop_quiet_s=jnp.zeros(()), stop_anchor=self._base_pos(data)[:2],
@@ -981,8 +989,13 @@ class DashEnvV2:
             k_cmd, k_light = jax.random.split(k_light)
             due = (state.cmd_left - dt) <= 0.0
             if c.stop_adapter:
-                due = due & ((state.stop_cmd < .5) | (state.t-state.stop_started >= state.stop_duration+7.0))
+                due = due & ((state.stop_cmd < .5) | (state.t-state.stop_started >= state.stop_duration+c.stop_hold_window_s))
             v_new, left_new, stop_new = self._draw_cmd(k_cmd, params)
+            if c.stop_motion_training:
+                from stop04_metrics import command_duration
+                stop_new = 1.0 - state.stop_cmd
+                left_new = command_duration(stop_new, jax.random.uniform(jax.random.fold_in(k_cmd, 703)),
+                                            c.stop_run_duration_s, c.cmd_stop_duration_s, jnp)
             v_cmd = jnp.where(due, v_new, state.v_cmd)
             cmd_left = jnp.where(due, left_new, state.cmd_left - dt)
             stop_cmd = jnp.where(due, stop_new, state.stop_cmd)
@@ -1067,7 +1080,7 @@ class DashEnvV2:
         if c.stop_adapter:
             from stop02_metrics import timeout_allowed
             truncated = truncated & timeout_allowed(state.stop_cmd > .5,
-                t-state.stop_started, state.stop_duration)
+                t-state.stop_started, state.stop_duration, c.stop_hold_window_s)
         done = fallen | finished | truncated
         # ---- observation
         frame, ns, accel, v_body_m = self._frame(data, tau_last, residual, phi2, state, k_frame)
@@ -1115,6 +1128,7 @@ class DashEnvV2:
             # the EFFECTIVE target: zero under STOP, whatever the stick says
             v_cmd=self._effective_speed(state), stop_cmd=state.stop_cmd,
             stop_phase=state.stop_phase, stop_duration=state.stop_duration,
+            stop_gate_speed=state.stop_gate_speed, stop_gate_timeout=state.stop_gate_timeout,
             stop_reference=self._effective_speed(state),
             track_err=jnp.abs(v_body[0] - self._effective_speed(state)),
             run_tick=1.0 - state.stop_cmd,

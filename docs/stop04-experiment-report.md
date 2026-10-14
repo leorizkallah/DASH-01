@@ -101,3 +101,45 @@ Submitted as **3215784** in snapshot `stop04_20261012_v1`. All 22 SCITAS CPU tes
 passed, including the JAX actor-gradient test (21 passed locally, one skipped).
 Source archive hash matched after upload. This entry is appended after source
 freezing; the packaged report retains the pre-submission protocol.
+
+## Completed outcome - 12 October 2026
+
+Job 3215784 completed normally (exit 0:0), 11:09:52-11:38:43 Europe/Zurich,
+elapsed 28 min 51 s. It reached 1,048,576 new PPO steps. The diagnosis gate passed;
+both selected STOP-03 replay videos rendered successfully on SCITAS.
+
+The paired trace graph measured 22/32 holds for STOP-03 best and 13/32 for final.
+Removing only the angular-speed quietness condition raised these to 23/32 and
+31/32 respectively. Other single-condition removals did not increase final
+success. Angular motion is therefore the limiting measured condition for the
+surviving final-policy failures in these traces. This does not establish a causal
+reward change. Different evaluation graphs give slightly different counts; retain
+the original STOP-03 evaluations rather than replacing them with these replays.
+
+STOP-04's selected keeper is step 262,144, with 30/32 holds, 31/32 survivors and
+walking retention at selection. Independent post-run reassessment recorded:
+
+| Seed | Source keeper holds | STOP-04 keeper holds | STOP-04 survivors |
+|---|---:|---:|---:|
+| 4102 | 21/32 | 29/32 | 29/32 |
+| 5102 | 19/32 | 32/32 | 32/32 |
+| 6102 | 25/32 | 30/32 | 31/32 |
+
+The predefined >=90% hold gate passed on each seed. Seed 4102 was used for keeper
+selection; 5102 and 6102 were held out from selection. Walking retention here is
+the standard ladder gate, not a multi-seed walking evaluation. This is still one
+training seed and a near-stance benchmark, not moving STOP validation.
+
+The two records at final step 1,048,576 differ: periodic evaluation reported
+26/32 holds with walking retained; final evaluation reported 30/32 holds with
+walking retention false. Both are preserved in the raw JSONL. The periodic
+preservation guard did not stop the job; it does not cover the separate final
+evaluation branch. Review this reporting/guard gap before reusing the final
+checkpoint or extending training. No cause of the repeated-evaluation variation
+has been established by this status check.
+
+Downloaded evidence: [three-seed report](experiments/stop04_20261012_v1/MULTISEED.md),
+[diagnosis](experiments/stop04_20261012_v1/DIAGNOSIS.md),
+[raw training evaluations](experiments/stop04_20261012_v1/stop_evaluations.jsonl).
+Trace NPZs and videos remain on SCITAS under `RLframework/results/stop04_diagnosis/`.
+No additional training was submitted during this check.

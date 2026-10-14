@@ -314,7 +314,7 @@ class PolicyControllerV2:
         self.resync_active = False           # flips true the first time note_contact() is called
 
         self.stop_adapter = m.get('stop_adapter', {})
-        if self.stop_adapter.get('enabled') and self.stop_adapter.get('version') != 1:
+        if self.stop_adapter.get('enabled') and self.stop_adapter.get('version') not in (1,2):
             raise ValueError('Unsupported STOP command adapter version')
         self._alloc()
 
@@ -355,6 +355,7 @@ class PolicyControllerV2:
         self._stop_previous = True
         self._stop_filtered = self._stop_v0 = self._stop_started = self._stop_duration = 0.0
         self._stop_target, self._stop_hold = 0.0, True
+        self._stop_ready_s = 0.0
 
     # ------------------------------------------------------------------ command channel
     def set_run(self, run):
@@ -633,18 +634,31 @@ class PolicyControllerV2:
 
         if self.stop_adapter.get('enabled'):
             try:
-                from .stop_schedule import advance
+                from .stop_schedule import advance, feedback_hold
             except ImportError:
-                from stop_schedule import advance
+                from stop_schedule import advance, feedback_hold
             a = self.stop_adapter
-            estimate = self.net.estimate_velocity(self.net.normalize(obs))[0]
+            velocity = self.net.estimate_velocity(self.net.normalize(obs))
+            estimate = velocity[0]
             estimate = (estimate * a['velocity_std'] + a['velocity_mean']) / a['velocity_scale']
             estimate = float(np.nan_to_num(estimate, nan=0.0, posinf=self.v_max, neginf=0.0))
+            previous_hold = self._stop_hold
             (self._stop_filtered, self._stop_v0, self._stop_started, self._stop_duration,
              self._stop_target, self._stop_hold, _) = advance(
                 not self._run, self._stop_previous, self._v_cmd, estimate,
                 self._stop_filtered, self._stop_v0, self._stop_started, self._stop_duration,
                 self.n_steps * self.control_dt, self.control_dt, a['decel'], a['minimum_s'], self.v_max)
+            if a.get('feedback',False):
+                xy = (velocity[:2]*np.asarray(a['velocity_std_xy'])+np.asarray(a['velocity_mean_xy']))/a['velocity_scale']
+                self._stop_hold, self._stop_ready_s, _ = feedback_hold(
+                    not self._run, (not self._run) and not self._stop_previous,
+                    self._stop_hold, previous_hold, self._stop_ready_s,
+                    np.linalg.norm(xy), np.linalg.norm(gyro), -grav[2],
+                    self.n_steps*self.control_dt-self._stop_started-self._stop_duration,
+                    self.control_dt,a['ready_speed'],a['ready_gyro'],a['ready_tilt_deg'],
+                    a['ready_dwell_s'],a['ready_max_wait_s'])
+                if not self._run and self._stop_duration == 0:
+                    self._stop_hold = True
             self._stop_previous = not self._run
             obs = self._obs()
 

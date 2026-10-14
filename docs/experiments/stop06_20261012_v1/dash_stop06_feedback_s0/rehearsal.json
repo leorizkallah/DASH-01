@@ -1,0 +1,20 @@
+{
+  "dataset": "inputs/imitation_demonstrations.npz",
+  "dataset_sha256": "994e7daa1e2153053f4aa746572d36aa4be1e4315507c8da3be84913a8f75caa",
+  "warm_checkpoint": "inputs/stop04/best_stop.msgpack",
+  "checkpoint_sha256": "9c074f03f74c1c104bfa719acae97501ad7653b6a0fa44feb6e1c92c2e5b4266",
+  "samples_per_minibatch": {
+    "hold": 128,
+    "walk": 128
+  },
+  "training_samples": [
+    9600,
+    8521
+  ],
+  "coefficient": 1.0,
+  "action_scale": 0.12,
+  "walking_weight": 2.0,
+  "optimizer": "joint PPO objective; fresh optimizer on warm start",
+  "normalization": "source checkpoint exact equality; frozen",
+  "held_out_used_for_updates": false
+}

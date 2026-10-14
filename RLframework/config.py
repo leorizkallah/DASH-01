@@ -254,10 +254,22 @@ class Config:
     stop_adapter: bool = False             # STOP-02 shared WALK/BRAKE/HOLD command adapter
     stop_ramp_decel: float = 0.5
     stop_ramp_min_s: float = 2.0
+    stop_feedback_hold: bool = False
+    stop_ready_speed: float = .15
+    stop_ready_gyro: float = .5
+    stop_ready_tilt_deg: float = 15.
+    stop_ready_dwell_s: float = .3
+    stop_ready_max_wait_s: float = 4.
+    stop_hold_window_s: float = 7.0       # includes the five-second success window
+    stop_guard_grace_steps: int = 0
+    stop_guard_patience: int = 1
     stop_dense_hold: bool = False
     stop_standing_stage: bool = False      # evaluation from near-stance, no moving approach
     stop_imitation_init: bool = False      # actor-only HOLD/RUN imitation before PPO
     stop_rehearsal_coef: float = 0.0       # continued actor imitation in PPO loss
+    stop_motion_training: bool = False    # alternate low-speed RUN and STOP commands
+    stop_eval_speeds: tuple = (0.5, 1.0, 1.5, 2.0)
+    stop_run_duration_s: tuple = (3.0, 4.0)
     stop_reset_frac: float = -1.0          # >=0 overrides STOP share at episode reset only
     w_stand_hold: float = 0.0               # sustained, supported stillness income during STOP
     w_stop_brake_income: float = 0.0       # bounded dense income w/(1 + horizontal_speed/0.5)
@@ -948,6 +960,18 @@ _DASH_STOP = dict(
 )
 
 PRESETS = {
+    "dash_stop06_timed": lambda: _stop06(False),
+    "dash_stop06_feedback": lambda: _stop06(True),
+    "dash_stop05_motion": lambda: _cfg(model_path="model/dash01_free.xml",
+        **dict(_FAST, **dict(_DASH_STOP, stop_adapter=True, stop_dense_hold=True,
+            stop_standing_stage=False, stop_motion_training=True, stop_reset_frac=0.25,
+            stop_rehearsal_coef=1.0, cmd_range=(0.1, 0.2),
+            stop_eval_speeds=(0.25, 0.375, 0.5),
+            cmd_stop_duration_s=(10.0, 12.0), episode_s=30.0,
+            obs_noise_enable=False, total_steps=1_000_000,
+            eval_every_rollouts=4, checkpoint_every_steps=250_000,
+            lr_warmup_updates=100, w_stop_brake_income=0.0,
+            w_stand_pose=0.5, w_stop_amp=1.0))),
     "dash_stop04_rehearsal": lambda: _cfg(model_path="model/dash01_free.xml",
         **dict(_FAST, **dict(_DASH_STOP, stop_adapter=True, stop_dense_hold=True,
             stop_standing_stage=True, stop_reset_frac=0.75, stop_rehearsal_coef=1.0,
@@ -1006,6 +1030,14 @@ PRESETS = {
                                  n_envs=8, n_steps=4, total_steps=4096,
                                  mjx_iterations=4, mjx_ls_iterations=4)),
 }
+
+
+def _stop06(feedback):
+    from dataclasses import replace
+    return replace(PRESETS['dash_stop05_motion'](), stop_feedback_hold=feedback,
+        total_steps=5_000_000, learning_rate=2.5e-5, lr_final=5e-6,
+        stop_hold_window_s=9., cmd_stop_duration_s=(14.,16.),
+        stop_guard_grace_steps=1_000_000, stop_guard_patience=3)
 
 
 def get_config(name: str = "dash") -> Config:

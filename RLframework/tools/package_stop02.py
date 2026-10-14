@@ -10,7 +10,7 @@ from pathlib import Path
 def main():
     ap=argparse.ArgumentParser()
     ap.add_argument('--snapshot',required=True)
-    ap.add_argument('--experiment',default='STOP-02',choices=['STOP-02','STOP-03','STOP-04'])
+    ap.add_argument('--experiment',default='STOP-02',choices=['STOP-02','STOP-03','STOP-04','STOP-05','STOP-06'])
     args=ap.parse_args()
     if not args.snapshot.replace('_','').isalnum():
         ap.error('snapshot must contain only letters, numbers and underscores')
@@ -25,6 +25,11 @@ def main():
         files.add('docs/stop03-experiment-report.md')
     if args.experiment == 'STOP-04':
         files.update(['docs/stop04-experiment-report.md','RLframework/tools/stop04_pipeline.py'])
+    if args.experiment == 'STOP-05':
+        files.update(['docs/stop05-experiment-report.md','RLframework/tools/stop05_assess.py'])
+    if args.experiment == 'STOP-06':
+        files.update(['docs/stop06-experiment-report.md','RLframework/tools/stop05_assess.py',
+                      'RLframework/tools/stop06_report.py'])
     out=root/'docs/experiments'/args.snapshot
     out.mkdir(parents=True,exist_ok=True)
     archive=out/'source.tar.gz'

@@ -1,0 +1,7 @@
+{
+  "step": 5046272,
+  "grace_steps": 1000000,
+  "patience": 3,
+  "consecutive_failures": 0,
+  "failed_now": false
+}

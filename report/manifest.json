@@ -1,6 +1,6 @@
 {
   "collection_date": "2026-10-12",
-  "generated_at_utc": "2026-10-12T09:12:11.657561+00:00",
+  "generated_at_utc": "2026-10-14T08:31:31.401570+00:00",
   "inputs": [
     {
       "source": "docs/experiments/stop01_20261002_v2/best_stop_eval.json",
@@ -173,11 +173,6 @@
       "sha256": "e0f7e99956481da7ea38085f0567aa07e2ef8f288486312d32db05acc01d8b1f"
     },
     {
-      "source": "docs/stop-training-report.md",
-      "copy": "data/notes/stop-training-report.md",
-      "sha256": "e715343587cc15f8319dd87f9f9f61139a1e8325ab171fbe1c0545728632ed29"
-    },
-    {
       "source": "docs/stop02-training-plan.md",
       "copy": "data/notes/stop02-training-plan.md",
       "sha256": "9dacb4f79e25a8e141cd6bebefc4c1cb5753e40b550725fd0be993e8afe84a32"
@@ -329,6 +324,136 @@
       "stop_s": 3.0,
       "hold_s": 5.0,
       "first_termination_s": 5.75
+    },
+    {
+      "source": "docs/stop05-experiment-report.md",
+      "copy": "data/notes/stop05-experiment-report.md",
+      "sha256": "329ba12d80c61f936dcac47acd443c1ed375ea0fc4cf393a9d90e89639964137"
+    },
+    {
+      "source": "docs/experiments/stop05_20261012_v1/source-manifest.json",
+      "copy": "data/stop05_20261012_v1/source-manifest.json",
+      "sha256": "d8a5c1de9acbdd372d750fe3d941ea5e033052f26106903e354960ea211eb4d5"
+    },
+    {
+      "source": "docs/experiments/stop06_20261012_v1/source-manifest.json",
+      "copy": "data/stop06_20261012_v1/source-manifest.json",
+      "sha256": "ce555d6688cba4149a3ce660a32003281fb86b03d4d8923fca060e18194a42ad"
+    },
+    {
+      "source": "docs/experiments/stop05_20261012_v1/STATUS.md",
+      "copy": "data/stop05_20261012_v1/STATUS.md",
+      "sha256": "cb2afad231153eeb1a2a5ed1ad4a809ec4fcef2bb1abad2cdcc5b802287fa63d"
+    },
+    {
+      "source": "docs/stop06-experiment-report.md",
+      "copy": "data/notes/stop06-experiment-report.md",
+      "sha256": "57a07f273121cde62a0966d3d066dda3059ac98369eff17e568be5f84ce34d55"
+    },
+    {
+      "source": "docs/stop-training-report.md",
+      "copy": "data/notes/stop-training-report.md",
+      "sha256": "de0da6823f70e2ba70d00d305717d60a2438e48f2f8d82998d2b44f4a591a26c"
+    },
+    {
+      "source": "docs/experiments/stop06_20261012_v1/STATUS.md",
+      "copy": "data/stop06_20261012_v1/STATUS.md",
+      "sha256": "f5f3fe807df1237682d231833c264a7829957b24833e6e38b119d80e0d4d8d35"
+    },
+    {
+      "source": "docs/experiments/stop06_20261012_v1/STOP06_COMPARISON.md",
+      "copy": "data/stop06_20261012_v1/STOP06_COMPARISON.md",
+      "sha256": "0cdd3314326d95e0ce23cedc1126f7523b76c201f887d5e5d4bf36f74459b06b"
+    },
+    {
+      "source": "docs/experiments/stop06_20261012_v1/dash_stop06_feedback_s0/SETTLING_REPORT.md",
+      "copy": "data/stop06_20261012_v1/dash_stop06_feedback_s0/SETTLING_REPORT.md",
+      "sha256": "c2ec5ea34d6fc3876480e144f632145b24a712891c0ee594352abdd022b32962"
+    },
+    {
+      "source": "docs/experiments/stop06_20261012_v1/dash_stop06_feedback_s0/MOTION_ASSESSMENT.md",
+      "copy": "data/stop06_20261012_v1/dash_stop06_feedback_s0/MOTION_ASSESSMENT.md",
+      "sha256": "b6560a3595aec4ad650348c1a24a45e89c689024eb67e3c0d099dbdf0721a05e"
+    },
+    {
+      "source": "docs/experiments/stop06_20261012_v1/dash_stop06_feedback_s0/learning.png",
+      "copy": "data/stop06_20261012_v1/dash_stop06_feedback_s0/learning.png",
+      "sha256": "9e9ff19cd20f8a4dde5e34dfddcf1e936d7ec32c3ecfa5d04d96fa36ff356445"
+    },
+    {
+      "source": "docs/experiments/stop06_20261012_v1/dash_stop06_feedback_s0/settling_trials.csv",
+      "copy": "data/stop06_20261012_v1/dash_stop06_feedback_s0/settling_trials.csv",
+      "sha256": "f997223e09f8efbf44b12e050cf62f041f04813a590d1e534433f361e89d4e90"
+    },
+    {
+      "source": "docs/experiments/stop06_20261012_v1/dash_stop06_feedback_s0/motion_assessment.json",
+      "copy": "data/stop06_20261012_v1/dash_stop06_feedback_s0/motion_assessment.json",
+      "sha256": "d0441ac5a486a26abc8f375714b91ac7bea7e241c94c610f95f2ed103ec6c2ac"
+    },
+    {
+      "source": "docs/experiments/stop06_20261012_v1/dash_stop06_feedback_s0/stop_evaluations.jsonl",
+      "copy": "data/stop06_20261012_v1/dash_stop06_feedback_s0/stop_evaluations.jsonl",
+      "sha256": "454b518c8d3affc8df1ac9de3f0b88741e1f3fb1299df473aab6b36eaa79a12a"
+    },
+    {
+      "source": "docs/experiments/stop06_20261012_v1/dash_stop06_feedback_s0/best_stop_eval.json",
+      "copy": "data/stop06_20261012_v1/dash_stop06_feedback_s0/best_stop_eval.json",
+      "sha256": "a8b0127c69818fb3cba7e2d9064adab6167d5666cea93e559a7425d3a3e63222"
+    },
+    {
+      "source": "docs/experiments/stop06_20261012_v1/dash_stop06_feedback_s0/replay/selection.json",
+      "copy": "data/stop06_20261012_v1/dash_stop06_feedback_s0/replay/selection.json",
+      "sha256": "7495b549aa360e7ab92f392eda3944e1a19410d07f0e04b5e66fba3de7550250"
+    },
+    {
+      "source": "docs/experiments/stop06_20261012_v1/dash_stop06_feedback_s0/replay/settling.png",
+      "copy": "data/stop06_20261012_v1/dash_stop06_feedback_s0/replay/settling.png",
+      "sha256": "3b2e314611b0cb37264ec11e0c74541b673747d0c236576bbe44c31571d57bc4"
+    },
+    {
+      "source": "docs/experiments/stop06_20261012_v1/dash_stop06_timed_s0/SETTLING_REPORT.md",
+      "copy": "data/stop06_20261012_v1/dash_stop06_timed_s0/SETTLING_REPORT.md",
+      "sha256": "efe47646f894a3ff3599fe498f889474ab0c4d81607943b45f73c4fa2f152936"
+    },
+    {
+      "source": "docs/experiments/stop06_20261012_v1/dash_stop06_timed_s0/MOTION_ASSESSMENT.md",
+      "copy": "data/stop06_20261012_v1/dash_stop06_timed_s0/MOTION_ASSESSMENT.md",
+      "sha256": "44170bbf4ddc3cb6fb2d8fe33832383828772252be026d17bbf35def6fefcfdd"
+    },
+    {
+      "source": "docs/experiments/stop06_20261012_v1/dash_stop06_timed_s0/learning.png",
+      "copy": "data/stop06_20261012_v1/dash_stop06_timed_s0/learning.png",
+      "sha256": "f5c1f6af214d7bade0fc3b1bf4394e79676be00262c6d560f867738b1b411d30"
+    },
+    {
+      "source": "docs/experiments/stop06_20261012_v1/dash_stop06_timed_s0/settling_trials.csv",
+      "copy": "data/stop06_20261012_v1/dash_stop06_timed_s0/settling_trials.csv",
+      "sha256": "305de131336f03f51eca4c6ec6933dfafd49be590935fb696949a9238e4eca96"
+    },
+    {
+      "source": "docs/experiments/stop06_20261012_v1/dash_stop06_timed_s0/motion_assessment.json",
+      "copy": "data/stop06_20261012_v1/dash_stop06_timed_s0/motion_assessment.json",
+      "sha256": "721ee61c888ef095dc0edeeb6f85bd6b7d494a16d84e6e06540a73168dea9e13"
+    },
+    {
+      "source": "docs/experiments/stop06_20261012_v1/dash_stop06_timed_s0/stop_evaluations.jsonl",
+      "copy": "data/stop06_20261012_v1/dash_stop06_timed_s0/stop_evaluations.jsonl",
+      "sha256": "36fcad2ea819eaaa7af8dacdb74b48ce30867df0fbd9af77eab6e5a394ec7c17"
+    },
+    {
+      "source": "docs/experiments/stop06_20261012_v1/dash_stop06_timed_s0/best_stop_eval.json",
+      "copy": "data/stop06_20261012_v1/dash_stop06_timed_s0/best_stop_eval.json",
+      "sha256": "3f7b5d1c64e2246c44083ef38ffa25edb55bd5ddc4e3d8a263be1fadc6392181"
+    },
+    {
+      "source": "docs/experiments/stop06_20261012_v1/dash_stop06_timed_s0/replay/selection.json",
+      "copy": "data/stop06_20261012_v1/dash_stop06_timed_s0/replay/selection.json",
+      "sha256": "7495b549aa360e7ab92f392eda3944e1a19410d07f0e04b5e66fba3de7550250"
+    },
+    {
+      "source": "docs/experiments/stop06_20261012_v1/dash_stop06_timed_s0/replay/settling.png",
+      "copy": "data/stop06_20261012_v1/dash_stop06_timed_s0/replay/settling.png",
+      "sha256": "4f1f09d907b8fb36d70fdfec42701556726fe7c6a3a72f6fe582bd6c756f1737"
     }
   ],
   "videos": [
@@ -416,11 +541,13 @@
     "data/diagnostics/source_ramp.json": "ce3f6953e5fc6fbd6a940d8bdfb00c042ac4a442aeb55335ce141b992426ef3c",
     "data/diagnostics/stance_probe.json": "33130bfa4d29c8bbbf43e2673918707186b85885350c17c8eaf28d4173db418a",
     "data/diagnostics/stance_probe_v1.json": "27b0df8141897fd7f8d6518a684a15285691c0a50729b41759fe2ab21436dfbb",
-    "data/notes/stop-training-report.md": "e715343587cc15f8319dd87f9f9f61139a1e8325ab171fbe1c0545728632ed29",
+    "data/notes/stop-training-report.md": "de0da6823f70e2ba70d00d305717d60a2438e48f2f8d82998d2b44f4a591a26c",
     "data/notes/stop02-experiment-report.md": "8ebee3b1db833444a9a356bbed76b60e817b558bb0b3734087bf9a1faee8eefc",
     "data/notes/stop02-training-plan.md": "9dacb4f79e25a8e141cd6bebefc4c1cb5753e40b550725fd0be993e8afe84a32",
     "data/notes/stop03-experiment-report.md": "bf0758ca9d8fd1588c99474940dceb2422d9ef26d451bcf2c020f0f1ad93bcdc",
     "data/notes/stop04-experiment-report.md": "f69826de3055c9d098f04c1a4bd6d7364b9b96a0f553f620ae7bb9ec176b2134",
+    "data/notes/stop05-experiment-report.md": "329ba12d80c61f936dcac47acd443c1ed375ea0fc4cf393a9d90e89639964137",
+    "data/notes/stop06-experiment-report.md": "57a07f273121cde62a0966d3d066dda3059ac98369eff17e568be5f84ce34d55",
     "data/ramp_trial_1.csv": "f952fb9c36555cc349513bd664b9524f00d998d4b83b6d33369fba39886ed89e",
     "data/ramp_trial_1.json": "72002d9bd89309ec4445ca0490f9d5044d4aee25a58400780115b72c127c9648",
     "data/stop01_20261002_v2/best_stop_eval.json": "fc439ca996226ea9d8e56e98f2447dcdb3fb17f6a24bef827d8e2c919216a0f0",
@@ -457,6 +584,29 @@
     "data/stop03_20261007_v1/stop_evaluations.jsonl": "fd02c023638378042754b3196f730f77d3062e777f2a8ad0bcbbf610150a0926",
     "data/stop03_20261007_v1/STOP_PROGRESS.md": "9156ea2eb2c8c3fd3548c08f9f8548a892f25cf300bc41f94c7ccab0721e3bb0",
     "data/stop03_20261007_v1/warmstart.json": "e0f7e99956481da7ea38085f0567aa07e2ef8f288486312d32db05acc01d8b1f",
+    "data/stop05_20261012_v1/source-manifest.json": "d8a5c1de9acbdd372d750fe3d941ea5e033052f26106903e354960ea211eb4d5",
+    "data/stop05_20261012_v1/STATUS.md": "cb2afad231153eeb1a2a5ed1ad4a809ec4fcef2bb1abad2cdcc5b802287fa63d",
+    "data/stop06_20261012_v1/dash_stop06_feedback_s0/best_stop_eval.json": "a8b0127c69818fb3cba7e2d9064adab6167d5666cea93e559a7425d3a3e63222",
+    "data/stop06_20261012_v1/dash_stop06_feedback_s0/learning.png": "9e9ff19cd20f8a4dde5e34dfddcf1e936d7ec32c3ecfa5d04d96fa36ff356445",
+    "data/stop06_20261012_v1/dash_stop06_feedback_s0/motion_assessment.json": "d0441ac5a486a26abc8f375714b91ac7bea7e241c94c610f95f2ed103ec6c2ac",
+    "data/stop06_20261012_v1/dash_stop06_feedback_s0/MOTION_ASSESSMENT.md": "b6560a3595aec4ad650348c1a24a45e89c689024eb67e3c0d099dbdf0721a05e",
+    "data/stop06_20261012_v1/dash_stop06_feedback_s0/replay/selection.json": "7495b549aa360e7ab92f392eda3944e1a19410d07f0e04b5e66fba3de7550250",
+    "data/stop06_20261012_v1/dash_stop06_feedback_s0/replay/settling.png": "3b2e314611b0cb37264ec11e0c74541b673747d0c236576bbe44c31571d57bc4",
+    "data/stop06_20261012_v1/dash_stop06_feedback_s0/SETTLING_REPORT.md": "c2ec5ea34d6fc3876480e144f632145b24a712891c0ee594352abdd022b32962",
+    "data/stop06_20261012_v1/dash_stop06_feedback_s0/settling_trials.csv": "f997223e09f8efbf44b12e050cf62f041f04813a590d1e534433f361e89d4e90",
+    "data/stop06_20261012_v1/dash_stop06_feedback_s0/stop_evaluations.jsonl": "454b518c8d3affc8df1ac9de3f0b88741e1f3fb1299df473aab6b36eaa79a12a",
+    "data/stop06_20261012_v1/dash_stop06_timed_s0/best_stop_eval.json": "3f7b5d1c64e2246c44083ef38ffa25edb55bd5ddc4e3d8a263be1fadc6392181",
+    "data/stop06_20261012_v1/dash_stop06_timed_s0/learning.png": "f5c1f6af214d7bade0fc3b1bf4394e79676be00262c6d560f867738b1b411d30",
+    "data/stop06_20261012_v1/dash_stop06_timed_s0/motion_assessment.json": "721ee61c888ef095dc0edeeb6f85bd6b7d494a16d84e6e06540a73168dea9e13",
+    "data/stop06_20261012_v1/dash_stop06_timed_s0/MOTION_ASSESSMENT.md": "44170bbf4ddc3cb6fb2d8fe33832383828772252be026d17bbf35def6fefcfdd",
+    "data/stop06_20261012_v1/dash_stop06_timed_s0/replay/selection.json": "7495b549aa360e7ab92f392eda3944e1a19410d07f0e04b5e66fba3de7550250",
+    "data/stop06_20261012_v1/dash_stop06_timed_s0/replay/settling.png": "4f1f09d907b8fb36d70fdfec42701556726fe7c6a3a72f6fe582bd6c756f1737",
+    "data/stop06_20261012_v1/dash_stop06_timed_s0/SETTLING_REPORT.md": "efe47646f894a3ff3599fe498f889474ab0c4d81607943b45f73c4fa2f152936",
+    "data/stop06_20261012_v1/dash_stop06_timed_s0/settling_trials.csv": "305de131336f03f51eca4c6ec6933dfafd49be590935fb696949a9238e4eca96",
+    "data/stop06_20261012_v1/dash_stop06_timed_s0/stop_evaluations.jsonl": "36fcad2ea819eaaa7af8dacdb74b48ce30867df0fbd9af77eab6e5a394ec7c17",
+    "data/stop06_20261012_v1/source-manifest.json": "ce555d6688cba4149a3ce660a32003281fb86b03d4d8923fca060e18194a42ad",
+    "data/stop06_20261012_v1/STATUS.md": "f5f3fe807df1237682d231833c264a7829957b24833e6e38b119d80e0d4d8d35",
+    "data/stop06_20261012_v1/STOP06_COMPARISON.md": "0cdd3314326d95e0ce23cedc1126f7523b76c201f887d5e5d4bf36f74459b06b",
     "evaluation.md": "680493dec0f75410ae8460b814a3e0c4222899c3509d5e1e2de8b67e95108067",
     "experiments.md": "e9c31a1458e8f4addc1668985d135623a2b783566d306a484ccacb3435bbff6c",
     "figures/control_architecture.pdf": "cb70ef4143e8e6ff3dc6df992da2615f12aed465cd0e98682400da898415dd96",
@@ -481,9 +631,10 @@
     "figures/walking_retention.png": "04d10fe6a22b8040933d27e9c86208ccaed888c03ce025fd001f610a30b3eeb7",
     "figures/walking_retention.svg": "9f56074aa418d03793694d8a68bae73d9564720359f447e35819906c55b38122",
     "index.html": "7f480336e0cfe10bcf5d8283c5c1db862e3301eb841b484dbdc31487ac7c4dba",
+    "nathann-gait-review.md": "3d52138b9ebd83803248985569800271a92361aa4fcd6d59d9714b4d166e39ef",
     "presentation.md": "c565b4ab747ca4885003eaa6525fc25b7c84251e4025c8789b705ccb666bd576",
-    "README.md": "6397920c49284c2c68eaef31fe0792b9fb198aaffa69e8d4e1d7251e3ba9368b",
-    "scripts/build_report.py": "b13007b1b18cb7ecf86c2b92bd99a2a47b52e0be40bc35039b898c03072d3285",
+    "README.md": "ebaaf5483234ce445b153d0b6f04812171d1df1f392a2a2e316e6e053bc26758",
+    "scripts/build_report.py": "530d0f27254cd9a89e576159ac4377e49b1391ae1b4d55f3017afb4e4041c5e4",
     "tables/experiment_evaluations.csv": "f8af178aaff356a7a2f7417db27b0b0501de6b51d925eae8e0216f3079202e58",
     "tables/imitation_updates.csv": "d94c67aa6dd32873237b8d8e756eff9b4e9016f0da0eaa521d6bb8e2c8f6bf3e",
     "tables/stop03_trials.csv": "771dcb6a37f411c16f7bb32f7b798bb4d5e0c9ff3294e9e55ab0a9472f5acca7",
@@ -492,6 +643,6 @@
     "videos/stop01_abrupt_failure.mp4": "a30b9006d126cc645e8b3913f8f24c3b61882c08c48c469335516f6e9857fa66",
     "videos/stop02_longest_survival.mp4": "99d07e66c04da5790d610aee59394ebf0b41d82d40acccf15aaca01660b69c67",
     "videos/stop02_ramp_failure.mp4": "2632e713fc8601170f234b9a27b98453e2db41f8d4c41beadcbd06a776308a2f",
-    "work-log.md": "5bfb966c199925d8bd2c9d58ac771fa194e2001089f8849380f524c4d66de420"
+    "work-log.md": "b20db7f9316a305867a0202d327355d615450c57829ae5eda33cbb8822009ade"
   }
 }

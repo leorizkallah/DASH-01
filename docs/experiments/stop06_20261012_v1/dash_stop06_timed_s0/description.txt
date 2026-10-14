@@ -1,0 +1,1 @@
+STOP-06 timed: matched 5M moving-stop comparison from STOP-04 keeper; bounded settling, rehearsal, persistent regression guard

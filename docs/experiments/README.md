@@ -14,6 +14,8 @@ report links and SCITAS paths remain stable.
 | `stop02_20261006_v3` | Standing PPO pilot; 0/32 holds | [Status](stop02_20261006_v3/STATUS.md) |
 | `stop03_20261007_v1` | Imitation-assisted standing; best 21/32 holds | [Status](stop03_20261007_v1/STATUS.md) |
 | `stop04_20261012_v1` | Paired diagnosis and conditional rehearsal pilot | [Status](stop04_20261012_v1/STATUS.md) |
+| `stop05_20261012_v1` | Low-speed moving stops with standing/walking preservation | [Status](stop05_20261012_v1/STATUS.md) |
+| `stop06_20261012_v1` | Longer timed-versus-feedback HOLD comparison | [Status](stop06_20261012_v1/STATUS.md) |
 
 Status files are dated observations, not a live scheduler dashboard. The remote
 root is `/home/rizkalla/running_robot_experiments/<snapshot>/`.
@@ -26,7 +28,9 @@ the compact STOP-01B warm-start bundle required by the packager.
 
 Local/SCITAS only: raw pose traces (`RLframework/results/stop*/**/*.npz`, except
 the named warm-start policy), full training checkpoints, source/transfer archives,
-scratch JPG previews, caches and logs. Ignoring these files does not delete them.
+intermediate checkpoint sidecars, TensorBoard event files, scratch JPG previews,
+caches and logs. Best/final checkpoint metadata remains versioned.
+Ignoring these files does not delete them.
 The immutable SCITAS snapshots retain the source packages and run artifacts.
 
 `report/data/` intentionally contains frozen copies of selected metrics and code,

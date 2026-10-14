@@ -1,0 +1,1 @@
+STOP-06 feedback: matched 5M moving-stop comparison from STOP-04 keeper; bounded settling, rehearsal, persistent regression guard

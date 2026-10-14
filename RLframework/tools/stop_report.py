@@ -62,7 +62,7 @@ def generate(run):
         protocol = records[-1].get('protocol', 'STOP-01')
         description = ('Near-stance starts; 7 s HOLD, including at least 5 s quiet with drift <=0.10 m.'
                        if protocol == 'STOP-02-standing' else
-                       'Ramped STOP, 2 s settling allowance, 5 s quiet hold; four approach speeds.'
+                       f"Ramped STOP, {records[-1].get('post_ramp_window_s',7.)-5:g} s settling allowance, 5 s quiet hold; approach speeds listed below."
                        if protocol == 'STOP-02-ramp' else
                        'Four approach speeds; 8 s STOP, then 3 s restart.')
         lines += [f'Nominal MJX benchmark: {protocol}. {description}', '',
@@ -80,6 +80,11 @@ def generate(run):
             lines.append(f"| {r['command_mps']} | {r['successes']}/{r['n']} | {r['survivors']}/{r['n']} |")
         if 'longest_quiet_hold_mean_s' in records[-1]:
             lines += ['', f"Mean longest quiet hold: {records[-1]['longest_quiet_hold_mean_s']:.3f} s."]
+        if 'standing' in records[-1]:
+            r=records[-1]
+            lines += ['', f"Separate near-stance hold success: {r['standing']['success_fraction']:.1%}.",
+                      f"Standing retained: {r.get('standing_retained', True)}.",
+                      f"Moving approach qualification: {r['approach_fraction']:.1%}."]
     else:
         lines += ['No completed transition evaluation has been recorded yet.']
     lines += ['', 'These are simulation results. Hardware stopping has not been validated.', '']

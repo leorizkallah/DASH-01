@@ -1,6 +1,7 @@
 """Build a portable, evidence-based report collection without cluster access.
 
 Run from the repository root; --frozen rebuilds from the already copied inputs.
+Use --manifest-only after editing notes to retain existing figures and input provenance.
 Authored Markdown is maintained separately and is never overwritten here.
 """
 import argparse
@@ -168,8 +169,31 @@ def plots(rows, previous, imitation):
     architecture()
 
 
+def refresh_manifest(metadata=None):
+    """Refresh output hashes without regenerating figures or changing source records."""
+    path = ROOT / 'manifest.json'
+    if metadata is None:
+        metadata = json.loads(path.read_text(encoding='utf-8'))
+    metadata['outputs'] = {
+        p.relative_to(ROOT).as_posix(): digest(p)
+        for p in sorted(ROOT.rglob('*'))
+        if p.is_file() and p.name != 'manifest.json' and '__pycache__' not in p.parts
+    }
+    metadata['generated_at_utc'] = datetime.now(timezone.utc).isoformat()
+    path.write_text(json.dumps(metadata, indent=2) + '\n', encoding='utf-8')
+
+
 def main():
-    ap=argparse.ArgumentParser();ap.add_argument('--frozen',action='store_true');args=ap.parse_args()
+    ap = argparse.ArgumentParser()
+    mode = ap.add_mutually_exclusive_group()
+    mode.add_argument('--frozen', action='store_true')
+    mode.add_argument('--manifest-only', action='store_true',
+                      help='refresh output hashes, preserving figures and input provenance')
+    args = ap.parse_args()
+    if args.manifest_only:
+        refresh_manifest()
+        print('Refreshed report output hashes; preserved figures and source records.')
+        return
     for folder in (FIG,DATA,ROOT/'videos',ROOT/'tables'):
         folder.mkdir(parents=True,exist_ok=True)
     provenance=[]
@@ -184,7 +208,7 @@ def main():
             for path in sorted(src.iterdir()):
                 if path.suffix in ('.json','.jsonl','.csv','.md'):
                     copy(path.relative_to(REPO).as_posix(),f'data/{name}/{path.name}')
-        for name in ['stop-training-report.md','stop02-training-plan.md','stop02-experiment-report.md','stop03-experiment-report.md','stop04-experiment-report.md']:
+        for name in ['stop-training-report.md','stop02-training-plan.md','stop02-experiment-report.md','stop03-experiment-report.md','stop04-experiment-report.md','stop05-experiment-report.md','stop06-experiment-report.md']:
             copy('docs/'+name,'data/notes/'+name)
         for path in sorted((REPO/'RLframework/results/stop02_checks').glob('*.json')):
             copy(path.relative_to(REPO).as_posix(),'data/diagnostics/'+path.name)
@@ -264,11 +288,7 @@ def main():
         page.append(f'<figure><h3>{esc(v["title"])}</h3><video controls preload="none" src="{v["file"]}">Video playback unavailable; use the download link.</video><figcaption>{esc(v["caption"])} <a href="{v["file"]}">Open video</a></figcaption><small>Source: {esc(v["source"])}</small></figure>')
     page += ['<p>Static local gallery. No external services, training jobs or live polling. Detailed provenance: <a href="manifest.json">manifest</a>.</p></main></html>']
     (ROOT/'index.html').write_text('\n'.join(page),encoding='utf-8')
-    outputs={p.relative_to(ROOT).as_posix():digest(p) for p in sorted(ROOT.rglob('*'))
-             if p.is_file() and p.name!='manifest.json' and '__pycache__' not in p.parts}
-    (ROOT/'manifest.json').write_text(json.dumps(dict(collection_date='2026-10-12',
-        generated_at_utc=datetime.now(timezone.utc).isoformat(),inputs=provenance,
-        videos=video_info,outputs=outputs),indent=2)+'\n',encoding='utf-8')
+    refresh_manifest(dict(collection_date='2026-10-12', inputs=provenance, videos=video_info))
     print(f'Built {len(CAPTIONS)} figures (PNG/SVG/PDF), {len(video_info)} videos, 3 CSV tables, gallery and manifest.')
     print(f'Total collection: {sum(p.stat().st_size for p in ROOT.rglob("*") if p.is_file())/1e6:.1f} MB')
 

@@ -18,3 +18,6 @@
 /report/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 /report/figures/** linguist-generated=true
 /report/data/code/** linguist-generated=true
+
+# Preserve downloaded experiment evidence and frozen source manifests byte-for-byte.
+/docs/experiments/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

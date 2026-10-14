@@ -68,6 +68,8 @@ def main():
                           terms=info['reward_terms'])
             if cfg.stop_adapter:
                 record.update(phase=info['stop_phase'], ramp_duration=info['stop_duration'],
+                              hold_active=info['stop_phase']==2, gate_timeout=info['stop_gate_timeout'],
+                              estimated_speed_xy=info['stop_gate_speed'],
                               reference=info['stop_reference'])
             return (state2, obs2), record
         return jax.lax.scan(step, (state, obs), jnp.arange(ticks))[1]
@@ -76,7 +78,7 @@ def main():
     data = jax.tree_util.tree_map(np.asarray, jax.jit(run)(agent.params, agent.stats))
     if cfg.stop_adapter:
         from stop02_metrics import summarize as summarize02
-        result = summarize02(data, speeds, starts, ends, env.control_dt, cfg.stop_standing_stage)
+        result = summarize02(data, speeds, starts, ends, env.control_dt, cfg.stop_standing_stage, cfg.stop_hold_window_s)
     else:
         result = summarize(data, speeds, starts, ends, env.control_dt)
     term_names = list(data['terms'])

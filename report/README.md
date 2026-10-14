@@ -53,6 +53,16 @@ Raw pose traces and transfer archives are kept locally/on SCITAS; see the
 [artifact policy](../docs/experiments/README.md). Curated figures and videos remain
 versioned so this gallery can be opened immediately.
 
+After editing report notes only, refresh checksums without rebuilding plots:
+
+```powershell
+.\.venv\Scripts\python.exe report/scripts/build_report.py --manifest-only
+```
+
+Latest completed results: [STOP-06 comparison](data/stop06_20261012_v1/STATUS.md).
+The gallery figures cover the earlier experiments; STOP-06 plots accompany its
+downloaded run records.
+
 Raw source records: [STOP-01 log](../docs/stop-training-report.md),
 [STOP-02 log](../docs/stop02-experiment-report.md),
 [STOP-03 log](../docs/stop03-experiment-report.md).

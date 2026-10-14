@@ -99,6 +99,10 @@ legacy_trainer_to_port/**/__pycache__/
 # raw simulation traces, transfer archives and scratch previews local. No files are deleted.
 /docs/experiments/**/*.tar.gz
 /docs/experiments/**/*.zip
+# Keep downloaded TensorBoard logs and intermediate checkpoint sidecars local.
+# Best/final checkpoint metadata and evaluation records remain versioned.
+/docs/experiments/**/events.out.tfevents.*
+/docs/experiments/**/ckpt_*.json
 /RLframework/results/stop*/**/*.npz
 # This compact warm-start policy is an input required by the STOP source packager.
 !/RLframework/results/stop01_replay/dash_stop01b_final.npz

@@ -1,0 +1,9 @@
+{
+  "record_exit_code": 0,
+  "trial": 0,
+  "criterion": "lowest-index qualifying approach; trial zero if none qualify; NOT a success selection",
+  "recorded_successes": 0,
+  "playback_rate": 0.5,
+  "seed": 4102,
+  "render_exit_code": 0
+}

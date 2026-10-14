@@ -1,0 +1,1407 @@
+{
+  "checkpoint": "inputs/stop03/best_stop.msgpack",
+  "checkpoint_sha256": "297516343e16659c78b8b586e1bd4037a4f020e94e8ddfee5b8a0175f87df5dd",
+  "step": 524288,
+  "summary": {
+    "protocol": "STOP-02-standing",
+    "n": 32,
+    "episodes": [
+      {
+        "command_mps": 0.0,
+        "stop_at_s": 0.0,
+        "approach_ok": true,
+        "incoming_mps": 0.0,
+        "stop_success": false,
+        "survived_stop": false,
+        "ramp_s": 0.0,
+        "braking_tracking_error_mps": null,
+        "distance_to_settle_or_failure_m": 0.7307660579681396,
+        "hold_max_displacement_m": null,
+        "longest_quiet_hold_s": 0.07,
+        "hold_start_s": null,
+        "stop_time_s": null,
+        "final_stop_speed_mps": null,
+        "support_fraction": 0.186,
+        "termination_s": 3.19,
+        "termination_reasons": [
+          "tip"
+        ],
+        "termination_phase": "HOLD",
+        "restart_ok": false,
+        "restart_speed_mps": null
+      },
+      {
+        "command_mps": 0.0,
+        "stop_at_s": 0.0,
+        "approach_ok": true,
+        "incoming_mps": 0.0,
+        "stop_success": true,
+        "survived_stop": true,
+        "ramp_s": 0.0,
+        "braking_tracking_error_mps": null,
+        "distance_to_settle_or_failure_m": 0.019089113920927048,
+        "hold_max_displacement_m": 0.023921694606542587,
+        "longest_quiet_hold_s": 6.33,
+        "hold_start_s": 0.67,
+        "stop_time_s": 0.67,
+        "final_stop_speed_mps": 0.024422327056527138,
+        "support_fraction": 1.0,
+        "termination_s": null,
+        "termination_reasons": [],
+        "termination_phase": null,
+        "restart_ok": false,
+        "restart_speed_mps": 0.1916274130344391
+      },
+      {
+        "command_mps": 0.0,
+        "stop_at_s": 0.0,
+        "approach_ok": true,
+        "incoming_mps": 0.0,
+        "stop_success": true,
+        "survived_stop": true,
+        "ramp_s": 0.0,
+        "braking_tracking_error_mps": null,
+        "distance_to_settle_or_failure_m": 0.0002539734123274684,
+        "hold_max_displacement_m": 0.013106295838952065,
+        "longest_quiet_hold_s": 6.97,
+        "hold_start_s": 0.03,
+        "stop_time_s": 0.03,
+        "final_stop_speed_mps": 0.010337507352232933,
+        "support_fraction": 1.0,
+        "termination_s": null,
+        "termination_reasons": [],
+        "termination_phase": null,
+        "restart_ok": false,
+        "restart_speed_mps": 0.10976046323776245
+      },
+      {
+        "command_mps": 0.0,
+        "stop_at_s": 0.0,
+        "approach_ok": true,
+        "incoming_mps": 0.0,
+        "stop_success": true,
+        "survived_stop": true,
+        "ramp_s": 0.0,
+        "braking_tracking_error_mps": null,
+        "distance_to_settle_or_failure_m": 0.02233722247183323,
+        "hold_max_displacement_m": 0.02806987054646015,
+        "longest_quiet_hold_s": 6.32,
+        "hold_start_s": 0.68,
+        "stop_time_s": 0.68,
+        "final_stop_speed_mps": 0.020842375233769417,
+        "support_fraction": 1.0,
+        "termination_s": null,
+        "termination_reasons": [],
+        "termination_phase": null,
+        "restart_ok": false,
+        "restart_speed_mps": 0.12385514378547668
+      },
+      {
+        "command_mps": 0.0,
+        "stop_at_s": 0.0,
+        "approach_ok": true,
+        "incoming_mps": 0.0,
+        "stop_success": true,
+        "survived_stop": true,
+        "ramp_s": 0.0,
+        "braking_tracking_error_mps": null,
+        "distance_to_settle_or_failure_m": 0.06924603879451752,
+        "hold_max_displacement_m": 0.011311439797282219,
+        "longest_quiet_hold_s": 5.18,
+        "hold_start_s": 1.82,
+        "stop_time_s": 1.82,
+        "final_stop_speed_mps": 0.013426081277430058,
+        "support_fraction": 1.0,
+        "termination_s": null,
+        "termination_reasons": [],
+        "termination_phase": null,
+        "restart_ok": false,
+        "restart_speed_mps": 0.14096133410930634
+      },
+      {
+        "command_mps": 0.0,
+        "stop_at_s": 0.0,
+        "approach_ok": true,
+        "incoming_mps": 0.0,
+        "stop_success": false,
+        "survived_stop": false,
+        "ramp_s": 0.0,
+        "braking_tracking_error_mps": null,
+        "distance_to_settle_or_failure_m": 0.7840603590011597,
+        "hold_max_displacement_m": null,
+        "longest_quiet_hold_s": 0.21,
+        "hold_start_s": null,
+        "stop_time_s": null,
+        "final_stop_speed_mps": null,
+        "support_fraction": 0.542,
+        "termination_s": 4.96,
+        "termination_reasons": [
+          "tip"
+        ],
+        "termination_phase": "HOLD",
+        "restart_ok": false,
+        "restart_speed_mps": null
+      },
+      {
+        "command_mps": 0.0,
+        "stop_at_s": 0.0,
+        "approach_ok": true,
+        "incoming_mps": 0.0,
+        "stop_success": true,
+        "survived_stop": true,
+        "ramp_s": 0.0,
+        "braking_tracking_error_mps": null,
+        "distance_to_settle_or_failure_m": 0.009619747288525105,
+        "hold_max_displacement_m": 0.005207142326980829,
+        "longest_quiet_hold_s": 6.3100000000000005,
+        "hold_start_s": 0.6900000000000001,
+        "stop_time_s": 0.6900000000000001,
+        "final_stop_speed_mps": 0.005815170239657164,
+        "support_fraction": 1.0,
+        "termination_s": null,
+        "termination_reasons": [],
+        "termination_phase": null,
+        "restart_ok": false,
+        "restart_speed_mps": -0.035041213035583496
+      },
+      {
+        "command_mps": 0.0,
+        "stop_at_s": 0.0,
+        "approach_ok": true,
+        "incoming_mps": 0.0,
+        "stop_success": true,
+        "survived_stop": true,
+        "ramp_s": 0.0,
+        "braking_tracking_error_mps": null,
+        "distance_to_settle_or_failure_m": 2.4777127691777423e-05,
+        "hold_max_displacement_m": 0.026152852922677994,
+        "longest_quiet_hold_s": 6.99,
+        "hold_start_s": 0.01,
+        "stop_time_s": 0.01,
+        "final_stop_speed_mps": 0.015432453714311123,
+        "support_fraction": 1.0,
+        "termination_s": null,
+        "termination_reasons": [],
+        "termination_phase": null,
+        "restart_ok": false,
+        "restart_speed_mps": 0.11998291313648224
+      },
+      {
+        "command_mps": 0.0,
+        "stop_at_s": 0.0,
+        "approach_ok": true,
+        "incoming_mps": 0.0,
+        "stop_success": true,
+        "survived_stop": true,
+        "ramp_s": 0.0,
+        "braking_tracking_error_mps": null,
+        "distance_to_settle_or_failure_m": 5.248359593679197e-05,
+        "hold_max_displacement_m": 0.029159678146243095,
+        "longest_quiet_hold_s": 6.98,
+        "hold_start_s": 0.02,
+        "stop_time_s": 0.02,
+        "final_stop_speed_mps": 0.009377771057188511,
+        "support_fraction": 1.0,
+        "termination_s": null,
+        "termination_reasons": [],
+        "termination_phase": null,
+        "restart_ok": false,
+        "restart_speed_mps": 0.15333956480026245
+      },
+      {
+        "command_mps": 0.0,
+        "stop_at_s": 0.0,
+        "approach_ok": true,
+        "incoming_mps": 0.0,
+        "stop_success": true,
+        "survived_stop": true,
+        "ramp_s": 0.0,
+        "braking_tracking_error_mps": null,
+        "distance_to_settle_or_failure_m": 0.050223417580127716,
+        "hold_max_displacement_m": 0.02922244556248188,
+        "longest_quiet_hold_s": 5.53,
+        "hold_start_s": 1.47,
+        "stop_time_s": 1.47,
+        "final_stop_speed_mps": 0.02145473100244999,
+        "support_fraction": 1.0,
+        "termination_s": null,
+        "termination_reasons": [],
+        "termination_phase": null,
+        "restart_ok": false,
+        "restart_speed_mps": 0.19584070146083832
+      },
+      {
+        "command_mps": 0.0,
+        "stop_at_s": 0.0,
+        "approach_ok": true,
+        "incoming_mps": 0.0,
+        "stop_success": true,
+        "survived_stop": true,
+        "ramp_s": 0.0,
+        "braking_tracking_error_mps": null,
+        "distance_to_settle_or_failure_m": 0.02333724871277809,
+        "hold_max_displacement_m": 0.013722824864089489,
+        "longest_quiet_hold_s": 6.15,
+        "hold_start_s": 0.85,
+        "stop_time_s": 0.85,
+        "final_stop_speed_mps": 0.012705696746706963,
+        "support_fraction": 1.0,
+        "termination_s": null,
+        "termination_reasons": [],
+        "termination_phase": null,
+        "restart_ok": false,
+        "restart_speed_mps": 0.13633020222187042
+      },
+      {
+        "command_mps": 0.0,
+        "stop_at_s": 0.0,
+        "approach_ok": true,
+        "incoming_mps": 0.0,
+        "stop_success": true,
+        "survived_stop": true,
+        "ramp_s": 0.0,
+        "braking_tracking_error_mps": null,
+        "distance_to_settle_or_failure_m": 0.03181719407439232,
+        "hold_max_displacement_m": 0.02357279509305954,
+        "longest_quiet_hold_s": 6.13,
+        "hold_start_s": 0.87,
+        "stop_time_s": 0.87,
+        "final_stop_speed_mps": 0.01727873459458351,
+        "support_fraction": 1.0,
+        "termination_s": null,
+        "termination_reasons": [],
+        "termination_phase": null,
+        "restart_ok": false,
+        "restart_speed_mps": 0.14063391089439392
+      },
+      {
+        "command_mps": 0.0,
+        "stop_at_s": 0.0,
+        "approach_ok": true,
+        "incoming_mps": 0.0,
+        "stop_success": true,
+        "survived_stop": true,
+        "ramp_s": 0.0,
+        "braking_tracking_error_mps": null,
+        "distance_to_settle_or_failure_m": 0.011342392303049564,
+        "hold_max_displacement_m": 0.011785381473600864,
+        "longest_quiet_hold_s": 6.140000000000001,
+        "hold_start_s": 0.86,
+        "stop_time_s": 0.86,
+        "final_stop_speed_mps": 0.00786520168185234,
+        "support_fraction": 1.0,
+        "termination_s": null,
+        "termination_reasons": [],
+        "termination_phase": null,
+        "restart_ok": false,
+        "restart_speed_mps": 0.2292158007621765
+      },
+      {
+        "command_mps": 0.0,
+        "stop_at_s": 0.0,
+        "approach_ok": true,
+        "incoming_mps": 0.0,
+        "stop_success": false,
+        "survived_stop": false,
+        "ramp_s": 0.0,
+        "braking_tracking_error_mps": null,
+        "distance_to_settle_or_failure_m": 0.7613385915756226,
+        "hold_max_displacement_m": null,
+        "longest_quiet_hold_s": 0.03,
+        "hold_start_s": null,
+        "stop_time_s": null,
+        "final_stop_speed_mps": null,
+        "support_fraction": 0.066,
+        "termination_s": 2.56,
+        "termination_reasons": [
+          "tip"
+        ],
+        "termination_phase": "HOLD",
+        "restart_ok": false,
+        "restart_speed_mps": null
+      },
+      {
+        "command_mps": 0.0,
+        "stop_at_s": 0.0,
+        "approach_ok": true,
+        "incoming_mps": 0.0,
+        "stop_success": false,
+        "survived_stop": false,
+        "ramp_s": 0.0,
+        "braking_tracking_error_mps": null,
+        "distance_to_settle_or_failure_m": 0.5078566074371338,
+        "hold_max_displacement_m": null,
+        "longest_quiet_hold_s": 0.0,
+        "hold_start_s": null,
+        "stop_time_s": null,
+        "final_stop_speed_mps": null,
+        "support_fraction": 0.0,
+        "termination_s": 1.01,
+        "termination_reasons": [
+          "tip"
+        ],
+        "termination_phase": "HOLD",
+        "restart_ok": false,
+        "restart_speed_mps": null
+      },
+      {
+        "command_mps": 0.0,
+        "stop_at_s": 0.0,
+        "approach_ok": true,
+        "incoming_mps": 0.0,
+        "stop_success": true,
+        "survived_stop": true,
+        "ramp_s": 0.0,
+        "braking_tracking_error_mps": null,
+        "distance_to_settle_or_failure_m": 0.02631196938455105,
+        "hold_max_displacement_m": 0.014675159938633442,
+        "longest_quiet_hold_s": 6.32,
+        "hold_start_s": 0.68,
+        "stop_time_s": 0.68,
+        "final_stop_speed_mps": 0.012459726072847843,
+        "support_fraction": 1.0,
+        "termination_s": null,
+        "termination_reasons": [],
+        "termination_phase": null,
+        "restart_ok": false,
+        "restart_speed_mps": 0.12424080818891525
+      },
+      {
+        "command_mps": 0.0,
+        "stop_at_s": 0.0,
+        "approach_ok": true,
+        "incoming_mps": 0.0,
+        "stop_success": true,
+        "survived_stop": true,
+        "ramp_s": 0.0,
+        "braking_tracking_error_mps": null,
+        "distance_to_settle_or_failure_m": 0.0371834859251976,
+        "hold_max_displacement_m": 0.02370738610625267,
+        "longest_quiet_hold_s": 6.140000000000001,
+        "hold_start_s": 0.86,
+        "stop_time_s": 0.86,
+        "final_stop_speed_mps": 0.018046608194708824,
+        "support_fraction": 1.0,
+        "termination_s": null,
+        "termination_reasons": [],
+        "termination_phase": null,
+        "restart_ok": false,
+        "restart_speed_mps": 0.1206117570400238
+      },
+      {
+        "command_mps": 0.0,
+        "stop_at_s": 0.0,
+        "approach_ok": true,
+        "incoming_mps": 0.0,
+        "stop_success": true,
+        "survived_stop": true,
+        "ramp_s": 0.0,
+        "braking_tracking_error_mps": null,
+        "distance_to_settle_or_failure_m": 0.00031897384906187654,
+        "hold_max_displacement_m": 0.026445897296071053,
+        "longest_quiet_hold_s": 6.97,
+        "hold_start_s": 0.03,
+        "stop_time_s": 0.03,
+        "final_stop_speed_mps": 0.007746431510895491,
+        "support_fraction": 1.0,
+        "termination_s": null,
+        "termination_reasons": [],
+        "termination_phase": null,
+        "restart_ok": false,
+        "restart_speed_mps": 0.10660668462514877
+      },
+      {
+        "command_mps": 0.0,
+        "stop_at_s": 0.0,
+        "approach_ok": true,
+        "incoming_mps": 0.0,
+        "stop_success": true,
+        "survived_stop": true,
+        "ramp_s": 0.0,
+        "braking_tracking_error_mps": null,
+        "distance_to_settle_or_failure_m": 0.0,
+        "hold_max_displacement_m": 0.025692924857139587,
+        "longest_quiet_hold_s": 7.0,
+        "hold_start_s": 0.0,
+        "stop_time_s": 0.0,
+        "final_stop_speed_mps": 0.009453804232180119,
+        "support_fraction": 1.0,
+        "termination_s": null,
+        "termination_reasons": [],
+        "termination_phase": null,
+        "restart_ok": false,
+        "restart_speed_mps": 0.12740828096866608
+      },
+      {
+        "command_mps": 0.0,
+        "stop_at_s": 0.0,
+        "approach_ok": true,
+        "incoming_mps": 0.0,
+        "stop_success": true,
+        "survived_stop": true,
+        "ramp_s": 0.0,
+        "braking_tracking_error_mps": null,
+        "distance_to_settle_or_failure_m": 0.026505418121814728,
+        "hold_max_displacement_m": 0.014701355248689651,
+        "longest_quiet_hold_s": 6.13,
+        "hold_start_s": 0.87,
+        "stop_time_s": 0.87,
+        "final_stop_speed_mps": 0.014047503471374512,
+        "support_fraction": 1.0,
+        "termination_s": null,
+        "termination_reasons": [],
+        "termination_phase": null,
+        "restart_ok": false,
+        "restart_speed_mps": -0.015220594592392445
+      },
+      {
+        "command_mps": 0.0,
+        "stop_at_s": 0.0,
+        "approach_ok": true,
+        "incoming_mps": 0.0,
+        "stop_success": true,
+        "survived_stop": true,
+        "ramp_s": 0.0,
+        "braking_tracking_error_mps": null,
+        "distance_to_settle_or_failure_m": 0.023709475994110107,
+        "hold_max_displacement_m": 0.01317180972546339,
+        "longest_quiet_hold_s": 6.13,
+        "hold_start_s": 0.87,
+        "stop_time_s": 0.87,
+        "final_stop_speed_mps": 0.015494479797780514,
+        "support_fraction": 1.0,
+        "termination_s": 9.88,
+        "termination_reasons": [
+          "floor"
+        ],
+        "termination_phase": "AFTER_HOLD",
+        "restart_ok": false,
+        "restart_speed_mps": null
+      },
+      {
+        "command_mps": 0.0,
+        "stop_at_s": 0.0,
+        "approach_ok": true,
+        "incoming_mps": 0.0,
+        "stop_success": true,
+        "survived_stop": true,
+        "ramp_s": 0.0,
+        "braking_tracking_error_mps": null,
+        "distance_to_settle_or_failure_m": 0.00019116009934805334,
+        "hold_max_displacement_m": 0.055312324315309525,
+        "longest_quiet_hold_s": 6.98,
+        "hold_start_s": 0.02,
+        "stop_time_s": 0.02,
+        "final_stop_speed_mps": 0.023636097088456154,
+        "support_fraction": 1.0,
+        "termination_s": null,
+        "termination_reasons": [],
+        "termination_phase": null,
+        "restart_ok": false,
+        "restart_speed_mps": 0.10739897936582565
+      },
+      {
+        "command_mps": 0.0,
+        "stop_at_s": 0.0,
+        "approach_ok": true,
+        "incoming_mps": 0.0,
+        "stop_success": false,
+        "survived_stop": true,
+        "ramp_s": 0.0,
+        "braking_tracking_error_mps": null,
+        "distance_to_settle_or_failure_m": 0.28043508529663086,
+        "hold_max_displacement_m": null,
+        "longest_quiet_hold_s": 4.19,
+        "hold_start_s": null,
+        "stop_time_s": null,
+        "final_stop_speed_mps": 0.03701663389801979,
+        "support_fraction": 1.0,
+        "termination_s": null,
+        "termination_reasons": [],
+        "termination_phase": null,
+        "restart_ok": false,
+        "restart_speed_mps": -0.05837271735072136
+      },
+      {
+        "command_mps": 0.0,
+        "stop_at_s": 0.0,
+        "approach_ok": true,
+        "incoming_mps": 0.0,
+        "stop_success": false,
+        "survived_stop": false,
+        "ramp_s": 0.0,
+        "braking_tracking_error_mps": null,
+        "distance_to_settle_or_failure_m": 0.8144688606262207,
+        "hold_max_displacement_m": null,
+        "longest_quiet_hold_s": 0.28,
+        "hold_start_s": null,
+        "stop_time_s": null,
+        "final_stop_speed_mps": null,
+        "support_fraction": 0.222,
+        "termination_s": 3.3000000000000003,
+        "termination_reasons": [
+          "low"
+        ],
+        "termination_phase": "HOLD",
+        "restart_ok": false,
+        "restart_speed_mps": null
+      },
+      {
+        "command_mps": 0.0,
+        "stop_at_s": 0.0,
+        "approach_ok": true,
+        "incoming_mps": 0.0,
+        "stop_success": false,
+        "survived_stop": false,
+        "ramp_s": 0.0,
+        "braking_tracking_error_mps": null,
+        "distance_to_settle_or_failure_m": 0.8938137888908386,
+        "hold_max_displacement_m": null,
+        "longest_quiet_hold_s": 0.02,
+        "hold_start_s": null,
+        "stop_time_s": null,
+        "final_stop_speed_mps": null,
+        "support_fraction": 0.194,
+        "termination_s": 3.46,
+        "termination_reasons": [
+          "workspace"
+        ],
+        "termination_phase": "HOLD",
+        "restart_ok": false,
+        "restart_speed_mps": null
+      },
+      {
+        "command_mps": 0.0,
+        "stop_at_s": 0.0,
+        "approach_ok": true,
+        "incoming_mps": 0.0,
+        "stop_success": false,
+        "survived_stop": false,
+        "ramp_s": 0.0,
+        "braking_tracking_error_mps": null,
+        "distance_to_settle_or_failure_m": 0.8149495124816895,
+        "hold_max_displacement_m": null,
+        "longest_quiet_hold_s": 0.2,
+        "hold_start_s": null,
+        "stop_time_s": null,
+        "final_stop_speed_mps": null,
+        "support_fraction": 0.144,
+        "termination_s": 2.93,
+        "termination_reasons": [
+          "low"
+        ],
+        "termination_phase": "HOLD",
+        "restart_ok": false,
+        "restart_speed_mps": null
+      },
+      {
+        "command_mps": 0.0,
+        "stop_at_s": 0.0,
+        "approach_ok": true,
+        "incoming_mps": 0.0,
+        "stop_success": true,
+        "survived_stop": true,
+        "ramp_s": 0.0,
+        "braking_tracking_error_mps": null,
+        "distance_to_settle_or_failure_m": 0.0002522313443478197,
+        "hold_max_displacement_m": 0.013775121420621872,
+        "longest_quiet_hold_s": 6.98,
+        "hold_start_s": 0.02,
+        "stop_time_s": 0.02,
+        "final_stop_speed_mps": 0.0038886857219040394,
+        "support_fraction": 1.0,
+        "termination_s": null,
+        "termination_reasons": [],
+        "termination_phase": null,
+        "restart_ok": false,
+        "restart_speed_mps": 0.15312816202640533
+      },
+      {
+        "command_mps": 0.0,
+        "stop_at_s": 0.0,
+        "approach_ok": true,
+        "incoming_mps": 0.0,
+        "stop_success": false,
+        "survived_stop": false,
+        "ramp_s": 0.0,
+        "braking_tracking_error_mps": null,
+        "distance_to_settle_or_failure_m": 0.8665067553520203,
+        "hold_max_displacement_m": null,
+        "longest_quiet_hold_s": 0.8,
+        "hold_start_s": null,
+        "stop_time_s": null,
+        "final_stop_speed_mps": null,
+        "support_fraction": 0.254,
+        "termination_s": 3.5300000000000002,
+        "termination_reasons": [
+          "tip"
+        ],
+        "termination_phase": "HOLD",
+        "restart_ok": false,
+        "restart_speed_mps": null
+      },
+      {
+        "command_mps": 0.0,
+        "stop_at_s": 0.0,
+        "approach_ok": true,
+        "incoming_mps": 0.0,
+        "stop_success": false,
+        "survived_stop": false,
+        "ramp_s": 0.0,
+        "braking_tracking_error_mps": null,
+        "distance_to_settle_or_failure_m": 0.9070888161659241,
+        "hold_max_displacement_m": null,
+        "longest_quiet_hold_s": 0.61,
+        "hold_start_s": null,
+        "stop_time_s": null,
+        "final_stop_speed_mps": null,
+        "support_fraction": 0.678,
+        "termination_s": 5.68,
+        "termination_reasons": [
+          "tip"
+        ],
+        "termination_phase": "HOLD",
+        "restart_ok": false,
+        "restart_speed_mps": null
+      },
+      {
+        "command_mps": 0.0,
+        "stop_at_s": 0.0,
+        "approach_ok": true,
+        "incoming_mps": 0.0,
+        "stop_success": true,
+        "survived_stop": true,
+        "ramp_s": 0.0,
+        "braking_tracking_error_mps": null,
+        "distance_to_settle_or_failure_m": 0.00014736896264366806,
+        "hold_max_displacement_m": 0.01821254938840866,
+        "longest_quiet_hold_s": 6.98,
+        "hold_start_s": 0.02,
+        "stop_time_s": 0.02,
+        "final_stop_speed_mps": 0.005313260946422815,
+        "support_fraction": 1.0,
+        "termination_s": null,
+        "termination_reasons": [],
+        "termination_phase": null,
+        "restart_ok": false,
+        "restart_speed_mps": 0.14260970056056976
+      },
+      {
+        "command_mps": 0.0,
+        "stop_at_s": 0.0,
+        "approach_ok": true,
+        "incoming_mps": 0.0,
+        "stop_success": true,
+        "survived_stop": true,
+        "ramp_s": 0.0,
+        "braking_tracking_error_mps": null,
+        "distance_to_settle_or_failure_m": 0.02513856068253517,
+        "hold_max_displacement_m": 0.02150978334248066,
+        "longest_quiet_hold_s": 6.13,
+        "hold_start_s": 0.87,
+        "stop_time_s": 0.87,
+        "final_stop_speed_mps": 0.013779714703559875,
+        "support_fraction": 1.0,
+        "termination_s": null,
+        "termination_reasons": [],
+        "termination_phase": null,
+        "restart_ok": false,
+        "restart_speed_mps": 0.16908510029315948
+      },
+      {
+        "command_mps": 0.0,
+        "stop_at_s": 0.0,
+        "approach_ok": true,
+        "incoming_mps": 0.0,
+        "stop_success": true,
+        "survived_stop": true,
+        "ramp_s": 0.0,
+        "braking_tracking_error_mps": null,
+        "distance_to_settle_or_failure_m": 0.010609098710119724,
+        "hold_max_displacement_m": 0.004065935034304857,
+        "longest_quiet_hold_s": 6.3100000000000005,
+        "hold_start_s": 0.6900000000000001,
+        "stop_time_s": 0.6900000000000001,
+        "final_stop_speed_mps": 0.0052511319518089294,
+        "support_fraction": 1.0,
+        "termination_s": null,
+        "termination_reasons": [],
+        "termination_phase": null,
+        "restart_ok": false,
+        "restart_speed_mps": 0.2063995897769928
+      }
+    ],
+    "success_fraction": 0.6875,
+    "approach_fraction": 1.0,
+    "restart_evaluated": false,
+    "survive_fraction": 0.71875,
+    "restart_fraction": 0.0,
+    "longest_quiet_hold_mean_s": 4.6096875,
+    "stop_time_mean_s": 0.5863636363636362,
+    "residual_speed_mean_mps": 0.014134440328116003,
+    "per_speed": [
+      {
+        "command_mps": 0.0,
+        "n": 32,
+        "successes": 22,
+        "survivors": 23
+      }
+    ]
+  },
+  "diagnosis": {
+    "n": 32,
+    "successes": 22,
+    "survivors": 23,
+    "episodes": [
+      {
+        "trial": 0,
+        "survived": false,
+        "success": false,
+        "violation_fraction_after_2s": {
+          "speed": 0.9491525423728814,
+          "angular": 0.9152542372881356,
+          "joints": 0.3898305084745763,
+          "tilt": 0.5169491525423728
+        },
+        "success_if_criterion_removed": {
+          "none": false,
+          "speed": false,
+          "angular": false,
+          "joints": false,
+          "tilt": false,
+          "support": false,
+          "drift": false
+        }
+      },
+      {
+        "trial": 1,
+        "survived": true,
+        "success": true,
+        "violation_fraction_after_2s": {
+          "speed": 0.0,
+          "angular": 0.0,
+          "joints": 0.0,
+          "tilt": 0.0
+        },
+        "success_if_criterion_removed": {
+          "none": true,
+          "speed": true,
+          "angular": true,
+          "joints": true,
+          "tilt": true,
+          "support": true,
+          "drift": true
+        }
+      },
+      {
+        "trial": 2,
+        "survived": true,
+        "success": true,
+        "violation_fraction_after_2s": {
+          "speed": 0.0,
+          "angular": 0.0,
+          "joints": 0.0,
+          "tilt": 0.0
+        },
+        "success_if_criterion_removed": {
+          "none": true,
+          "speed": true,
+          "angular": true,
+          "joints": true,
+          "tilt": true,
+          "support": true,
+          "drift": true
+        }
+      },
+      {
+        "trial": 3,
+        "survived": true,
+        "success": true,
+        "violation_fraction_after_2s": {
+          "speed": 0.0,
+          "angular": 0.0,
+          "joints": 0.0,
+          "tilt": 0.0
+        },
+        "success_if_criterion_removed": {
+          "none": true,
+          "speed": true,
+          "angular": true,
+          "joints": true,
+          "tilt": true,
+          "support": true,
+          "drift": true
+        }
+      },
+      {
+        "trial": 4,
+        "survived": true,
+        "success": true,
+        "violation_fraction_after_2s": {
+          "speed": 0.0,
+          "angular": 0.0,
+          "joints": 0.0,
+          "tilt": 0.0
+        },
+        "success_if_criterion_removed": {
+          "none": true,
+          "speed": true,
+          "angular": true,
+          "joints": true,
+          "tilt": true,
+          "support": true,
+          "drift": true
+        }
+      },
+      {
+        "trial": 5,
+        "survived": false,
+        "success": false,
+        "violation_fraction_after_2s": {
+          "speed": 0.34915254237288135,
+          "angular": 0.9084745762711864,
+          "joints": 0.3864406779661017,
+          "tilt": 0.19661016949152543
+        },
+        "success_if_criterion_removed": {
+          "none": false,
+          "speed": false,
+          "angular": false,
+          "joints": false,
+          "tilt": false,
+          "support": false,
+          "drift": false
+        }
+      },
+      {
+        "trial": 6,
+        "survived": true,
+        "success": true,
+        "violation_fraction_after_2s": {
+          "speed": 0.0,
+          "angular": 0.0,
+          "joints": 0.0,
+          "tilt": 0.0
+        },
+        "success_if_criterion_removed": {
+          "none": true,
+          "speed": true,
+          "angular": true,
+          "joints": true,
+          "tilt": true,
+          "support": true,
+          "drift": true
+        }
+      },
+      {
+        "trial": 7,
+        "survived": true,
+        "success": true,
+        "violation_fraction_after_2s": {
+          "speed": 0.0,
+          "angular": 0.0,
+          "joints": 0.0,
+          "tilt": 0.0
+        },
+        "success_if_criterion_removed": {
+          "none": true,
+          "speed": true,
+          "angular": true,
+          "joints": true,
+          "tilt": true,
+          "support": true,
+          "drift": true
+        }
+      },
+      {
+        "trial": 8,
+        "survived": true,
+        "success": true,
+        "violation_fraction_after_2s": {
+          "speed": 0.0,
+          "angular": 0.0,
+          "joints": 0.0,
+          "tilt": 0.0
+        },
+        "success_if_criterion_removed": {
+          "none": true,
+          "speed": true,
+          "angular": true,
+          "joints": true,
+          "tilt": true,
+          "support": true,
+          "drift": true
+        }
+      },
+      {
+        "trial": 9,
+        "survived": true,
+        "success": true,
+        "violation_fraction_after_2s": {
+          "speed": 0.0,
+          "angular": 0.0,
+          "joints": 0.0,
+          "tilt": 0.0
+        },
+        "success_if_criterion_removed": {
+          "none": true,
+          "speed": true,
+          "angular": true,
+          "joints": true,
+          "tilt": true,
+          "support": true,
+          "drift": true
+        }
+      },
+      {
+        "trial": 10,
+        "survived": true,
+        "success": true,
+        "violation_fraction_after_2s": {
+          "speed": 0.0,
+          "angular": 0.0,
+          "joints": 0.0,
+          "tilt": 0.0
+        },
+        "success_if_criterion_removed": {
+          "none": true,
+          "speed": true,
+          "angular": true,
+          "joints": true,
+          "tilt": true,
+          "support": true,
+          "drift": true
+        }
+      },
+      {
+        "trial": 11,
+        "survived": true,
+        "success": true,
+        "violation_fraction_after_2s": {
+          "speed": 0.0,
+          "angular": 0.0,
+          "joints": 0.0,
+          "tilt": 0.0
+        },
+        "success_if_criterion_removed": {
+          "none": true,
+          "speed": true,
+          "angular": true,
+          "joints": true,
+          "tilt": true,
+          "support": true,
+          "drift": true
+        }
+      },
+      {
+        "trial": 12,
+        "survived": true,
+        "success": true,
+        "violation_fraction_after_2s": {
+          "speed": 0.0,
+          "angular": 0.0,
+          "joints": 0.0,
+          "tilt": 0.0
+        },
+        "success_if_criterion_removed": {
+          "none": true,
+          "speed": true,
+          "angular": true,
+          "joints": true,
+          "tilt": true,
+          "support": true,
+          "drift": true
+        }
+      },
+      {
+        "trial": 13,
+        "survived": false,
+        "success": false,
+        "violation_fraction_after_2s": {
+          "speed": 1.0,
+          "angular": 1.0,
+          "joints": 0.6909090909090909,
+          "tilt": 1.0
+        },
+        "success_if_criterion_removed": {
+          "none": false,
+          "speed": false,
+          "angular": false,
+          "joints": false,
+          "tilt": false,
+          "support": false,
+          "drift": false
+        }
+      },
+      {
+        "trial": 14,
+        "survived": false,
+        "success": false,
+        "violation_fraction_after_2s": {
+          "speed": null,
+          "angular": null,
+          "joints": null,
+          "tilt": null
+        },
+        "success_if_criterion_removed": {
+          "none": false,
+          "speed": false,
+          "angular": false,
+          "joints": false,
+          "tilt": false,
+          "support": false,
+          "drift": false
+        }
+      },
+      {
+        "trial": 15,
+        "survived": true,
+        "success": true,
+        "violation_fraction_after_2s": {
+          "speed": 0.0,
+          "angular": 0.0,
+          "joints": 0.0,
+          "tilt": 0.0
+        },
+        "success_if_criterion_removed": {
+          "none": true,
+          "speed": true,
+          "angular": true,
+          "joints": true,
+          "tilt": true,
+          "support": true,
+          "drift": true
+        }
+      },
+      {
+        "trial": 16,
+        "survived": true,
+        "success": true,
+        "violation_fraction_after_2s": {
+          "speed": 0.0,
+          "angular": 0.0,
+          "joints": 0.0,
+          "tilt": 0.0
+        },
+        "success_if_criterion_removed": {
+          "none": true,
+          "speed": true,
+          "angular": true,
+          "joints": true,
+          "tilt": true,
+          "support": true,
+          "drift": true
+        }
+      },
+      {
+        "trial": 17,
+        "survived": true,
+        "success": true,
+        "violation_fraction_after_2s": {
+          "speed": 0.0,
+          "angular": 0.0,
+          "joints": 0.0,
+          "tilt": 0.0
+        },
+        "success_if_criterion_removed": {
+          "none": true,
+          "speed": true,
+          "angular": true,
+          "joints": true,
+          "tilt": true,
+          "support": true,
+          "drift": true
+        }
+      },
+      {
+        "trial": 18,
+        "survived": true,
+        "success": true,
+        "violation_fraction_after_2s": {
+          "speed": 0.0,
+          "angular": 0.0,
+          "joints": 0.0,
+          "tilt": 0.0
+        },
+        "success_if_criterion_removed": {
+          "none": true,
+          "speed": true,
+          "angular": true,
+          "joints": true,
+          "tilt": true,
+          "support": true,
+          "drift": true
+        }
+      },
+      {
+        "trial": 19,
+        "survived": true,
+        "success": true,
+        "violation_fraction_after_2s": {
+          "speed": 0.0,
+          "angular": 0.0,
+          "joints": 0.0,
+          "tilt": 0.0
+        },
+        "success_if_criterion_removed": {
+          "none": true,
+          "speed": true,
+          "angular": true,
+          "joints": true,
+          "tilt": true,
+          "support": true,
+          "drift": true
+        }
+      },
+      {
+        "trial": 20,
+        "survived": true,
+        "success": true,
+        "violation_fraction_after_2s": {
+          "speed": 0.0,
+          "angular": 0.0,
+          "joints": 0.0,
+          "tilt": 0.0
+        },
+        "success_if_criterion_removed": {
+          "none": true,
+          "speed": true,
+          "angular": true,
+          "joints": true,
+          "tilt": true,
+          "support": true,
+          "drift": true
+        }
+      },
+      {
+        "trial": 21,
+        "survived": true,
+        "success": true,
+        "violation_fraction_after_2s": {
+          "speed": 0.0,
+          "angular": 0.0,
+          "joints": 0.0,
+          "tilt": 0.0
+        },
+        "success_if_criterion_removed": {
+          "none": true,
+          "speed": true,
+          "angular": true,
+          "joints": true,
+          "tilt": true,
+          "support": true,
+          "drift": true
+        }
+      },
+      {
+        "trial": 22,
+        "survived": true,
+        "success": false,
+        "violation_fraction_after_2s": {
+          "speed": 0.0,
+          "angular": 0.046,
+          "joints": 0.0,
+          "tilt": 0.0
+        },
+        "success_if_criterion_removed": {
+          "none": false,
+          "speed": false,
+          "angular": true,
+          "joints": false,
+          "tilt": false,
+          "support": false,
+          "drift": false
+        }
+      },
+      {
+        "trial": 23,
+        "survived": false,
+        "success": false,
+        "violation_fraction_after_2s": {
+          "speed": 0.8294573643410853,
+          "angular": 0.9767441860465116,
+          "joints": 0.5813953488372093,
+          "tilt": 0.5116279069767442
+        },
+        "success_if_criterion_removed": {
+          "none": false,
+          "speed": false,
+          "angular": false,
+          "joints": false,
+          "tilt": false,
+          "support": false,
+          "drift": false
+        }
+      },
+      {
+        "trial": 24,
+        "survived": false,
+        "success": false,
+        "violation_fraction_after_2s": {
+          "speed": 0.8689655172413793,
+          "angular": 0.9586206896551724,
+          "joints": 0.5724137931034483,
+          "tilt": 0.4206896551724138
+        },
+        "success_if_criterion_removed": {
+          "none": false,
+          "speed": false,
+          "angular": false,
+          "joints": false,
+          "tilt": false,
+          "support": false,
+          "drift": false
+        }
+      },
+      {
+        "trial": 25,
+        "survived": false,
+        "success": false,
+        "violation_fraction_after_2s": {
+          "speed": 1.0,
+          "angular": 1.0,
+          "joints": 0.8043478260869565,
+          "tilt": 0.7717391304347826
+        },
+        "success_if_criterion_removed": {
+          "none": false,
+          "speed": false,
+          "angular": false,
+          "joints": false,
+          "tilt": false,
+          "support": false,
+          "drift": false
+        }
+      },
+      {
+        "trial": 26,
+        "survived": true,
+        "success": true,
+        "violation_fraction_after_2s": {
+          "speed": 0.0,
+          "angular": 0.0,
+          "joints": 0.0,
+          "tilt": 0.0
+        },
+        "success_if_criterion_removed": {
+          "none": true,
+          "speed": true,
+          "angular": true,
+          "joints": true,
+          "tilt": true,
+          "support": true,
+          "drift": true
+        }
+      },
+      {
+        "trial": 27,
+        "survived": false,
+        "success": false,
+        "violation_fraction_after_2s": {
+          "speed": 0.7828947368421053,
+          "angular": 0.868421052631579,
+          "joints": 0.3684210526315789,
+          "tilt": 0.4868421052631579
+        },
+        "success_if_criterion_removed": {
+          "none": false,
+          "speed": false,
+          "angular": false,
+          "joints": false,
+          "tilt": false,
+          "support": false,
+          "drift": false
+        }
+      },
+      {
+        "trial": 28,
+        "survived": false,
+        "success": false,
+        "violation_fraction_after_2s": {
+          "speed": 0.41689373297002724,
+          "angular": 0.5749318801089919,
+          "joints": 0.12806539509536785,
+          "tilt": 0.2016348773841962
+        },
+        "success_if_criterion_removed": {
+          "none": false,
+          "speed": false,
+          "angular": false,
+          "joints": false,
+          "tilt": false,
+          "support": false,
+          "drift": false
+        }
+      },
+      {
+        "trial": 29,
+        "survived": true,
+        "success": true,
+        "violation_fraction_after_2s": {
+          "speed": 0.0,
+          "angular": 0.0,
+          "joints": 0.0,
+          "tilt": 0.0
+        },
+        "success_if_criterion_removed": {
+          "none": true,
+          "speed": true,
+          "angular": true,
+          "joints": true,
+          "tilt": true,
+          "support": true,
+          "drift": true
+        }
+      },
+      {
+        "trial": 30,
+        "survived": true,
+        "success": true,
+        "violation_fraction_after_2s": {
+          "speed": 0.0,
+          "angular": 0.0,
+          "joints": 0.0,
+          "tilt": 0.0
+        },
+        "success_if_criterion_removed": {
+          "none": true,
+          "speed": true,
+          "angular": true,
+          "joints": true,
+          "tilt": true,
+          "support": true,
+          "drift": true
+        }
+      },
+      {
+        "trial": 31,
+        "survived": true,
+        "success": true,
+        "violation_fraction_after_2s": {
+          "speed": 0.0,
+          "angular": 0.0,
+          "joints": 0.0,
+          "tilt": 0.0
+        },
+        "success_if_criterion_removed": {
+          "none": true,
+          "speed": true,
+          "angular": true,
+          "joints": true,
+          "tilt": true,
+          "support": true,
+          "drift": true
+        }
+      }
+    ],
+    "successful_if_removed": {
+      "none": 22,
+      "speed": 22,
+      "angular": 23,
+      "joints": 22,
+      "tilt": 22,
+      "support": 22,
+      "drift": 22
+    }
+  }
+}

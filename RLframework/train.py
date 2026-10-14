@@ -258,13 +258,19 @@ def main():
     agent.obs.block_until_ready()
     print(f"[train] reset {agent.n_envs} envs on {agent.n_dev} device(s) in {time.time() - t:.1f}s")
     stop_evaluator = None
+    standing_evaluator = None
     if cfg.eval_stop_transitions and eval_env is not None:
         from stop_eval import StopEvaluator, record_stop_eval
         stop_evaluator = StopEvaluator(agent, eval_env)
+        if cfg.stop_motion_training:
+            standing_evaluator = StopEvaluator(agent, eval_env, standing=True)
         if not (run / 'stop_baseline.json').exists():
             baseline_walk, _, _ = run_eval(agent, cfg, eval_env)
-            record_stop_eval(agent, stop_evaluator, run, baseline_walk)
+            baseline_standing = standing_evaluator.evaluate(agent) if standing_evaluator else None
+            record_stop_eval(agent, stop_evaluator, run, baseline_walk, standing=baseline_standing)
         baseline_stop = json.loads((run / 'stop_baseline.json').read_text())
+        if cfg.stop_motion_training and baseline_stop['standing']['success_fraction'] < .8:
+            raise SystemExit('Warm keeper fails the 80% standing preflight in this evaluation graph; review before motion training')
         if (baseline_stop['stop_reward_floor_fraction'] or 0.0) > 0.5:
             raise SystemExit('STOP baseline hits the reward floor on >50% of live ticks; review reward budget before training')
     if cfg.stop_imitation_init and resume_ckpt is None:
@@ -297,6 +303,7 @@ def main():
     except Exception:
         pass
     last_ckpt = agent.step
+    last_stop_eval_step = -1
     t_start = time.time()
     print(f"[train] target {total:,} steps, rollout {agent.batch:,} ({env.n_envs}x{cfg.n_steps}), "
           f"{agent.n_minibatches} minibatches of {agent.mb_size}, starting at {agent.step:,}")
@@ -330,15 +337,12 @@ def main():
             t = time.time()
             ev, ev_bu, ev_cur = run_eval(agent, cfg, eval_env)
             if stop_evaluator is not None:
-                stop_result = record_stop_eval(agent, stop_evaluator, run, ev)
+                stand_result = standing_evaluator.evaluate(agent) if standing_evaluator else None
+                stop_result = record_stop_eval(agent, stop_evaluator, run, ev, standing=stand_result)
+                last_stop_eval_step = agent.step
                 if cfg.stop_rehearsal_coef > 0:
-                    from stop04_metrics import preservation_failed
-                    if preservation_failed(baseline_stop, stop_result):
-                        agent.save(run / 'guard_rejected.msgpack')
-                        (run/'guard_stop.json').write_text(json.dumps(dict(step=agent.step,
-                            reason='walking retention failed or hold success fell >10 percentage points',
-                            result=stop_result),indent=2)+'\n')
-                        raise SystemExit('Preservation guard stopped this pilot; rejected checkpoint saved')
+                    from stop04_metrics import enforce_preservation
+                    enforce_preservation(agent, baseline_stop, stop_result)
             ev_row = {"step": agent.step, "finishes": ev["finishes"], "falls": ev["falls"], "n": ev["n"],
                       "t_line_mean": ev["t_line_mean"], "dist_mean": ev["dist_mean"],
                       "speed_mean": ev["speed_mean"], "track_err": ev["track_err_mean"],
@@ -409,10 +413,14 @@ def main():
             agent.save(run / f"ckpt_{agent.step}.msgpack")
             last_ckpt = agent.step
     agent.save(run / "final.msgpack")
-    if stop_evaluator is not None and cfg.stop_adapter:
+    if stop_evaluator is not None and cfg.stop_adapter and last_stop_eval_step != agent.step:
         # The pilot budget need not end on an evaluation interval.
         final_walk, _, _ = run_eval(agent, cfg, eval_env)
-        record_stop_eval(agent, stop_evaluator, run, final_walk)
+        final_standing = standing_evaluator.evaluate(agent) if standing_evaluator else None
+        final_result = record_stop_eval(agent, stop_evaluator, run, final_walk, standing=final_standing)
+        if cfg.stop_rehearsal_coef > 0:
+            from stop04_metrics import enforce_preservation
+            enforce_preservation(agent, baseline_stop, final_result)
     try:
         from plot_training import plot_run
         plot_run(run)

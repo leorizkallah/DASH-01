@@ -3,16 +3,17 @@ import sys
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'controller' / 'deploy'))
 import jax.numpy as jnp
-from stop_schedule import advance
+from stop_schedule import advance, feedback_hold
 
 
 def prepare(net, weights, stats, env, state, obs):
     if not env.cfg.stop_adapter:
         return state, obs
     cfg = env.cfg
-    estimate = net.apply(weights, stats.normalize(obs), method=net.estimate)[..., 0]
+    estimated = net.apply(weights, stats.normalize(obs), method=net.estimate)
     j = env.actor_dim
-    estimate = (estimate * jnp.sqrt(stats.var[j] + 1e-8) + stats.mean[j]) / cfg.obs_scales['base_vel']
+    estimated = (estimated * jnp.sqrt(stats.var[j:j+3] + 1e-8) + stats.mean[j:j+3]) / cfg.obs_scales['base_vel']
+    estimate = estimated[..., 0]
     estimate = jnp.nan_to_num(estimate, nan=0.0, posinf=cfg.v_max, neginf=0.0)
     values = advance(state.stop_cmd > 0.5, state.stop_previous, state.v_cmd,
                      estimate, state.stop_estimate, state.stop_v0, state.stop_started,
@@ -23,6 +24,25 @@ def prepare(net, weights, stats, env, state, obs):
     # Idempotent at one simulation tick (rollout bootstrap can prepare it early).
     fresh = state.stop_prepared_t != state.t
     changes = {n: jnp.where(fresh, v, getattr(state, n)) for n, v in zip(names, values)}
+    changes['stop_gate_speed'] = jnp.where(fresh,jnp.linalg.norm(estimated[..., :2],axis=-1),state.stop_gate_speed)
+    if cfg.stop_feedback_hold:
+        request = state.stop_cmd > .5
+        edge = request & ~state.stop_previous
+        # Latest measured IMU frame, not privileged simulator velocity/posture.
+        frame = state.hist[..., -1, :]
+        grav = frame[..., 18:21] / cfg.obs_scales['gravity']
+        gyro = frame[..., 21:24] / cfg.obs_scales['ang_vel']
+        speed = jnp.linalg.norm(estimated[..., :2], axis=-1)
+        hold, ready, timeout = feedback_hold(request, edge, values[5], state.effective_hold,
+            state.stop_ready_s, speed, jnp.linalg.norm(gyro, axis=-1), -grav[...,2],
+            state.t-values[2]-values[3], env.control_dt, cfg.stop_ready_speed,
+            cfg.stop_ready_gyro, cfg.stop_ready_tilt_deg, cfg.stop_ready_dwell_s,
+            cfg.stop_ready_max_wait_s, jnp)
+        hold = jnp.where(request & (values[3] == 0), True, hold)  # initial standing reset
+        timed_out = request & ((state.stop_gate_timeout & ~edge) | timeout)
+        for name, value in dict(effective_hold=hold, stop_phase=jnp.where(request,jnp.where(hold,2,1),0),
+                                stop_ready_s=ready, stop_gate_timeout=timed_out, stop_gate_speed=speed).items():
+            changes[name] = jnp.where(fresh,value,getattr(state,name))
     state = state.replace(**changes, stop_previous=jnp.where(fresh, state.stop_cmd > 0.5,
                                                            state.stop_previous),
                           stop_prepared_t=state.t)

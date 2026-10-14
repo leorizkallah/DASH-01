@@ -8,6 +8,23 @@ import numpy as np
 VERSION = 1
 
 
+def feedback_hold(request, edge, ramp_done, previous_hold, ready_s, speed, gyro,
+                  upright, after_ramp, dt=.01, speed_limit=.15, gyro_limit=.5,
+                  tilt_deg=15., dwell=.3, max_wait=4., xp=np):
+    """Bounded, latched readiness gate; thresholds are looser than hold success.
+
+    A timeout enters HOLD as a fallback, never as evidence of a successful stop.
+    Initial HOLD resets bypass this function in the adapter.
+    """
+    latched = request & previous_hold & xp.logical_not(edge)
+    ready = (xp.isfinite(speed) & (speed < speed_limit) & (gyro < gyro_limit)
+             & (upright > xp.cos(tilt_deg * xp.pi / 180.)))
+    count = xp.where(request & xp.logical_not(edge) & ramp_done & ready, ready_s + dt, 0.)
+    timeout = request & ramp_done & (after_ramp >= max_wait) & xp.logical_not(latched) & (count < dwell)
+    hold = request & (latched | (ramp_done & ((count >= dwell) | timeout)))
+    return hold, count, timeout
+
+
 def duration(v0, decel=0.5, minimum=2.0, xp=np):
     return xp.maximum(minimum, 1.5 * xp.maximum(v0, 0.0) / decel)
 
