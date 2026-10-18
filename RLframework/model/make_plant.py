@@ -1222,7 +1222,19 @@ def build(variant="free", leg_kg=LEG_KG, verbose=True,
 
 
 def main():
+    # The v2 articulated-foot CAD has a different topology. Keep its explicit
+    # inertial correction separate from the historical flat-foot plant builder.
+    import sys
+    if "--cad-v2" in sys.argv:
+        if __package__:
+            from .prepare_cad_v2 import main as prepare_v2
+        else:
+            from prepare_cad_v2 import main as prepare_v2
+        prepare_v2([arg for arg in sys.argv[1:] if arg != "--cad-v2"])
+        return
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
+    ap.add_argument("--cad-v2", action="store_true",
+                    help="correct/audit v2 CAD only (not a training plant); use --cad-v2 --help")
     ap.add_argument("--leg-kg", type=float, default=LEG_KG,
                     help=f"mass of the merged leg/foot segment (default {LEG_KG}, PROVISIONAL)")
     ap.add_argument("--report", action="store_true", help="build and validate, write nothing")

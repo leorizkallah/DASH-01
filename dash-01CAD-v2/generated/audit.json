@@ -1,0 +1,636 @@
+{
+  "schema_version": 1,
+  "training_ready": false,
+  "mujoco_version": "3.13.0",
+  "raw_mass_kg": 5.360706753427105,
+  "pdf_mass_kg": 13.594154,
+  "added_body_mass_kg": 1.0,
+  "corrected_mass_kg": 14.594154,
+  "frame_confirmation": "User confirmed 2026-10-14: PDF already uses export frames; apply directly.",
+  "assembly_contents": "User confirmed 2026-10-14: PDF torso and hip masses include motors and battery; do not add them again.",
+  "extra_mass_assumption": "Approximation: extra mass shares the PDF torso COM and normalized spatial mass distribution; tensor scales by (m+extra)/m.",
+  "bodies": [
+    {
+      "body": "EXPORT_body-v4_1",
+      "pdf_part": "Body",
+      "raw_mass_kg": 1.1678499088860506,
+      "corrected_mass_kg": 5.409075,
+      "com_m": [
+        -0.0020440000000000002,
+        0.00045400000000000003,
+        -0.057873
+      ],
+      "frame": {
+        "part": "Body",
+        "rotation_x_deg": 0,
+        "translation_mm": [
+          0,
+          0,
+          0
+        ],
+        "frame_status": "user_confirmed_export_frame"
+      },
+      "mesh_bbox_mm": [
+        209.0,
+        335.0,
+        155.24749183654785
+      ],
+      "pdf_bbox_mm": [
+        209.0,
+        335.0,
+        156.747
+      ],
+      "principal_inertia_kg_m2": [
+        0.015321644514927398,
+        0.04301606421956713,
+        0.04767050631061132
+      ],
+      "pdf_parallel_axis_relative_error": 0.00011365605295634635
+    },
+    {
+      "body": "EXPORT_hip_left-v2_1",
+      "pdf_part": "Hip_left",
+      "raw_mass_kg": 1.0178564410715387,
+      "corrected_mass_kg": 3.537567,
+      "com_m": [
+        -0.035093000000000006,
+        0.009108000000000002,
+        3.8e-05
+      ],
+      "frame": {
+        "part": "Hip_left",
+        "rotation_x_deg": 0,
+        "translation_mm": [
+          0,
+          0,
+          0
+        ],
+        "frame_status": "user_confirmed_export_frame"
+      },
+      "mesh_bbox_mm": [
+        389.0,
+        88.0,
+        131.46856689453125
+      ],
+      "pdf_bbox_mm": [
+        389.0,
+        88.002,
+        132.039
+      ],
+      "principal_inertia_kg_m2": [
+        0.003613959670713646,
+        0.05095000095639722,
+        0.0529400393728891
+      ],
+      "pdf_parallel_axis_relative_error": 5.96013816102986e-05
+    },
+    {
+      "body": "EXPORT_hip_right-v3_1",
+      "pdf_part": "Hip_right",
+      "raw_mass_kg": 1.0178564410715383,
+      "corrected_mass_kg": 3.537567,
+      "com_m": [
+        -0.035093000000000006,
+        -0.009108000000000002,
+        -3.8e-05
+      ],
+      "frame": {
+        "part": "Hip_right",
+        "rotation_x_deg": 0,
+        "translation_mm": [
+          0,
+          0,
+          0
+        ],
+        "frame_status": "user_confirmed_export_frame"
+      },
+      "mesh_bbox_mm": [
+        389.0,
+        88.0,
+        131.46856689453125
+      ],
+      "pdf_bbox_mm": [
+        389.0,
+        88.002,
+        132.039
+      ],
+      "principal_inertia_kg_m2": [
+        0.003613959670713646,
+        0.05095000095639722,
+        0.0529400393728891
+      ],
+      "pdf_parallel_axis_relative_error": 5.96013816102986e-05
+    },
+    {
+      "body": "EXPORT_thigh_left-v3_1",
+      "pdf_part": "Thigh_left",
+      "raw_mass_kg": 0.46161441765161243,
+      "corrected_mass_kg": 0.471484,
+      "com_m": [
+        0.00066,
+        0.015321,
+        -0.190933
+      ],
+      "frame": {
+        "part": "Thigh_left",
+        "rotation_x_deg": 0,
+        "translation_mm": [
+          0,
+          0,
+          0
+        ],
+        "frame_status": "user_confirmed_export_frame"
+      },
+      "mesh_bbox_mm": [
+        65.39462280273438,
+        61.5,
+        469.8885917663574
+      ],
+      "pdf_bbox_mm": [
+        66.2,
+        264.9,
+        470.0
+      ],
+      "principal_inertia_kg_m2": [
+        0.0002924694142160273,
+        0.009696137757643546,
+        0.009812192828140429
+      ],
+      "pdf_parallel_axis_relative_error": 0.00019201362598094107
+    },
+    {
+      "body": "EXPORT_thigh_right-v3_1",
+      "pdf_part": "Thigh_right",
+      "raw_mass_kg": 0.4616143264969992,
+      "corrected_mass_kg": 0.471484,
+      "com_m": [
+        0.00066,
+        -0.015321,
+        -0.190933
+      ],
+      "frame": {
+        "part": "Thigh_right",
+        "rotation_x_deg": 0,
+        "translation_mm": [
+          0,
+          0,
+          0
+        ],
+        "frame_status": "user_confirmed_export_frame"
+      },
+      "mesh_bbox_mm": [
+        65.39462280273438,
+        61.5,
+        469.8885917663574
+      ],
+      "pdf_bbox_mm": [
+        66.2,
+        264.9,
+        470.0
+      ],
+      "principal_inertia_kg_m2": [
+        0.0002924694142160273,
+        0.009696137757643546,
+        0.009812192828140429
+      ],
+      "pdf_parallel_axis_relative_error": 0.00019201362598094107
+    },
+    {
+      "body": "EXPORT_cam_left-v3_1",
+      "pdf_part": "Cam_left",
+      "raw_mass_kg": 0.04592600075904326,
+      "corrected_mass_kg": 0.10605200000000001,
+      "com_m": [
+        0.029885000000000002,
+        0.001435,
+        2.687e-13
+      ],
+      "frame": {
+        "part": "Cam_left",
+        "rotation_x_deg": 0,
+        "translation_mm": [
+          0,
+          0,
+          0
+        ],
+        "frame_status": "user_confirmed_export_frame"
+      },
+      "mesh_bbox_mm": [
+        170.0,
+        30.0,
+        59.998779296875
+      ],
+      "pdf_bbox_mm": [
+        170.0,
+        30.0,
+        60.0
+      ],
+      "principal_inertia_kg_m2": [
+        2.358358455504894e-05,
+        0.0002153,
+        0.0002314637474449511
+      ],
+      "pdf_parallel_axis_relative_error": 0.00019985075927616194
+    },
+    {
+      "body": "EXPORT_cam_right-v3_1",
+      "pdf_part": "Cam_right",
+      "raw_mass_kg": 0.045926000759053114,
+      "corrected_mass_kg": 0.10605200000000001,
+      "com_m": [
+        0.029885000000000002,
+        -0.0014290000000000001,
+        -0.000125
+      ],
+      "frame": {
+        "part": "Cam_right",
+        "rotation_x_deg": 0,
+        "translation_mm": [
+          0,
+          0,
+          0
+        ],
+        "frame_status": "user_confirmed_export_frame"
+      },
+      "mesh_bbox_mm": [
+        170.0,
+        30.0,
+        59.998779296875
+      ],
+      "pdf_bbox_mm": [
+        170.0,
+        35.115,
+        62.386
+      ],
+      "principal_inertia_kg_m2": [
+        2.3583560558122412e-05,
+        0.00021527818517937044,
+        0.000231385586262507
+      ],
+      "pdf_parallel_axis_relative_error": 0.0002512245392637697
+    },
+    {
+      "body": "EXPORT_pushrod_left-v3_1",
+      "pdf_part": "Pushrod_left",
+      "raw_mass_kg": 0.10955214594424194,
+      "corrected_mass_kg": 0.060723,
+      "com_m": [
+        -0.20500000000000002,
+        0.005879,
+        0.0
+      ],
+      "frame": {
+        "part": "Pushrod_left",
+        "rotation_x_deg": 0,
+        "translation_mm": [
+          0,
+          0,
+          0
+        ],
+        "frame_status": "user_confirmed_export_frame"
+      },
+      "mesh_bbox_mm": [
+        427.86876678466797,
+        22.600000381469727,
+        33.912742614746094
+      ],
+      "pdf_bbox_mm": [
+        428.0,
+        22.6,
+        34.0
+      ],
+      "principal_inertia_kg_m2": [
+        6.500268e-06,
+        0.0014620000000000002,
+        0.0014639999999999987
+      ],
+      "pdf_parallel_axis_relative_error": 2.88657868526871e-05
+    },
+    {
+      "body": "EXPORT_pushrod_right-v2_1",
+      "pdf_part": "Pushrod_right",
+      "raw_mass_kg": 0.1095521459442422,
+      "corrected_mass_kg": 0.060723,
+      "com_m": [
+        -0.20500000000000002,
+        -0.005879,
+        0.0
+      ],
+      "frame": {
+        "part": "Pushrod_right",
+        "rotation_x_deg": 0,
+        "translation_mm": [
+          0,
+          0,
+          0
+        ],
+        "frame_status": "user_confirmed_export_frame"
+      },
+      "mesh_bbox_mm": [
+        427.86876678466797,
+        22.600000381469727,
+        33.912742614746094
+      ],
+      "pdf_bbox_mm": [
+        428.0,
+        22.6,
+        34.0
+      ],
+      "principal_inertia_kg_m2": [
+        6.500268e-06,
+        0.0014620000000000004,
+        0.0014639999999999985
+      ],
+      "pdf_parallel_axis_relative_error": 2.88657868526871e-05
+    },
+    {
+      "body": "EXPORT_tibia_left-v2_1",
+      "pdf_part": "Tibia_left",
+      "raw_mass_kg": 0.21577006352225897,
+      "corrected_mass_kg": 0.222524,
+      "com_m": [
+        -0.23973500000000003,
+        4.4999999999999996e-05,
+        0.001218
+      ],
+      "frame": {
+        "part": "Tibia_left",
+        "rotation_x_deg": 0,
+        "translation_mm": [
+          0,
+          0,
+          0
+        ],
+        "frame_status": "user_confirmed_export_frame"
+      },
+      "mesh_bbox_mm": [
+        541.0,
+        58.0,
+        64.96135330200195
+      ],
+      "pdf_bbox_mm": [
+        541.0,
+        58.0,
+        65.0
+      ],
+      "principal_inertia_kg_m2": [
+        3.807092312229649e-05,
+        0.005633400614935545,
+        0.005665004362942157
+      ],
+      "pdf_parallel_axis_relative_error": 0.00023973407276309562
+    },
+    {
+      "body": "EXPORT_tibia_right-v2_1",
+      "pdf_part": "Tibia_right",
+      "raw_mass_kg": 0.2157700635222531,
+      "corrected_mass_kg": 0.218767,
+      "com_m": [
+        -0.24274400000000002,
+        0.000101,
+        0.000833
+      ],
+      "frame": {
+        "part": "Tibia_right",
+        "rotation_x_deg": 0,
+        "translation_mm": [
+          0,
+          0,
+          0
+        ],
+        "frame_status": "user_confirmed_export_frame"
+      },
+      "mesh_bbox_mm": [
+        541.0,
+        57.99999809265137,
+        64.92966079711914
+      ],
+      "pdf_bbox_mm": [
+        541.0,
+        58.0,
+        65.0
+      ],
+      "principal_inertia_kg_m2": [
+        3.587675960588278e-05,
+        0.005515178451792882,
+        0.005545020850601235
+      ],
+      "pdf_parallel_axis_relative_error": 0.00022933640540785316
+    },
+    {
+      "body": "EXPORT_achilles_left-v7_1",
+      "pdf_part": "Achilles_left",
+      "raw_mass_kg": 0.049756170629170746,
+      "corrected_mass_kg": 0.05713000000000001,
+      "com_m": [
+        -0.253588,
+        -0.009839,
+        0.004582
+      ],
+      "frame": {
+        "part": "Achilles_left",
+        "rotation_x_deg": 0,
+        "translation_mm": [
+          0,
+          0,
+          0
+        ],
+        "frame_status": "user_confirmed_export_frame"
+      },
+      "mesh_bbox_mm": [
+        530.0,
+        22.500000000000203,
+        26.0
+      ],
+      "pdf_bbox_mm": [
+        530.0,
+        22.5,
+        26.0
+      ],
+      "principal_inertia_kg_m2": [
+        5.04290736745053e-06,
+        0.0020491250429934813,
+        0.0020508753486390688
+      ],
+      "pdf_parallel_axis_relative_error": 6.67165755715543e-05
+    },
+    {
+      "body": "EXPORT_achilles_right-v4_1",
+      "pdf_part": "Achilles_right",
+      "raw_mass_kg": 0.04975617062917068,
+      "corrected_mass_kg": 0.05713000000000001,
+      "com_m": [
+        -0.253588,
+        0.009839,
+        0.004582
+      ],
+      "frame": {
+        "part": "Achilles_right",
+        "rotation_x_deg": 0,
+        "translation_mm": [
+          0,
+          0,
+          0
+        ],
+        "frame_status": "user_confirmed_export_frame"
+      },
+      "mesh_bbox_mm": [
+        530.0,
+        22.500000000000203,
+        26.0
+      ],
+      "pdf_bbox_mm": [
+        530.0,
+        22.5,
+        26.0
+      ],
+      "principal_inertia_kg_m2": [
+        5.04290736745053e-06,
+        0.0020491250429934813,
+        0.0020508753486390688
+      ],
+      "pdf_parallel_axis_relative_error": 6.67165755715543e-05
+    },
+    {
+      "body": "EXPORT_foot-v4_1",
+      "pdf_part": "Foot",
+      "raw_mass_kg": 0.19595322826996595,
+      "corrected_mass_kg": 0.13893799999999998,
+      "com_m": [
+        0.041194,
+        4.4e-05,
+        -0.013067
+      ],
+      "frame": {
+        "part": "Foot",
+        "rotation_x_deg": 0,
+        "translation_mm": [
+          0,
+          0,
+          0
+        ],
+        "frame_status": "user_confirmed_export_frame"
+      },
+      "mesh_bbox_mm": [
+        285.8872604370117,
+        56.20000076293945,
+        60.468868255615234
+      ],
+      "pdf_bbox_mm": [
+        285.916,
+        56.2,
+        60.501
+      ],
+      "principal_inertia_kg_m2": [
+        5.249906249970447e-05,
+        0.001387999949301574,
+        0.001403772892198723
+      ],
+      "pdf_parallel_axis_relative_error": 0.0003073977771541763
+    },
+    {
+      "body": "EXPORT_foot-v4_2",
+      "pdf_part": "Foot",
+      "raw_mass_kg": 0.19595322826996595,
+      "corrected_mass_kg": 0.13893799999999998,
+      "com_m": [
+        0.041194,
+        4.4e-05,
+        -0.013067
+      ],
+      "frame": {
+        "part": "Foot",
+        "rotation_x_deg": 0,
+        "translation_mm": [
+          0,
+          0,
+          0
+        ],
+        "frame_status": "user_confirmed_export_frame"
+      },
+      "mesh_bbox_mm": [
+        285.8872604370117,
+        56.20000076293945,
+        60.468868255615234
+      ],
+      "pdf_bbox_mm": [
+        285.916,
+        56.2,
+        60.501
+      ],
+      "principal_inertia_kg_m2": [
+        5.249906249970447e-05,
+        0.001387999949301574,
+        0.001403772892198723
+      ],
+      "pdf_parallel_axis_relative_error": 0.0003073977771541763
+    }
+  ],
+  "initial_loop_gap_mm": {
+    "loop_EXPORT_pushrod_left-v3_1": 0.0002731062937531925,
+    "loop_EXPORT_pushrod_right-v2_1": 0.000196487078864118,
+    "loop_EXPORT_achilles_left-v7_1": 0.0004734601422672458,
+    "loop_EXPORT_achilles_right-v4_1": 0.00020754359746056773
+  },
+  "smoke_test_final_loop_gap_mm": {
+    "loop_EXPORT_pushrod_left-v3_1": 3.0029006522799123e-10,
+    "loop_EXPORT_pushrod_right-v2_1": 5.824790025288634e-10,
+    "loop_EXPORT_achilles_left-v7_1": 4.2382644454150506e-10,
+    "loop_EXPORT_achilles_right-v4_1": 2.999995470631436e-05
+  },
+  "smoke_test": {
+    "duration_s": 0.20000000000000015,
+    "gravity": [
+      0,
+      0,
+      0
+    ],
+    "fixed_base": true,
+    "warnings": 0,
+    "max_abs_qvel": 2.377882117216037e-09
+  },
+  "model_dimensions": {
+    "nbody": 16,
+    "nq": 14,
+    "nv": 14,
+    "nu": 0,
+    "neq": 4
+  },
+  "findings": [
+    "PDF and CAD component revision labels differ; user confirmed PDF properties use export frames.",
+    "Right cam COM/tensor resemble a 5 deg rotation of the mirrored left cam; right tibia mesh origins differ. No inferred transforms applied, per user confirmation.",
+    "PDF thigh width is 264.9 mm, exported mesh width is 61.5 mm; inspect source assembly contents.",
+    "Right thigh limits are not the sign-reversed left limits (about 4.53 deg offset); preserved for review.",
+    "PDF tibia masses differ by 3.757 g; preserved, not forced symmetric.",
+    "PDF supplies one Foot; applied to both identical exported foot meshes.",
+    "No extra motor bodies added: user confirmed PDF assembly masses include motors and battery.",
+    "Export is fixed-base with all collisions disabled, no floor, no actuators and no hardware joint-zero mapping.",
+    "Achilles links are rigid; no spring compliance is specified. Do not invent a stiffness.",
+    "Old flat-foot builder/policies are incompatible with the new articulated feet and four-loop topology."
+  ],
+  "inputs": {
+    "dash-01CAD-v2/EXPORT_assembly_closed/EXPORT_assembly-v34_closed.xml": "2737e36ccd3a981b2b04a757184c15c66bcb62eecf3533999016e9a543153d56",
+    "dash-01CAD-v2/properties/mass_properties.json": "0cd605ac74a0853204784a1b3f4760dfbee364a086dc568e61f92bc43180ff01",
+    "dash-01CAD-v2/properties/body_mapping.json": "cb0d5b5529645d6a83fd41e43af88ebfb379b6c4eb7d089df7ee0dd142c833a0",
+    "dash-01CAD-v2/properties/inerties_masses.pdf": "d98b2ee26c6a7732f57f939a18e1ac4cb8ddc1b66aefe1f93f732bdd553eaf23",
+    "RLframework/model/prepare_cad_v2.py": "16a1c69b5605a872008e68e5881a0f76341d4d17f99cc5180e50c175bac3ecd9",
+    "controller/identification/apply_identified.py": "2dbf9245cd20b61add2d145be42b52f32b951163011c096f8ef224c3b518a372",
+    "dash-01CAD-v2/EXPORT_assembly_closed/acdc4robot-export-report.json": "8d9d06ecc0ffff87585a7bf587129e3f63b8be1866eee2830c29bd182da299e5",
+    "dash-01CAD-v2/EXPORT_assembly_closed/meshes/EXPORT_achilles_left-v7_1.stl": "63ff8f1c012c2bba1b3eb54a4b0bf7d83f6578f3a3d4afba63eb4a9c2dda83d1",
+    "dash-01CAD-v2/EXPORT_assembly_closed/meshes/EXPORT_achilles_right-v4_1.stl": "72a268346de00c912eab159726ae7525ec242e97d85ebec89b4ab71796d8a3c0",
+    "dash-01CAD-v2/EXPORT_assembly_closed/meshes/EXPORT_body-v4_1.stl": "24c8d885749c73126f5489f2682449f526f95d5e53eee769e4b39387012c8ad1",
+    "dash-01CAD-v2/EXPORT_assembly_closed/meshes/EXPORT_cam_left-v3_1.stl": "8c384352af861179781849cb3d61fd11c39f5fe06f5a757627d300f316372c91",
+    "dash-01CAD-v2/EXPORT_assembly_closed/meshes/EXPORT_cam_right-v3_1.stl": "1f45bf1424607a693d6d39cc4340bdbb43b0ba2f52640062e05da1eb6a31b6e0",
+    "dash-01CAD-v2/EXPORT_assembly_closed/meshes/EXPORT_foot-v4_1.stl": "be665ec6f359f4416ee27b12dd0391268eb6e0b7a1b2f10420eecb6c34fb710b",
+    "dash-01CAD-v2/EXPORT_assembly_closed/meshes/EXPORT_foot-v4_2.stl": "be665ec6f359f4416ee27b12dd0391268eb6e0b7a1b2f10420eecb6c34fb710b",
+    "dash-01CAD-v2/EXPORT_assembly_closed/meshes/EXPORT_hip_left-v2_1.stl": "ac8c19066db9e6263c4405cbffa24c4324f32adafe972b9c491c50accb7f2980",
+    "dash-01CAD-v2/EXPORT_assembly_closed/meshes/EXPORT_hip_right-v3_1.stl": "6a612cef76c0f9fb962d7c262e8f1197e0038210298a8ed62262a6bedc629c58",
+    "dash-01CAD-v2/EXPORT_assembly_closed/meshes/EXPORT_pushrod_left-v3_1.stl": "e2afa62526d7a0715f64660adf06bdd335ab90c1819704ed08454a2e0bdd2391",
+    "dash-01CAD-v2/EXPORT_assembly_closed/meshes/EXPORT_pushrod_right-v2_1.stl": "e22ca25e03d9124663d8952b4b49cd565f79b352e2914cedcdb4d776d51eaeb0",
+    "dash-01CAD-v2/EXPORT_assembly_closed/meshes/EXPORT_thigh_left-v3_1.stl": "794fc58fdf21151a7312f48217d0c321bc5364aaf2c5d0d716045b2d990d9680",
+    "dash-01CAD-v2/EXPORT_assembly_closed/meshes/EXPORT_thigh_right-v3_1.stl": "9cdad647749548b70beea3914da03e8e93ad75658a3999f8a93c7874f7e116bc",
+    "dash-01CAD-v2/EXPORT_assembly_closed/meshes/EXPORT_tibia_left-v2_1.stl": "32ac8443f916b8e929bc8597ec4a56f0eaf1b3ce5644e6d6625c982e7a991879",
+    "dash-01CAD-v2/EXPORT_assembly_closed/meshes/EXPORT_tibia_right-v2_1.stl": "6e3c3187714be7ddd5510cb8e43b3a5798470728a515c2b29b6620fb4d06dee3"
+  },
+  "generated_xml_sha256": "da47fd7a381edef74a24ad671f9eed6a28c309dea83b83fcbbf2b0956cb1dfab"
+}

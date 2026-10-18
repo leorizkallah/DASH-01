@@ -1,0 +1,57 @@
+{
+  "replay_job": 3222197,
+  "state": "COMPLETED",
+  "elapsed": "00:03:13",
+  "exit_code": "0:0",
+  "remote_root": "/home/rizkalla/running_robot/experiments/gait07_replay_20261017_v1",
+  "run_snapshot": "gait07_20261017_v1",
+  "checkpoint": "final.msgpack",
+  "checkpoint_sha256": "64c881d3591ea717a87ef52244f9bf75b5060386f0302079e8e9d49ee5dd8e1d",
+  "seed": 1000,
+  "views": [
+    115,
+    295
+  ],
+  "foot_colors": {
+    "left": "blue",
+    "right": "orange"
+  },
+  "local_files": {
+    "RLframework/tools/gait_video.py": "16357f8950da5b73b8bc7b034ec18febaace176d2061632b9b3408c00dba5fa0",
+    "RLframework/slurm/izar_cad_v2_gait07_video.sbatch": "09e283d2eeffca077f06bce9ac7885cda6cd066ca20085a4c88f65590666d67b",
+    "RLframework/model/dash01_cad_v2_free.xml": "a8beffae5d40fddba299463767cc4ae244f6c780243d80d020cf4cdae83ce708",
+    "docs\\experiments\\gait07_20261017_v1\\gait07_trace.npz": "d9c798497167766d8991529f52557a9c5407b8e02eb555f9765dfb15ac56ccb4"
+  },
+  "videos": {
+    "report/videos/gait07_final_0.20mps.mp4": {
+      "sha256": "7b6c9f4a59f2a5826624d065ed733bab9f70126aa191ce3f0d923b3658d46885",
+      "frames": 578,
+      "fps": 30.0,
+      "duration_s": 19.27,
+      "size": [
+        1280,
+        720
+      ]
+    },
+    "report/videos/gait07_final_0.25mps.mp4": {
+      "sha256": "6d1693e68e1c05eacd2cc8499830cae51b5d2bc817cefd3f2f29b18efb924dd6",
+      "frames": 750,
+      "fps": 30.0,
+      "duration_s": 25.0,
+      "size": [
+        1280,
+        720
+      ]
+    },
+    "report/videos/gait07_final_0.35mps.mp4": {
+      "sha256": "072167e586e48415a2edfd6ecccd67f00da4af474f520550ad5aac06376a5808",
+      "frames": 750,
+      "fps": 30.0,
+      "duration_s": 25.0,
+      "size": [
+        1280,
+        720
+      ]
+    }
+  }
+}

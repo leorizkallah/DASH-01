@@ -78,11 +78,17 @@ def bench_ppo(cfg, n_envs, n_iters=3):
     agent.env_state, agent.obs = env.reset(k, agent.env_params)
     t = time.time()
     row = agent.iterate()
+    def check_update(row):
+        keys = ("train/loss_pg", "train/loss_vf", "train/approx_kl", "rollout/reward_mean")
+        if not all(np.isfinite(row[k]) for k in keys):
+            raise RuntimeError(f"Nonfinite PPO benchmark update: {[(k, row[k]) for k in keys]}")
+    check_update(row)
     t_first = time.time() - t
     ts = []
     for _ in range(n_iters):
         t = time.time()
         row = agent.iterate()
+        check_update(row)
         ts.append(time.time() - t)
     return dict(n_envs=n_envs, n_steps=cfg.n_steps, batch=agent.batch, iter_first_s=t_first,
                 iter_s=float(np.mean(ts)), ppo_sps=agent.batch / float(np.mean(ts)),

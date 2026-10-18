@@ -1,0 +1,37 @@
+{
+  "step": 28311552,
+  "seed": 1000,
+  "dt": 0.01,
+  "model": "model/dash01_cad_v2_free.xml",
+  "checkpoint_sha256": "bd6aad4a148c86d26d3963f417c4a20778b8dd461d035d6e18feddde096a6ab7",
+  "trials": [
+    {
+      "target": 0.20000000298023224,
+      "ticks": 2500,
+      "seconds": 25.0,
+      "fell": false,
+      "mean_speed_after_5s": 0.2550343871116638,
+      "speed_error_after_5s": 0.0712992250919342,
+      "flight_fraction": 0.022680001333355904
+    },
+    {
+      "target": 0.3499999940395355,
+      "ticks": 2500,
+      "seconds": 25.0,
+      "fell": false,
+      "mean_speed_after_5s": 0.33298224210739136,
+      "speed_error_after_5s": 0.050654176622629166,
+      "flight_fraction": 0.03412000089883804
+    },
+    {
+      "target": 0.5,
+      "ticks": 2031,
+      "seconds": 20.31,
+      "fell": true,
+      "mean_speed_after_5s": 0.3771614134311676,
+      "speed_error_after_5s": 0.13733702898025513,
+      "flight_fraction": 0.046085670590400696
+    }
+  ],
+  "note": "Three fresh nominal greedy trials, not the 96-trial evaluation. All trials retained; videos end at first termination, without showing auto-resets."
+}

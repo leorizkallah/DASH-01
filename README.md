@@ -14,14 +14,20 @@ The original Git history and [Mozilla Public License 2.0](LICENSE) are preserved
 ## Purpose of this branch
 
 The `dash-01-v2` branch prepares for the new CAD model and a new policy-training
-campaign. The model will be supplied later; its dedicated folder is
+campaign. The new CAD and corrected mass/inertia properties are now in
 [`dash-01CAD-v2/`](dash-01CAD-v2/README.md).
 
-Once the new model is available, we will integrate and validate it in simulation,
-then redo training to find a policy for the revised robot. First, we will optimize
+The [CAD import audit](report/cad-v2-import.md) records the corrections and checks.
+The articulated-foot simulation plant is integrated; the
+[GAIT-01 pilot](docs/gait01-experiment-report.md) validates numerical behavior
+and starts fresh walking training. We will first optimize
 its walking gait and teach the policy to adapt that gait to different target
 speeds. The demonstration will stay within walking speeds; transitions between
 walking and running gaits are outside its scope.
+
+Current priority: **learn walking directly**, with balance during motion learned
+as part of that task. Separate standing/startup training is deferred until a
+known homing position is supplied. The current simulated reset is not hardware homing.
 
 We will then train and validate the complete Robotics Day demonstration:
 
@@ -43,7 +49,7 @@ documented in the [report workspace](report/README.md).
 
 The code, policies and results below come from the previous robot models. They
 provide a starting point and historical references; they have not been validated
-against the forthcoming v2 CAD model.
+against the supplied v2 CAD model.
 
 The current code includes the training stacks and the software that runs the policies on the
 real robot:

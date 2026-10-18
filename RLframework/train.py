@@ -19,6 +19,7 @@ import json
 import os
 import sys
 import time
+import signal
 from pathlib import Path
 
 PKG_DIR = Path(__file__).resolve().parent
@@ -112,7 +113,7 @@ def run_eval(agent, cfg, eval_env):
                                        bringup_scale=float(getattr(cfg, "bringup_target", 1.0)),
                                        bringup_p_drop=0.5, bringup_p_held=0.5)
     ev_bu = (agent.evaluate(params=pb, ladder=lad, n_max_steps=int(6.0 / eval_env.control_dt), seed=2000)
-             if cfg.bringup_enable or not cfg.eval_stop_transitions else None)
+             if cfg.bringup_enable or (not cfg.eval_stop_transitions and not cfg.bilateral_enable) else None)
     # and the same ladder over the band the curriculum is actually commanding right now
     p = agent.env_params
     ev_cur = None
@@ -144,6 +145,7 @@ def main():
     ap.add_argument("--config", default=None, help="resolved_config.json of a previous run")
     ap.add_argument("--name", default=None)
     ap.add_argument("--steps", type=int, default=None, help="TOTAL env steps (absolute target)")
+    ap.add_argument('--deadline-epoch', type=float, help='Absolute batch allocation deadline')
     ap.add_argument("--n-envs", type=int, default=None)
     ap.add_argument("--devices", type=int, default=1, help="data-parallel GPUs (n_envs split across them)")
     ap.add_argument("--n-steps", type=int, default=None, help="rollout length per env")
@@ -174,7 +176,18 @@ def main():
         cfg.n_steps = int(args.n_steps)
     if args.seed is not None:
         cfg.seed = int(args.seed)
-    total = int(args.steps or cfg.total_steps)
+    total = int(cfg.total_steps if args.steps is None else args.steps)
+    if total < 0 or (total == 0 and cfg.walltime_hours <= 0):
+        ap.error('Zero steps means unlimited steps and requires a positive walltime budget')
+    if cfg.sequential_steps_enable and (args.warm_start or args.warm_bundle):
+        ap.error('Sequential walking uses new observations; start fresh or resume this preset')
+    budget = None
+    if cfg.walltime_hours > 0:
+        from walltime_budget import WalltimeBudget
+        budget = WalltimeBudget(cfg.walltime_hours, args.deadline_epoch, cfg.walltime_reserve_s)
+        signal.signal(signal.SIGTERM, budget.request_stop)
+        if hasattr(signal, 'SIGUSR1'):
+            signal.signal(signal.SIGUSR1, budget.request_stop)
     name = args.name or default_name
     run = PKG_DIR / "runs" / name
     run.mkdir(parents=True, exist_ok=True)
@@ -282,6 +295,21 @@ def main():
         prefit_critic(agent)
         agent.save(run / 'ckpt_0.msgpack')
 
+    quality_evaluator = None
+    last_quality_step = -1
+    if cfg.bilateral_enable:
+        from gait_quality_eval import GaitQualityEvaluator, record as record_gait
+        quality_evaluator = GaitQualityEvaluator(cfg)
+        gait_baseline = record_gait(agent, quality_evaluator, run)
+        if cfg.bilateral_attempt_enable and agent.step == 0 and (warm is not None or args.warm_bundle):
+            # Evaluate the inherited policy at FULL new penalty strength before
+            # spending the training allocation. Evaluation artifacts survive a failure.
+            net = sum(gait_baseline['reward_means'].values())
+            if (not np.isfinite(net) or net <= 0. or gait_baseline['actual_reward_mean'] <= 0. or
+                    gait_baseline['reward_floor_fraction'] > .10 or
+                    gait_baseline['survival_fraction'] < .8):
+                raise SystemExit('Gait baseline reward/survival preflight failed; inspect latest_gait_eval.json')
+        last_quality_step = agent.step
     best_score = None
     _bj = run / "best_eval.json"
     if _bj.exists():
@@ -305,9 +333,12 @@ def main():
     last_ckpt = agent.step
     last_stop_eval_step = -1
     t_start = time.time()
+    last_ckpt_time = time.monotonic()
     print(f"[train] target {total:,} steps, rollout {agent.batch:,} ({env.n_envs}x{cfg.n_steps}), "
           f"{agent.n_minibatches} minibatches of {agent.mb_size}, starting at {agent.step:,}")
-    while agent.step < total:
+    if budget:
+        print(f'[train] walltime remaining {budget.remaining():.0f}s; reserve {budget.reserve_s:.0f}s; step limit {total or "none"}', flush=True)
+    while (total == 0 or agent.step < total) and (budget is None or budget.training_allowed()):
         row = agent.iterate()
         row["time/elapsed_s"] = time.time() - t_start
         log.write(row)
@@ -333,9 +364,14 @@ def main():
                      f"sigma {row.get('curriculum/track_sigma', 0):.2f} " if getattr(cfg, 'stop_flag', False) else "") +
                   f"jit {row.get('curriculum/ctrl_jitter_ms', 0):.2f}ms"
                   , flush=True)
-        if eval_env is not None and cfg.eval_every_rollouts > 0 and agent.rollout_n % cfg.eval_every_rollouts == 0:
+        if (eval_env is not None and cfg.eval_every_rollouts > 0 and agent.rollout_n % cfg.eval_every_rollouts == 0
+                and (budget is None or budget.evaluation_allowed())):
             t = time.time()
             ev, ev_bu, ev_cur = run_eval(agent, cfg, eval_env)
+            quality = None
+            if quality_evaluator is not None:
+                quality = record_gait(agent, quality_evaluator, run)
+                last_quality_step = agent.step
             if stop_evaluator is not None:
                 stand_result = standing_evaluator.evaluate(agent) if standing_evaluator else None
                 stop_result = record_stop_eval(agent, stop_evaluator, run, ev, standing=stand_result)
@@ -383,7 +419,7 @@ def main():
             else:
                 _score = (int(ev.get("finishes", 0)), float(ev.get("dist_mean", float("nan"))))
             _cmp = _score if isinstance(_score, tuple) else (_score,)
-            if all(c == c for c in _cmp) and (best_score is None
+            if (quality is None or quality['keeper_eligible']) and all(c == c for c in _cmp) and (best_score is None
                                               or _cmp > (best_score if isinstance(best_score, tuple)
                                                          else (best_score,))):
                 best_score = _score
@@ -409,10 +445,23 @@ def main():
                                                                     if isinstance(v, (int, float))}}, indent=1))
                 print(f"[train] fastest full-dash checkpoint -> best_speed.msgpack (step {agent.step:,}, {_spd:.2f} m/s over {_score[1]:.1f} m)")
 
-        if agent.step - last_ckpt >= cfg.checkpoint_every_steps:
+        if (agent.step - last_ckpt >= cfg.checkpoint_every_steps or
+                (budget is not None and time.monotonic()-last_ckpt_time >= cfg.checkpoint_wall_seconds)):
             agent.save(run / f"ckpt_{agent.step}.msgpack")
             last_ckpt = agent.step
+            last_ckpt_time = time.monotonic()
     agent.save(run / "final.msgpack")
+    if budget:
+        summary = dict(budget.summary(), steps=agent.step, step_limit=total or None)
+        if total and agent.step >= total:
+            summary['reason'] = 'step_limit'
+        (run/'walltime_stop.json').write_text(json.dumps(summary, indent=2)+'\n')
+    if (quality_evaluator is not None and last_quality_step != agent.step
+            and (budget is None or (budget.signal_received is None and budget.remaining() > 180.))):
+        final_quality = record_gait(agent, quality_evaluator, run)
+        # A final qualified policy is preserved even off the periodic eval boundary.
+        if final_quality['keeper_eligible']:
+            agent.save(run / 'final_qualified.msgpack')
     if stop_evaluator is not None and cfg.stop_adapter and last_stop_eval_step != agent.step:
         # The pilot budget need not end on an evaluation interval.
         final_walk, _, _ = run_eval(agent, cfg, eval_env)
@@ -426,6 +475,12 @@ def main():
         plot_run(run)
     except Exception as e:                       # plotting must never fail a run
         print(f"[train] plot skipped: {e!r}")
+    if cfg.bilateral_protect_repeat_cost and not cfg.sequential_steps_enable:
+        from gait_diagnostics import continuation_decision
+        records = [json.loads(line) for line in (run/'gait_evaluations.jsonl').read_text().splitlines()]
+        decision = continuation_decision(records)
+        (run/'continuation_decision.json').write_text(json.dumps(decision, indent=2)+'\n')
+        print(f"[continuation decision] {decision['decision']}", flush=True)
     print(f"[train] done -> {run / 'final.msgpack'}")
 
 

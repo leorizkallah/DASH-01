@@ -1,0 +1,49 @@
+{
+  "decision": "fresh_policy_with_explicit_step_objective",
+  "baseline_repeated_attempts": 20.0,
+  "baseline_incomplete_fraction": 0.5,
+  "qualified_steps": [],
+  "final_evaluation_checks": [
+    {
+      "step": 11534336,
+      "walking": true,
+      "improved": false,
+      "repeated_attempts": 10.583333333333334,
+      "incomplete_fraction": 0.4657132445964282,
+      "progress": false
+    },
+    {
+      "step": 12582912,
+      "walking": false,
+      "improved": false,
+      "repeated_attempts": 9.25,
+      "incomplete_fraction": 0.5194840589577432,
+      "progress": false
+    },
+    {
+      "step": 13631488,
+      "walking": true,
+      "improved": false,
+      "repeated_attempts": 9.25,
+      "incomplete_fraction": 0.45929747759016054,
+      "progress": false
+    },
+    {
+      "step": 14680064,
+      "walking": true,
+      "improved": false,
+      "repeated_attempts": 11.0,
+      "incomplete_fraction": 0.5167606704759286,
+      "progress": false
+    },
+    {
+      "step": 15007744,
+      "walking": true,
+      "improved": false,
+      "repeated_attempts": 10.166666666666666,
+      "incomplete_fraction": 0.5040650406504065,
+      "progress": false
+    }
+  ],
+  "note": "Decision from nominal fixed-seed evaluation; visually review candidate and final. No new job launched."
+}

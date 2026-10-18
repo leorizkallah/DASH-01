@@ -1,0 +1,124 @@
+{
+  "model": "dash01_cad_v2",
+  "mass_kg": 14.594154,
+  "motors": "unchanged; user confirmed 2026-10-14",
+  "achilles": "rigid; no spring; user confirmed",
+  "joint_zero": "CAD-relative simulation coordinates; hardware homing not calibrated",
+  "cam_range": "provisional simulation guard +/-0.6 rad about CAD pose",
+  "contact_model": "two mesh-derived rectangular sole faces per foot, 2 mm inward; friction 0.7 provisional",
+  "stance": {
+    "loop_gap_m": 2.9999954862336545e-08,
+    "sole_tilt_deg": 0.0,
+    "sole_height_spread_m": 7.193549625330448e-10,
+    "nfev": 10,
+    "height_m": 0.8617436986323294,
+    "com_world_m": [
+      0.007735415511383545,
+      0.00034176486528212806,
+      0.7558498405281987
+    ]
+  },
+  "equilibrium": {
+    "nfev": 700,
+    "max_acceleration": 8.862498178406076e-08,
+    "max_pose_adjustment_rad": 1.4730389917403827e-05
+  },
+  "nominal_pose": [
+    1.4730402777267437e-05,
+    0.05471106590286601,
+    -0.10380192297755383,
+    -0.0013238548477704343,
+    -0.055148333025025434,
+    0.10439123984441623
+  ],
+  "nominal_command": [
+    -0.02947535314440388,
+    0.10495381197587389,
+    -0.09493531062041355,
+    0.028205504712776556,
+    -0.10540385566685509,
+    0.09542536250928596
+  ],
+  "holding_torque_nm": [
+    -3.538810025661738,
+    10.048549214601575,
+    1.7733224714280569,
+    3.5435231472656388,
+    -10.05110452836593,
+    -1.793175467026052
+  ],
+  "hold": {
+    "duration_s": 5.000000000000004,
+    "max_tilt_deg": 0.14967408049937048,
+    "height_drop_m": 1.0813572259849025e-13,
+    "drift_xy_m": 0.0019311867393589743,
+    "final_base_speed_mps": 0.006205489382776443,
+    "peak_torque_nm": [
+      3.5388100256713093,
+      10.04854922187033,
+      1.773322478555636,
+      3.5435251674652,
+      10.051104535863631,
+      1.793175472713494
+    ],
+    "max_loop_gap_m": 3.470735125221009e-06,
+    "saturation_fraction": 0.0,
+    "warnings": 0,
+    "passed": true
+  },
+  "dimensions": {
+    "nq": 20,
+    "nv": 20,
+    "nu": 6,
+    "neq": 4
+  },
+  "corrected_cad_sha256": "da47fd7a381edef74a24ad671f9eed6a28c309dea83b83fcbbf2b0956cb1dfab",
+  "builder_sha256": "d9bab4d2370581764d0cc6a7ad3bbea7d7e1f7b6299b894342f46b183d219568",
+  "cpu_nominal_hold_passed": true,
+  "perturbed_holds": [
+    {
+      "pitch_perturbation_rad": -0.001,
+      "duration_s": 2.1269999999998768,
+      "max_tilt_deg": 30.061609903988384,
+      "height_drop_m": 0.1150086499163191,
+      "drift_xy_m": 0.35428728229529655,
+      "final_base_speed_mps": 1.1323996482423544,
+      "peak_torque_nm": [
+        3.557275338024267,
+        31.045402710337704,
+        20.24472913055128,
+        3.554707004753723,
+        31.04575442810396,
+        20.254129364846207
+      ],
+      "max_loop_gap_m": 4.532288899540181e-06,
+      "saturation_fraction": 0.0,
+      "warnings": 0,
+      "passed": false
+    },
+    {
+      "pitch_perturbation_rad": 0.001,
+      "duration_s": 2.114999999999878,
+      "max_tilt_deg": 30.008760456757777,
+      "height_drop_m": 0.08393719186318016,
+      "drift_xy_m": 0.386750444538546,
+      "final_base_speed_mps": 1.2753758400933142,
+      "peak_torque_nm": [
+        3.771456474917752,
+        10.048992222483838,
+        10.987825146984287,
+        3.6147173030300936,
+        10.051547313125203,
+        10.94676467939883
+      ],
+      "max_loop_gap_m": 2.1476310795740678e-05,
+      "saturation_fraction": 0.0,
+      "warnings": 0,
+      "passed": false
+    }
+  ],
+  "fixed_target_balance_passed": false,
+  "training_ready": false,
+  "next_gate": "CPU/MJX physics comparison and finite PPO update; train walking directly",
+  "deployment_ready": false
+}

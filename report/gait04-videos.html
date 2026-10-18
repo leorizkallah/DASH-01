@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GAIT-04 policy videos</title>
+<style>
+body{font:17px/1.5 system-ui,sans-serif;background:#111925;color:#eef3fa;max-width:1280px;margin:32px auto;padding:0 20px}
+h1,h2{line-height:1.2} a{color:#8dccff} video{width:100%;background:#000;border-radius:8px}
+section{margin:36px 0} .blue{color:#66b4ff}.orange{color:#ff9b55} .note{color:#bfcddd}
+img{max-width:100%;background:white} table{border-collapse:collapse}th,td{padding:8px 18px;border-bottom:1px solid #465164;text-align:left}
+</style>
+<h1>GAIT-04: inspect the learned movement</h1>
+<p>Target speed <strong>0.35 m/s</strong>. Each clip lasts 25 seconds at normal speed.
+The two camera angles show the same motion. <strong class="blue">Left foot: blue.</strong>
+<strong class="orange">Right foot: orange.</strong></p>
+<p class="note">Both policies use the same replay seed (1000). These are individual illustrative
+trials, not proof of reliable walking. Neither policy is an accepted gait.
+The exact 14.68M-step policy from the promising evaluation was not saved;
+the first clip uses the nearest saved late checkpoint at 14.22M.</p>
+<section>
+<h2>Saved checkpoint at 14.22M steps</h2>
+<video controls preload="metadata"><source src="videos/gait04_14.22M_0.35mps.mp4" type="video/mp4"></video>
+<p>Completed 25 seconds without falling. After the first 5 seconds:
+<strong>10 left steps, 5 right steps</strong>; mean forward speed 0.357 m/s.
+Right-foot clear time: 3.5%. Whole-trial flight fraction: 2.86%.</p>
+<a href="videos/gait04_14.22M_0.35mps.mp4">Open / download this video</a>
+</section>
+<section>
+<h2>Final policy at 15.01M steps</h2>
+<video controls preload="metadata"><source src="videos/gait04_final_0.35mps.mp4" type="video/mp4"></video>
+<p>Completed 25 seconds without falling in this replay. After the first 5 seconds:
+<strong>10 left steps, 3 right steps</strong>; mean forward speed 0.375 m/s.
+Right-foot clear time: 4.95%. Whole-trial flight fraction: 2.98%.
+Its separate 12-trial evaluation had four falls.</p>
+<a href="videos/gait04_final_0.35mps.mp4">Open / download this video</a>
+</section>
+<p>Watch whether the orange foot lifts and advances, whether successive steps alternate,
+and whether both legs contribute similarly. The step counts require at least 1.5 cm
+whole-sole clearance, 80 ms airborne and 4 cm forward body-relative travel.</p>
+<section><h2>Progress across training</h2>
+<img src="figures/gait04_progress.png" alt="Right-foot stepping emerges near the end of training, followed by final-policy regression.">
+</section>
+<p><a href="../docs/gait04-experiment-report.md">Experiment report</a> ·
+<a href="../docs/experiments/gait04_20261015_v1/replay-provenance.json">Replay provenance</a> ·
+<a href="videos/gait02_best_0.35mps.mp4">Previous GAIT-02 video</a></p>
+</html>

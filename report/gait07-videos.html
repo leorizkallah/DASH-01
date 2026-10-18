@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GAIT-07: inspect the latest policy</title>
+<style>
+body{font:17px/1.5 system-ui,sans-serif;background:#111925;color:#eef3fa;max-width:1280px;margin:32px auto;padding:0 20px}
+h1,h2{line-height:1.2}a{color:#8dccff}video,img{width:100%;border-radius:8px}video{background:#000}
+section{margin:32px 0}.blue{color:#66b4ff}.orange{color:#ff9b55}.note{color:#bfcddd}summary{cursor:pointer}
+</style>
+<h1>GAIT-07: inspect the latest policy</h1>
+<p>The final policy is also the best saved diagnostic candidate: 15 million additional
+training steps after GAIT-06. Each video shows two simultaneous camera views at normal speed.
+<strong class="blue">Left foot: blue.</strong> <strong class="orange">Right foot: orange.</strong></p>
+<section><h2>0.25 m/s: training target</h2>
+<video controls preload="metadata"><source src="videos/gait07_final_0.25mps.mp4" type="video/mp4"></video>
+<p><a href="videos/gait07_final_0.25mps.mp4">Open / download 0.25 m/s video</a></p>
+<p>This replay: 25 seconds without falling, mean speed 0.223 m/s after five seconds,
+<strong>0 left / 11 right valid steps</strong>.</p>
+</section>
+<p>In the separate 12-trial evaluation, all trials survived 25 seconds at this target,
+but none passed the gait criteria. Mean valid steps after five seconds: <strong>left 0.25,
+right 8.5</strong>. Watch whether the blue foot lifts or slides as the orange foot steps.</p>
+<section><h2>0.20 m/s: slower target</h2>
+<video controls preload="metadata"><source src="videos/gait07_final_0.20mps.mp4" type="video/mp4"></video>
+<p><a href="videos/gait07_final_0.20mps.mp4">Open / download 0.20 m/s video</a></p>
+<p>This replay falls at 19.25 seconds. After five seconds: mean speed 0.184 m/s,
+0 left / 7 right valid steps.</p>
+</section>
+<section><h2>0.35 m/s: faster target</h2>
+<video controls preload="metadata"><source src="videos/gait07_final_0.35mps.mp4" type="video/mp4"></video>
+<p><a href="videos/gait07_final_0.35mps.mp4">Open / download 0.35 m/s video</a></p>
+<p>This replay: 25 seconds without falling, mean speed 0.270 m/s after five seconds,
+0 left / 8 right valid steps.</p>
+</section>
+<details><summary>Compare with GAIT-06 before this training</summary>
+<section><h2>GAIT-06 at 0.25 m/s</h2>
+<video controls preload="metadata"><source src="videos/gait06_final_0.25mps.mp4" type="video/mp4"></video>
+<p>The earlier replay survived 25 seconds with no valid steps after five seconds,
+at 0.122 m/s mean forward speed.</p></section>
+</details>
+<p class="note">Fresh illustrative trials, seed 1000. The separate evaluation uses
+seed 3103. Videos end at first termination or 25 seconds, with auto-resets omitted.
+These clips do not certify reliable bilateral walking.</p>
+<details><summary>Training progress and measurements</summary>
+<img src="figures/gait07_progress.png" alt="Survival, valid steps, contact slip and penalty strength across GAIT-07 training.">
+<p><a href="../docs/experiments/gait07_20261017_v1/gait07_trace.json">Replay measurements</a></p>
+</details>
+<p><a href="../docs/gait07-experiment-report.md">Experiment report</a> &middot;
+<a href="../docs/experiments/gait07_20261017_v1/replay-provenance.json">Video provenance</a></p>
+</html>

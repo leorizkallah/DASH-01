@@ -1,4 +1,4 @@
-# STOP experiment index
+# Experiment index
 
 Start with the [report workspace](../../report/README.md) for the narrative,
 architecture, figures and videos. This directory contains the small source records
@@ -7,6 +7,15 @@ report links and SCITAS paths remain stable.
 
 | Snapshot | Purpose | Record |
 |---|---|---|
+| `gait08_20261017_v1` | GAIT-07 continuation; next-foot rule, full drag retained, 30M steps | [Status](gait08_20261017_v1/STATUS.md) |
+| `gait07_20261017_v1` | GAIT-06 continuation; independent movement-gated contact drag, 15M steps | [Status](gait07_20261017_v1/STATUS.md) |
+| `gait06_20261016_v1` | Fresh cold-start PPO; walking-earned bilateral shaping, 15M steps | [Status](gait06_20261016_v1/STATUS.md) |
+| `gait05_20261015_v1` | Fresh policy at 0.25 m/s; 15M steps, three-speed evaluation and evaluated-policy retention | [Status](gait05_20261015_v1/STATUS.md) |
+| `gait04_20261015_v1` | Stronger swing-contact penalties and dense bilateral progress; 15M-step continuation | [Status](gait04_20261015_v1/STATUS.md) |
+| `gait03_20261015_v1` | Bilateral stepping rewards and gait-quality keeper; 5M-step correction pilot | [Status](gait03_20261015_v1/STATUS.md) |
+| `gait02_20261014_v1` | 30M-step walking continuation with automatic pilot-checkpoint comparison | [Status](gait02_20261014_v1/STATUS.md) |
+| `gait01_20261014_v1` | New CAD plant; fixed-target standing gate failed before training | [Status](gait01_20261014_v1/STATUS.md) |
+| `gait01_20261014_v2` | Fresh walking pilot; numerical validation, no standing prerequisite | [Status](gait01_20261014_v2/STATUS.md) |
 | `stop01_20261002_v1` | Initial STOP pilot | [Progress](stop01_20261002_v1/STOP_PROGRESS.md) |
 | `stop01_20261002_v2` | STOP-01B fine-tuning; 20M steps | [Progress](stop01_20261002_v2/STOP_PROGRESS.md) |
 | `stop02_20261006_v1` | Initial feasibility diagnostic; output serialization issue | [Experiment log](../stop02-experiment-report.md) |
@@ -19,6 +28,7 @@ report links and SCITAS paths remain stable.
 
 Status files are dated observations, not a live scheduler dashboard. The remote
 root is `/home/rizkalla/running_robot_experiments/<snapshot>/`.
+GAIT snapshots use `/home/rizkalla/running_robot/experiments/<snapshot>/`.
 
 ## Artifact policy
 

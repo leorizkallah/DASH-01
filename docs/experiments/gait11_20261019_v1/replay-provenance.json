@@ -1,0 +1,216 @@
+{
+  "training_job": 3223293,
+  "replay_job": 3223517,
+  "replays": [
+    {
+      "step": 49283072,
+      "seed": 1000,
+      "dt": 0.01,
+      "model": "model/dash01_cad_v2_free.xml",
+      "checkpoint": "best_candidate.msgpack",
+      "label": "cad_v2_gait11_s0 best_candidate",
+      "checkpoint_sha256": "77cb0f0e8d8948e8b5fef8ab8116634c833bb6fe11cc4d0ba695ba130279e0c4",
+      "trials": [
+        {
+          "target": 0.10000000149011612,
+          "ticks": 2500,
+          "seconds": 25.0,
+          "fell": false,
+          "mean_speed_after_5s": 0.09634943306446075,
+          "speed_error_after_5s": 0.02218298800289631,
+          "flight_fraction": 0.0005200000014156103,
+          "valid_steps_after_5s": [
+            10,
+            10
+          ],
+          "clear_fraction_after_5s": [
+            0.031,
+            0.017
+          ],
+          "attempt_after_5s": [
+            10,
+            10
+          ],
+          "incomplete_step_after_5s": [
+            0,
+            0
+          ],
+          "repeated_attempt_after_5s": [
+            0,
+            0
+          ]
+        },
+        {
+          "target": 0.15000000596046448,
+          "ticks": 2500,
+          "seconds": 25.0,
+          "fell": false,
+          "mean_speed_after_5s": 0.15558429062366486,
+          "speed_error_after_5s": 0.019672175869345665,
+          "flight_fraction": 0.0013200000394135714,
+          "valid_steps_after_5s": [
+            9,
+            9
+          ],
+          "clear_fraction_after_5s": [
+            0.0455,
+            0.0335
+          ],
+          "attempt_after_5s": [
+            13,
+            12
+          ],
+          "incomplete_step_after_5s": [
+            4,
+            3
+          ],
+          "repeated_attempt_after_5s": [
+            3,
+            2
+          ]
+        },
+        {
+          "target": 0.20000000298023224,
+          "ticks": 697,
+          "seconds": 6.97,
+          "fell": true,
+          "mean_speed_after_5s": 0.473430335521698,
+          "speed_error_after_5s": 0.2734758257865906,
+          "flight_fraction": 0.00559540931135416,
+          "valid_steps_after_5s": [
+            0,
+            0
+          ],
+          "clear_fraction_after_5s": [
+            0.0,
+            0.0
+          ],
+          "attempt_after_5s": [
+            2,
+            0
+          ],
+          "incomplete_step_after_5s": [
+            2,
+            0
+          ],
+          "repeated_attempt_after_5s": [
+            2,
+            0
+          ]
+        }
+      ],
+      "note": "Fresh nominal greedy replay trials, not the multi-trial gait evaluation. All trials retained; videos end at first termination, without showing auto-resets."
+    },
+    {
+      "step": 65650688,
+      "seed": 1000,
+      "dt": 0.01,
+      "model": "model/dash01_cad_v2_free.xml",
+      "checkpoint": "final.msgpack",
+      "label": "cad_v2_gait11_s0 final",
+      "checkpoint_sha256": "744bc6d2e785384cff021121944831507e15871b8baf4a573d31010609ae4e1a",
+      "trials": [
+        {
+          "target": 0.10000000149011612,
+          "ticks": 973,
+          "seconds": 9.73,
+          "fell": true,
+          "mean_speed_after_5s": -0.01544913649559021,
+          "speed_error_after_5s": 0.1476973593235016,
+          "flight_fraction": 0.0006166495732031763,
+          "valid_steps_after_5s": [
+            1,
+            1
+          ],
+          "clear_fraction_after_5s": [
+            0.03382663847780127,
+            0.008456659619450317
+          ],
+          "attempt_after_5s": [
+            2,
+            2
+          ],
+          "incomplete_step_after_5s": [
+            1,
+            1
+          ],
+          "repeated_attempt_after_5s": [
+            0,
+            0
+          ]
+        },
+        {
+          "target": 0.15000000596046448,
+          "ticks": 2500,
+          "seconds": 25.0,
+          "fell": false,
+          "mean_speed_after_5s": 0.14795930683612823,
+          "speed_error_after_5s": 0.015690874308347702,
+          "flight_fraction": 0.0,
+          "valid_steps_after_5s": [
+            10,
+            10
+          ],
+          "clear_fraction_after_5s": [
+            0.0495,
+            0.0145
+          ],
+          "attempt_after_5s": [
+            10,
+            14
+          ],
+          "incomplete_step_after_5s": [
+            0,
+            4
+          ],
+          "repeated_attempt_after_5s": [
+            0,
+            4
+          ]
+        },
+        {
+          "target": 0.20000000298023224,
+          "ticks": 289,
+          "seconds": 2.89,
+          "fell": true,
+          "mean_speed_after_5s": null,
+          "speed_error_after_5s": null,
+          "flight_fraction": 0.007266435772180557,
+          "valid_steps_after_5s": [
+            0,
+            0
+          ],
+          "clear_fraction_after_5s": null,
+          "attempt_after_5s": [
+            0,
+            0
+          ],
+          "incomplete_step_after_5s": [
+            0,
+            0
+          ],
+          "repeated_attempt_after_5s": [
+            0,
+            0
+          ]
+        }
+      ],
+      "note": "Fresh nominal greedy replay trials, not the multi-trial gait evaluation. All trials retained; videos end at first termination, without showing auto-resets."
+    }
+  ],
+  "files": {
+    "report/videos/gait11_candidate_0.10mps.mp4": "fb03e9809e087fabe39fbe703a0a8326f701f372e085f03246534decc751307e",
+    "report/videos/gait11_candidate_0.15mps.mp4": "788e7b93bab8dca28a8731c586f078c4f527cbc627b49b8ef2eaa92ddaf962ff",
+    "report/videos/gait11_candidate_0.20mps.mp4": "4e2e5cf271024657371e4211dc12fa2b27d9cd6658616d98dece9a4a7acafb02",
+    "report/videos/gait11_final_0.10mps.mp4": "6d88f6ee6e0cd224a19345e1ba59dc95a1eadf9e9819ab08bbe9c26d405960c0",
+    "report/videos/gait11_final_0.15mps.mp4": "e4e42d8e548fc8065704a6ae66e6b576d79dcdbdb6be97120ebafe2c138a2f23",
+    "report/videos/gait11_final_0.20mps.mp4": "8064ac2d9cbc3a9de6518859f25d7db902dba5bb1b18bae63b55133039a0d5e6",
+    "docs/experiments/gait11_20261019_v1/gait11_trace_best_candidate.json": "95e32b38eda343335705565177dad145242546dceb48092a2a41d99a6fe2a79e",
+    "docs/experiments/gait11_20261019_v1/gait11_trace_final.json": "d74a2af793997285d5dacf83d80f91cbd9e93a51ae25db0d7330d8daddb577dd",
+    "docs/experiments/gait11_20261019_v1/gait11_trace_best_candidate.npz": "9a94c6ad14036c958d2fb59dfc819df2c6c06010dc0d77e2dbad6c809c89446d",
+    "docs/experiments/gait11_20261019_v1/gait11_trace_final.npz": "919f479c0566e74ef51ef7a1da771ac7e3c19518ff16f55e65ebd26d3e028baa",
+    "RLframework/tools/gait_video.py": "9d53fa0331e213017f3d7e9111d404b3e739e7e91a73cd447ab2b30088434bcf",
+    "report/scripts/build_gait11_assets.py": "1b782de8fcb0fcf65257da5114ca85e053f50198c29d759fc7f083a869491abe",
+    "RLframework/model/dash01_cad_v2_free.xml": "a8beffae5d40fddba299463767cc4ae244f6c780243d80d020cf4cdae83ce708"
+  }
+}

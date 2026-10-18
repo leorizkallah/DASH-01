@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GAIT-08: best candidate and final policy</title>
+<style>
+body{font:17px/1.5 system-ui,sans-serif;background:#111925;color:#eef3fa;max-width:1280px;margin:32px auto;padding:0 20px}
+h1,h2{line-height:1.2}a{color:#8dccff}video{width:100%;background:#000;border-radius:8px}
+section{margin:32px 0}.blue{color:#66b4ff}.orange{color:#ff9b55}.note{color:#bfcddd}summary{cursor:pointer}
+</style>
+<h1>GAIT-08: compare the learned movement</h1>
+<p>Both policies replayed at a <strong>0.25 m/s target</strong>, with the same
+reset seed and nominal model. Two simultaneous camera angles, normal speed.
+<strong class="blue">Left foot: blue.</strong> <strong class="orange">Right foot: orange.</strong></p>
+<section><h2>Best saved candidate: 25.17M additional steps</h2>
+<video controls preload="metadata"><source src="videos/gait08_best_0.25mps.mp4" type="video/mp4"></video>
+<p><a href="videos/gait08_best_0.25mps.mp4">Open / download candidate video</a></p>
+<p><strong>This replay:</strong> 25 seconds without falling; 10 left / 10 right valid
+steps after five seconds; mean forward speed 0.245 m/s.</p>
+<p>In the separate 12-trial evaluation: all survived 25 seconds, with 10 valid steps
+per foot after five seconds and 100% alternation. Cycle-symmetry criteria still failed.</p>
+</section>
+<section><h2>Final policy: 30.02M additional steps</h2>
+<video controls preload="metadata"><source src="videos/gait08_final_0.25mps.mp4" type="video/mp4"></video>
+<p><a href="videos/gait08_final_0.25mps.mp4">Open / download final video</a></p>
+<p><strong>This replay:</strong> 25 seconds without falling; 10 left / 10 right valid
+steps after five seconds; mean forward speed 0.239 m/s.</p>
+<p>In the separate evaluation: all survived 25 seconds, averaging 10.17 left / 10 right
+valid steps. Right-foot clear-time fraction and cycle-symmetry criteria still failed.</p>
+</section>
+<p>Watch whether both feet lift and advance, how long each stays airborne, and
+whether one step travels farther than the other. Similar step counts alone do
+not establish equal timing or length.</p>
+<details><summary>Compare with GAIT-07 before this training</summary>
+<section><video controls preload="metadata"><source src="videos/gait07_final_0.25mps.mp4" type="video/mp4"></video>
+<p>The earlier illustrative replay made 0 left / 11 right valid steps after five seconds.</p></section>
+</details>
+<p class="note">Fresh individual replay trials (seed 1000), not the multi-trial
+evaluation (seed 3103). Clips end at first termination or 25 seconds; auto-resets
+are omitted. Neither policy has passed every gait criterion.</p>
+<p><a href="../docs/gait08-experiment-report.md">Experiment report</a> &middot;
+<a href="../docs/experiments/gait08_20261017_v1/replay-provenance.json">Replay provenance</a></p>
+</html>

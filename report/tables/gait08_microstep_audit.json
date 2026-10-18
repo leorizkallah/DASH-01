@@ -1,0 +1,86 @@
+{
+  "date": "2026-10-18",
+  "source_matches_training_snapshot": {
+    "RLframework/config.py": true,
+    "RLframework/env.py": true,
+    "RLframework/bilateral_gait.py": true,
+    "RLframework/gait_selection.py": true
+  },
+  "wrong_foot_microsteps": {
+    "debounced_landings": 3,
+    "valid_steps": [
+      0,
+      0
+    ],
+    "last_valid_foot": 0,
+    "raw_term_sums": {
+      "bilateral_swing": -48.0,
+      "bilateral_missing": 0.0,
+      "bilateral_step": 0.0,
+      "bilateral_repeat": 0.0,
+      "bilateral_symmetry": 0.0,
+      "bilateral_phase": -3.75,
+      "bilateral_clearance": -1.9440000000000013,
+      "bilateral_slip": 0.0,
+      "bilateral_lift_progress": 0.0,
+      "bilateral_forward_progress": 0.0,
+      "bilateral_pair_progress": 0.0,
+      "bilateral_next_wait": 0.0
+    },
+    "note": "Isolated bilateral terms before shape/dt scaling; not total environment return."
+  },
+  "expected_foot_microsteps": {
+    "debounced_landings": 3,
+    "valid_steps": [
+      0,
+      0
+    ],
+    "last_valid_foot": 0,
+    "raw_term_sums": {
+      "bilateral_swing": -48.0,
+      "bilateral_missing": 0.0,
+      "bilateral_step": 0.0,
+      "bilateral_repeat": 0.0,
+      "bilateral_symmetry": 0.0,
+      "bilateral_phase": -3.75,
+      "bilateral_clearance": -1.9440000000000013,
+      "bilateral_slip": 0.0,
+      "bilateral_lift_progress": 3.9600000000000026,
+      "bilateral_forward_progress": 3.6000000000000023,
+      "bilateral_pair_progress": 0.0,
+      "bilateral_next_wait": 0.0
+    },
+    "note": "Isolated bilateral terms before shape/dt scaling; not total environment return."
+  },
+  "valid_repeat_control": {
+    "debounced_landings": 1,
+    "valid_steps": [
+      1,
+      0
+    ],
+    "last_valid_foot": 0,
+    "raw_term_sums": {
+      "bilateral_swing": -16.0,
+      "bilateral_missing": 0.0,
+      "bilateral_step": 0.0,
+      "bilateral_repeat": -2.0,
+      "bilateral_symmetry": 0.0,
+      "bilateral_phase": -1.25,
+      "bilateral_clearance": 0.0,
+      "bilateral_slip": 0.0,
+      "bilateral_lift_progress": 0.0,
+      "bilateral_forward_progress": 0.0,
+      "bilateral_pair_progress": 0.0,
+      "bilateral_next_wait": 0.0
+    },
+    "note": "Isolated bilateral terms before shape/dt scaling; not total environment return."
+  },
+  "mixed_history_symmetry": [
+    1.8834951456310678,
+    0.0,
+    0.0
+  ],
+  "nominal_stance_at_half_hz_s": 1.3,
+  "slow_stance_penalty_starts_s": 1.0,
+  "limitations": "Synthetic reward-unit checks, not proof of the video motion cause or net reward advantage."
+}

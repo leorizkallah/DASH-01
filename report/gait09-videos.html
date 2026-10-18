@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GAIT-09: candidate and final walking videos</title>
+<style>
+body{font:17px/1.5 system-ui,sans-serif;background:#111925;color:#eef3fa;max-width:1280px;margin:32px auto;padding:0 20px}
+h1,h2{line-height:1.2}a{color:#8dccff}video{width:100%;background:#000;border-radius:8px}
+section{margin:32px 0}.blue{color:#66b4ff}.orange{color:#ff9b55}.note{color:#bfcddd}
+button{font:inherit;background:#24364d;color:white;border:1px solid #7290b5;border-radius:5px;padding:6px 14px;cursor:pointer}
+</style>
+<h1>GAIT-09: inspect the extra foot movements</h1>
+<p>Target speed <strong>0.25 m/s</strong>. Both checkpoints use the same reset seed
+and nominal robot model. Each video shows two simultaneous camera angles.
+<strong class="blue">Left foot: blue.</strong> <strong class="orange">Right foot: orange.</strong></p>
+<p>Playback speed:
+<button type="button" onclick="setRate(1)">Normal (1×)</button>
+<button type="button" onclick="setRate(.5)">Slow (0.5×)</button>
+<button type="button" onclick="setRate(.25)">Very slow (0.25×)</button>
+<span id="rate" aria-live="polite">1×</span></p>
+<p>Watch for a small extra lift and landing before the opposite foot takes its
+turn. Equal counts of <em>valid</em> steps do not mean the extra attempts are gone.</p>
+<section><h2>Best diagnostic candidate — 18.87M additional steps</h2>
+<video controls playsinline preload="metadata"><source src="videos/gait09_best_0.25mps.mp4" type="video/mp4"></video>
+<p><a href="videos/gait09_best_0.25mps.mp4">Open / download candidate video</a></p>
+<p>This replay: 25 seconds without falling, mean speed 0.250 m/s; 11 left / 10
+right valid steps from 20 attempts per foot after the first five seconds.</p>
+<p>Separate 12-trial evaluation: all survived, but 48.13% of attempts were
+incomplete. This candidate has not passed the clean-gait criteria.</p></section>
+<section><h2>Final policy — 32.01M additional steps</h2>
+<video controls playsinline preload="metadata"><source src="videos/gait09_final_0.25mps.mp4" type="video/mp4"></video>
+<p><a href="videos/gait09_final_0.25mps.mp4">Open / download final video</a></p>
+<p>This replay: 25 seconds without falling, mean speed 0.248 m/s; 10 valid steps
+from 20 attempts per foot after the first five seconds.</p>
+<p>Separate 12-trial evaluation: all survived with 10 valid steps per foot, but
+20 attempts per foot. Half of the attempts were incomplete; extra same-foot
+attempts remained. Tracking and contact slip improved without resolving this.</p></section>
+<p class="note">These are fresh individual greedy replays (seed 1000), distinct
+from the multi-trial evaluation (seed 3103). Clips stop at first termination or
+25 seconds; auto-resets are omitted. Video overlays describe the original 1×
+recording; the buttons change playback speed only.</p>
+<p><a href="gait08-videos.html">Compare with GAIT-08</a> ·
+<a href="../docs/gait09-experiment-report.md">Experiment report</a> ·
+<a href="../docs/experiments/gait09_20261018_v1/replay-provenance.json">Replay provenance</a></p>
+<script>function setRate(rate){document.querySelectorAll('video').forEach(v=>v.playbackRate=rate);document.getElementById('rate').textContent=rate+'×';}</script>
+</html>

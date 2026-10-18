@@ -1,0 +1,52 @@
+{
+  "replay_job": 3220346,
+  "remote_root": "/home/rizkalla/running_robot/experiments/gait04_replay_20261015_v1",
+  "run_snapshot": "gait04_20261015_v1",
+  "checkpoints": [
+    "ckpt_14221312.msgpack",
+    "final.msgpack"
+  ],
+  "target_mps": 0.35,
+  "seed": 1000,
+  "seconds": 25,
+  "views": [
+    115,
+    295
+  ],
+  "foot_colors": {
+    "left": "blue",
+    "right": "orange"
+  },
+  "note": "Colors and cameras affect rendering only. Exact 14,680,064-step weights were not saved. Replay used 4 CPUs, 32 GB, 15 minutes and 1 GPU. Local renderer adds colored feet after recorder upload; recording logic is unchanged.",
+  "local_files": {
+    "RLframework/tools/gait_video.py": "16357f8950da5b73b8bc7b034ec18febaace176d2061632b9b3408c00dba5fa0",
+    "RLframework/slurm/izar_cad_v2_gait04_video.sbatch": "6287b825623820b6241ae22b8b01c25736f2bd8d6b53814b743d93f83ed3a738",
+    "RLframework/model/dash01_cad_v2_free.xml": "a8beffae5d40fddba299463767cc4ae244f6c780243d80d020cf4cdae83ce708"
+  },
+  "state": "COMPLETED",
+  "elapsed": "00:03:37",
+  "exit_code": "0:0",
+  "remote_recorder_sha256": "ed41640390015ed5ae80d270d1efd25eaaba8678dcf97c1b5e04041daaf6e5c0",
+  "videos": {
+    "report\\videos\\gait04_14.22M_0.35mps.mp4": {
+      "sha256": "014ef9f10cd5e4115734b1a5ffab7ebc0f7e24ff3940f76faedf697c0ca36c18",
+      "frames": 750,
+      "fps": 30,
+      "duration_s": 25,
+      "size": [
+        1280,
+        720
+      ]
+    },
+    "report\\videos\\gait04_final_0.35mps.mp4": {
+      "sha256": "78a40f35c864b70c3b11202787a201175ce5921d437445919b804dfff7ba33a4",
+      "frames": 750,
+      "fps": 30,
+      "duration_s": 25,
+      "size": [
+        1280,
+        720
+      ]
+    }
+  }
+}

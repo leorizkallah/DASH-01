@@ -1,0 +1,1335 @@
+Verified 53 source hashes and parent checkpoint
+Failed to import warp: No module named 'warp'
+Failed to import mujoco_warp: No module named 'warp'
+----------------------------------------------------------------------
+Ran 58 tests in 20.064s
+
+OK
+----------------------------------------------------------------------
+Ran 9 tests in 1.654s
+
+OK
+Failed to import warp: No module named 'warp'
+Failed to import mujoco_warp: No module named 'warp'
+[bench] gpu Tesla V100-PCIE-32GB  preset cad_v2_gait11  solver cap iterations=16 ls=8
+  n_envs    512:      4,652 env steps/s =     46.5 sim-s/s (step 110.06 ms, reset 17.3s, compile 43.5s)
+           PPO iter 17.84s (rollout 3.61s) -> 918 steps/s [batch 16,384, first iter 50s incl. compile]
+[bench] wrote validation/benchmark.json
+Failed to import warp: No module named 'warp'
+Failed to import mujoco_warp: No module named 'warp'
+[train] jax 0.11.1 devices [CudaDevice(id=0)]
+[train] env: model/dash01_cad_v2_free.xml spec_source=policy n_envs=512x1 actor_obs=388 obs=417 action=47 control 100 Hz
+[train] reset 512 envs on 1 device(s) in 17.7s
+[drag curriculum] success=0%, advancing=False, scale=0.000
+[walking curriculum] success=0%, advancing=False, shape=0.050
+[gait quality @ 0] qualified 0/12, survived 0%, error 0.150 m/s, floor-hit 0.0%
+  target 0.10 m/s: qualified 0/12, survived 0%, first episode 1.73s, L/R steps from reset 0.0/0.0, after 5s 0.0/0.0
+  target 0.15 m/s: qualified 0/12, survived 0%, first episode 1.57s, L/R steps from reset 0.0/0.0, after 5s 0.0/0.0
+  target 0.20 m/s: qualified 0/12, survived 0%, first episode 1.90s, L/R steps from reset 0.0/0.0, after 5s 0.0/0.0
+[train] target 0 steps, rollout 16,384 (512x32), 4 minibatches of 4096, starting at 0
+[train] walltime remaining 28359s; reserve 600s; step limit none
+[      16,384] ep_len      21  ret    -77.2  fin   0/46   rew +0.858  kl 0.0238 std 0.70 f 1.21Hz sat 0.21  311 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[     163,840] ep_len      88  ret    -35.2  fin   0/192  rew -0.440  kl 0.0118 std 0.70 f 1.27Hz sat 0.26  4,310 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[     327,680] ep_len     115  ret     -6.2  fin   0/125  rew +0.099  kl 0.0148 std 0.70 f 1.08Hz sat 0.26  4,360 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[     491,520] ep_len     122  ret      9.4  fin   0/127  rew +0.214  kl 0.0178 std 0.70 f 1.04Hz sat 0.27  4,403 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[     655,360] ep_len     120  ret     14.6  fin   0/116  rew +0.258  kl 0.0188 std 0.70 f 1.12Hz sat 0.28  4,452 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[     819,200] ep_len     130  ret     30.4  fin   0/132  rew +0.192  kl 0.0152 std 0.70 f 1.38Hz sat 0.29  4,357 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[     983,040] ep_len     130  ret     29.8  fin   0/117  rew +0.314  kl 0.0170 std 0.69 f 1.29Hz sat 0.29  4,380 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[drag curriculum] success=0%, advancing=False, scale=0.000
+[walking curriculum] success=0%, advancing=False, shape=0.050
+[gait quality @ 1,048,576] qualified 0/12, survived 0%, error 0.150 m/s, floor-hit 0.0%
+  target 0.10 m/s: qualified 0/12, survived 0%, first episode 1.06s, L/R steps from reset 0.0/0.0, after 5s 0.0/0.0
+  target 0.15 m/s: qualified 0/12, survived 0%, first episode 1.33s, L/R steps from reset 0.0/0.0, after 5s 0.0/0.0
+  target 0.20 m/s: qualified 0/12, survived 0%, first episode 1.67s, L/R steps from reset 0.0/0.0, after 5s 0.0/0.0
+[eval @ 1,048,576] ladder cmd-err 0.15 m/s, heading 0.0 deg, upright 0%, bring-up nan%  (223s)
+            per stick (err m/s / upright):  20%:0.10/0%   30%:0.15/0%   40%:0.20/0%
+[   1,146,880] ep_len     137  ret     49.1  fin   0/124  rew +0.275  kl 0.0156 std 0.69 f 1.01Hz sat 0.30  4,387 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[   1,310,720] ep_len     136  ret     41.5  fin   0/105  rew +0.468  kl 0.0141 std 0.69 f 0.93Hz sat 0.31  4,422 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[   1,474,560] ep_len     142  ret     53.9  fin   0/118  rew +0.421  kl 0.0125 std 0.69 f 0.79Hz sat 0.31  4,362 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[   1,638,400] ep_len     148  ret     64.8  fin   0/106  rew +0.435  kl 0.0110 std 0.69 f 0.62Hz sat 0.32  4,398 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[   1,802,240] ep_len     156  ret     76.1  fin   0/109  rew +0.498  kl 0.0082 std 0.69 f 0.50Hz sat 0.32  4,451 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[   1,966,080] ep_len     152  ret     76.3  fin   0/85   rew +0.662  kl 0.0131 std 0.69 f 0.50Hz sat 0.34  4,411 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[drag curriculum] success=0%, advancing=False, scale=0.000
+[walking curriculum] success=0%, advancing=False, shape=0.050
+[gait quality @ 2,097,152] qualified 0/12, survived 0%, error 0.150 m/s, floor-hit 0.0%
+  target 0.10 m/s: qualified 0/12, survived 0%, first episode 1.56s, L/R steps from reset 0.0/0.0, after 5s 0.0/0.0
+  target 0.15 m/s: qualified 0/12, survived 0%, first episode 1.95s, L/R steps from reset 0.0/0.0, after 5s 0.0/0.0
+  target 0.20 m/s: qualified 0/12, survived 0%, first episode 1.76s, L/R steps from reset 0.0/0.0, after 5s 0.0/0.0
+[eval @ 2,097,152] ladder cmd-err 0.15 m/s, heading 0.0 deg, upright 0%, bring-up nan%  (117s)
+            per stick (err m/s / upright):  20%:0.10/0%   30%:0.15/0%   40%:0.20/0%
+[   2,129,920] ep_len     161  ret     86.8  fin   0/100  rew +0.496  kl 0.0111 std 0.69 f 0.50Hz sat 0.34  4,416 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[   2,293,760] ep_len     161  ret     86.1  fin   0/87   rew +0.654  kl 0.0106 std 0.69 f 0.50Hz sat 0.34  4,463 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[   2,457,600] ep_len     170  ret    109.4  fin   0/92   rew +0.646  kl 0.0119 std 0.69 f 0.50Hz sat 0.35  4,388 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[   2,621,440] ep_len     174  ret    115.0  fin   0/92   rew +0.614  kl 0.0113 std 0.69 f 0.50Hz sat 0.36  4,393 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[   2,785,280] ep_len     166  ret    105.3  fin   0/101  rew +0.585  kl 0.0170 std 0.69 f 0.50Hz sat 0.36  4,433 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[   2,949,120] ep_len     171  ret    115.7  fin   0/98   rew +0.627  kl 0.0097 std 0.68 f 0.50Hz sat 0.36  4,426 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[   3,112,960] ep_len     171  ret    117.5  fin   0/110  rew +0.535  kl 0.0134 std 0.68 f 0.50Hz sat 0.36  4,428 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[drag curriculum] success=0%, advancing=False, scale=0.000
+[walking curriculum] success=0%, advancing=False, shape=0.050
+[gait quality @ 3,145,728] qualified 0/12, survived 0%, error 0.150 m/s, floor-hit 0.0%
+  target 0.10 m/s: qualified 0/12, survived 0%, first episode 1.58s, L/R steps from reset 0.0/0.0, after 5s 0.0/0.0
+  target 0.15 m/s: qualified 0/12, survived 0%, first episode 2.46s, L/R steps from reset 0.0/0.0, after 5s 0.0/0.0
+  target 0.20 m/s: qualified 0/12, survived 0%, first episode 1.77s, L/R steps from reset 0.0/0.0, after 5s 0.0/0.0
+[eval @ 3,145,728] ladder cmd-err 0.15 m/s, heading 0.0 deg, upright 0%, bring-up nan%  (117s)
+            per stick (err m/s / upright):  20%:0.10/0%   30%:0.15/0%   40%:0.20/0%
+[   3,276,800] ep_len     182  ret    129.2  fin   0/78   rew +0.787  kl 0.0103 std 0.68 f 0.50Hz sat 0.36  4,434 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[   3,440,640] ep_len     184  ret    140.6  fin   0/84   rew +0.834  kl 0.0094 std 0.68 f 0.50Hz sat 0.37  4,451 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[   3,604,480] ep_len     197  ret    149.2  fin   0/92   rew +0.705  kl 0.0147 std 0.68 f 0.50Hz sat 0.36  4,502 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[   3,768,320] ep_len     196  ret    150.1  fin   0/74   rew +0.889  kl 0.0114 std 0.68 f 0.50Hz sat 0.37  4,450 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[   3,932,160] ep_len     198  ret    153.6  fin   0/80   rew +0.835  kl 0.0208 std 0.68 f 0.50Hz sat 0.37  4,453 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[   4,096,000] ep_len     204  ret    178.4  fin   0/67   rew +0.953  kl 0.0117 std 0.68 f 0.50Hz sat 0.38  4,456 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[drag curriculum] success=0%, advancing=False, scale=0.000
+[walking curriculum] success=0%, advancing=False, shape=0.050
+[gait quality @ 4,194,304] qualified 0/12, survived 0%, error 0.150 m/s, floor-hit 0.0%
+  target 0.10 m/s: qualified 0/12, survived 0%, first episode 2.36s, L/R steps from reset 0.0/0.2, after 5s 0.0/0.0
+  target 0.15 m/s: qualified 0/12, survived 0%, first episode 3.08s, L/R steps from reset 0.0/0.0, after 5s 0.0/0.0
+  target 0.20 m/s: qualified 0/12, survived 0%, first episode 2.51s, L/R steps from reset 0.0/0.0, after 5s 0.0/0.0
+[eval @ 4,194,304] ladder cmd-err 0.15 m/s, heading 0.0 deg, upright 0%, bring-up nan%  (124s)
+            per stick (err m/s / upright):  20%:0.10/0%   30%:0.15/0%   40%:0.20/0%
+[   4,259,840] ep_len     211  ret    185.2  fin   0/74   rew +0.854  kl 0.0107 std 0.68 f 0.50Hz sat 0.39  4,412 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[   4,423,680] ep_len     224  ret    204.7  fin   0/66   rew +0.976  kl 0.0100 std 0.68 f 0.50Hz sat 0.38  4,445 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[   4,587,520] ep_len     211  ret    189.7  fin   0/76   rew +0.961  kl 0.0114 std 0.68 f 0.50Hz sat 0.38  4,396 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[   4,751,360] ep_len     218  ret    193.1  fin   0/66   rew +0.992  kl 0.0104 std 0.68 f 0.50Hz sat 0.38  4,445 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[   4,915,200] ep_len     230  ret    211.7  fin   0/70   rew +0.936  kl 0.0126 std 0.68 f 0.50Hz sat 0.38  4,502 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[   5,079,040] ep_len     231  ret    219.8  fin   0/70   rew +0.950  kl 0.0114 std 0.68 f 0.50Hz sat 0.39  4,431 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[   5,242,880] ep_len     237  ret    221.5  fin   0/63   rew +0.989  kl 0.0097 std 0.68 f 0.50Hz sat 0.38  4,434 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[drag curriculum] success=0%, advancing=False, scale=0.000
+[walking curriculum] success=0%, advancing=False, shape=0.050
+[gait quality @ 5,242,880] qualified 0/12, survived 0%, error 0.150 m/s, floor-hit 0.0%
+  target 0.10 m/s: qualified 0/12, survived 0%, first episode 1.79s, L/R steps from reset 0.0/0.0, after 5s 0.0/0.0
+  target 0.15 m/s: qualified 0/12, survived 0%, first episode 2.54s, L/R steps from reset 0.0/0.0, after 5s 0.0/0.0
+  target 0.20 m/s: qualified 0/12, survived 0%, first episode 3.37s, L/R steps from reset 0.0/0.0, after 5s 0.0/0.0
+[eval @ 5,242,880] ladder cmd-err 0.15 m/s, heading 0.0 deg, upright 0%, bring-up nan%  (123s)
+            per stick (err m/s / upright):  20%:0.10/0%   30%:0.15/0%   40%:0.20/0%
+[   5,406,720] ep_len     248  ret    251.9  fin   0/64   rew +0.965  kl 0.0116 std 0.68 f 0.50Hz sat 0.39  4,465 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[   5,570,560] ep_len     261  ret    267.1  fin   0/62   rew +1.058  kl 0.0102 std 0.68 f 0.50Hz sat 0.39  4,463 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[   5,734,400] ep_len     251  ret    248.6  fin   0/62   rew +1.018  kl 0.0127 std 0.68 f 0.50Hz sat 0.38  4,453 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[   5,898,240] ep_len     262  ret    271.1  fin   0/60   rew +1.053  kl 0.0121 std 0.68 f 0.50Hz sat 0.39  4,446 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[   6,062,080] ep_len     265  ret    281.6  fin   0/71   rew +1.023  kl 0.0116 std 0.68 f 0.50Hz sat 0.38  4,442 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[   6,225,920] ep_len     272  ret    282.6  fin   0/55   rew +1.081  kl 0.0080 std 0.68 f 0.50Hz sat 0.40  4,419 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[drag curriculum] success=0%, advancing=False, scale=0.000
+[walking curriculum] success=0%, advancing=False, shape=0.050
+[gait quality @ 6,291,456] qualified 0/12, survived 0%, error 0.150 m/s, floor-hit 0.0%
+  target 0.10 m/s: qualified 0/12, survived 0%, first episode 4.80s, L/R steps from reset 0.0/0.0, after 5s 0.0/0.0
+  target 0.15 m/s: qualified 0/12, survived 0%, first episode 3.24s, L/R steps from reset 0.0/0.0, after 5s 0.0/0.0
+  target 0.20 m/s: qualified 0/12, survived 0%, first episode 2.61s, L/R steps from reset 0.0/0.0, after 5s 0.0/0.0
+[eval @ 6,291,456] ladder cmd-err 0.17 m/s, heading 0.1 deg, upright 0%, bring-up nan%  (135s)
+            per stick (err m/s / upright):  20%:0.17/0%   30%:0.15/0%   40%:0.20/0%
+[   6,389,760] ep_len     276  ret    295.1  fin   0/56   rew +1.084  kl 0.0087 std 0.67 f 0.50Hz sat 0.39  4,425 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[   6,553,600] ep_len     294  ret    319.5  fin   0/57   rew +1.049  kl 0.0096 std 0.67 f 0.50Hz sat 0.39  4,453 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[   6,717,440] ep_len     318  ret    348.8  fin   0/50   rew +1.100  kl 0.0099 std 0.67 f 0.50Hz sat 0.40  4,457 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[   6,881,280] ep_len     304  ret    325.4  fin   0/47   rew +1.132  kl 0.0089 std 0.67 f 0.50Hz sat 0.40  4,441 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[   7,045,120] ep_len     341  ret    386.0  fin   0/38   rew +1.233  kl 0.0098 std 0.67 f 0.50Hz sat 0.40  4,457 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[   7,208,960] ep_len     369  ret    411.8  fin   0/31   rew +1.255  kl 0.0093 std 0.67 f 0.50Hz sat 0.40  4,469 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[drag curriculum] success=0%, advancing=False, scale=0.000
+[walking curriculum] success=0%, advancing=False, shape=0.050
+[gait quality @ 7,340,032] qualified 0/12, survived 0%, error 0.140 m/s, floor-hit 22.6%
+  target 0.10 m/s: qualified 0/12, survived 0%, first episode 6.16s, L/R steps from reset 0.0/0.0, after 5s 0.0/0.0
+  target 0.15 m/s: qualified 0/12, survived 0%, first episode 8.62s, L/R steps from reset 0.0/0.0, after 5s 0.0/0.0
+  target 0.20 m/s: qualified 0/12, survived 0%, first episode 14.48s, L/R steps from reset 0.0/0.0, after 5s 0.0/0.0
+[eval @ 7,340,032] ladder cmd-err 0.17 m/s, heading 2.3 deg, upright 0%, bring-up nan%  (204s)
+            per stick (err m/s / upright):  20%:0.11/0%   30%:0.20/0%   40%:0.21/0%
+[   7,372,800] ep_len     338  ret    374.9  fin   0/43   rew +1.204  kl 0.0096 std 0.67 f 0.50Hz sat 0.40  4,412 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[   7,536,640] ep_len     324  ret    383.7  fin   0/32   rew +1.282  kl 0.0080 std 0.67 f 0.50Hz sat 0.39  4,531 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[   7,700,480] ep_len     372  ret    426.9  fin   0/47   rew +1.142  kl 0.0106 std 0.67 f 0.50Hz sat 0.39  4,456 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[   7,864,320] ep_len     358  ret    425.5  fin   0/31   rew +1.272  kl 0.0107 std 0.67 f 0.50Hz sat 0.39  4,441 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[   8,028,160] ep_len     435  ret    499.7  fin   0/48   rew +1.076  kl 0.0105 std 0.67 f 0.50Hz sat 0.39  4,479 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[   8,192,000] ep_len     452  ret    539.4  fin   0/48   rew +1.149  kl 0.0105 std 0.67 f 0.50Hz sat 0.38  4,461 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[   8,355,840] ep_len     410  ret    466.8  fin   0/37   rew +1.136  kl 0.0075 std 0.67 f 0.50Hz sat 0.39  4,461 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[drag curriculum] success=0%, advancing=False, scale=0.000
+[walking curriculum] success=0%, advancing=False, shape=0.050
+[gait quality @ 8,388,608] qualified 0/12, survived 83%, error 0.130 m/s, floor-hit 4.7%
+  target 0.10 m/s: qualified 0/12, survived 0%, first episode 13.89s, L/R steps from reset 0.0/0.1, after 5s 0.0/0.1
+  target 0.15 m/s: qualified 0/12, survived 83%, first episode 23.06s, L/R steps from reset 0.0/0.0, after 5s 0.0/0.0
+  target 0.20 m/s: qualified 0/12, survived 100%, first episode 25.00s, L/R steps from reset 0.0/0.0, after 5s 0.0/0.0
+[eval @ 8,388,608] ladder cmd-err 0.14 m/s, heading 3.6 deg, upright 61%, bring-up nan%  (210s)
+            per stick (err m/s / upright):  20%:0.08/0%   30%:0.13/83%   40%:0.19/100%
+[   8,519,680] ep_len     502  ret    579.8  fin   0/39   rew +1.130  kl 0.0083 std 0.67 f 0.50Hz sat 0.39  4,424 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[   8,683,520] ep_len     464  ret    553.4  fin   0/37   rew +1.164  kl 0.0079 std 0.67 f 0.50Hz sat 0.39  4,442 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[   8,847,360] ep_len     509  ret    622.0  fin   0/34   rew +1.221  kl 0.0079 std 0.67 f 0.50Hz sat 0.39  4,457 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[   9,011,200] ep_len     500  ret    580.4  fin   0/26   rew +1.288  kl 0.0113 std 0.67 f 0.50Hz sat 0.39  4,457 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[   9,175,040] ep_len     478  ret    570.4  fin   0/34   rew +1.211  kl 0.0103 std 0.67 f 0.50Hz sat 0.38  4,505 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[   9,338,880] ep_len     600  ret    752.0  fin   0/28   rew +1.251  kl 0.0094 std 0.67 f 0.50Hz sat 0.39  4,466 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[drag curriculum] success=0%, advancing=False, scale=0.000
+[walking curriculum] success=0%, advancing=False, shape=0.050
+[gait quality @ 9,437,184] qualified 0/12, survived 83%, error 0.140 m/s, floor-hit 1.4%
+  target 0.10 m/s: qualified 0/12, survived 0%, first episode 5.99s, L/R steps from reset 0.0/0.2, after 5s 0.0/0.2
+  target 0.15 m/s: qualified 0/12, survived 83%, first episode 21.28s, L/R steps from reset 0.0/0.0, after 5s 0.0/0.0
+  target 0.20 m/s: qualified 0/12, survived 92%, first episode 23.37s, L/R steps from reset 0.0/0.0, after 5s 0.0/0.0
+[eval @ 9,437,184] ladder cmd-err 0.14 m/s, heading 4.3 deg, upright 61%, bring-up nan%  (203s)
+            per stick (err m/s / upright):  20%:0.09/0%   30%:0.14/92%   40%:0.19/92%
+[   9,502,720] ep_len     607  ret    770.4  fin   0/34   rew +1.183  kl 0.0103 std 0.67 f 0.50Hz sat 0.39  4,480 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[   9,666,560] ep_len     472  ret    570.2  fin   0/26   rew +1.231  kl 0.0090 std 0.66 f 0.50Hz sat 0.40  4,472 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[   9,830,400] ep_len     701  ret    891.6  fin   0/26   rew +1.261  kl 0.0107 std 0.66 f 0.50Hz sat 0.39  4,488 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[   9,994,240] ep_len     673  ret    819.1  fin   0/26   rew +1.219  kl 0.0119 std 0.66 f 0.50Hz sat 0.38  4,461 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  10,158,080] ep_len     676  ret    837.4  fin   0/17   rew +1.267  kl 0.0107 std 0.66 f 0.50Hz sat 0.39  4,447 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  10,321,920] ep_len     623  ret    745.0  fin   0/16   rew +1.249  kl 0.0117 std 0.66 f 0.50Hz sat 0.38  4,475 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  10,485,760] ep_len     990  ret   1142.6  fin   0/19   rew +1.200  kl 0.0129 std 0.66 f 0.50Hz sat 0.38  4,448 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[drag curriculum] success=0%, advancing=False, scale=0.000
+[walking curriculum] success=0%, advancing=False, shape=0.050
+[gait quality @ 10,485,760] qualified 0/12, survived 25%, error 0.123 m/s, floor-hit 12.6%
+  target 0.10 m/s: qualified 0/12, survived 8%, first episode 10.06s, L/R steps from reset 0.0/0.0, after 5s 0.0/0.0
+  target 0.15 m/s: qualified 0/12, survived 25%, first episode 17.24s, L/R steps from reset 0.2/0.0, after 5s 0.2/0.0
+  target 0.20 m/s: qualified 0/12, survived 100%, first episode 25.00s, L/R steps from reset 0.0/0.0, after 5s 0.0/0.0
+[eval @ 10,485,760] ladder cmd-err 0.13 m/s, heading 7.1 deg, upright 36%, bring-up nan%  (207s)
+            per stick (err m/s / upright):  20%:0.07/8%   30%:0.12/8%   40%:0.19/92%
+[  10,649,600] ep_len     910  ret   1123.5  fin   0/10   rew +1.252  kl 0.0152 std 0.66 f 0.50Hz sat 0.39  4,539 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  10,813,440] ep_len     881  ret   1049.3  fin   0/30   rew +1.142  kl 0.0134 std 0.66 f 0.50Hz sat 0.38  4,437 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  10,977,280] ep_len     814  ret    979.1  fin   0/24   rew +1.183  kl 0.0165 std 0.66 f 0.50Hz sat 0.39  4,527 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  11,141,120] ep_len     841  ret   1023.3  fin   0/29   rew +1.131  kl 0.0100 std 0.66 f 0.50Hz sat 0.39  4,465 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  11,304,960] ep_len     786  ret    971.0  fin   0/23   rew +1.259  kl 0.0116 std 0.66 f 0.50Hz sat 0.39  4,469 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  11,468,800] ep_len     819  ret   1054.7  fin   0/20   rew +1.226  kl 0.0150 std 0.66 f 0.50Hz sat 0.38  4,414 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[drag curriculum] success=0%, advancing=False, scale=0.000
+[walking curriculum] success=0%, advancing=False, shape=0.050
+[gait quality @ 11,534,336] qualified 0/12, survived 83%, error 0.133 m/s, floor-hit 6.2%
+  target 0.10 m/s: qualified 0/12, survived 83%, first episode 22.27s, L/R steps from reset 0.0/0.0, after 5s 0.0/0.0
+  target 0.15 m/s: qualified 0/12, survived 83%, first episode 24.07s, L/R steps from reset 0.0/0.0, after 5s 0.0/0.0
+  target 0.20 m/s: qualified 0/12, survived 100%, first episode 25.00s, L/R steps from reset 0.0/0.0, after 5s 0.0/0.0
+[eval @ 11,534,336] ladder cmd-err 0.15 m/s, heading 10.0 deg, upright 86%, bring-up nan%  (213s)
+            per stick (err m/s / upright):  20%:0.15/58%   30%:0.14/100%   40%:0.17/100%
+[  11,632,640] ep_len     839  ret    959.4  fin   0/11   rew +1.327  kl 0.0168 std 0.66 f 0.50Hz sat 0.38  4,415 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  11,796,480] ep_len     797  ret   1008.5  fin   0/22   rew +1.233  kl 0.0135 std 0.66 f 0.50Hz sat 0.38  4,419 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  11,960,320] ep_len     860  ret   1078.0  fin   0/18   rew +1.278  kl 0.0105 std 0.66 f 0.50Hz sat 0.38  4,466 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  12,124,160] ep_len     722  ret    889.6  fin   0/14   rew +1.340  kl 0.0135 std 0.66 f 0.50Hz sat 0.38  4,440 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  12,288,000] ep_len     588  ret    677.3  fin   0/12   rew +1.280  kl 0.0114 std 0.66 f 0.50Hz sat 0.38  4,458 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  12,451,840] ep_len    1248  ret   1570.8  fin   0/30   rew +1.290  kl 0.0105 std 0.66 f 0.50Hz sat 0.38  4,454 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[drag curriculum] success=0%, advancing=False, scale=0.000
+[walking curriculum] success=0%, advancing=False, shape=0.050
+[gait quality @ 12,582,912] qualified 0/12, survived 50%, error 0.104 m/s, floor-hit 8.4%
+  target 0.10 m/s: qualified 0/12, survived 0%, first episode 9.58s, L/R steps from reset 0.0/0.0, after 5s 0.0/0.0
+  target 0.15 m/s: qualified 0/12, survived 50%, first episode 22.95s, L/R steps from reset 0.3/0.0, after 5s 0.3/0.0
+  target 0.20 m/s: qualified 0/12, survived 100%, first episode 25.00s, L/R steps from reset 0.0/0.0, after 5s 0.0/0.0
+[eval @ 12,582,912] ladder cmd-err 0.12 m/s, heading 6.2 deg, upright 47%, bring-up nan%  (217s)
+            per stick (err m/s / upright):  20%:0.10/8%   30%:0.10/42%   40%:0.15/92%
+[  12,615,680] ep_len     858  ret   1122.1  fin   0/20   rew +1.331  kl 0.0107 std 0.66 f 0.50Hz sat 0.38  4,438 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  12,779,520] ep_len    1004  ret   1320.8  fin   0/23   rew +1.284  kl 0.0123 std 0.66 f 0.50Hz sat 0.38  4,489 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  12,943,360] ep_len     917  ret   1198.9  fin   0/9    rew +1.356  kl 0.0158 std 0.66 f 0.50Hz sat 0.38  4,579 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  13,107,200] ep_len     740  ret    887.1  fin   0/14   rew +1.298  kl 0.0106 std 0.66 f 0.50Hz sat 0.38  4,484 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  13,271,040] ep_len     903  ret   1165.4  fin   0/12   rew +1.327  kl 0.0139 std 0.66 f 0.50Hz sat 0.39  4,436 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  13,434,880] ep_len    1311  ret   1713.9  fin   0/15   rew +1.282  kl 0.0144 std 0.66 f 0.50Hz sat 0.39  4,463 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  13,598,720] ep_len    1393  ret   1544.6  fin   0/9    rew +1.357  kl 0.0138 std 0.66 f 0.50Hz sat 0.38  4,476 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[drag curriculum] success=0%, advancing=False, scale=0.000
+[walking curriculum] success=0%, advancing=False, shape=0.050
+[gait quality @ 13,631,488] qualified 0/12, survived 75%, error 0.117 m/s, floor-hit 27.9%
+  target 0.10 m/s: qualified 0/12, survived 0%, first episode 11.94s, L/R steps from reset 0.1/0.0, after 5s 0.1/0.0
+  target 0.15 m/s: qualified 0/12, survived 75%, first episode 22.65s, L/R steps from reset 0.2/0.0, after 5s 0.2/0.0
+  target 0.20 m/s: qualified 0/12, survived 100%, first episode 25.00s, L/R steps from reset 0.0/0.0, after 5s 0.0/0.0
+[eval @ 13,631,488] ladder cmd-err 0.13 m/s, heading 10.4 deg, upright 56%, bring-up nan%  (208s)
+            per stick (err m/s / upright):  20%:0.07/0%   30%:0.12/67%   40%:0.19/100%
+[  13,762,560] ep_len    1240  ret   1652.2  fin   0/20   rew +1.292  kl 0.0128 std 0.66 f 0.50Hz sat 0.39  4,476 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  13,926,400] ep_len    1215  ret   1644.7  fin   0/17   rew +1.366  kl 0.0103 std 0.66 f 0.50Hz sat 0.39  4,444 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  14,090,240] ep_len    1191  ret   1574.2  fin   0/14   rew +1.389  kl 0.0123 std 0.66 f 0.50Hz sat 0.38  4,454 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  14,254,080] ep_len    1018  ret   1421.3  fin   0/10   rew +1.417  kl 0.0186 std 0.66 f 0.50Hz sat 0.39  4,421 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  14,417,920] ep_len    1094  ret   1295.9  fin   0/15   rew +1.442  kl 0.0097 std 0.65 f 0.50Hz sat 0.39  4,442 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  14,581,760] ep_len    1200  ret   1640.0  fin   0/11   rew +1.477  kl 0.0102 std 0.65 f 0.50Hz sat 0.41  4,477 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[drag curriculum] success=92%, advancing=False, scale=0.000
+[walking curriculum] success=92%, advancing=False, shape=0.050
+[gait quality @ 14,680,064] qualified 0/12, survived 83%, error 0.057 m/s, floor-hit 7.4%
+  target 0.10 m/s: qualified 0/12, survived 92%, first episode 24.99s, L/R steps from reset 0.0/0.0, after 5s 0.0/0.0
+  target 0.15 m/s: qualified 0/12, survived 83%, first episode 22.80s, L/R steps from reset 0.0/0.0, after 5s 0.0/0.0
+  target 0.20 m/s: qualified 0/12, survived 100%, first episode 25.00s, L/R steps from reset 0.0/0.0, after 5s 0.0/0.0
+[eval @ 14,680,064] ladder cmd-err 0.08 m/s, heading 7.0 deg, upright 100%, bring-up nan%  (221s)
+            per stick (err m/s / upright):  20%:0.04/100%   30%:0.05/100%   40%:0.15/100%
+[  14,745,600] ep_len    1098  ret   1582.8  fin   0/18   rew +1.418  kl 0.0108 std 0.65 f 0.50Hz sat 0.39  4,485 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  14,909,440] ep_len    1015  ret   1420.0  fin   0/10   rew +1.430  kl 0.0103 std 0.65 f 0.50Hz sat 0.39  4,491 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  15,073,280] ep_len    1247  ret   1816.3  fin   0/22   rew +1.373  kl 0.0089 std 0.65 f 0.50Hz sat 0.39  4,454 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  15,237,120] ep_len     879  ret   1181.1  fin   0/14   rew +1.449  kl 0.0114 std 0.65 f 0.50Hz sat 0.39  4,451 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  15,400,960] ep_len    1357  ret   1861.2  fin   0/19   rew +1.455  kl 0.0108 std 0.65 f 0.50Hz sat 0.38  4,476 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  15,564,800] ep_len     840  ret   1270.4  fin   0/12   rew +1.412  kl 0.0101 std 0.65 f 0.50Hz sat 0.39  4,455 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  15,728,640] ep_len    1109  ret   1557.4  fin   0/18   rew +1.445  kl 0.0136 std 0.65 f 0.50Hz sat 0.39  4,421 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[drag curriculum] success=75%, advancing=True, scale=0.000
+[walking curriculum] success=75%, advancing=True, shape=0.050
+[gait quality @ 15,728,640] qualified 0/12, survived 100%, error 0.077 m/s, floor-hit 7.8%
+  target 0.10 m/s: qualified 0/12, survived 100%, first episode 25.00s, L/R steps from reset 0.0/0.0, after 5s 0.0/0.0
+  target 0.15 m/s: qualified 0/12, survived 100%, first episode 25.00s, L/R steps from reset 0.0/0.0, after 5s 0.0/0.0
+  target 0.20 m/s: qualified 0/12, survived 100%, first episode 25.00s, L/R steps from reset 0.0/0.0, after 5s 0.0/0.0
+[eval @ 15,728,640] ladder cmd-err 0.09 m/s, heading 6.6 deg, upright 100%, bring-up nan%  (217s)
+            per stick (err m/s / upright):  20%:0.03/100%   30%:0.07/100%   40%:0.17/100%
+[  15,892,480] ep_len    1154  ret   1587.2  fin   0/14   rew +1.328  kl 0.0103 std 0.65 f 0.50Hz sat 0.38  4,470 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  16,056,320] ep_len    1117  ret   1545.1  fin   0/16   rew +1.337  kl 0.0135 std 0.64 f 0.50Hz sat 0.38  4,448 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  16,220,160] ep_len     799  ret   1076.0  fin   0/11   rew +1.341  kl 0.0138 std 0.63 f 0.50Hz sat 0.37  4,517 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  16,384,000] ep_len    1170  ret   1603.0  fin   0/16   rew +1.263  kl 0.0130 std 0.62 f 0.50Hz sat 0.36  4,503 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  16,547,840] ep_len    1064  ret   1378.8  fin   0/15   rew +1.239  kl 0.0174 std 0.60 f 0.50Hz sat 0.35  4,520 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  16,711,680] ep_len    1355  ret   1768.6  fin   0/8    rew +1.245  kl 0.0138 std 0.59 f 0.50Hz sat 0.34  4,498 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[drag curriculum] success=100%, advancing=True, scale=0.210
+[walking curriculum] success=100%, advancing=True, shape=0.249
+[gait quality @ 16,777,216] qualified 0/12, survived 100%, error 0.072 m/s, floor-hit 13.3%
+  target 0.10 m/s: qualified 0/12, survived 92%, first episode 23.27s, L/R steps from reset 0.0/0.0, after 5s 0.0/0.0
+  target 0.15 m/s: qualified 0/12, survived 100%, first episode 25.00s, L/R steps from reset 0.0/0.0, after 5s 0.0/0.0
+  target 0.20 m/s: qualified 0/12, survived 100%, first episode 25.00s, L/R steps from reset 0.0/0.0, after 5s 0.0/0.0
+[eval @ 16,777,216] ladder cmd-err 0.10 m/s, heading 16.4 deg, upright 92%, bring-up nan%  (214s)
+            per stick (err m/s / upright):  20%:0.05/75%   30%:0.07/100%   40%:0.16/100%
+[  16,875,520] ep_len    1615  ret   2169.3  fin   0/8    rew +1.164  kl 0.0162 std 0.58 f 0.50Hz sat 0.33  4,473 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  17,039,360] ep_len    1444  ret   1861.4  fin   0/14   rew +1.180  kl 0.0130 std 0.57 f 0.50Hz sat 0.33  4,487 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  17,203,200] ep_len    1439  ret   1797.9  fin   0/13   rew +1.133  kl 0.0143 std 0.56 f 0.50Hz sat 0.32  4,568 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  17,367,040] ep_len    1942  ret   2452.5  fin   0/13   rew +1.131  kl 0.0224 std 0.55 f 0.50Hz sat 0.32  4,503 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  17,530,880] ep_len    1424  ret   1596.4  fin   0/10   rew +1.046  kl 0.0140 std 0.54 f 0.50Hz sat 0.31  4,481 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  17,694,720] ep_len    1320  ret   1529.7  fin   0/12   rew +0.972  kl 0.0130 std 0.53 f 0.50Hz sat 0.31  4,520 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[drag curriculum] success=100%, advancing=True, scale=0.419
+[walking curriculum] success=100%, advancing=True, shape=0.448
+[gait quality @ 17,825,792] qualified 0/12, survived 100%, error 0.035 m/s, floor-hit 7.2%
+  target 0.10 m/s: qualified 0/12, survived 83%, first episode 23.09s, L/R steps from reset 0.0/0.0, after 5s 0.0/0.0
+  target 0.15 m/s: qualified 0/12, survived 100%, first episode 25.00s, L/R steps from reset 0.0/0.0, after 5s 0.0/0.0
+  target 0.20 m/s: qualified 0/12, survived 100%, first episode 25.00s, L/R steps from reset 0.0/0.0, after 5s 0.0/0.0
+[eval @ 17,825,792] ladder cmd-err 0.06 m/s, heading 16.0 deg, upright 97%, bring-up nan%  (225s)
+            per stick (err m/s / upright):  20%:0.04/92%   30%:0.04/100%   40%:0.10/100%
+[  17,858,560] ep_len    1963  ret   2237.7  fin   0/11   rew +0.913  kl 0.0272 std 0.52 f 0.50Hz sat 0.30  4,532 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  18,022,400] ep_len    1719  ret   1706.2  fin   0/7    rew +0.925  kl 0.0118 std 0.51 f 0.50Hz sat 0.30  4,495 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  18,186,240] ep_len    1453  ret   1448.8  fin   0/19   rew +0.875  kl 0.0157 std 0.50 f 0.50Hz sat 0.30  4,501 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  18,350,080] ep_len    1248  ret   1176.6  fin   0/12   rew +0.834  kl 0.0172 std 0.49 f 0.50Hz sat 0.28  4,524 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  18,513,920] ep_len    1969  ret   1810.6  fin   0/17   rew +0.831  kl 0.0197 std 0.48 f 0.50Hz sat 0.27  4,606 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  18,677,760] ep_len    1510  ret   1359.2  fin   0/15   rew +0.759  kl 0.0156 std 0.46 f 0.50Hz sat 0.28  4,486 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  18,841,600] ep_len    1957  ret   1757.5  fin   0/9    rew +0.743  kl 0.0218 std 0.45 f 0.50Hz sat 0.26  4,658 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[drag curriculum] success=100%, advancing=True, scale=0.629
+[walking curriculum] success=100%, advancing=True, shape=0.648
+[gait quality @ 18,874,368] qualified 0/12, survived 100%, error 0.044 m/s, floor-hit 5.7%
+  target 0.10 m/s: qualified 0/12, survived 100%, first episode 25.00s, L/R steps from reset 0.0/0.0, after 5s 0.0/0.0
+  target 0.15 m/s: qualified 0/12, survived 100%, first episode 25.00s, L/R steps from reset 0.0/0.0, after 5s 0.0/0.0
+  target 0.20 m/s: qualified 0/12, survived 17%, first episode 7.04s, L/R steps from reset 0.0/0.0, after 5s 0.0/0.0
+[eval @ 18,874,368] ladder cmd-err 0.08 m/s, heading 5.8 deg, upright 78%, bring-up nan%  (228s)
+            per stick (err m/s / upright):  20%:0.04/100%   30%:0.04/100%   40%:0.16/33%
+[  19,005,440] ep_len    1471  ret   1228.3  fin   0/7    rew +0.659  kl 0.0225 std 0.44 f 0.50Hz sat 0.24  4,558 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  19,169,280] ep_len    2500  ret   2191.1  fin   0/3    rew +0.643  kl 0.0150 std 0.43 f 0.50Hz sat 0.24  4,498 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  19,333,120] ep_len    2098  ret   1556.1  fin   0/6    rew +0.549  kl 0.0102 std 0.42 f 0.50Hz sat 0.25  4,566 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  19,496,960] ep_len    2319  ret   1658.3  fin   0/9    rew +0.596  kl 0.0258 std 0.42 f 0.50Hz sat 0.24  4,584 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  19,660,800] ep_len    1916  ret   1098.9  fin   0/4    rew +0.521  kl 0.0257 std 0.41 f 0.50Hz sat 0.25  4,545 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  19,824,640] ep_len    1370  ret    737.4  fin   0/10   rew +0.445  kl 0.0175 std 0.40 f 0.50Hz sat 0.25  4,531 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[drag curriculum] success=100%, advancing=True, scale=0.839
+[walking curriculum] success=100%, advancing=True, shape=0.847
+[gait quality @ 19,922,944] qualified 0/12, survived 75%, error 0.046 m/s, floor-hit 9.9%
+  target 0.10 m/s: qualified 0/12, survived 92%, first episode 23.35s, L/R steps from reset 0.0/0.0, after 5s 0.0/0.0
+  target 0.15 m/s: qualified 0/12, survived 75%, first episode 21.56s, L/R steps from reset 0.0/0.0, after 5s 0.0/0.0
+  target 0.20 m/s: qualified 0/12, survived 0%, first episode 7.36s, L/R steps from reset 0.0/0.0, after 5s 0.0/0.0
+[eval @ 19,922,944] ladder cmd-err 0.12 m/s, heading 15.2 deg, upright 61%, bring-up nan%  (232s)
+            per stick (err m/s / upright):  20%:0.03/92%   30%:0.04/92%   40%:0.28/0%
+[  19,988,480] ep_len    1578  ret    851.2  fin   0/13   rew +0.452  kl 0.0175 std 0.39 f 0.50Hz sat 0.25  4,471 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  20,152,320] ep_len    2276  ret   1329.8  fin   0/8    rew +0.512  kl 0.0288 std 0.38 f 0.50Hz sat 0.23  4,602 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  20,316,160] ep_len    2108  ret   1078.7  fin   0/8    rew +0.402  kl 0.0217 std 0.37 f 0.50Hz sat 0.23  4,568 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  20,480,000] ep_len    1441  ret    639.3  fin   0/8    rew +0.315  kl 0.0154 std 0.36 f 0.50Hz sat 0.23  4,573 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  20,643,840] ep_len    1904  ret    914.5  fin   0/7    rew +0.363  kl 0.0268 std 0.36 f 0.50Hz sat 0.22  4,690 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  20,807,680] ep_len    2401  ret   1120.2  fin   0/11   rew +0.390  kl 0.0222 std 0.35 f 0.50Hz sat 0.22  4,580 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  20,971,520] ep_len    1418  ret    610.5  fin   0/2    rew +0.314  kl 0.0178 std 0.35 f 0.50Hz sat 0.22  4,580 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[drag curriculum] success=100%, advancing=True, scale=1.000
+[walking curriculum] success=100%, advancing=True, shape=1.000
+[gait quality @ 20,971,520] qualified 0/12, survived 92%, error 0.057 m/s, floor-hit 6.8%
+  target 0.10 m/s: qualified 0/12, survived 100%, first episode 25.00s, L/R steps from reset 0.0/0.0, after 5s 0.0/0.0
+  target 0.15 m/s: qualified 0/12, survived 92%, first episode 24.08s, L/R steps from reset 0.0/0.0, after 5s 0.0/0.0
+  target 0.20 m/s: qualified 0/12, survived 92%, first episode 23.36s, L/R steps from reset 0.0/0.0, after 5s 0.0/0.0
+[eval @ 20,971,520] ladder cmd-err 0.06 m/s, heading 8.1 deg, upright 97%, bring-up nan%  (224s)
+            per stick (err m/s / upright):  20%:0.04/100%   30%:0.05/100%   40%:0.09/92%
+[  21,135,360] ep_len    2011  ret    765.3  fin   0/9    rew +0.312  kl 0.0162 std 0.35 f 0.50Hz sat 0.23  4,637 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  21,299,200] ep_len    2357  ret    806.4  fin   0/13   rew +0.350  kl 0.0150 std 0.35 f 0.50Hz sat 0.22  4,515 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  21,463,040] ep_len    1971  ret    667.4  fin   0/10   rew +0.335  kl 0.0210 std 0.35 f 0.50Hz sat 0.21  4,566 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  21,626,880] ep_len    2108  ret    792.1  fin   0/5    rew +0.334  kl 0.0155 std 0.35 f 0.50Hz sat 0.23  4,515 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  21,790,720] ep_len    2370  ret    842.5  fin   0/12   rew +0.376  kl 0.0184 std 0.34 f 0.50Hz sat 0.21  4,552 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  21,954,560] ep_len    2500  ret    490.6  fin   0/3    rew +0.376  kl 0.0152 std 0.34 f 0.50Hz sat 0.21  4,689 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[drag curriculum] success=100%, advancing=True, scale=1.000
+[walking curriculum] success=100%, advancing=True, shape=1.000
+[gait quality @ 22,020,096] qualified 0/12, survived 100%, error 0.036 m/s, floor-hit 6.9%
+  target 0.10 m/s: qualified 0/12, survived 100%, first episode 25.00s, L/R steps from reset 0.0/0.0, after 5s 0.0/0.0
+  target 0.15 m/s: qualified 0/12, survived 100%, first episode 25.00s, L/R steps from reset 0.0/0.0, after 5s 0.0/0.0
+  target 0.20 m/s: qualified 0/12, survived 100%, first episode 25.00s, L/R steps from reset 0.0/0.0, after 5s 0.0/0.0
+[eval @ 22,020,096] ladder cmd-err 0.07 m/s, heading 8.5 deg, upright 89%, bring-up nan%  (230s)
+            per stick (err m/s / upright):  20%:0.05/92%   30%:0.04/100%   40%:0.11/75%
+[  22,118,400] ep_len    1756  ret    662.3  fin   0/7    rew +0.354  kl 0.0225 std 0.34 f 0.50Hz sat 0.20  4,513 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  22,282,240] ep_len    2156  ret    842.3  fin   0/4    rew +0.412  kl 0.0235 std 0.34 f 0.50Hz sat 0.19  4,491 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  22,446,080] ep_len    2500  ret    822.4  fin   0/7    rew +0.412  kl 0.0227 std 0.34 f 0.50Hz sat 0.18  4,539 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  22,609,920] ep_len    2365  ret    859.3  fin   0/12   rew +0.367  kl 0.0127 std 0.34 f 0.50Hz sat 0.17  4,522 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  22,773,760] ep_len    1863  ret    494.1  fin   0/8    rew +0.372  kl 0.0151 std 0.34 f 0.50Hz sat 0.19  4,498 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  22,937,600] ep_len    2086  ret    796.4  fin   0/4    rew +0.368  kl 0.0154 std 0.34 f 0.50Hz sat 0.17  4,629 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[drag curriculum] success=100%, advancing=True, scale=1.000
+[walking curriculum] success=100%, advancing=True, shape=1.000
+[gait quality @ 23,068,672] qualified 0/12, survived 100%, error 0.058 m/s, floor-hit 6.5%
+  target 0.10 m/s: qualified 0/12, survived 100%, first episode 25.00s, L/R steps from reset 0.0/0.0, after 5s 0.0/0.0
+  target 0.15 m/s: qualified 0/12, survived 100%, first episode 25.00s, L/R steps from reset 0.0/0.0, after 5s 0.0/0.0
+  target 0.20 m/s: qualified 0/12, survived 33%, first episode 10.05s, L/R steps from reset 0.0/0.0, after 5s 0.0/0.0
+[eval @ 23,068,672] ladder cmd-err 0.10 m/s, heading 1.7 deg, upright 67%, bring-up nan%  (224s)
+            per stick (err m/s / upright):  20%:0.03/100%   30%:0.06/100%   40%:0.20/0%
+[  23,101,440] ep_len    1984  ret    745.4  fin   0/13   rew +0.342  kl 0.0242 std 0.34 f 0.50Hz sat 0.18  4,532 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  23,265,280] ep_len    2028  ret    777.7  fin   0/9    rew +0.336  kl 0.0218 std 0.34 f 0.50Hz sat 0.16  4,583 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  23,429,120] ep_len    1710  ret    591.6  fin   0/13   rew +0.335  kl 0.0149 std 0.34 f 0.50Hz sat 0.16  4,566 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  23,592,960] ep_len    2500  ret    953.2  fin   0/5    rew +0.378  kl 0.0186 std 0.34 f 0.50Hz sat 0.17  4,618 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  23,756,800] ep_len    1962  ret    734.2  fin   0/8    rew +0.384  kl 0.0147 std 0.34 f 0.50Hz sat 0.17  4,595 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  23,920,640] ep_len    2169  ret    785.4  fin   0/6    rew +0.436  kl 0.0223 std 0.34 f 0.50Hz sat 0.15  4,557 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  24,084,480] ep_len    2500  ret    863.2  fin   0/4    rew +0.422  kl 0.0142 std 0.34 f 0.50Hz sat 0.18  4,525 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[drag curriculum] success=100%, advancing=True, scale=1.000
+[walking curriculum] success=100%, advancing=True, shape=1.000
+[gait quality @ 24,117,248] qualified 0/12, survived 100%, error 0.028 m/s, floor-hit 7.6%
+  target 0.10 m/s: qualified 0/12, survived 100%, first episode 25.00s, L/R steps from reset 0.0/0.0, after 5s 0.0/0.0
+  target 0.15 m/s: qualified 0/12, survived 100%, first episode 25.00s, L/R steps from reset 0.0/0.0, after 5s 0.0/0.0
+  target 0.20 m/s: qualified 0/12, survived 75%, first episode 21.70s, L/R steps from reset 0.0/0.0, after 5s 0.0/0.0
+[eval @ 24,117,248] ladder cmd-err 0.07 m/s, heading 5.4 deg, upright 92%, bring-up nan%  (230s)
+            per stick (err m/s / upright):  20%:0.03/100%   30%:0.03/100%   40%:0.15/75%
+[  24,248,320] ep_len    1762  ret    684.1  fin   0/9    rew +0.369  kl 0.0160 std 0.34 f 0.50Hz sat 0.18  4,513 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  24,412,160] ep_len    2253  ret    898.1  fin   0/5    rew +0.395  kl 0.0133 std 0.34 f 0.50Hz sat 0.19  4,683 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  24,576,000] ep_len    2252  ret    891.6  fin   0/7    rew +0.378  kl 0.0120 std 0.34 f 0.50Hz sat 0.19  4,603 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  24,739,840] ep_len    2036  ret    668.2  fin   0/7    rew +0.414  kl 0.0208 std 0.34 f 0.50Hz sat 0.19  4,557 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  24,903,680] ep_len    2216  ret    872.9  fin   0/7    rew +0.409  kl 0.0154 std 0.34 f 0.50Hz sat 0.18  4,547 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  25,067,520] ep_len    2408  ret    898.3  fin   0/7    rew +0.387  kl 0.0439 std 0.33 f 0.50Hz sat 0.19  4,715 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[drag curriculum] success=100%, advancing=True, scale=1.000
+[walking curriculum] success=100%, advancing=True, shape=1.000
+[gait quality @ 25,165,824] qualified 0/12, survived 100%, error 0.026 m/s, floor-hit 6.5%
+  target 0.10 m/s: qualified 0/12, survived 100%, first episode 25.00s, L/R steps from reset 0.0/0.0, after 5s 0.0/0.0
+  target 0.15 m/s: qualified 0/12, survived 100%, first episode 25.00s, L/R steps from reset 0.0/0.0, after 5s 0.0/0.0
+  target 0.20 m/s: qualified 0/12, survived 92%, first episode 24.16s, L/R steps from reset 0.0/0.0, after 5s 0.0/0.0
+[eval @ 25,165,824] ladder cmd-err 0.04 m/s, heading 3.5 deg, upright 100%, bring-up nan%  (229s)
+            per stick (err m/s / upright):  20%:0.02/100%   30%:0.02/100%   40%:0.07/100%
+[  25,231,360] ep_len    1859  ret    732.0  fin   0/5    rew +0.394  kl 0.0152 std 0.33 f 0.50Hz sat 0.19  4,568 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  25,395,200] ep_len    2158  ret    909.0  fin   0/5    rew +0.401  kl 0.0213 std 0.33 f 0.50Hz sat 0.18  4,569 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  25,559,040] ep_len    2439  ret    945.2  fin   0/5    rew +0.408  kl 0.0229 std 0.33 f 0.50Hz sat 0.17  4,750 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  25,722,880] ep_len    2045  ret    860.6  fin   0/8    rew +0.377  kl 0.0262 std 0.33 f 0.50Hz sat 0.18  4,767 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  25,886,720] ep_len    2219  ret    922.9  fin   0/8    rew +0.371  kl 0.0201 std 0.33 f 0.50Hz sat 0.18  4,621 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  26,050,560] ep_len    2500  ret    953.4  fin   0/9    rew +0.410  kl 0.0236 std 0.33 f 0.50Hz sat 0.17  4,633 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  26,214,400] ep_len    2288  ret    928.6  fin   0/9    rew +0.410  kl 0.0116 std 0.33 f 0.50Hz sat 0.17  4,527 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[drag curriculum] success=100%, advancing=True, scale=1.000
+[walking curriculum] success=100%, advancing=True, shape=1.000
+[gait quality @ 26,214,400] qualified 0/12, survived 100%, error 0.021 m/s, floor-hit 6.5%
+  target 0.10 m/s: qualified 0/12, survived 100%, first episode 25.00s, L/R steps from reset 0.0/0.0, after 5s 0.0/0.0
+  target 0.15 m/s: qualified 0/12, survived 100%, first episode 25.00s, L/R steps from reset 0.0/0.0, after 5s 0.0/0.0
+  target 0.20 m/s: qualified 0/12, survived 67%, first episode 21.02s, L/R steps from reset 0.0/0.2, after 5s 0.0/0.1
+[eval @ 26,214,400] ladder cmd-err 0.07 m/s, heading 8.3 deg, upright 89%, bring-up nan%  (228s)
+            per stick (err m/s / upright):  20%:0.02/100%   30%:0.02/100%   40%:0.17/67%
+[  26,378,240] ep_len    2192  ret    873.2  fin   0/15   rew +0.399  kl 0.0237 std 0.33 f 0.50Hz sat 0.18  4,604 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  26,542,080] ep_len    2219  ret    807.2  fin   0/7    rew +0.394  kl 0.0107 std 0.33 f 0.50Hz sat 0.18  4,581 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  26,705,920] ep_len    2254  ret    940.2  fin   0/9    rew +0.426  kl 0.0162 std 0.33 f 0.50Hz sat 0.18  4,492 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  26,869,760] ep_len    1812  ret    774.4  fin   0/3    rew +0.449  kl 0.0267 std 0.33 f 0.50Hz sat 0.16  4,604 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  27,033,600] ep_len    2500  ret   1147.7  fin   0/1    rew +0.442  kl 0.0110 std 0.33 f 0.50Hz sat 0.16  4,558 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  27,197,440] ep_len    1923  ret    848.5  fin   0/5    rew +0.479  kl 0.0102 std 0.33 f 0.50Hz sat 0.15  4,553 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[drag curriculum] success=100%, advancing=True, scale=1.000
+[walking curriculum] success=100%, advancing=True, shape=1.000
+[gait quality @ 27,262,976] qualified 0/12, survived 100%, error 0.021 m/s, floor-hit 5.8%
+  target 0.10 m/s: qualified 0/12, survived 100%, first episode 25.00s, L/R steps from reset 0.0/0.0, after 5s 0.0/0.0
+  target 0.15 m/s: qualified 0/12, survived 100%, first episode 25.00s, L/R steps from reset 0.0/0.0, after 5s 0.0/0.0
+  target 0.20 m/s: qualified 0/12, survived 92%, first episode 23.32s, L/R steps from reset 0.0/0.1, after 5s 0.0/0.0
+[eval @ 27,262,976] ladder cmd-err 0.04 m/s, heading 6.5 deg, upright 94%, bring-up nan%  (227s)
+            per stick (err m/s / upright):  20%:0.02/92%   30%:0.03/92%   40%:0.06/100%
+[  27,361,280] ep_len    2261  ret   1018.7  fin   0/7    rew +0.488  kl 0.0266 std 0.33 f 0.50Hz sat 0.14  4,621 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  27,525,120] ep_len    2411  ret   1081.5  fin   0/9    rew +0.478  kl 0.0161 std 0.33 f 0.50Hz sat 0.15  4,590 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  27,688,960] ep_len    2059  ret    978.7  fin   0/16   rew +0.493  kl 0.0080 std 0.33 f 0.50Hz sat 0.15  4,586 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  27,852,800] ep_len    2339  ret   1106.8  fin   0/10   rew +0.511  kl 0.0184 std 0.33 f 0.50Hz sat 0.16  4,589 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  28,016,640] ep_len    2500  ret   1213.2  fin   0/12   rew +0.514  kl 0.0215 std 0.33 f 0.50Hz sat 0.14  4,592 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  28,180,480] ep_len    1922  ret    927.7  fin   0/7    rew +0.485  kl 0.0218 std 0.33 f 0.50Hz sat 0.15  4,631 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[drag curriculum] success=100%, advancing=True, scale=1.000
+[walking curriculum] success=100%, advancing=True, shape=1.000
+[gait quality @ 28,311,552] qualified 0/12, survived 92%, error 0.027 m/s, floor-hit 8.4%
+  target 0.10 m/s: qualified 0/12, survived 100%, first episode 25.00s, L/R steps from reset 0.0/0.0, after 5s 0.0/0.0
+  target 0.15 m/s: qualified 0/12, survived 92%, first episode 23.53s, L/R steps from reset 0.0/0.0, after 5s 0.0/0.0
+  target 0.20 m/s: qualified 0/12, survived 8%, first episode 6.81s, L/R steps from reset 0.1/0.1, after 5s 0.1/0.0
+[eval @ 28,311,552] ladder cmd-err 0.10 m/s, heading 5.8 deg, upright 81%, bring-up nan%  (228s)
+            per stick (err m/s / upright):  20%:0.02/100%   30%:0.02/92%   40%:0.26/50%
+[  28,344,320] ep_len    1849  ret    900.0  fin   0/14   rew +0.397  kl 0.0094 std 0.33 f 0.50Hz sat 0.16  4,604 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  28,508,160] ep_len    2347  ret   1109.5  fin   0/15   rew +0.483  kl 0.0137 std 0.33 f 0.50Hz sat 0.16  4,582 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  28,672,000] ep_len    2500  ret   1257.7  fin   0/6    rew +0.482  kl 0.0191 std 0.33 f 0.50Hz sat 0.15  4,660 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  28,835,840] ep_len    2131  ret   1047.7  fin   0/13   rew +0.472  kl 0.0160 std 0.33 f 0.50Hz sat 0.15  4,615 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  28,999,680] ep_len    2176  ret    959.0  fin   0/7    rew +0.524  kl 0.0104 std 0.32 f 0.50Hz sat 0.15  4,548 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  29,163,520] ep_len    1526  ret    722.1  fin   0/4    rew +0.523  kl 0.0127 std 0.32 f 0.50Hz sat 0.15  4,599 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  29,327,360] ep_len    2054  ret    912.9  fin   0/7    rew +0.437  kl 0.0175 std 0.32 f 0.50Hz sat 0.17  4,671 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[drag curriculum] success=100%, advancing=True, scale=1.000
+[walking curriculum] success=100%, advancing=True, shape=1.000
+[gait quality @ 29,360,128] qualified 0/12, survived 100%, error 0.020 m/s, floor-hit 5.3%
+  target 0.10 m/s: qualified 0/12, survived 100%, first episode 25.00s, L/R steps from reset 0.0/0.0, after 5s 0.0/0.0
+  target 0.15 m/s: qualified 0/12, survived 100%, first episode 25.00s, L/R steps from reset 0.0/0.0, after 5s 0.0/0.0
+  target 0.20 m/s: qualified 0/12, survived 92%, first episode 24.80s, L/R steps from reset 0.0/0.0, after 5s 0.0/0.0
+[eval @ 29,360,128] ladder cmd-err 0.03 m/s, heading 2.6 deg, upright 97%, bring-up nan%  (221s)
+            per stick (err m/s / upright):  20%:0.02/100%   30%:0.02/100%   40%:0.06/92%
+[  29,491,200] ep_len    2130  ret   1013.5  fin   0/9    rew +0.417  kl 0.0134 std 0.32 f 0.50Hz sat 0.16  4,606 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  29,655,040] ep_len    2259  ret   1016.7  fin   0/12   rew +0.478  kl 0.0135 std 0.32 f 0.50Hz sat 0.15  4,610 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  29,818,880] ep_len    2285  ret   1125.5  fin   0/13   rew +0.553  kl 0.0150 std 0.32 f 0.50Hz sat 0.14  4,608 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  29,982,720] ep_len    2500  ret   1364.9  fin   0/7    rew +0.539  kl 0.0173 std 0.32 f 0.50Hz sat 0.15  4,578 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  30,146,560] ep_len    2500  ret   1310.3  fin   0/5    rew +0.527  kl 0.0093 std 0.32 f 0.50Hz sat 0.15  4,594 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  30,310,400] ep_len    2500  ret   1286.3  fin   0/6    rew +0.530  kl 0.0206 std 0.32 f 0.50Hz sat 0.15  4,638 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[drag curriculum] success=100%, advancing=True, scale=1.000
+[walking curriculum] success=100%, advancing=True, shape=1.000
+[gait quality @ 30,408,704] qualified 0/12, survived 100%, error 0.022 m/s, floor-hit 4.1%
+  target 0.10 m/s: qualified 0/12, survived 100%, first episode 25.00s, L/R steps from reset 0.0/0.0, after 5s 0.0/0.0
+  target 0.15 m/s: qualified 0/12, survived 100%, first episode 25.00s, L/R steps from reset 0.0/0.1, after 5s 0.0/0.1
+  target 0.20 m/s: qualified 0/12, survived 58%, first episode 16.15s, L/R steps from reset 0.0/0.1, after 5s 0.0/0.0
+[eval @ 30,408,704] ladder cmd-err 0.04 m/s, heading 3.1 deg, upright 100%, bring-up nan%  (226s)
+            per stick (err m/s / upright):  20%:0.03/100%   30%:0.02/100%   40%:0.06/100%
+[  30,474,240] ep_len    1844  ret    972.0  fin   0/6    rew +0.532  kl 0.0155 std 0.32 f 0.50Hz sat 0.13  4,624 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  30,638,080] ep_len    2113  ret   1063.0  fin   0/6    rew +0.465  kl 0.0114 std 0.32 f 0.50Hz sat 0.15  4,608 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  30,801,920] ep_len    1921  ret   1029.4  fin   0/9    rew +0.516  kl 0.0135 std 0.32 f 0.50Hz sat 0.15  4,633 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  30,965,760] ep_len    2414  ret   1340.8  fin   0/5    rew +0.522  kl 0.0151 std 0.32 f 0.50Hz sat 0.16  4,617 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  31,129,600] ep_len    2353  ret   1219.8  fin   0/8    rew +0.505  kl 0.0093 std 0.32 f 0.50Hz sat 0.16  4,615 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  31,293,440] ep_len    2082  ret    963.3  fin   0/10   rew +0.518  kl 0.0200 std 0.32 f 0.50Hz sat 0.15  4,660 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  31,457,280] ep_len    2028  ret    984.6  fin   0/5    rew +0.553  kl 0.0391 std 0.32 f 0.50Hz sat 0.13  4,681 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[drag curriculum] success=100%, advancing=True, scale=1.000
+[walking curriculum] success=100%, advancing=True, shape=1.000
+[gait quality @ 31,457,280] qualified 0/12, survived 100%, error 0.029 m/s, floor-hit 4.7%
+  target 0.10 m/s: qualified 0/12, survived 100%, first episode 25.00s, L/R steps from reset 0.0/0.2, after 5s 0.0/0.2
+  target 0.15 m/s: qualified 0/12, survived 100%, first episode 25.00s, L/R steps from reset 0.2/0.2, after 5s 0.2/0.2
+  target 0.20 m/s: qualified 0/12, survived 100%, first episode 25.00s, L/R steps from reset 0.0/0.2, after 5s 0.0/0.2
+[eval @ 31,457,280] ladder cmd-err 0.05 m/s, heading 2.7 deg, upright 94%, bring-up nan%  (222s)
+            per stick (err m/s / upright):  20%:0.03/100%   30%:0.03/100%   40%:0.09/83%
+[  31,621,120] ep_len    2305  ret   1135.6  fin   0/6    rew +0.500  kl 0.0249 std 0.32 f 0.50Hz sat 0.14  4,608 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  31,784,960] ep_len    1923  ret    929.9  fin   0/4    rew +0.463  kl 0.0215 std 0.32 f 0.50Hz sat 0.12  4,546 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  31,948,800] ep_len    2500  ret   1272.5  fin   0/6    rew +0.515  kl 0.0235 std 0.32 f 0.50Hz sat 0.14  4,615 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  32,112,640] ep_len    2500  ret   1320.7  fin   0/6    rew +0.571  kl 0.0182 std 0.32 f 0.50Hz sat 0.14  4,620 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  32,276,480] ep_len    2104  ret   1090.5  fin   0/9    rew +0.513  kl 0.0185 std 0.32 f 0.50Hz sat 0.15  4,586 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  32,440,320] ep_len    2052  ret   1104.6  fin   0/11   rew +0.523  kl 0.0088 std 0.32 f 0.50Hz sat 0.16  4,590 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[drag curriculum] success=100%, advancing=True, scale=1.000
+[walking curriculum] success=100%, advancing=True, shape=1.000
+[gait quality @ 32,505,856] qualified 0/12, survived 100%, error 0.035 m/s, floor-hit 5.8%
+  target 0.10 m/s: qualified 0/12, survived 100%, first episode 25.00s, L/R steps from reset 0.0/0.1, after 5s 0.0/0.0
+  target 0.15 m/s: qualified 0/12, survived 100%, first episode 25.00s, L/R steps from reset 0.2/0.2, after 5s 0.1/0.2
+  target 0.20 m/s: qualified 0/12, survived 100%, first episode 25.00s, L/R steps from reset 0.0/0.2, after 5s 0.0/0.2
+[eval @ 32,505,856] ladder cmd-err 0.06 m/s, heading 3.8 deg, upright 83%, bring-up nan%  (225s)
+            per stick (err m/s / upright):  20%:0.05/67%   30%:0.03/100%   40%:0.09/83%
+[  32,604,160] ep_len    2500  ret   1388.1  fin   0/2    rew +0.561  kl 0.0084 std 0.32 f 0.50Hz sat 0.17  4,617 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  32,768,000] ep_len    2170  ret   1025.5  fin   0/10   rew +0.517  kl 0.0412 std 0.32 f 0.50Hz sat 0.17  4,738 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  32,931,840] ep_len    2124  ret   1148.8  fin   0/6    rew +0.589  kl 0.0094 std 0.32 f 0.50Hz sat 0.18  4,566 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  33,095,680] ep_len    2165  ret   1094.9  fin   0/5    rew +0.581  kl 0.0160 std 0.32 f 0.50Hz sat 0.17  4,550 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  33,259,520] ep_len    2500  ret   1494.7  fin   0/9    rew +0.617  kl 0.0155 std 0.31 f 0.50Hz sat 0.18  4,602 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  33,423,360] ep_len    1574  ret    897.6  fin   0/6    rew +0.598  kl 0.0133 std 0.31 f 0.50Hz sat 0.18  4,603 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[drag curriculum] success=100%, advancing=True, scale=1.000
+[walking curriculum] success=100%, advancing=True, shape=1.000
+[gait quality @ 33,554,432] qualified 0/12, survived 100%, error 0.027 m/s, floor-hit 4.5%
+  target 0.10 m/s: qualified 0/12, survived 100%, first episode 25.00s, L/R steps from reset 0.0/0.1, after 5s 0.0/0.1
+  target 0.15 m/s: qualified 0/12, survived 100%, first episode 25.00s, L/R steps from reset 0.8/0.8, after 5s 0.7/0.7
+  target 0.20 m/s: qualified 0/12, survived 50%, first episode 18.80s, L/R steps from reset 0.1/0.2, after 5s 0.1/0.2
+[eval @ 33,554,432] ladder cmd-err 0.06 m/s, heading 2.7 deg, upright 72%, bring-up nan%  (228s)
+            per stick (err m/s / upright):  20%:0.04/92%   30%:0.03/100%   40%:0.13/25%
+[  33,587,200] ep_len    2066  ret   1142.4  fin   0/4    rew +0.580  kl 0.0238 std 0.31 f 0.50Hz sat 0.18  4,581 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  33,751,040] ep_len    2262  ret   1414.9  fin   0/9    rew +0.612  kl 0.0201 std 0.31 f 0.50Hz sat 0.18  4,688 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  33,914,880] ep_len    1910  ret   1043.6  fin   0/8    rew +0.608  kl 0.0134 std 0.31 f 0.50Hz sat 0.19  4,600 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  34,078,720] ep_len    2260  ret   1291.4  fin   0/6    rew +0.555  kl 0.0141 std 0.31 f 0.50Hz sat 0.21  4,601 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  34,242,560] ep_len    1926  ret   1225.5  fin   0/9    rew +0.594  kl 0.0102 std 0.31 f 0.50Hz sat 0.20  4,597 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  34,406,400] ep_len    2334  ret   1397.0  fin   0/9    rew +0.640  kl 0.0120 std 0.31 f 0.50Hz sat 0.19  4,510 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  34,570,240] ep_len    2017  ret   1150.4  fin   0/13   rew +0.652  kl 0.0210 std 0.31 f 0.50Hz sat 0.20  4,576 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[drag curriculum] success=92%, advancing=True, scale=1.000
+[walking curriculum] success=92%, advancing=True, shape=1.000
+[gait quality @ 34,603,008] qualified 0/12, survived 92%, error 0.034 m/s, floor-hit 4.0%
+  target 0.10 m/s: qualified 0/12, survived 100%, first episode 25.00s, L/R steps from reset 1.2/1.0, after 5s 1.1/0.5
+  target 0.15 m/s: qualified 0/12, survived 92%, first episode 23.21s, L/R steps from reset 2.1/1.7, after 5s 1.5/1.5
+  target 0.20 m/s: qualified 0/12, survived 75%, first episode 20.57s, L/R steps from reset 1.1/0.8, after 5s 1.1/0.6
+[eval @ 34,603,008] ladder cmd-err 0.05 m/s, heading 3.3 deg, upright 92%, bring-up nan%  (228s)
+            per stick (err m/s / upright):  20%:0.03/92%   30%:0.02/100%   40%:0.10/83%
+[  34,734,080] ep_len    1809  ret   1196.1  fin   0/8    rew +0.673  kl 0.0191 std 0.31 f 0.50Hz sat 0.19  4,594 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  34,897,920] ep_len    1478  ret    899.5  fin   0/13   rew +0.543  kl 0.0124 std 0.31 f 0.50Hz sat 0.20  4,563 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  35,061,760] ep_len    1551  ret    927.7  fin   0/7    rew +0.561  kl 0.0133 std 0.31 f 0.50Hz sat 0.19  4,602 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  35,225,600] ep_len    2145  ret   1361.8  fin   0/6    rew +0.616  kl 0.0106 std 0.31 f 0.50Hz sat 0.17  4,578 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  35,389,440] ep_len    1988  ret   1312.0  fin   0/6    rew +0.602  kl 0.0083 std 0.31 f 0.50Hz sat 0.19  4,549 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  35,553,280] ep_len    2500  ret   1510.4  fin   0/1    rew +0.620  kl 0.0113 std 0.31 f 0.50Hz sat 0.20  4,609 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[drag curriculum] success=100%, advancing=True, scale=1.000
+[walking curriculum] success=100%, advancing=True, shape=1.000
+[gait quality @ 35,651,584] qualified 0/12, survived 92%, error 0.026 m/s, floor-hit 3.0%
+  target 0.10 m/s: qualified 0/12, survived 100%, first episode 25.00s, L/R steps from reset 0.2/0.8, after 5s 0.2/0.3
+  target 0.15 m/s: qualified 0/12, survived 92%, first episode 24.62s, L/R steps from reset 2.3/2.1, after 5s 1.8/1.9
+  target 0.20 m/s: qualified 0/12, survived 75%, first episode 20.17s, L/R steps from reset 0.8/0.8, after 5s 0.7/0.3
+[eval @ 35,651,584] ladder cmd-err 0.07 m/s, heading 3.8 deg, upright 86%, bring-up nan%  (222s)
+            per stick (err m/s / upright):  20%:0.02/67%   30%:0.03/100%   40%:0.17/92%
+[  35,717,120] ep_len    2500  ret   1414.0  fin   0/9    rew +0.654  kl 0.0146 std 0.31 f 0.50Hz sat 0.18  4,583 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  35,880,960] ep_len    1882  ret   1171.5  fin   0/5    rew +0.642  kl 0.0226 std 0.31 f 0.50Hz sat 0.19  4,662 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  36,044,800] ep_len    1886  ret    947.0  fin   0/8    rew +0.585  kl 0.0146 std 0.31 f 0.50Hz sat 0.19  4,564 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  36,208,640] ep_len    1863  ret   1092.0  fin   0/7    rew +0.580  kl 0.0184 std 0.31 f 0.50Hz sat 0.20  4,511 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  36,372,480] ep_len    2307  ret   1414.0  fin   0/11   rew +0.620  kl 0.0315 std 0.31 f 0.50Hz sat 0.20  4,617 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  36,536,320] ep_len    1984  ret   1204.3  fin   0/10   rew +0.653  kl 0.0183 std 0.31 f 0.50Hz sat 0.20  4,624 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  36,700,160] ep_len    2500  ret   1597.0  fin   0/13   rew +0.678  kl 0.0149 std 0.31 f 0.50Hz sat 0.19  4,575 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[drag curriculum] success=100%, advancing=True, scale=1.000
+[walking curriculum] success=100%, advancing=True, shape=1.000
+[gait quality @ 36,700,160] qualified 0/12, survived 92%, error 0.037 m/s, floor-hit 2.7%
+  target 0.10 m/s: qualified 0/12, survived 67%, first episode 18.78s, L/R steps from reset 0.4/0.8, after 5s 0.1/0.1
+  target 0.15 m/s: qualified 0/12, survived 92%, first episode 24.29s, L/R steps from reset 4.5/3.9, after 5s 4.1/3.7
+  target 0.20 m/s: qualified 0/12, survived 75%, first episode 23.03s, L/R steps from reset 3.6/3.4, after 5s 2.8/2.8
+[eval @ 36,700,160] ladder cmd-err 0.06 m/s, heading 2.9 deg, upright 75%, bring-up nan%  (227s)
+            per stick (err m/s / upright):  20%:0.06/67%   30%:0.04/92%   40%:0.06/67%
+[  36,864,000] ep_len    2277  ret   1500.0  fin   0/9    rew +0.673  kl 0.0108 std 0.31 f 0.50Hz sat 0.19  4,557 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  37,027,840] ep_len    1705  ret   1028.1  fin   0/10   rew +0.629  kl 0.0116 std 0.31 f 0.50Hz sat 0.20  4,584 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  37,191,680] ep_len    1799  ret   1211.7  fin   0/8    rew +0.702  kl 0.0211 std 0.31 f 0.50Hz sat 0.19  4,616 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  37,355,520] ep_len    2229  ret   1476.1  fin   0/10   rew +0.721  kl 0.0226 std 0.31 f 0.50Hz sat 0.19  4,585 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  37,519,360] ep_len    2456  ret   1791.5  fin   0/6    rew +0.621  kl 0.0269 std 0.31 f 0.50Hz sat 0.21  4,544 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  37,683,200] ep_len    2354  ret   1767.4  fin   0/8    rew +0.544  kl 0.0189 std 0.30 f 0.50Hz sat 0.19  4,602 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[drag curriculum] success=92%, advancing=True, scale=1.000
+[walking curriculum] success=92%, advancing=True, shape=1.000
+[gait quality @ 37,748,736] qualified 0/12, survived 75%, error 0.053 m/s, floor-hit 3.1%
+  target 0.10 m/s: qualified 0/12, survived 67%, first episode 20.62s, L/R steps from reset 0.2/0.8, after 5s 0.2/0.3
+  target 0.15 m/s: qualified 0/12, survived 75%, first episode 22.64s, L/R steps from reset 3.3/3.4, after 5s 2.8/3.2
+  target 0.20 m/s: qualified 0/12, survived 42%, first episode 16.66s, L/R steps from reset 2.9/2.8, after 5s 2.8/2.5
+[eval @ 37,748,736] ladder cmd-err 0.15 m/s, heading 7.4 deg, upright 72%, bring-up nan%  (227s)
+            per stick (err m/s / upright):  20%:0.05/83%   30%:0.05/92%   40%:0.34/42%
+[  37,847,040] ep_len    1950  ret   1201.9  fin   0/5    rew +0.639  kl 0.0178 std 0.30 f 0.50Hz sat 0.19  4,577 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  38,010,880] ep_len    2413  ret   1557.0  fin   0/12   rew +0.771  kl 0.0140 std 0.30 f 0.50Hz sat 0.20  4,592 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  38,174,720] ep_len    2216  ret   1596.9  fin   0/7    rew +0.742  kl 0.0135 std 0.30 f 0.50Hz sat 0.20  4,591 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  38,338,560] ep_len    2473  ret   1654.7  fin   0/9    rew +0.854  kl 0.0226 std 0.30 f 0.50Hz sat 0.18  4,597 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  38,502,400] ep_len    1749  ret   1135.4  fin   0/3    rew +0.789  kl 0.0283 std 0.30 f 0.50Hz sat 0.19  4,779 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  38,666,240] ep_len    2122  ret   1583.2  fin   0/7    rew +0.786  kl 0.0236 std 0.30 f 0.50Hz sat 0.19  4,630 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[drag curriculum] success=100%, advancing=True, scale=1.000
+[walking curriculum] success=100%, advancing=True, shape=1.000
+[gait quality @ 38,797,312] qualified 0/12, survived 75%, error 0.045 m/s, floor-hit 3.5%
+  target 0.10 m/s: qualified 0/12, survived 67%, first episode 21.24s, L/R steps from reset 1.2/1.0, after 5s 0.9/0.8
+  target 0.15 m/s: qualified 0/12, survived 75%, first episode 22.13s, L/R steps from reset 8.9/8.3, after 5s 7.8/7.9
+  target 0.20 m/s: qualified 0/12, survived 0%, first episode 7.60s, L/R steps from reset 0.8/0.8, after 5s 0.2/0.3
+[eval @ 38,797,312] ladder cmd-err 0.10 m/s, heading 6.0 deg, upright 64%, bring-up nan%  (229s)
+            per stick (err m/s / upright):  20%:0.04/92%   30%:0.02/100%   40%:0.23/0%
+[  38,830,080] ep_len    1874  ret   1412.2  fin   0/6    rew +0.829  kl 0.0181 std 0.30 f 0.50Hz sat 0.19  4,578 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  38,993,920] ep_len    1790  ret   1423.9  fin   0/9    rew +0.855  kl 0.0084 std 0.30 f 0.50Hz sat 0.20  4,583 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  39,157,760] ep_len    2241  ret   1811.9  fin   0/10   rew +0.901  kl 0.0149 std 0.30 f 0.50Hz sat 0.21  4,597 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  39,321,600] ep_len    2082  ret   1890.7  fin   0/5    rew +0.881  kl 0.0239 std 0.30 f 0.50Hz sat 0.20  4,595 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  39,485,440] ep_len    1975  ret   1646.6  fin   0/4    rew +0.896  kl 0.0202 std 0.30 f 0.50Hz sat 0.18  4,708 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  39,649,280] ep_len    2203  ret   1777.2  fin   0/7    rew +0.831  kl 0.0269 std 0.30 f 0.50Hz sat 0.18  4,608 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  39,813,120] ep_len    1891  ret   1461.3  fin   0/9    rew +0.771  kl 0.0239 std 0.30 f 0.50Hz sat 0.18  4,611 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[drag curriculum] success=100%, advancing=True, scale=1.000
+[walking curriculum] success=100%, advancing=True, shape=1.000
+[gait quality @ 39,845,888] qualified 0/12, survived 100%, error 0.055 m/s, floor-hit 5.1%
+  target 0.10 m/s: qualified 0/12, survived 100%, first episode 25.00s, L/R steps from reset 0.8/1.0, after 5s 0.3/0.3
+  target 0.15 m/s: qualified 0/12, survived 100%, first episode 25.00s, L/R steps from reset 3.6/2.9, after 5s 2.4/2.4
+  target 0.20 m/s: qualified 0/12, survived 33%, first episode 12.23s, L/R steps from reset 2.2/2.0, after 5s 1.8/1.8
+[eval @ 39,845,888] ladder cmd-err 0.13 m/s, heading 4.2 deg, upright 78%, bring-up nan%  (222s)
+            per stick (err m/s / upright):  20%:0.04/92%   30%:0.05/100%   40%:0.30/42%
+[  39,976,960] ep_len    2189  ret   1821.7  fin   0/7    rew +0.827  kl 0.0265 std 0.30 f 0.50Hz sat 0.17  4,623 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  40,140,800] ep_len    2104  ret   1853.5  fin   0/6    rew +0.883  kl 0.0241 std 0.30 f 0.50Hz sat 0.17  4,479 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  40,304,640] ep_len    2228  ret   2022.0  fin   0/12   rew +0.889  kl 0.0118 std 0.30 f 0.50Hz sat 0.18  4,554 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  40,468,480] ep_len    2257  ret   1907.3  fin   0/14   rew +0.957  kl 0.0099 std 0.30 f 0.50Hz sat 0.18  4,532 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  40,632,320] ep_len    2129  ret   1852.3  fin   0/11   rew +0.936  kl 0.0285 std 0.30 f 0.50Hz sat 0.18  4,609 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  40,796,160] ep_len    2500  ret   2293.9  fin   0/3    rew +0.964  kl 0.0170 std 0.30 f 0.50Hz sat 0.18  4,633 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[drag curriculum] success=100%, advancing=True, scale=1.000
+[walking curriculum] success=100%, advancing=True, shape=1.000
+[gait quality @ 40,894,464] qualified 0/12, survived 100%, error 0.026 m/s, floor-hit 1.8%
+  target 0.10 m/s: qualified 0/12, survived 92%, first episode 23.45s, L/R steps from reset 1.6/1.3, after 5s 0.5/0.4
+  target 0.15 m/s: qualified 0/12, survived 100%, first episode 25.00s, L/R steps from reset 10.2/9.5, after 5s 8.8/8.8
+  target 0.20 m/s: qualified 0/12, survived 0%, first episode 8.31s, L/R steps from reset 1.0/0.8, after 5s 0.2/0.2
+[eval @ 40,894,464] ladder cmd-err 0.09 m/s, heading 3.8 deg, upright 61%, bring-up nan%  (231s)
+            per stick (err m/s / upright):  20%:0.04/83%   30%:0.03/100%   40%:0.22/0%
+[  40,960,000] ep_len    2500  ret   2554.6  fin   0/6    rew +1.038  kl 0.0509 std 0.30 f 0.50Hz sat 0.18  4,645 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  41,123,840] ep_len    2500  ret   2621.8  fin   0/2    rew +1.060  kl 0.0136 std 0.30 f 0.50Hz sat 0.18  4,589 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  41,287,680] ep_len    1708  ret   1820.9  fin   0/3    rew +1.023  kl 0.0207 std 0.30 f 0.50Hz sat 0.17  4,652 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  41,451,520] ep_len    2173  ret   2194.5  fin   0/8    rew +1.003  kl 0.0324 std 0.30 f 0.50Hz sat 0.17  4,686 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  41,615,360] ep_len    1911  ret   1984.6  fin   0/7    rew +1.001  kl 0.0191 std 0.30 f 0.50Hz sat 0.17  4,567 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  41,779,200] ep_len    2363  ret   2378.5  fin   0/8    rew +0.965  kl 0.0094 std 0.30 f 0.50Hz sat 0.18  4,582 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  41,943,040] ep_len    2081  ret   2068.9  fin   0/9    rew +0.993  kl 0.0101 std 0.30 f 0.50Hz sat 0.19  4,577 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[drag curriculum] success=100%, advancing=True, scale=1.000
+[walking curriculum] success=100%, advancing=True, shape=1.000
+[gait quality @ 41,943,040] qualified 0/12, survived 100%, error 0.024 m/s, floor-hit 0.9%
+  target 0.10 m/s: qualified 0/12, survived 83%, first episode 21.38s, L/R steps from reset 1.5/1.2, after 5s 0.2/0.2
+  target 0.15 m/s: qualified 0/12, survived 100%, first episode 25.00s, L/R steps from reset 9.7/9.2, after 5s 8.8/8.8
+  target 0.20 m/s: qualified 0/12, survived 0%, first episode 5.33s, L/R steps from reset 0.2/0.3, after 5s 0.0/0.1
+[eval @ 41,943,040] ladder cmd-err 0.16 m/s, heading 5.3 deg, upright 56%, bring-up nan%  (233s)
+            per stick (err m/s / upright):  20%:0.04/75%   30%:0.02/92%   40%:0.42/0%
+[  42,106,880] ep_len    1432  ret   1255.8  fin   0/4    rew +1.066  kl 0.0201 std 0.30 f 0.50Hz sat 0.18  4,587 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  42,270,720] ep_len    1959  ret   2083.3  fin   0/8    rew +1.045  kl 0.0188 std 0.29 f 0.50Hz sat 0.18  4,645 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  42,434,560] ep_len    2500  ret   2640.7  fin   0/8    rew +1.042  kl 0.0241 std 0.29 f 0.50Hz sat 0.16  4,681 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  42,598,400] ep_len    2036  ret   2043.4  fin   0/4    rew +0.961  kl 0.0139 std 0.29 f 0.50Hz sat 0.17  4,584 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  42,762,240] ep_len    2287  ret   2296.3  fin   0/13   rew +0.958  kl 0.0132 std 0.29 f 0.50Hz sat 0.17  4,577 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  42,926,080] ep_len    2040  ret   2116.7  fin   0/10   rew +1.045  kl 0.0181 std 0.29 f 0.50Hz sat 0.16  4,536 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[drag curriculum] success=100%, advancing=True, scale=1.000
+[walking curriculum] success=100%, advancing=True, shape=1.000
+[gait quality @ 42,991,616] qualified 0/12, survived 100%, error 0.035 m/s, floor-hit 0.9%
+  target 0.10 m/s: qualified 0/12, survived 92%, first episode 23.24s, L/R steps from reset 1.5/1.2, after 5s 0.4/0.4
+  target 0.15 m/s: qualified 0/12, survived 100%, first episode 25.00s, L/R steps from reset 10.8/10.2, after 5s 9.6/9.6
+  target 0.20 m/s: qualified 0/12, survived 8%, first episode 10.01s, L/R steps from reset 1.6/1.4, after 5s 1.3/1.1
+[eval @ 42,991,616] ladder cmd-err 0.11 m/s, heading 4.4 deg, upright 56%, bring-up nan%  (227s)
+            per stick (err m/s / upright):  20%:0.05/58%   30%:0.04/100%   40%:0.23/8%
+[  43,089,920] ep_len    2500  ret   2653.7  fin   0/5    rew +1.072  kl 0.0201 std 0.29 f 0.50Hz sat 0.16  4,739 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  43,253,760] ep_len    2219  ret   2158.6  fin   0/10   rew +0.946  kl 0.0194 std 0.29 f 0.50Hz sat 0.16  4,716 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  43,417,600] ep_len    1659  ret   1463.6  fin   0/21   rew +0.423  kl 0.0062 std 0.29 f 0.50Hz sat 0.19  4,603 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  43,581,440] ep_len     893  ret    530.2  fin   0/22   rew +0.336  kl 0.0095 std 0.29 f 0.50Hz sat 0.17  4,646 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  43,745,280] ep_len     812  ret      nan  fin   0/0    rew +0.444  kl 0.0196 std 0.29 f 0.50Hz sat 0.15  4,700 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  43,909,120] ep_len    1356  ret    626.0  fin   0/2    rew +0.400  kl 0.0232 std 0.29 f 0.50Hz sat 0.15  4,795 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[drag curriculum] success=100%, advancing=True, scale=1.000
+[walking curriculum] success=100%, advancing=True, shape=1.000
+[gait quality @ 44,040,192] qualified 0/12, survived 100%, error 0.053 m/s, floor-hit 4.9%
+  target 0.10 m/s: qualified 0/12, survived 83%, first episode 22.63s, L/R steps from reset 0.2/0.5, after 5s 0.0/0.5
+  target 0.15 m/s: qualified 0/12, survived 100%, first episode 25.00s, L/R steps from reset 1.4/1.6, after 5s 0.8/0.9
+  target 0.20 m/s: qualified 0/12, survived 83%, first episode 23.78s, L/R steps from reset 1.6/1.3, after 5s 0.7/0.8
+[eval @ 44,040,192] ladder cmd-err 0.08 m/s, heading 5.1 deg, upright 78%, bring-up nan%  (222s)
+            per stick (err m/s / upright):  20%:0.12/50%   30%:0.06/92%   40%:0.06/92%
+[  44,072,960] ep_len    2500  ret   1082.6  fin   0/5    rew +0.486  kl 0.0272 std 0.29 f 0.50Hz sat 0.15  4,645 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  44,236,800] ep_len    1864  ret    663.5  fin   0/6    rew +0.624  kl 0.0122 std 0.29 f 0.50Hz sat 0.14  4,652 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  44,400,640] ep_len    2297  ret   1088.2  fin   0/7    rew +0.879  kl 0.0163 std 0.29 f 0.50Hz sat 0.15  4,640 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  44,564,480] ep_len    2077  ret   1189.5  fin   0/6    rew +0.946  kl 0.0207 std 0.29 f 0.50Hz sat 0.13  4,641 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  44,728,320] ep_len    2326  ret   1566.4  fin   0/14   rew +0.985  kl 0.0145 std 0.29 f 0.50Hz sat 0.15  4,579 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  44,892,160] ep_len    2303  ret   1816.2  fin   0/11   rew +1.013  kl 0.0254 std 0.29 f 0.50Hz sat 0.14  4,803 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  45,056,000] ep_len    2012  ret   1793.0  fin   0/15   rew +1.032  kl 0.0153 std 0.29 f 0.50Hz sat 0.15  4,588 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[drag curriculum] success=100%, advancing=True, scale=1.000
+[walking curriculum] success=100%, advancing=True, shape=1.000
+[gait quality @ 45,088,768] qualified 0/12, survived 100%, error 0.026 m/s, floor-hit 1.5%
+  target 0.10 m/s: qualified 0/12, survived 58%, first episode 17.48s, L/R steps from reset 4.2/4.0, after 5s 2.8/2.8
+  target 0.15 m/s: qualified 0/12, survived 100%, first episode 25.00s, L/R steps from reset 10.0/9.3, after 5s 8.2/8.2
+  target 0.20 m/s: qualified 0/12, survived 0%, first episode 11.53s, L/R steps from reset 2.1/2.0, after 5s 0.8/1.1
+[eval @ 45,088,768] ladder cmd-err 0.07 m/s, heading 4.0 deg, upright 56%, bring-up nan%  (228s)
+            per stick (err m/s / upright):  20%:0.06/58%   30%:0.03/100%   40%:0.12/8%
+[  45,219,840] ep_len    1001  ret    638.5  fin   0/4    rew +1.050  kl 0.0281 std 0.29 f 0.50Hz sat 0.16  4,652 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  45,383,680] ep_len    2500  ret   2385.3  fin   0/3    rew +1.032  kl 0.0246 std 0.29 f 0.50Hz sat 0.17  4,626 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  45,547,520] ep_len    2500  ret   2632.3  fin   0/8    rew +1.028  kl 0.0231 std 0.29 f 0.50Hz sat 0.16  4,666 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  45,711,360] ep_len    2500  ret   2982.9  fin   0/1    rew +1.115  kl 0.0306 std 0.29 f 0.50Hz sat 0.15  4,638 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  45,875,200] ep_len    2301  ret   2386.8  fin   0/9    rew +1.033  kl 0.0154 std 0.29 f 0.50Hz sat 0.18  4,613 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  46,039,040] ep_len    2393  ret   2640.3  fin   0/16   rew +1.053  kl 0.0155 std 0.29 f 0.50Hz sat 0.17  4,616 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[drag curriculum] success=100%, advancing=True, scale=1.000
+[walking curriculum] success=100%, advancing=True, shape=1.000
+[gait quality @ 46,137,344] qualified 0/12, survived 92%, error 0.027 m/s, floor-hit 1.5%
+  target 0.10 m/s: qualified 0/12, survived 67%, first episode 18.25s, L/R steps from reset 2.9/2.8, after 5s 1.7/1.7
+  target 0.15 m/s: qualified 0/12, survived 92%, first episode 24.91s, L/R steps from reset 10.4/9.8, after 5s 8.6/8.6
+  target 0.20 m/s: qualified 0/12, survived 8%, first episode 11.90s, L/R steps from reset 3.9/3.4, after 5s 2.2/2.2
+[eval @ 46,137,344] ladder cmd-err 0.07 m/s, heading 3.6 deg, upright 56%, bring-up nan%  (229s)
+            per stick (err m/s / upright):  20%:0.09/58%   30%:0.02/100%   40%:0.10/8%
+[  46,202,880] ep_len    2500  ret   2666.8  fin   0/6    rew +1.103  kl 0.0194 std 0.29 f 0.50Hz sat 0.16  4,621 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  46,366,720] ep_len    1391  ret   1286.8  fin   0/8    rew +1.009  kl 0.0247 std 0.29 f 0.50Hz sat 0.18  4,608 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  46,530,560] ep_len    2500  ret   2926.2  fin   0/2    rew +1.021  kl 0.0106 std 0.29 f 0.50Hz sat 0.18  4,665 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  46,694,400] ep_len     951  ret    755.7  fin   0/1    rew +1.063  kl 0.0193 std 0.29 f 0.50Hz sat 0.18  4,640 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  46,858,240] ep_len    2500  ret   2901.6  fin   0/4    rew +1.097  kl 0.0233 std 0.29 f 0.50Hz sat 0.19  4,660 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  47,022,080] ep_len    2322  ret   2425.0  fin   0/4    rew +1.164  kl 0.0169 std 0.29 f 0.50Hz sat 0.18  4,651 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  47,185,920] ep_len    2500  ret   2678.4  fin   0/10   rew +1.146  kl 0.0208 std 0.29 f 0.50Hz sat 0.17  4,774 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[drag curriculum] success=83%, advancing=True, scale=1.000
+[walking curriculum] success=83%, advancing=True, shape=1.000
+[gait quality @ 47,185,920] qualified 0/12, survived 75%, error 0.063 m/s, floor-hit 2.5%
+  target 0.10 m/s: qualified 0/12, survived 92%, first episode 23.69s, L/R steps from reset 4.1/3.8, after 5s 3.2/3.2
+  target 0.15 m/s: qualified 0/12, survived 75%, first episode 19.57s, L/R steps from reset 8.7/8.1, after 5s 7.2/7.2
+  target 0.20 m/s: qualified 0/12, survived 83%, first episode 24.36s, L/R steps from reset 10.1/9.6, after 5s 8.5/8.5
+[eval @ 47,185,920] ladder cmd-err 0.05 m/s, heading 2.6 deg, upright 72%, bring-up nan%  (225s)
+            per stick (err m/s / upright):  20%:0.06/42%   30%:0.04/92%   40%:0.05/83%
+[  47,349,760] ep_len    2271  ret   2553.5  fin   0/9    rew +1.130  kl 0.0213 std 0.29 f 0.50Hz sat 0.15  4,789 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  47,513,600] ep_len    2500  ret   2773.2  fin   0/6    rew +1.130  kl 0.0238 std 0.29 f 0.50Hz sat 0.18  4,737 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  47,677,440] ep_len    2500  ret   2751.7  fin   0/6    rew +1.144  kl 0.0152 std 0.29 f 0.50Hz sat 0.19  4,589 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  47,841,280] ep_len    1990  ret   2328.0  fin   0/4    rew +1.039  kl 0.0122 std 0.29 f 0.50Hz sat 0.19  4,705 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  48,005,120] ep_len    2491  ret   2762.6  fin   0/8    rew +1.091  kl 0.0238 std 0.29 f 0.50Hz sat 0.19  4,749 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  48,168,960] ep_len    2233  ret   2430.1  fin   0/7    rew +1.014  kl 0.0115 std 0.29 f 0.50Hz sat 0.20  4,645 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[drag curriculum] success=92%, advancing=True, scale=1.000
+[walking curriculum] success=92%, advancing=True, shape=1.000
+[gait quality @ 48,234,496] qualified 0/12, survived 92%, error 0.030 m/s, floor-hit 1.6%
+  target 0.10 m/s: qualified 0/12, survived 17%, first episode 15.05s, L/R steps from reset 3.6/3.5, after 5s 2.4/2.5
+  target 0.15 m/s: qualified 0/12, survived 92%, first episode 23.16s, L/R steps from reset 9.2/8.6, after 5s 7.8/7.7
+  target 0.20 m/s: qualified 0/12, survived 58%, first episode 19.06s, L/R steps from reset 6.9/6.5, after 5s 5.8/5.8
+[eval @ 48,234,496] ladder cmd-err 0.06 m/s, heading 4.6 deg, upright 58%, bring-up nan%  (227s)
+            per stick (err m/s / upright):  20%:0.10/17%   30%:0.03/92%   40%:0.06/67%
+[  48,332,800] ep_len    1972  ret   1969.0  fin   0/5    rew +1.032  kl 0.0093 std 0.28 f 0.50Hz sat 0.20  4,699 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  48,496,640] ep_len    2347  ret   2555.6  fin   0/15   rew +1.103  kl 0.0118 std 0.28 f 0.50Hz sat 0.18  4,657 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  48,660,480] ep_len    2314  ret   2611.0  fin   0/12   rew +1.078  kl 0.0239 std 0.28 f 0.50Hz sat 0.19  4,735 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  48,824,320] ep_len    2500  ret   2648.2  fin   0/8    rew +1.108  kl 0.0121 std 0.28 f 0.50Hz sat 0.18  4,693 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  48,988,160] ep_len    2198  ret   2268.0  fin   0/9    rew +1.015  kl 0.0113 std 0.28 f 0.50Hz sat 0.18  4,648 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  49,152,000] ep_len    2498  ret   2604.3  fin   0/7    rew +1.086  kl 0.0238 std 0.28 f 0.50Hz sat 0.18  4,586 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[drag curriculum] success=100%, advancing=True, scale=1.000
+[walking curriculum] success=100%, advancing=True, shape=1.000
+[gait quality @ 49,283,072] qualified 0/12, survived 100%, error 0.019 m/s, floor-hit 0.8%
+  target 0.10 m/s: qualified 0/12, survived 33%, first episode 11.96s, L/R steps from reset 3.4/3.4, after 5s 2.4/2.6
+  target 0.15 m/s: qualified 0/12, survived 100%, first episode 25.00s, L/R steps from reset 10.6/9.9, after 5s 8.8/8.8
+  target 0.20 m/s: qualified 0/12, survived 0%, first episode 9.19s, L/R steps from reset 2.5/2.2, after 5s 1.2/1.2
+[eval @ 49,283,072] ladder cmd-err 0.09 m/s, heading 3.7 deg, upright 44%, bring-up nan%  (228s)
+            per stick (err m/s / upright):  20%:0.09/33%   30%:0.02/100%   40%:0.16/0%
+[  49,315,840] ep_len    2500  ret   2448.0  fin   0/1    rew +1.163  kl 0.0174 std 0.28 f 0.50Hz sat 0.18  4,660 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  49,479,680] ep_len    2358  ret   2664.4  fin   0/4    rew +1.204  kl 0.0230 std 0.28 f 0.50Hz sat 0.17  4,695 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  49,643,520] ep_len    2128  ret   2210.7  fin   0/11   rew +1.117  kl 0.0251 std 0.28 f 0.50Hz sat 0.16  4,792 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  49,807,360] ep_len    2361  ret   2649.1  fin   0/16   rew +1.130  kl 0.0263 std 0.28 f 0.50Hz sat 0.16  4,657 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  49,971,200] ep_len    2500  ret   2903.0  fin   0/4    rew +1.140  kl 0.0237 std 0.28 f 0.50Hz sat 0.15  4,607 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  50,135,040] ep_len    2177  ret   2436.3  fin   0/7    rew +1.121  kl 0.0222 std 0.28 f 0.50Hz sat 0.15  4,812 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  50,298,880] ep_len    2218  ret   2295.7  fin   0/6    rew +1.171  kl 0.0220 std 0.28 f 0.50Hz sat 0.14  4,691 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[drag curriculum] success=100%, advancing=True, scale=1.000
+[walking curriculum] success=100%, advancing=True, shape=1.000
+[gait quality @ 50,331,648] qualified 0/12, survived 100%, error 0.027 m/s, floor-hit 0.8%
+  target 0.10 m/s: qualified 0/12, survived 0%, first episode 5.30s, L/R steps from reset 1.2/0.9, after 5s 0.2/0.2
+  target 0.15 m/s: qualified 0/12, survived 100%, first episode 25.00s, L/R steps from reset 11.2/10.5, after 5s 9.3/9.3
+  target 0.20 m/s: qualified 0/12, survived 0%, first episode 12.44s, L/R steps from reset 2.8/3.1, after 5s 1.2/1.8
+[eval @ 50,331,648] ladder cmd-err 0.13 m/s, heading 3.3 deg, upright 36%, bring-up nan%  (223s)
+            per stick (err m/s / upright):  20%:0.20/8%   30%:0.03/100%   40%:0.16/0%
+[  50,462,720] ep_len    2482  ret   2895.8  fin   0/10   rew +1.132  kl 0.0155 std 0.28 f 0.50Hz sat 0.15  4,737 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  50,626,560] ep_len    2500  ret   2758.3  fin   0/4    rew +1.177  kl 0.0203 std 0.28 f 0.50Hz sat 0.16  4,707 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  50,790,400] ep_len    2500  ret   2468.0  fin   0/2    rew +1.142  kl 0.0267 std 0.28 f 0.50Hz sat 0.17  4,754 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  50,954,240] ep_len    2500  ret   3019.0  fin   0/3    rew +1.225  kl 0.0173 std 0.28 f 0.50Hz sat 0.15  4,699 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  51,118,080] ep_len    2019  ret   2227.4  fin   0/6    rew +1.205  kl 0.0063 std 0.28 f 0.50Hz sat 0.16  4,707 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  51,281,920] ep_len    2280  ret   2551.9  fin   0/10   rew +1.200  kl 0.0222 std 0.28 f 0.50Hz sat 0.15  4,709 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[drag curriculum] success=100%, advancing=True, scale=1.000
+[walking curriculum] success=100%, advancing=True, shape=1.000
+[gait quality @ 51,380,224] qualified 0/12, survived 100%, error 0.026 m/s, floor-hit 0.8%
+  target 0.10 m/s: qualified 0/12, survived 33%, first episode 10.96s, L/R steps from reset 3.4/3.2, after 5s 2.3/2.3
+  target 0.15 m/s: qualified 0/12, survived 100%, first episode 25.00s, L/R steps from reset 11.7/11.0, after 5s 9.8/9.8
+  target 0.20 m/s: qualified 0/12, survived 0%, first episode 7.34s, L/R steps from reset 1.1/0.7, after 5s 0.3/0.3
+[eval @ 51,380,224] ladder cmd-err 0.25 m/s, heading 4.6 deg, upright 50%, bring-up nan%  (221s)
+            per stick (err m/s / upright):  20%:0.06/58%   30%:0.04/92%   40%:0.66/0%
+[  51,445,760] ep_len    1864  ret   2111.9  fin   0/10   rew +1.106  kl 0.0146 std 0.28 f 0.50Hz sat 0.15  4,718 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  51,609,600] ep_len    2500  ret   3001.8  fin   0/4    rew +1.193  kl 0.0279 std 0.28 f 0.50Hz sat 0.15  4,861 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  51,773,440] ep_len    2085  ret   2448.4  fin   0/5    rew +1.241  kl 0.0245 std 0.28 f 0.50Hz sat 0.15  4,861 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  51,937,280] ep_len    2153  ret   2591.6  fin   0/6    rew +1.252  kl 0.0431 std 0.28 f 0.50Hz sat 0.15  4,885 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  52,101,120] ep_len    2500  ret   3159.8  fin   0/6    rew +1.214  kl 0.0219 std 0.28 f 0.50Hz sat 0.15  4,728 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  52,264,960] ep_len    2461  ret   2987.6  fin   0/9    rew +1.187  kl 0.0263 std 0.28 f 0.50Hz sat 0.16  4,743 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  52,428,800] ep_len    2287  ret   2731.4  fin   0/13   rew +1.204  kl 0.0171 std 0.28 f 0.50Hz sat 0.16  4,667 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[drag curriculum] success=100%, advancing=True, scale=1.000
+[walking curriculum] success=100%, advancing=True, shape=1.000
+[gait quality @ 52,428,800] qualified 0/12, survived 83%, error 0.037 m/s, floor-hit 2.3%
+  target 0.10 m/s: qualified 0/12, survived 100%, first episode 25.00s, L/R steps from reset 11.4/11.2, after 5s 9.6/9.6
+  target 0.15 m/s: qualified 0/12, survived 83%, first episode 22.92s, L/R steps from reset 9.5/8.8, after 5s 7.5/7.5
+  target 0.20 m/s: qualified 0/12, survived 8%, first episode 8.01s, L/R steps from reset 1.7/1.5, after 5s 1.1/1.1
+[eval @ 52,428,800] ladder cmd-err 0.13 m/s, heading 6.0 deg, upright 61%, bring-up nan%  (221s)
+            per stick (err m/s / upright):  20%:0.03/100%   30%:0.03/83%   40%:0.34/0%
+[  52,592,640] ep_len    2384  ret   2910.5  fin   0/11   rew +1.193  kl 0.0147 std 0.28 f 0.50Hz sat 0.15  4,727 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  52,756,480] ep_len    2331  ret   2786.1  fin   0/13   rew +1.210  kl 0.0216 std 0.28 f 0.50Hz sat 0.15  4,731 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  52,920,320] ep_len    2500  ret   2985.8  fin   0/5    rew +1.189  kl 0.0212 std 0.28 f 0.50Hz sat 0.15  4,707 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  53,084,160] ep_len    1365  ret   1441.9  fin   0/1    rew +1.196  kl 0.0262 std 0.28 f 0.50Hz sat 0.16  4,857 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  53,248,000] ep_len    2500  ret   3053.2  fin   0/4    rew +1.218  kl 0.0260 std 0.28 f 0.50Hz sat 0.17  4,719 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  53,411,840] ep_len    2500  ret   2967.2  fin   0/1    rew +1.297  kl 0.0227 std 0.28 f 0.50Hz sat 0.15  4,701 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[drag curriculum] success=100%, advancing=True, scale=1.000
+[walking curriculum] success=100%, advancing=True, shape=1.000
+[gait quality @ 53,477,376] qualified 0/12, survived 100%, error 0.021 m/s, floor-hit 0.4%
+  target 0.10 m/s: qualified 0/12, survived 67%, first episode 21.03s, L/R steps from reset 9.3/9.1, after 5s 7.6/7.6
+  target 0.15 m/s: qualified 0/12, survived 100%, first episode 25.00s, L/R steps from reset 11.6/10.9, after 5s 9.7/9.7
+  target 0.20 m/s: qualified 0/12, survived 100%, first episode 25.00s, L/R steps from reset 11.3/10.8, after 5s 9.7/9.6
+[eval @ 53,477,376] ladder cmd-err 0.03 m/s, heading 5.5 deg, upright 89%, bring-up nan%  (215s)
+            per stick (err m/s / upright):  20%:0.03/83%   30%:0.02/92%   40%:0.05/92%
+[  53,575,680] ep_len    2500  ret   3062.0  fin   0/15   rew +1.257  kl 0.0241 std 0.28 f 0.50Hz sat 0.15  4,800 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  53,739,520] ep_len    2500  ret   3048.9  fin   0/6    rew +1.239  kl 0.0189 std 0.28 f 0.50Hz sat 0.15  4,674 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  53,903,360] ep_len    2500  ret   3157.1  fin   0/8    rew +1.239  kl 0.0386 std 0.27 f 0.50Hz sat 0.15  4,756 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  54,067,200] ep_len    2500  ret   3184.3  fin   0/4    rew +1.258  kl 0.0248 std 0.27 f 0.50Hz sat 0.15  4,777 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  54,231,040] ep_len    2301  ret   2810.3  fin   0/3    rew +1.253  kl 0.0296 std 0.27 f 0.50Hz sat 0.16  4,838 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  54,394,880] ep_len    2500  ret   3229.0  fin   0/9    rew +1.223  kl 0.0136 std 0.27 f 0.50Hz sat 0.17  4,690 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[drag curriculum] success=100%, advancing=True, scale=1.000
+[walking curriculum] success=100%, advancing=True, shape=1.000
+[gait quality @ 54,525,952] qualified 0/12, survived 100%, error 0.019 m/s, floor-hit 0.6%
+  target 0.10 m/s: qualified 0/12, survived 42%, first episode 14.58s, L/R steps from reset 5.5/5.3, after 5s 4.7/4.6
+  target 0.15 m/s: qualified 0/12, survived 100%, first episode 25.00s, L/R steps from reset 11.5/10.8, after 5s 9.8/9.7
+  target 0.20 m/s: qualified 0/12, survived 17%, first episode 6.40s, L/R steps from reset 1.9/1.9, after 5s 1.7/1.7
+[eval @ 54,525,952] ladder cmd-err 0.08 m/s, heading 5.0 deg, upright 58%, bring-up nan%  (222s)
+            per stick (err m/s / upright):  20%:0.08/33%   30%:0.02/100%   40%:0.14/42%
+[  54,558,720] ep_len    2500  ret   3225.8  fin   0/6    rew +1.269  kl 0.0098 std 0.27 f 0.50Hz sat 0.16  4,625 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  54,722,560] ep_len    2500  ret   3026.3  fin   0/4    rew +1.255  kl 0.0227 std 0.27 f 0.50Hz sat 0.17  4,593 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  54,886,400] ep_len    2500  ret   3140.6  fin   0/15   rew +1.254  kl 0.0265 std 0.27 f 0.50Hz sat 0.16  4,744 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  55,050,240] ep_len    2441  ret   2938.0  fin   0/5    rew +1.218  kl 0.0070 std 0.27 f 0.50Hz sat 0.16  4,646 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  55,214,080] ep_len    2404  ret   2952.6  fin   0/8    rew +1.240  kl 0.0118 std 0.27 f 0.50Hz sat 0.15  4,681 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  55,377,920] ep_len    2343  ret   2897.1  fin   0/11   rew +1.198  kl 0.0231 std 0.27 f 0.50Hz sat 0.16  4,734 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  55,541,760] ep_len    2500  ret   3140.6  fin   0/7    rew +1.223  kl 0.0073 std 0.27 f 0.50Hz sat 0.16  4,636 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[drag curriculum] success=100%, advancing=True, scale=1.000
+[walking curriculum] success=100%, advancing=True, shape=1.000
+[gait quality @ 55,574,528] qualified 0/12, survived 100%, error 0.017 m/s, floor-hit 0.3%
+  target 0.10 m/s: qualified 0/12, survived 33%, first episode 12.32s, L/R steps from reset 4.2/4.0, after 5s 3.0/3.0
+  target 0.15 m/s: qualified 0/12, survived 100%, first episode 25.00s, L/R steps from reset 11.6/10.9, after 5s 9.8/9.8
+  target 0.20 m/s: qualified 0/12, survived 92%, first episode 24.35s, L/R steps from reset 10.4/9.9, after 5s 9.1/9.1
+[eval @ 55,574,528] ladder cmd-err 0.07 m/s, heading 5.8 deg, upright 78%, bring-up nan%  (220s)
+            per stick (err m/s / upright):  20%:0.15/42%   30%:0.02/100%   40%:0.05/92%
+[  55,705,600] ep_len    2500  ret   3075.0  fin   0/4    rew +1.231  kl 0.0190 std 0.27 f 0.50Hz sat 0.17  4,558 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  55,869,440] ep_len    2500  ret   3183.4  fin   0/7    rew +1.278  kl 0.0396 std 0.27 f 0.50Hz sat 0.16  4,700 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  56,033,280] ep_len    2500  ret   3167.1  fin   0/8    rew +1.276  kl 0.0261 std 0.27 f 0.50Hz sat 0.17  4,586 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  56,197,120] ep_len    2500  ret   3121.6  fin   0/14   rew +1.247  kl 0.0154 std 0.27 f 0.50Hz sat 0.17  4,672 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  56,360,960] ep_len    2500  ret   3204.7  fin   0/11   rew +1.243  kl 0.0125 std 0.27 f 0.50Hz sat 0.16  4,725 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  56,524,800] ep_len    2500  ret   3185.6  fin   0/5    rew +1.291  kl 0.0181 std 0.27 f 0.50Hz sat 0.15  4,646 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[drag curriculum] success=100%, advancing=True, scale=1.000
+[walking curriculum] success=100%, advancing=True, shape=1.000
+[gait quality @ 56,623,104] qualified 0/12, survived 100%, error 0.020 m/s, floor-hit 0.7%
+  target 0.10 m/s: qualified 0/12, survived 42%, first episode 17.28s, L/R steps from reset 4.9/4.7, after 5s 3.3/3.3
+  target 0.15 m/s: qualified 0/12, survived 100%, first episode 25.00s, L/R steps from reset 11.5/10.8, after 5s 9.5/9.5
+  target 0.20 m/s: qualified 0/12, survived 75%, first episode 19.51s, L/R steps from reset 8.1/7.8, after 5s 7.2/7.2
+[eval @ 56,623,104] ladder cmd-err 0.06 m/s, heading 5.1 deg, upright 67%, bring-up nan%  (219s)
+            per stick (err m/s / upright):  20%:0.10/17%   30%:0.02/92%   40%:0.06/92%
+[  56,688,640] ep_len    2500  ret   3122.3  fin   0/7    rew +1.292  kl 0.0130 std 0.27 f 0.50Hz sat 0.15  4,594 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  56,852,480] ep_len    2211  ret   2833.7  fin   0/7    rew +1.318  kl 0.0253 std 0.27 f 0.50Hz sat 0.15  4,685 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  57,016,320] ep_len    2244  ret   2771.4  fin   0/9    rew +1.288  kl 0.0103 std 0.27 f 0.50Hz sat 0.14  4,646 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  57,180,160] ep_len    2020  ret   2579.6  fin   0/9    rew +1.288  kl 0.0121 std 0.27 f 0.50Hz sat 0.16  4,676 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  57,344,000] ep_len    2144  ret   2701.9  fin   0/8    rew +1.274  kl 0.0185 std 0.27 f 0.50Hz sat 0.13  4,580 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  57,507,840] ep_len    2328  ret   2951.1  fin   0/10   rew +1.233  kl 0.0091 std 0.27 f 0.50Hz sat 0.15  4,596 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  57,671,680] ep_len    2458  ret   3198.1  fin   0/12   rew +1.296  kl 0.0098 std 0.27 f 0.50Hz sat 0.14  4,652 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[drag curriculum] success=92%, advancing=True, scale=1.000
+[walking curriculum] success=92%, advancing=True, shape=1.000
+[gait quality @ 57,671,680] qualified 0/12, survived 92%, error 0.126 m/s, floor-hit 8.9%
+  target 0.10 m/s: qualified 0/12, survived 33%, first episode 15.69s, L/R steps from reset 2.0/1.8, after 5s 0.6/0.6
+  target 0.15 m/s: qualified 0/12, survived 92%, first episode 23.35s, L/R steps from reset 10.7/10.0, after 5s 8.8/8.8
+  target 0.20 m/s: qualified 0/12, survived 83%, first episode 21.58s, L/R steps from reset 9.9/9.4, after 5s 8.2/8.2
+[eval @ 57,671,680] ladder cmd-err 0.06 m/s, heading 4.7 deg, upright 81%, bring-up nan%  (219s)
+            per stick (err m/s / upright):  20%:0.09/58%   30%:0.02/100%   40%:0.08/83%
+[  57,835,520] ep_len    2368  ret   3076.8  fin   0/8    rew +1.328  kl 0.0245 std 0.27 f 0.50Hz sat 0.14  4,604 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  57,999,360] ep_len    1793  ret   2265.7  fin   0/3    rew +1.286  kl 0.0134 std 0.27 f 0.50Hz sat 0.15  4,650 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  58,163,200] ep_len    2500  ret   3340.1  fin   0/8    rew +1.263  kl 0.0277 std 0.27 f 0.50Hz sat 0.14  4,662 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  58,327,040] ep_len    2163  ret   2709.7  fin   0/3    rew +1.223  kl 0.0144 std 0.27 f 0.50Hz sat 0.15  4,741 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  58,490,880] ep_len    2500  ret   3190.7  fin   0/4    rew +1.248  kl 0.0175 std 0.27 f 0.50Hz sat 0.14  4,647 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  58,654,720] ep_len    2500  ret   3255.1  fin   0/5    rew +1.295  kl 0.0280 std 0.27 f 0.50Hz sat 0.16  4,706 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[drag curriculum] success=100%, advancing=True, scale=1.000
+[walking curriculum] success=100%, advancing=True, shape=1.000
+[gait quality @ 58,720,256] qualified 0/12, survived 100%, error 0.018 m/s, floor-hit 0.9%
+  target 0.10 m/s: qualified 0/12, survived 8%, first episode 12.65s, L/R steps from reset 3.4/3.2, after 5s 1.8/1.8
+  target 0.15 m/s: qualified 0/12, survived 100%, first episode 25.00s, L/R steps from reset 10.8/10.1, after 5s 8.9/8.9
+  target 0.20 m/s: qualified 0/12, survived 75%, first episode 19.89s, L/R steps from reset 8.3/7.8, after 5s 6.7/6.7
+[eval @ 58,720,256] ladder cmd-err 0.11 m/s, heading 7.1 deg, upright 61%, bring-up nan%  (222s)
+            per stick (err m/s / upright):  20%:0.11/33%   30%:0.02/92%   40%:0.20/58%
+[  58,818,560] ep_len    2500  ret   3129.4  fin   0/10   rew +1.254  kl 0.0206 std 0.27 f 0.50Hz sat 0.14  4,768 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  58,982,400] ep_len    2500  ret   3110.3  fin   0/4    rew +1.226  kl 0.0075 std 0.27 f 0.50Hz sat 0.15  4,700 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  59,146,240] ep_len    2500  ret   3016.4  fin   0/6    rew +1.289  kl 0.0264 std 0.27 f 0.50Hz sat 0.14  4,842 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  59,310,080] ep_len    2061  ret   2375.7  fin   0/5    rew +1.243  kl 0.0128 std 0.27 f 0.50Hz sat 0.15  4,641 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  59,473,920] ep_len    2371  ret   3099.5  fin   0/6    rew +1.288  kl 0.0223 std 0.27 f 0.50Hz sat 0.15  4,856 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  59,637,760] ep_len    2500  ret   3144.2  fin   0/8    rew +1.245  kl 0.0232 std 0.27 f 0.50Hz sat 0.16  4,784 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[drag curriculum] success=100%, advancing=True, scale=1.000
+[walking curriculum] success=100%, advancing=True, shape=1.000
+[gait quality @ 59,768,832] qualified 0/12, survived 92%, error 0.024 m/s, floor-hit 1.3%
+  target 0.10 m/s: qualified 0/12, survived 0%, first episode 7.84s, L/R steps from reset 1.7/1.5, after 5s 0.2/0.2
+  target 0.15 m/s: qualified 0/12, survived 92%, first episode 24.47s, L/R steps from reset 10.9/10.2, after 5s 9.1/9.1
+  target 0.20 m/s: qualified 0/12, survived 100%, first episode 25.00s, L/R steps from reset 10.4/9.9, after 5s 8.5/8.5
+[eval @ 59,768,832] ladder cmd-err 0.20 m/s, heading 7.5 deg, upright 47%, bring-up nan%  (218s)
+            per stick (err m/s / upright):  20%:0.50/0%   30%:0.04/58%   40%:0.06/83%
+[  59,801,600] ep_len    2500  ret   3277.9  fin   0/4    rew +1.229  kl 0.0061 std 0.27 f 0.50Hz sat 0.14  4,644 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  59,965,440] ep_len    2500  ret   3076.7  fin   0/7    rew +1.232  kl 0.0222 std 0.27 f 0.50Hz sat 0.16  4,645 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  60,129,280] ep_len    2500  ret   3101.9  fin   0/6    rew +1.273  kl 0.0116 std 0.27 f 0.50Hz sat 0.16  4,685 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  60,293,120] ep_len    2389  ret   3065.1  fin   0/13   rew +1.228  kl 0.0223 std 0.27 f 0.50Hz sat 0.16  4,747 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  60,456,960] ep_len    2500  ret   3158.9  fin   0/4    rew +1.232  kl 0.0224 std 0.27 f 0.50Hz sat 0.15  4,667 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  60,620,800] ep_len    2164  ret   2693.0  fin   0/7    rew +1.240  kl 0.0261 std 0.27 f 0.50Hz sat 0.15  4,666 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  60,784,640] ep_len    2500  ret   3101.1  fin   0/1    rew +1.247  kl 0.0057 std 0.27 f 0.50Hz sat 0.15  4,671 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[drag curriculum] success=100%, advancing=True, scale=1.000
+[walking curriculum] success=100%, advancing=True, shape=1.000
+[gait quality @ 60,817,408] qualified 0/12, survived 92%, error 0.020 m/s, floor-hit 0.8%
+  target 0.10 m/s: qualified 0/12, survived 42%, first episode 19.90s, L/R steps from reset 6.8/6.5, after 5s 4.9/4.9
+  target 0.15 m/s: qualified 0/12, survived 92%, first episode 24.86s, L/R steps from reset 11.7/11.0, after 5s 9.8/9.8
+  target 0.20 m/s: qualified 0/12, survived 100%, first episode 25.00s, L/R steps from reset 11.2/10.7, after 5s 9.3/9.3
+[eval @ 60,817,408] ladder cmd-err 0.07 m/s, heading 9.6 deg, upright 78%, bring-up nan%  (216s)
+            per stick (err m/s / upright):  20%:0.15/42%   30%:0.02/92%   40%:0.03/100%
+[  60,948,480] ep_len    2435  ret   3040.7  fin   0/8    rew +1.253  kl 0.0208 std 0.27 f 0.50Hz sat 0.15  4,836 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  61,112,320] ep_len    2500  ret   3130.1  fin   0/6    rew +1.252  kl 0.0208 std 0.27 f 0.50Hz sat 0.16  4,732 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  61,276,160] ep_len    2500  ret   3124.9  fin   0/9    rew +1.272  kl 0.0076 std 0.27 f 0.50Hz sat 0.14  4,604 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  61,440,000] ep_len    2500  ret   3230.6  fin   0/9    rew +1.286  kl 0.0308 std 0.27 f 0.50Hz sat 0.14  4,881 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  61,603,840] ep_len    2500  ret   3152.2  fin   0/4    rew +1.305  kl 0.0283 std 0.27 f 0.50Hz sat 0.14  4,766 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  61,767,680] ep_len    2500  ret   3163.8  fin   0/4    rew +1.230  kl 0.0128 std 0.27 f 0.50Hz sat 0.14  4,683 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[drag curriculum] success=100%, advancing=True, scale=1.000
+[walking curriculum] success=100%, advancing=True, shape=1.000
+[gait quality @ 61,865,984] qualified 0/12, survived 100%, error 0.019 m/s, floor-hit 0.3%
+  target 0.10 m/s: qualified 0/12, survived 67%, first episode 20.61s, L/R steps from reset 1.2/1.0, after 5s 0.1/0.1
+  target 0.15 m/s: qualified 0/12, survived 100%, first episode 25.00s, L/R steps from reset 11.7/11.0, after 5s 9.9/9.9
+  target 0.20 m/s: qualified 0/12, survived 92%, first episode 24.96s, L/R steps from reset 11.7/11.2, after 5s 10.0/10.0
+[eval @ 61,865,984] ladder cmd-err 0.05 m/s, heading 7.5 deg, upright 75%, bring-up nan%  (214s)
+            per stick (err m/s / upright):  20%:0.04/75%   30%:0.04/75%   40%:0.05/75%
+[  61,931,520] ep_len    2500  ret   3283.7  fin   0/4    rew +1.288  kl 0.0316 std 0.26 f 0.50Hz sat 0.13  4,644 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  62,095,360] ep_len    2237  ret   2754.0  fin   0/8    rew +1.280  kl 0.0087 std 0.26 f 0.50Hz sat 0.14  4,614 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  62,259,200] ep_len    2500  ret   3053.4  fin   0/2    rew +1.301  kl 0.0073 std 0.26 f 0.50Hz sat 0.13  4,653 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  62,423,040] ep_len    2274  ret   2882.5  fin   0/10   rew +1.295  kl 0.0108 std 0.26 f 0.50Hz sat 0.14  4,685 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  62,586,880] ep_len    2349  ret   2993.0  fin   0/14   rew +1.282  kl 0.0104 std 0.26 f 0.50Hz sat 0.14  4,654 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  62,750,720] ep_len    2429  ret   3137.3  fin   0/12   rew +1.284  kl 0.0077 std 0.26 f 0.50Hz sat 0.14  4,555 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  62,914,560] ep_len    2500  ret   3302.8  fin   0/4    rew +1.293  kl 0.0224 std 0.26 f 0.50Hz sat 0.14  4,743 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[drag curriculum] success=92%, advancing=True, scale=1.000
+[walking curriculum] success=92%, advancing=True, shape=1.000
+[gait quality @ 62,914,560] qualified 0/12, survived 67%, error 0.032 m/s, floor-hit 0.5%
+  target 0.10 m/s: qualified 0/12, survived 0%, first episode 4.34s, L/R steps from reset 1.0/0.8, after 5s 0.0/0.0
+  target 0.15 m/s: qualified 0/12, survived 67%, first episode 19.01s, L/R steps from reset 8.8/8.2, after 5s 7.0/7.0
+  target 0.20 m/s: qualified 0/12, survived 92%, first episode 23.29s, L/R steps from reset 10.2/9.7, after 5s 8.2/8.2
+[eval @ 62,914,560] ladder cmd-err 0.07 m/s, heading 3.7 deg, upright 64%, bring-up nan%  (220s)
+            per stick (err m/s / upright):  20%:0.11/0%   30%:0.02/100%   40%:0.07/92%
+[  63,078,400] ep_len    2428  ret   3027.2  fin   0/9    rew +1.275  kl 0.0223 std 0.26 f 0.50Hz sat 0.13  4,795 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  63,242,240] ep_len    2500  ret   3180.9  fin   0/9    rew +1.263  kl 0.0116 std 0.26 f 0.50Hz sat 0.14  4,663 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  63,406,080] ep_len    2500  ret   3258.7  fin   0/9    rew +1.333  kl 0.0236 std 0.26 f 0.50Hz sat 0.13  4,783 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  63,569,920] ep_len    2500  ret   3388.7  fin   0/3    rew +1.225  kl 0.0255 std 0.26 f 0.50Hz sat 0.14  4,749 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  63,733,760] ep_len    2500  ret   3273.2  fin   0/7    rew +1.255  kl 0.0215 std 0.26 f 0.50Hz sat 0.13  4,853 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  63,897,600] ep_len    2500  ret   3247.2  fin   0/8    rew +1.234  kl 0.0155 std 0.26 f 0.50Hz sat 0.15  4,706 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[drag curriculum] success=100%, advancing=True, scale=1.000
+[walking curriculum] success=100%, advancing=True, shape=1.000
+[gait quality @ 63,963,136] qualified 0/12, survived 100%, error 0.022 m/s, floor-hit 0.3%
+  target 0.10 m/s: qualified 0/12, survived 33%, first episode 17.75s, L/R steps from reset 6.2/5.9, after 5s 4.6/4.6
+  target 0.15 m/s: qualified 0/12, survived 100%, first episode 25.00s, L/R steps from reset 11.8/11.2, after 5s 9.9/9.9
+  target 0.20 m/s: qualified 0/12, survived 67%, first episode 18.09s, L/R steps from reset 7.3/6.9, after 5s 6.2/6.2
+[eval @ 63,963,136] ladder cmd-err 0.06 m/s, heading 7.1 deg, upright 69%, bring-up nan%  (217s)
+            per stick (err m/s / upright):  20%:0.09/33%   30%:0.02/100%   40%:0.08/75%
+[  64,061,440] ep_len    2488  ret   3019.9  fin   0/12   rew +1.265  kl 0.0229 std 0.26 f 0.50Hz sat 0.14  4,664 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  64,225,280] ep_len    2500  ret   3218.2  fin   0/4    rew +1.269  kl 0.0146 std 0.26 f 0.50Hz sat 0.14  4,693 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  64,389,120] ep_len    2500  ret   3044.2  fin   0/4    rew +1.329  kl 0.0190 std 0.26 f 0.50Hz sat 0.14  4,746 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  64,552,960] ep_len    2500  ret   3200.9  fin   0/5    rew +1.323  kl 0.0300 std 0.26 f 0.50Hz sat 0.14  4,803 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  64,716,800] ep_len    2217  ret   2815.8  fin   0/6    rew +1.320  kl 0.0288 std 0.26 f 0.50Hz sat 0.12  4,636 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  64,880,640] ep_len    2224  ret   2857.4  fin   0/7    rew +1.324  kl 0.0236 std 0.26 f 0.50Hz sat 0.13  4,655 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[drag curriculum] success=100%, advancing=True, scale=1.000
+[walking curriculum] success=100%, advancing=True, shape=1.000
+[gait quality @ 65,011,712] qualified 0/12, survived 92%, error 0.018 m/s, floor-hit 0.2%
+  target 0.10 m/s: qualified 0/12, survived 0%, first episode 8.20s, L/R steps from reset 2.4/2.2, after 5s 0.9/0.9
+  target 0.15 m/s: qualified 0/12, survived 92%, first episode 23.79s, L/R steps from reset 11.2/10.5, after 5s 9.2/9.2
+  target 0.20 m/s: qualified 0/12, survived 75%, first episode 20.73s, L/R steps from reset 7.2/6.8, after 5s 6.0/6.0
+[eval @ 65,011,712] ladder cmd-err 0.09 m/s, heading 8.8 deg, upright 64%, bring-up nan%  (223s)
+            per stick (err m/s / upright):  20%:0.21/0%   30%:0.02/92%   40%:0.03/100%
+[  65,044,480] ep_len    2179  ret   2861.3  fin   0/9    rew +1.319  kl 0.0255 std 0.26 f 0.50Hz sat 0.13  4,766 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  65,208,320] ep_len    2500  ret   3283.5  fin   0/5    rew +1.332  kl 0.0234 std 0.26 f 0.50Hz sat 0.12  4,575 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  65,372,160] ep_len    2500  ret   3280.3  fin   0/8    rew +1.339  kl 0.0178 std 0.26 f 0.50Hz sat 0.12  4,589 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[  65,536,000] ep_len    2500  ret   3328.2  fin   0/6    rew +1.299  kl 0.0222 std 0.26 f 0.50Hz sat 0.12  4,737 sps
+               dr 1.000 bringup off cmd [0.30,0.30] zero 0.00 jit 0.00ms
+[drag curriculum] success=100%, advancing=True, scale=1.000
+[walking curriculum] success=100%, advancing=True, shape=1.000
+[gait quality @ 65,650,688] qualified 0/12, survived 100%, error 0.016 m/s, floor-hit 0.3%
+  target 0.10 m/s: qualified 0/12, survived 0%, first episode 9.84s, L/R steps from reset 3.0/2.8, after 5s 1.2/1.2
+  target 0.15 m/s: qualified 0/12, survived 100%, first episode 25.00s, L/R steps from reset 12.4/11.8, after 5s 9.9/9.9
+  target 0.20 m/s: qualified 0/12, survived 50%, first episode 15.02s, L/R steps from reset 6.0/5.6, after 5s 5.1/5.1
+[train] done -> /home/rizkalla/running_robot/experiments/gait11_20261019_v1/RLframework/runs/cad_v2_gait11_s0/final.msgpack

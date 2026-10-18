@@ -1,5 +1,21 @@
 # Current control architecture
 
+## GAIT-11 update (19 October 2026)
+
+The fresh CAD-v2 walking experiment adds a contact-derived step supervisor to the
+100 Hz gait-generator policy. It commands alternating supported swings, switches
+the expected foot after valid touchdown, and requires no intervening stop or
+settling dwell. Four new actor features encode expected foot, active swing and
+support presence; the 47-action motor-control interface is unchanged.
+
+These commands use simulation contact information. Hardware requires a validated
+contact/step estimator and matching supervisor; the existing deployment runtime
+does not yet support this observation layout. See the
+[GAIT-11 design and retained reward lessons](../docs/gait11-experiment-report.md).
+
+The following sections document the earlier STOP-03 architecture and deployment
+path, rather than claiming GAIT-11 has already been deployed.
+
 Scope: the **STOP-03 simulation policy and its v2 deployment path**, inspected on
 12 October 2026. A compatible runtime exists; these results do not establish that
 this checkpoint has been exported, installed or validated on the physical robot.

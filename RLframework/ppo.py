@@ -133,13 +133,15 @@ def initial_params(c):
                        else c.gait_freq_hz[0]),
     track_sigma=float(c.track_sigma_start if getattr(c, 'track_sigma_steps', 0) > 0
                       else c.track_sigma),
-    shape_scale=float(c.shape_scale_start if getattr(c, 'shape_curriculum_steps', 0) > 0 else 1.0))
+    shape_scale=float(c.shape_scale_start if getattr(c, 'shape_curriculum_steps', 0) > 0 else 1.0),
+    drag_scale=float(c.drag_scale_start) if c.drag_success_curriculum else 1.0)
 
 
 class PPO:
     def __init__(self, cfg, env: DashEnvV2, run_dir, total_steps, seed=0, eval_env=None, n_devices=1):
         self.cfg, self.env, self.run = cfg, env, Path(run_dir)
-        self.total_steps = int(total_steps)
+        # Scheduling horizon only: time-only training has no step stopping limit.
+        self.total_steps = int(total_steps or cfg.lr_schedule_steps)
         # data parallelism: `env` is built PER DEVICE (n_envs // n_devices envs); each device runs its own
         # rollout, the minibatch gradients are averaged with lax.pmean, params stay identical everywhere
         self.n_dev = int(n_devices)
@@ -240,6 +242,7 @@ class PPO:
                 lp = nets.log_prob(mu, log_std, a, mask)
                 metrics = dict(
                     reward_terms=info["reward_terms"], foot_air=info["foot_air"],
+                    flight_fraction=info["flight_fraction"], v_body_x=info["v_body_x"],
                     fallen=info["fallen"], finished=info["finished"], done=done,
                     ep_return=info["ep_return"], ep_len=info["ep_len"], sprint_d=info["sprint_d"],
                     t_line=info["t_line"], thermal_max=info["thermal_max"],
@@ -248,6 +251,9 @@ class PPO:
                     track_err=info["track_err"], run_tick=info["run_tick"],
                     action=a, raw_obs=obs,
                 )
+                if cfg.bilateral_enable:
+                    metrics['bilateral'] = info['bilateral']
+                    metrics['reward_floor_hit'] = info['reward_floor_hit']
                 # the value of the state the episode ended in, for a time-limit truncation: the
                 # auto-reset has already overwritten obs2, so this reads the env's saved final obs
                 _, _, v_final, _ = policy_fwd(params, stats.normalize(info["obs_final"]))
@@ -623,6 +629,11 @@ class PPO:
             st["turn"] = st.get("turn", 0.0) + steps
             return steps
         kw = dict(p._asdict())
+        if c.drag_success_curriculum:
+            from walking_curriculum import advance
+            st = advance(self.cur.get('drag_success', {}), d_steps, c.drag_ramp_steps)
+            self.cur['drag_success'] = st
+            kw['drag_scale'] = c.drag_scale_start + (1. - c.drag_scale_start)*st['progress']
         if c.dr_enable and c.dr_curriculum_steps > 0:
             kw["dr_scale"] = self._gated("dr_scale", ep_len, float(getattr(c, "dr_scale_start", 0.0)),
                                          float(getattr(c, "dr_scale_final", 1.0)),
@@ -651,7 +662,12 @@ class PPO:
                                                c.jitter_curriculum_steps, jg, rf, _q("ctrl_jitter_ms", d_steps))
             kw["ctrl_drop_prob"] = self._gated("ctrl_drop_prob", ep_len, 0.0, c.ctrl_drop_prob_final,
                                                c.jitter_curriculum_steps, jg, rf, _q("ctrl_drop_prob", d_steps))
-        if getattr(c, "shape_curriculum_steps", 0) > 0:
+        if c.walking_success_curriculum:
+            from walking_curriculum import advance
+            st = advance(self.cur.get('walking_success', {}), d_steps, c.shape_curriculum_steps)
+            self.cur['walking_success'] = st
+            kw['shape_scale'] = c.shape_scale_start + st['progress'] * (1. - c.shape_scale_start)
+        elif getattr(c, "shape_curriculum_steps", 0) > 0:
             # CLOCK by default, gate optional. The gated variant was tried first, on the theory
             # that a clock ramp kills runs on arrival -- training return did fall from 1197 to -18
             # as the clock reached 1.0. That reading was WRONG, and wrong in a way this project has
@@ -734,6 +750,13 @@ class PPO:
 
     def update_entropy(self, swing_min, ep_len=None):
         c = self.cfg
+        if c.walking_success_curriculum:
+            # The same earned progress controls exploration; no elapsed-step deadline.
+            frac = self.cur.get('walking_success', {}).get('progress', 0.)
+            self.ent_coef = c.ent_coef + frac * (c.ent_final - c.ent_coef)
+            if c.std_anneal_target > 0:
+                self.log_std_clamp = c.max_log_std + frac * (math.log(c.std_anneal_target) - c.max_log_std)
+            return
         if self.anneal_from is None:
             eg = float(getattr(c, "ent_gate_ep_len", 0.0))
             competent = swing_min > c.ent_gate_swing_frac and (eg <= 0 or (ep_len is not None and ep_len > eg))
@@ -922,6 +945,8 @@ class PPO:
             "rollout/t_line_mean": float(t_lines.mean()) if t_lines.size else float("nan"),
             "rollout/sprint_d_mean": float(m["sprint_d"].mean()),
             "rollout/reward_mean": float(np.asarray(tr.reward).mean()),
+            "rollout/flight_fraction": float(np.asarray(m["flight_fraction"]).mean()),
+            "rollout/forward_speed_mean": float(np.asarray(m["v_body_x"]).mean()),
             "rollout/swing_frac_min": swing_min,
             "rollout/thermal_max": float(m["thermal_max"].max()),
             "rollout/torque_util": float(m["torque_util"].mean()),
@@ -950,9 +975,29 @@ class PPO:
         }
         for kk, v in m["reward_terms"].items():
             log[f"reward_terms/{kk}"] = float(np.asarray(v).mean())
+        if cfg.bilateral_enable:
+            bm = m['bilateral']
+            for i, side in enumerate(('left', 'right')):
+                names = ('clear', 'valid_step', 'alternating_step', 'slip', 'clearance')
+                if cfg.bilateral_progress_enable:
+                    names += ('lift_progress', 'forward_progress', 'quality_ema')
+                if cfg.bilateral_sequence_enable:
+                    names += ('expected_next', 'overdue_next')
+                for name in names:
+                    log[f'gait/{side}_{name}'] = float(np.asarray(bm[name])[..., i].mean())
+            log['gait/reward_floor_fraction'] = float(np.asarray(m['reward_floor_hit']).mean())
         for kk, v in self.env_params._asdict().items():
             log[f"curriculum/{kk}"] = float(v)
         # ---- schedules for the NEXT rollout
+        if cfg.drag_success_curriculum:
+            st = self.cur.get('drag_success', {})
+            log['curriculum/drag_success_fraction'] = st.get('success_fraction', 0.)
+            log['curriculum/drag_advancing'] = float(st.get('advancing', False))
+        if cfg.walking_success_curriculum:
+            st = self.cur.get('walking_success', {})
+            log['curriculum/walking_success_fraction'] = st.get('success_fraction', 0.)
+            log['curriculum/walking_advancing'] = float(st.get('advancing', False))
+            log['curriculum/walking_progress'] = st.get('progress', 0.)
         self.update_entropy(swing_min, ep_len)
         self.update_curricula(ep_len, d_steps)
         return log
@@ -1028,6 +1073,10 @@ class PPO:
                                               effective_hold=state.stop_cmd > .5)
                         obs = obs.at[:, env.actor_dim-3].set(ladder/self.cfg.v_max)
                         obs = obs.at[:, env.actor_dim-2].set(1.0-state.stop_cmd)
+                    if self.cfg.sequential_steps_enable:
+                        once = jax.vmap(env._once, in_axes=(0, None, 0, 0))(
+                            state, params, state.phase, state.commit.astype(jnp.float32))
+                        obs = obs.at[:, env.actor_dim-env.once_dim:env.actor_dim].set(once)
 
                 def body(carry):
                     state, obs, alive, first_end, dist, tline, fin, fell, trk, yaw, settled, t = carry

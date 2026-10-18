@@ -1,0 +1,96 @@
+{
+  "step": 65650688,
+  "seed": 1000,
+  "dt": 0.01,
+  "model": "model/dash01_cad_v2_free.xml",
+  "checkpoint": "final.msgpack",
+  "label": "cad_v2_gait11_s0 final",
+  "checkpoint_sha256": "744bc6d2e785384cff021121944831507e15871b8baf4a573d31010609ae4e1a",
+  "trials": [
+    {
+      "target": 0.10000000149011612,
+      "ticks": 973,
+      "seconds": 9.73,
+      "fell": true,
+      "mean_speed_after_5s": -0.01544913649559021,
+      "speed_error_after_5s": 0.1476973593235016,
+      "flight_fraction": 0.0006166495732031763,
+      "valid_steps_after_5s": [
+        1,
+        1
+      ],
+      "clear_fraction_after_5s": [
+        0.03382663847780127,
+        0.008456659619450317
+      ],
+      "attempt_after_5s": [
+        2,
+        2
+      ],
+      "incomplete_step_after_5s": [
+        1,
+        1
+      ],
+      "repeated_attempt_after_5s": [
+        0,
+        0
+      ]
+    },
+    {
+      "target": 0.15000000596046448,
+      "ticks": 2500,
+      "seconds": 25.0,
+      "fell": false,
+      "mean_speed_after_5s": 0.14795930683612823,
+      "speed_error_after_5s": 0.015690874308347702,
+      "flight_fraction": 0.0,
+      "valid_steps_after_5s": [
+        10,
+        10
+      ],
+      "clear_fraction_after_5s": [
+        0.0495,
+        0.0145
+      ],
+      "attempt_after_5s": [
+        10,
+        14
+      ],
+      "incomplete_step_after_5s": [
+        0,
+        4
+      ],
+      "repeated_attempt_after_5s": [
+        0,
+        4
+      ]
+    },
+    {
+      "target": 0.20000000298023224,
+      "ticks": 289,
+      "seconds": 2.89,
+      "fell": true,
+      "mean_speed_after_5s": null,
+      "speed_error_after_5s": null,
+      "flight_fraction": 0.007266435772180557,
+      "valid_steps_after_5s": [
+        0,
+        0
+      ],
+      "clear_fraction_after_5s": null,
+      "attempt_after_5s": [
+        0,
+        0
+      ],
+      "incomplete_step_after_5s": [
+        0,
+        0
+      ],
+      "repeated_attempt_after_5s": [
+        0,
+        0
+      ]
+    }
+  ],
+  "note": "Fresh nominal greedy replay trials, not the multi-trial gait evaluation. All trials retained; videos end at first termination, without showing auto-resets."
+}

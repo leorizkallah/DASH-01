@@ -1,0 +1,163 @@
+{
+  "description": "PDF component coordinates to exported body coordinates: p_body = Rx @ p_pdf + translation. Inertia is about COM; rotate only, do not parallel-axis shift for origin translation.",
+  "frame_confirmation": "User confirmed 2026-10-14: PDF already uses export frames; apply directly.",
+  "assembly_contents": "User confirmed 2026-10-14: PDF torso and hip masses include motors and battery; do not add them again.",
+  "extra_body_mass": {
+    "kg": 1.0,
+    "body": "EXPORT_body-v4_1",
+    "distribution": "same_as_torso",
+    "note": "Approximation: extra mass shares the PDF torso COM and normalized spatial mass distribution; tensor scales by (m+extra)/m."
+  },
+  "bodies": {
+    "EXPORT_body-v4_1": {
+      "part": "Body",
+      "rotation_x_deg": 0,
+      "translation_mm": [
+        0,
+        0,
+        0
+      ],
+      "frame_status": "user_confirmed_export_frame"
+    },
+    "EXPORT_hip_left-v2_1": {
+      "part": "Hip_left",
+      "rotation_x_deg": 0,
+      "translation_mm": [
+        0,
+        0,
+        0
+      ],
+      "frame_status": "user_confirmed_export_frame"
+    },
+    "EXPORT_hip_right-v3_1": {
+      "part": "Hip_right",
+      "rotation_x_deg": 0,
+      "translation_mm": [
+        0,
+        0,
+        0
+      ],
+      "frame_status": "user_confirmed_export_frame"
+    },
+    "EXPORT_thigh_left-v3_1": {
+      "part": "Thigh_left",
+      "rotation_x_deg": 0,
+      "translation_mm": [
+        0,
+        0,
+        0
+      ],
+      "frame_status": "user_confirmed_export_frame"
+    },
+    "EXPORT_thigh_right-v3_1": {
+      "part": "Thigh_right",
+      "rotation_x_deg": 0,
+      "translation_mm": [
+        0,
+        0,
+        0
+      ],
+      "frame_status": "user_confirmed_export_frame"
+    },
+    "EXPORT_cam_left-v3_1": {
+      "part": "Cam_left",
+      "rotation_x_deg": 0,
+      "translation_mm": [
+        0,
+        0,
+        0
+      ],
+      "frame_status": "user_confirmed_export_frame"
+    },
+    "EXPORT_cam_right-v3_1": {
+      "part": "Cam_right",
+      "rotation_x_deg": 0,
+      "translation_mm": [
+        0,
+        0,
+        0
+      ],
+      "frame_status": "user_confirmed_export_frame"
+    },
+    "EXPORT_pushrod_left-v3_1": {
+      "part": "Pushrod_left",
+      "rotation_x_deg": 0,
+      "translation_mm": [
+        0,
+        0,
+        0
+      ],
+      "frame_status": "user_confirmed_export_frame"
+    },
+    "EXPORT_pushrod_right-v2_1": {
+      "part": "Pushrod_right",
+      "rotation_x_deg": 0,
+      "translation_mm": [
+        0,
+        0,
+        0
+      ],
+      "frame_status": "user_confirmed_export_frame"
+    },
+    "EXPORT_tibia_left-v2_1": {
+      "part": "Tibia_left",
+      "rotation_x_deg": 0,
+      "translation_mm": [
+        0,
+        0,
+        0
+      ],
+      "frame_status": "user_confirmed_export_frame"
+    },
+    "EXPORT_tibia_right-v2_1": {
+      "part": "Tibia_right",
+      "rotation_x_deg": 0,
+      "translation_mm": [
+        0,
+        0,
+        0
+      ],
+      "frame_status": "user_confirmed_export_frame"
+    },
+    "EXPORT_achilles_left-v7_1": {
+      "part": "Achilles_left",
+      "rotation_x_deg": 0,
+      "translation_mm": [
+        0,
+        0,
+        0
+      ],
+      "frame_status": "user_confirmed_export_frame"
+    },
+    "EXPORT_achilles_right-v4_1": {
+      "part": "Achilles_right",
+      "rotation_x_deg": 0,
+      "translation_mm": [
+        0,
+        0,
+        0
+      ],
+      "frame_status": "user_confirmed_export_frame"
+    },
+    "EXPORT_foot-v4_1": {
+      "part": "Foot",
+      "rotation_x_deg": 0,
+      "translation_mm": [
+        0,
+        0,
+        0
+      ],
+      "frame_status": "user_confirmed_export_frame"
+    },
+    "EXPORT_foot-v4_2": {
+      "part": "Foot",
+      "rotation_x_deg": 0,
+      "translation_mm": [
+        0,
+        0,
+        0
+      ],
+      "frame_status": "user_confirmed_export_frame"
+    }
+  }
+}

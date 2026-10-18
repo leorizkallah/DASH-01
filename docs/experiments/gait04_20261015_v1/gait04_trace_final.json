@@ -1,0 +1,29 @@
+{
+  "step": 15007744,
+  "seed": 1000,
+  "dt": 0.01,
+  "model": "model/dash01_cad_v2_free.xml",
+  "checkpoint": "final.msgpack",
+  "label": "cad_v2_gait04_s0 final",
+  "checkpoint_sha256": "7ba8041d8b493723f7da818db859520c5b7250c1c5f1789bc8eaeee54bb76877",
+  "trials": [
+    {
+      "target": 0.3499999940395355,
+      "ticks": 2500,
+      "seconds": 25.0,
+      "fell": false,
+      "mean_speed_after_5s": 0.3747080862522125,
+      "speed_error_after_5s": 0.04103139415383339,
+      "flight_fraction": 0.029839999973773956,
+      "valid_steps_after_5s": [
+        10,
+        3
+      ],
+      "clear_fraction_after_5s": [
+        0.1115,
+        0.0495
+      ]
+    }
+  ],
+  "note": "Fresh nominal greedy replay trials, not the multi-trial gait evaluation. All trials retained; videos end at first termination, without showing auto-resets."
+}

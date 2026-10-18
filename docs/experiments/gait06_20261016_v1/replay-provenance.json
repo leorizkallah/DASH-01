@@ -1,0 +1,56 @@
+{
+  "replay_job": 3221442,
+  "state": "COMPLETED",
+  "elapsed": "00:03:04",
+  "exit_code": "0:0",
+  "remote_root": "/home/rizkalla/running_robot/experiments/gait06_replay_20261016_v1",
+  "run_snapshot": "gait06_20261016_v1",
+  "checkpoint": "final.msgpack",
+  "checkpoint_sha256": "c70063fd9d2159d877de96285d51ceb2965c1f55eb4344076db9f6fccf0507dd",
+  "seed": 1000,
+  "views": [
+    115,
+    295
+  ],
+  "foot_colors": {
+    "left": "blue",
+    "right": "orange"
+  },
+  "local_files": {
+    "RLframework/tools/gait_video.py": "16357f8950da5b73b8bc7b034ec18febaace176d2061632b9b3408c00dba5fa0",
+    "RLframework/slurm/izar_cad_v2_gait06_video.sbatch": "94eb9cb9e056e34919a4fc3abe61bfe36161763a0a37ef5fd28af62e380a379d",
+    "RLframework/model/dash01_cad_v2_free.xml": "a8beffae5d40fddba299463767cc4ae244f6c780243d80d020cf4cdae83ce708"
+  },
+  "videos": {
+    "report/videos/gait06_final_0.20mps.mp4": {
+      "sha256": "d82142d0d7cf2e900bc060caaa5beada86f635b56e0aed7d6809dd3ba21ea318",
+      "frames": 131,
+      "fps": 30.0,
+      "duration_s": 4.37,
+      "size": [
+        1280,
+        720
+      ]
+    },
+    "report/videos/gait06_final_0.25mps.mp4": {
+      "sha256": "072bb78c51b75761bdc85be34a93ae7679a209fbec9e02b3535c31f8f661b9e7",
+      "frames": 750,
+      "fps": 30.0,
+      "duration_s": 25.0,
+      "size": [
+        1280,
+        720
+      ]
+    },
+    "report/videos/gait06_final_0.35mps.mp4": {
+      "sha256": "32559ee31712ae19485ee3acc2fbf919815ff5e094236609e7ddacb354e6e6aa",
+      "frames": 337,
+      "fps": 30.0,
+      "duration_s": 11.23,
+      "size": [
+        1280,
+        720
+      ]
+    }
+  }
+}

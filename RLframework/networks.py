@@ -108,6 +108,7 @@ class ObsMirror:
         self.actor_dim = env.actor_dim
         self.once0 = self.frame * self.n_hist
         self.library = env.library_mode
+        self.sequential = env.cfg.sequential_steps_enable
         self.delta_max = float(env.cfg.delta_max)
         self.gait = gait
 
@@ -129,6 +130,9 @@ class ObsMirror:
             for i in g.KNOB_IDX:
                 spec_m = spec_m.at[..., i].multiply(-1.0)
             once_m = jnp.concatenate([spec_m, once[..., g.SPEC_DIM:]], axis=-1)
+            if self.sequential:
+                # Two expected-foot bits precede active/support bits and commit.
+                once_m = once_m.at[..., -5:-3].set(once[..., -5:-3][..., ::-1])
         ph = g.mirror_phase(Hm[..., 25:27], delta[..., None])
         Hm = jnp.concatenate([Hm[..., :25], ph, Hm[..., 27:]], axis=-1)
         return jnp.concatenate([Hm.reshape(obs.shape[:-1] + (self.once0,)), once_m], axis=-1)

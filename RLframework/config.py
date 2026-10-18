@@ -414,6 +414,7 @@ class Config:
     swing_fresh_s: float = 0.45
     gait_cmd_gate: float = 0.25
     w_air_time: float = 2.0
+    w_flight: float = 0.0                 # v2 walking: bill the substep fraction with neither foot touching
     foot_air_time_min: float = 0.25
     air_credit_cap_s: float = 0.45
     # A contact deeper than this is the solver having lost the foot inside the floor, not the
@@ -425,6 +426,44 @@ class Config:
     duty_floor: float = 0.30
     duty_sym_tau_s: float = 1.0
     w_swing_floor: float = 0.0
+    bilateral_enable: bool = False
+    bilateral_progress_enable: bool = False
+    walking_success_curriculum: bool = False  # evaluation-gated shaping and exploration
+    drag_success_curriculum: bool = False    # separate motion gate, no valid-step prerequisite
+    drag_scale_start: float = 0.0            # preserve earned drag strength on continuation
+    drag_ramp_steps: int = 5_000_000
+    drag_weight_final: float = .24           # extra cost, independent of shape_scale
+    drag_reference_mps: float = .1
+    gait_eval_targets: tuple = ()          # physical m/s; empty retains single training command
+    gait_rank_bilateral: bool = False
+    gait_save_evaluated: bool = False
+    bilateral_clearance_m: float = .015
+    bilateral_step_min_m: float = .04
+    bilateral_min_swing_s: float = .08
+    bilateral_swing_frac: float = .15
+    bilateral_tolerance: float = .2
+    bilateral_sequence_enable: bool = False
+    bilateral_next_wait_weight: float = .8
+    bilateral_repeat_weight: float = 2.0     # sequence variant only; legacy remains .5
+    bilateral_next_grace_s: float = .2      # extra allowance beyond half a gait cycle
+    bilateral_next_ramp_s: float = 1.0
+    bilateral_attempt_enable: bool = False  # GAIT-09; preserve historical presets
+    bilateral_attempt_min_s: float = .04
+    bilateral_attempt_height_m: float = .003
+    bilateral_attempt_travel_m: float = .01
+    bilateral_incomplete_weight: float = 2.0
+    bilateral_lift_budget_s: float = .4
+    bilateral_stance_grace_s: float = .2
+    bilateral_repeat_air_weight: float = 0.0  # opt-in GAIT-10; per control tick
+    bilateral_repeat_air_grace_s: float = .02
+    bilateral_repeat_air_ramp_s: float = .04
+    bilateral_controller_phase: bool = False
+    bilateral_turn_progress: bool = False  # lift credit uses required foot, not clock overlap
+    bilateral_protect_repeat_cost: bool = False  # charge repetition after dense reward floor
+    sequential_steps_enable: bool = False
+    sequential_support_s: float = .02  # reset/failed-attempt support filter, no post-step dwell
+    walking_gate_min_speed: float = .125
+    walking_gate_requires_steps: bool = True
     swing_floor_frac: float = 0.15
     swing_floor_tau_s: float = 0.5
     w_phase_contact: float = 1.0            # Siekmann schedule on the latched clock
@@ -528,6 +567,10 @@ class Config:
                                             # 64 x 288 (V2_CONTRACT §PPO): same rollout size, same minibatch,
                                             # hence the same gradient updates per sample as the CPU arm
     total_steps: int = 300_000_000
+    walltime_hours: float = 0.0  # total_steps=0 permits time-only stopping
+    walltime_reserve_s: float = 600.
+    checkpoint_wall_seconds: float = 900.
+    lr_schedule_steps: int = 80_000_000  # schedule horizon only for time-only runs
     batch_size: int = 4096
     n_epochs: int = 4
     gamma: float = 0.995                    # 2 s horizon at 100 Hz (was 0.9975 @200 Hz)
@@ -960,6 +1003,17 @@ _DASH_STOP = dict(
 )
 
 PRESETS = {
+    "cad_v2_gait03": lambda: _cad_v2_gait03(),
+    "cad_v2_gait04": lambda: _cad_v2_gait04(),
+    "cad_v2_gait05": lambda: _cad_v2_gait05(),
+    "cad_v2_gait06": lambda: _cad_v2_gait06(),
+    "cad_v2_gait07": lambda: _cad_v2_gait07(),
+    "cad_v2_gait08": lambda: _cad_v2_gait08(),
+    "cad_v2_gait09": lambda: _cad_v2_gait09(),
+    "cad_v2_gait10": lambda: _cad_v2_gait10(),
+    "cad_v2_gait11": lambda: _cad_v2_gait11(),
+    "cad_v2_gait02": lambda: _cad_v2_gait02(),
+    "cad_v2_gait01": lambda: _cad_v2_gait01(),
     "dash_stop06_timed": lambda: _stop06(False),
     "dash_stop06_feedback": lambda: _stop06(True),
     "dash_stop05_motion": lambda: _cfg(model_path="model/dash01_free.xml",
@@ -1038,6 +1092,134 @@ def _stop06(feedback):
         total_steps=5_000_000, learning_rate=2.5e-5, lr_final=5e-6,
         stop_hold_window_s=9., cmd_stop_duration_s=(14.,16.),
         stop_guard_grace_steps=1_000_000, stop_guard_patience=3)
+
+
+def _cad_v2_gait01():
+    """Fresh-policy, nominal-plant, low-speed articulated-foot pilot (2026-10-14)."""
+    return _cfg(**dict(_DASH_JOY3,
+        model_path="model/dash01_cad_v2_free.xml", total_steps=5_000_000,
+        n_envs=512, n_steps=32, mjx_iterations=16, mjx_ls_iterations=8,
+        v_max=.5, v_ceiling=.5, cmd_range=(.4, 1.), cmd_range_start=(.4, 1.),
+        cmd_zero_frac=0., cmd_stop_frac=0., stop_flag=False,
+        cmd_curriculum_steps=0, track_sigma=.2, track_sigma_start=.2, track_sigma_steps=0,
+        gait_freq_hz=(.5, 2.5), gait_freq_floor_steps=0,
+        cam_amp=.25, thigh_amp=.3, roll_amp=.12,
+        o_cam_max=.03, o_thigh_max=.03, o_hip_max=.06,
+        stance_ratio_start=.65, stance_ratio_final=.65, gait_curriculum_steps=0,
+        w_air_time=2., w_flight=2., w_foot_flat=0., w_speed_income=0.,
+        # Preserve actuator calibration; disable external perturbations for the pilot.
+        dr_enable=False, dr_curriculum_steps=0, obs_noise_enable=False,
+        push_interval_s=0., wind_force_max=0., wind_gust_n=0., trip_prob=0.,
+        ctrl_jitter_ms_final=0., ctrl_drop_prob_final=0., jitter_curriculum_steps=0,
+        thermal_hot_start_max=0., reset_joint_noise=0.,
+        term_height=.60, height_floor_m=.75,
+        bringup_enable=False, hold_enable=False, eval_stop_transitions=False,
+        shape_scale_start=.15, shape_curriculum_steps=5_000_000,
+        efficiency_ramp_steps=5_000_000, efficiency_target=.3,
+        curriculum_order=(("shape_scale", "eff_scale"),),
+        episode_s=25., eval_seconds=25., eval_warm_ticks=500,
+        eval_ladder=(.4, .7, 1.), eval_every_rollouts=64,
+        checkpoint_every_steps=1_000_000, w_sym=0., w_sym_res=0.))
+
+
+def _cad_v2_gait02():
+    """Long walking continuation; preserve GAIT-01 reward terms and model."""
+    from dataclasses import replace
+    return replace(_cad_v2_gait01(), total_steps=30_000_000,
+                   shape_curriculum_steps=30_000_000, efficiency_ramp_steps=30_000_000,
+                   warmstart_reset_log_std=False, warmstart_obs_count_cap=0.,
+                   warmstart_var_floor=0.)
+
+
+def _cad_v2_gait03():
+    from dataclasses import replace
+    return replace(_cad_v2_gait02(), total_steps=5_000_000, bilateral_enable=True,
+                   cmd_range=(.7, .7), cmd_range_start=(.7, .7), eval_ladder=(.7,),
+                   shape_scale_start=.25, shape_curriculum_steps=2_000_000,
+                   efficiency_ramp_steps=0, curriculum_order=("shape_scale",),
+                   learning_rate=5e-5, lr_final=1e-5,
+                   lr_warmup_updates=100,
+                   ent_coef=.003, ent_final=.0005,
+                   # Replaced by bilateral terms; avoid rewarding the left leg twice.
+                   w_air_time=0., w_clearance=0., w_phase_contact=0., w_foot_slip=0.,
+                   eval_every_rollouts=64)
+
+
+def _cad_v2_gait04():
+    """15M-step continuation: stronger swing contact costs and dense bilateral progress."""
+    from dataclasses import replace
+    return replace(_cad_v2_gait03(), total_steps=15_000_000,
+                   bilateral_progress_enable=True,
+                   shape_scale_start=.5, shape_curriculum_steps=3_000_000)
+
+
+def _cad_v2_gait05():
+    """Fresh 15M-step policy at 0.25 m/s; GAIT-04 reward unchanged."""
+    from dataclasses import replace
+    return replace(_cad_v2_gait04(), cmd_range=(.5, .5), cmd_range_start=(.5, .5),
+                   eval_ladder=(.4, .5, .7), gait_eval_targets=(.2, .25, .35),
+                   gait_rank_bilateral=True, gait_save_evaluated=True)
+
+
+def _cad_v2_gait06():
+    """Fresh learning with mild bilateral shaping, earned by sustained movement."""
+    from dataclasses import replace
+    return replace(_cad_v2_gait05(), walking_success_curriculum=True,
+                   curriculum_order=(),
+                   shape_scale_start=.15, shape_curriculum_steps=5_000_000,
+                   learning_rate=3e-4, lr_final=1e-4, lr_warmup_updates=0,
+                   ent_coef=.01, ent_final=.002, std_anneal_target=.35,
+                   ent_anneal_deadline_steps=0, ent_schedule_autoscale=False)
+
+
+def _cad_v2_gait07():
+    """GAIT-06 continuation: independently earned, all-direction contact drag cost."""
+    from dataclasses import replace
+    return replace(_cad_v2_gait06(), drag_success_curriculum=True,
+                   learning_rate=1e-4, lr_final=3e-5,
+                   warmstart_reset_log_std=False, warmstart_obs_count_cap=0.,
+                   warmstart_var_floor=0.)
+
+
+def _cad_v2_gait08():
+    """Long GAIT-07 continuation: opposite-foot sequencing, full drag retained."""
+    from dataclasses import replace
+    return replace(_cad_v2_gait07(), total_steps=30_000_000,
+                   bilateral_sequence_enable=True, drag_scale_start=1.,
+                   learning_rate=3e-5, lr_final=1e-5)
+
+
+def _cad_v2_gait09():
+    """32M continuation: incomplete attempts, turn budgets and coherent stride history."""
+    from dataclasses import replace
+    return replace(_cad_v2_gait08(), total_steps=32_000_000,
+                   bilateral_attempt_enable=True, shape_scale_start=.25)
+
+
+def _cad_v2_gait10():
+    """Last 15M continuation: heavy repeat-event and extra-airtime penalties."""
+    from dataclasses import replace
+    return replace(_cad_v2_gait09(), total_steps=15_000_000,
+                   bilateral_repeat_weight=20., bilateral_repeat_air_weight=4.,
+                   bilateral_controller_phase=True, bilateral_turn_progress=True,
+                   bilateral_protect_repeat_cost=True,
+                   shape_scale_start=.5, shape_curriculum_steps=2_000_000)
+
+
+def _cad_v2_gait11():
+    """Fresh slow walking; explicit supported alternating turns, eight-hour budget."""
+    from dataclasses import replace
+    return replace(_cad_v2_gait10(), total_steps=0, walltime_hours=8.,
+                   sequential_steps_enable=True,
+                   cmd_range=(.3, .3), cmd_range_start=(.3, .3),
+                   gait_eval_targets=(.10, .15, .20), eval_ladder=(.2, .3, .4),
+                   gait_freq_hz=(.5, 1.5),
+                   learning_rate=3e-4, lr_final=1e-4, lr_warmup_updates=0,
+                   ent_coef=.01, ent_final=.002, std_anneal_target=.35,
+                   shape_scale_start=.05, shape_curriculum_steps=5_000_000,
+                   drag_scale_start=0., walking_gate_min_speed=.075,
+                   walking_gate_requires_steps=False,
+                   warmstart_reset_log_std=True, reset_joint_noise=.01)
 
 
 def get_config(name: str = "dash") -> Config:

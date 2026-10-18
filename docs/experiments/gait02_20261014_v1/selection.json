@@ -1,0 +1,86 @@
+{
+  "candidates": [
+    {
+      "name": "best",
+      "path": "/home/rizkalla/running_robot/experiments/gait01_20261014_v2/RLframework/runs/cad_v2_gait01_s0/best.msgpack",
+      "sha256": "15a0fb112f00f04ac96f06eea79af22689199f0318c40e54a9e4474f68febd2b",
+      "source_step": 1048576,
+      "keeper_score": -2.3499999940395355,
+      "mean_episode_s": 1.2058333333333335,
+      "episode_s": [
+        1.2,
+        1.21,
+        1.22,
+        1.2,
+        1.2,
+        1.22,
+        1.2,
+        1.19,
+        1.22,
+        1.19,
+        1.21,
+        1.21
+      ],
+      "alive_fraction": 0.0,
+      "track_error": 0.3499999940395355,
+      "speed_mean": 0.5712796172939938,
+      "falls": 12,
+      "trials": 12
+    },
+    {
+      "name": "final",
+      "path": "/home/rizkalla/running_robot/experiments/gait01_20261014_v2/RLframework/runs/cad_v2_gait01_s0/final.msgpack",
+      "sha256": "19856bb4be1a325a9cbf9fecfdb57955275e3bb72ef8a58625b9db324ff20cd4",
+      "source_step": 5013504,
+      "keeper_score": -2.3499999940395355,
+      "mean_episode_s": 2.0608333333333335,
+      "episode_s": [
+        2.54,
+        1.9000000000000001,
+        1.68,
+        2.89,
+        1.86,
+        1.68,
+        2.56,
+        1.85,
+        1.7,
+        2.5,
+        1.8900000000000001,
+        1.68
+      ],
+      "alive_fraction": 0.0,
+      "track_error": 0.3499999940395355,
+      "speed_mean": 0.39260082086772213,
+      "falls": 12,
+      "trials": 12
+    }
+  ],
+  "selected": {
+    "name": "final",
+    "path": "/home/rizkalla/running_robot/experiments/gait01_20261014_v2/RLframework/runs/cad_v2_gait01_s0/final.msgpack",
+    "sha256": "19856bb4be1a325a9cbf9fecfdb57955275e3bb72ef8a58625b9db324ff20cd4",
+    "source_step": 5013504,
+    "keeper_score": -2.3499999940395355,
+    "mean_episode_s": 2.0608333333333335,
+    "episode_s": [
+      2.54,
+      1.9000000000000001,
+      1.68,
+      2.89,
+      1.86,
+      1.68,
+      2.56,
+      1.85,
+      1.7,
+      2.5,
+      1.8900000000000001,
+      1.68
+    ],
+    "alive_fraction": 0.0,
+    "track_error": 0.3499999940395355,
+    "speed_mean": 0.39260082086772213,
+    "falls": 12,
+    "trials": 12
+  },
+  "protocol": "12 nominal replicas, 25 s, commands 0.2/0.35/0.5 m/s; same seed; keeper score then episode duration then latest step. Replicas are deterministic, not independent robustness trials."
+}

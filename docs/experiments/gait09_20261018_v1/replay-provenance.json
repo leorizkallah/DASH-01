@@ -1,0 +1,53 @@
+{
+  "replay_job": 3223177,
+  "state": "COMPLETED",
+  "elapsed": "00:03:15",
+  "exit_code": "0:0",
+  "remote_root": "/home/rizkalla/running_robot/experiments/gait09_replay_20261018_v1",
+  "run_snapshot": "gait09_20261018_v1",
+  "checkpoints": {
+    "eval_18874368.msgpack": "f28d8ce2180fd8a6a36ee4f9f5b1bd966138b2377d8215ea7817a000be30c7a8",
+    "final.msgpack": "a4a1cdea6a7d115f031cc0d1bdcf3433c12366fff6533fb25d89bf8fe8dd7bf2"
+  },
+  "seed": 1000,
+  "target_mps": 0.25,
+  "views": [
+    115,
+    295
+  ],
+  "foot_colors": {
+    "left": "blue",
+    "right": "orange"
+  },
+  "local_files": {
+    "RLframework/tools/gait_video.py": "ba20c8c3c3a091b1acbbbe63f27602b3953f13909bc7afd7952b5afdbd561b95",
+    "RLframework/slurm/izar_cad_v2_gait09_video.sbatch": "5acfb9a676e6c0c3f4ed85b160018f906a417e0c2d3e6d89276ef34fc1e1d4e3",
+    "RLframework/model/dash01_cad_v2_free.xml": "a8beffae5d40fddba299463767cc4ae244f6c780243d80d020cf4cdae83ce708",
+    "docs/experiments/gait09_20261018_v1/gait09_trace_eval_18874368.npz": "a0e373e99ac94ce40ae8843482c60007a2c7ed0ad6a7ecae1a97d4beba6918a2",
+    "docs/experiments/gait09_20261018_v1/gait09_trace_eval_18874368.json": "8b02300bd436662fbf32d53fb5d470a2205335ae548ca6600186c199f4d182ad",
+    "docs/experiments/gait09_20261018_v1/gait09_trace_final.npz": "a60f5544b15e73c268cbebfd661aa94254ba87153674b912c84f22efffd0f9c9",
+    "docs/experiments/gait09_20261018_v1/gait09_trace_final.json": "a6c36bb7cfd6f4af676946ded21756da623ea08ff18f5b79f2db5fb641255b59"
+  },
+  "videos": {
+    "report/videos/gait09_best_0.25mps.mp4": {
+      "sha256": "d55437f4e5184c88dbc19a93763ba76c60e9deb1ec5e47cb9cf3ba05e90038a5",
+      "frames": 750,
+      "fps": 30.0,
+      "duration_s": 25.0,
+      "size": [
+        1280,
+        720
+      ]
+    },
+    "report/videos/gait09_final_0.25mps.mp4": {
+      "sha256": "d562bb00cac7714ef97b8891be229080848ad30ae4bf2340d21d3b4332a95873",
+      "frames": 750,
+      "fps": 30.0,
+      "duration_s": 25.0,
+      "size": [
+        1280,
+        720
+      ]
+    }
+  }
+}

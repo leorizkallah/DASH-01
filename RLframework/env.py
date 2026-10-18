@@ -26,6 +26,7 @@ from pathlib import Path
 from typing import NamedTuple
 
 import numpy as np
+import bilateral_gait
 import jax
 import jax.numpy as jnp
 from jax import lax
@@ -118,6 +119,7 @@ class EnvParams(NamedTuple):
     cmd_hi: float = 1.0          # (curriculum widens it down from cmd_range_start to cmd_range)
     track_sigma: float = 0.6     # Laplace width of the tracking income, m/s (annealed from wider)
     shape_scale: float = 1.0     # weight on the gait-quality penalties (ramped from shape_scale_start)
+    drag_scale: float = 1.0      # independent additional contact-drag penalty; only opt-in presets
     stoplight_prob: float = 0.0
     gait_freq_lo: float = 0.0        # curriculum lower rail of the gait clock (0 = the config value)
     hold_s: float = 0.0          # bring-up probe (cfg.hold_enable): seconds the base is held
@@ -186,6 +188,7 @@ class EnvState:
     duty_ema: jnp.ndarray
     ws_out_t: jnp.ndarray
     swing_ema: jnp.ndarray
+    bilateral: dict
     push_countdown: jnp.ndarray
     trip_left: jnp.ndarray
     trip_foot: jnp.ndarray
@@ -269,6 +272,10 @@ class DashEnvV2:
         self.library_mode = (cfg.spec_source == "library")
         self.action_dim = gait.LIB_ACTION_DIM if self.library_mode else gait.ACTION_DIM
         self.once_dim = 23 if self.library_mode else (gait.SPEC_DIM + TASK_DIM + 1)
+        if cfg.sequential_steps_enable:
+            if self.library_mode:
+                raise ValueError('Sequential walking requires the parametric gait controller')
+            self.once_dim += bilateral_gait.sequential_steps.COMMAND_DIM
         self.actor_dim = FRAME_DIM * cfg.history_len + self.once_dim
         self.obs_dim = self.actor_dim + PRIV_DIM
         self.priv_dim = PRIV_DIM
@@ -389,6 +396,23 @@ class DashEnvV2:
 
     def _toe_pos(self, data):
         return data.geom_xpos[self.plant.foot_gids]
+
+    def _bilateral_inputs(self, data):
+        """Body-relative foot centres and actual active-contact point slip, L/R."""
+        p = self.plant
+        centers = .5*(data.geom_xpos[p.foot_gids]+data.geom_xpos[p.heel_gids])
+        foot_x = ((centers-self._base_pos(data)) @ self._base_rot(data))[:, 0]
+        con = _impl(data).contact
+        slips = []
+        for i in range(2):
+            bid = p.foot_bids[i]
+            gids = (con.geom == p.foot_gids[i]) | (con.geom == p.heel_gids[i])
+            active = gids.any(axis=1) & (con.geom == p.floor_gid).any(axis=1) & (con.dist < 0.)
+            vel = bilateral_gait.point_velocity(data.cvel[bid], con.pos,
+                        data.subtree_com[int(p.m.body_rootid[bid])], jnp)
+            v2 = jnp.sum(vel[:, :2]**2, axis=1)
+            slips.append(jnp.sqrt(jnp.sum(jnp.where(active, v2, 0.))/jnp.maximum(active.sum(), 1)))
+        return foot_x, jnp.stack(slips)
 
     def _foot_sep(self, data):
         R = self._base_rot(data)
@@ -513,7 +537,10 @@ class DashEnvV2:
 
     def _once(self, state, params, phase_next, commit_next):
         if not self.library_mode:
-            return jnp.concatenate([state.spec, self._task(state, params), jnp.array([commit_next])])
+            commands = ([bilateral_gait.sequential_steps.command(state.bilateral, jnp)]
+                        if self.cfg.sequential_steps_enable else [])
+            return jnp.concatenate([state.spec, self._task(state, params), *commands,
+                                    jnp.array([commit_next])])
         p = self.plant
         f = gait.frequency(state.spec[gait.I_FREQ], self.gp)
         q_ref = gait.feedforward(state.spec, phase_next, p.nominal_ctrl, self.gp)
@@ -622,6 +649,11 @@ class DashEnvV2:
             air_time=jnp.zeros(2), contact_time=jnp.zeros(2), grounded_prev=jnp.zeros(2, bool),
             prev_toe_xy=jnp.zeros((2, 2)), duty_ema=jnp.full(2, 0.5), ws_out_t=jnp.zeros(2),
             swing_ema=jnp.full(2, c.swing_floor_frac),
+            bilateral=bilateral_gait.initial(self._bilateral_inputs(data)[0], jnp,
+                        progress=c.bilateral_progress_enable,
+                        sequence=c.bilateral_sequence_enable,
+                        attempts=c.bilateral_attempt_enable, sequential=c.sequential_steps_enable,
+                        first_foot=jax.random.bernoulli(jax.random.fold_in(key, 1101)).astype(jnp.int32)) if c.bilateral_enable else {},
             push_countdown=self._next_interval(k_push, c.push_interval_s),
             trip_left=jnp.zeros((), jnp.int32), trip_foot=jnp.zeros((), jnp.int32),
             trip_force=jnp.zeros(()), gust_left=jnp.zeros((), jnp.int32),
@@ -908,7 +940,7 @@ class DashEnvV2:
             hold = state.t < state.hold_s
 
         def substep(carry, k):
-            d, tau_sq, con_acc, _ = carry
+            d, tau_sq, con_acc, _, flight_ticks = carry
             live = drive.live_command(k, dr.delay_ms, cmd_buf)
             q = d.qpos[p.act_qadr]
             qd = d.qvel[p.act_dadr]
@@ -920,10 +952,11 @@ class DashEnvV2:
                 d = d.replace(qpos=jnp.where(hold, d.qpos.at[hold_qadr].set(hold_qval), d.qpos),
                               qvel=jnp.where(hold, d.qvel.at[hold_dadr].set(0.0), d.qvel))
             toe_c, heel_c, _, _ = self._contacts(d)
-            return (d, tau_sq + tau ** 2, con_acc | toe_c | heel_c, tau), None
+            flight_ticks = flight_ticks + (~(toe_c | heel_c).any()).astype(jnp.float32)
+            return (d, tau_sq + tau ** 2, con_acc | toe_c | heel_c, tau, flight_ticks), None
 
-        (data, tau_sq, contact_acc, tau_last), _ = lax.scan(
-            substep, (data, jnp.zeros(6), jnp.zeros(2, bool), jnp.zeros(6)),
+        (data, tau_sq, contact_acc, tau_last, flight_ticks), _ = lax.scan(
+            substep, (data, jnp.zeros(6), jnp.zeros(2, bool), jnp.zeros(6), jnp.zeros(())),
             jnp.arange(p.decimation))
         # ---- thermal node
         thermal_x = drive.thermal_update(state.thermal_x, tau_sq / p.decimation, dt, c.thermal_tau_s,
@@ -1038,6 +1071,10 @@ class DashEnvV2:
                           thermal_x, phi, stop_now, v_target, heading_avg=heading_avg,
                           foot_flat=foot_flat)
         reward, terms, book = rw
+        if c.w_flight > 0:
+            # Real substep contacts, not the permissive near-ground height heuristic.
+            terms["flight"] = -c.w_flight * flight_ticks / p.decimation
+            reward = reward + terms["flight"]
         stop_quiet_s, stop_anchor = state.stop_quiet_s, state.stop_anchor
         if c.stop_dense_hold:
             xy = self._base_pos(data)[:2]
@@ -1051,8 +1088,8 @@ class DashEnvV2:
             stop_quiet_s = jnp.where(quiet, state.stop_quiet_s + dt, 0.0)
             terms['hold_duration'] = 0.5 * jnp.minimum(stop_quiet_s/5.0, 1.0) * grounded.all()
             reward = reward + terms['hold_duration']
-        reward = reward * self.reward_dt_scale
-        reward = jnp.maximum(reward, -c.step_reward_floor * self.reward_dt_scale)
+        reward, reward_floor_hit = bilateral_gait.reward_with_floor(
+            reward, terms, c, self.reward_dt_scale, jnp)
         # ---- termination
         finite = jnp.isfinite(data.qpos).all() & jnp.isfinite(data.qvel).all()
         ws_out = self._workspace_out(data)
@@ -1096,6 +1133,7 @@ class DashEnvV2:
             air_time=book["air_time"], contact_time=book["contact_time"], grounded_prev=grounded,
             prev_toe_xy=self._toe_pos(data)[:, :2], duty_ema=book["duty_ema"], ws_out_t=ws_out_t,
             swing_ema=book["swing_ema"], push_countdown=push_countdown, trip_left=trip_left,
+            bilateral=book.get("bilateral", state.bilateral),
             trip_foot=trip_foot, trip_force=trip_force, gust_left=gust_left,
             gust_countdown=gust_countdown, gust_dir=gust_dir, sprint_d=sprint_d, crossed=crossed,
             t_line=t_line, stop_hold=stop_hold,
@@ -1109,6 +1147,7 @@ class DashEnvV2:
                         commit_next.astype(jnp.float32), toe_c, heel_c)
         info = dict(
             commit=commit, reward_terms=terms, foot_air=(~grounded).astype(jnp.float32),
+            flight_fraction=flight_ticks / p.decimation,
             fallen=fallen, finished=finished, truncated=truncated,
             sprint_d=sprint_d, t_line=t_line, ep_return=new_state.ep_return,
             ep_len=new_state.ep_len, thermal_max=thermal_x.max(),
@@ -1124,7 +1163,7 @@ class DashEnvV2:
             stop_joint_rms=jnp.sqrt(jnp.mean(data.qvel[p.act_dadr] ** 2)),
             stop_upright=-grav[2], stop_supported=grounded.all(),
             stop_xy=self._base_pos(data)[:2],
-            reward_floor_hit=(sum(terms.values()) < -c.step_reward_floor),
+            reward_floor_hit=reward_floor_hit,
             # the EFFECTIVE target: zero under STOP, whatever the stick says
             v_cmd=self._effective_speed(state), stop_cmd=state.stop_cmd,
             stop_phase=state.stop_phase, stop_duration=state.stop_duration,
@@ -1139,6 +1178,8 @@ class DashEnvV2:
             obs_final=jnp.nan_to_num(obs),
         )
         # ---- auto-reset
+        if c.bilateral_enable:
+            info["bilateral"] = book["bilateral_metrics"]
         rs_state, rs_obs = self._reset_one(k_reset, params, Override())
         sel = lambda a, b: jnp.where(done, a, b)
         out_state = jax.tree_util.tree_map(sel, rs_state, new_state)
@@ -1294,6 +1335,9 @@ class DashEnvV2:
         deficit = jnp.maximum(0.0, c.swing_floor_frac - swing_ema.min())
         t["swing_floor"] = jnp.where(gait_on, pen(-c.w_swing_floor * deficit ** 2), 0.0)
         capst = jnp.where(cmd_speed >= c.stance_slow_speed, c.stance_cap_s, c.stance_cap_slow_s)
+        if c.bilateral_attempt_enable:
+            capst = bilateral_gait.stance_allowance(
+                gait.frequency(spec[gait.I_FREQ], gp), params.stance_ratio, c, jnp)
         over_st = jnp.minimum(jnp.maximum(contact_time - capst, 0.0), 1.0)
         t["stance_time"] = jnp.where(gait_on, -jnp.minimum(c.w_stance_time * over_st.sum(), cap), 0.0)
         grounded_recent = grounded | gprev
@@ -1428,7 +1472,7 @@ class DashEnvV2:
         # NOT ramped: upright, height, alive, track, clearance, air_time, heading, lane -- the
         # income and the safety terms, which mean the same thing on day one as at the end.
         if c.shape_curriculum_steps > 0:
-            sh = params.shape_scale
+            sh = 1.0 if c.bilateral_attempt_enable and not c.sequential_steps_enable else params.shape_scale
             # duty_sym, swing_floor and stance_time are deliberately NOT in this list. They are the
             # guards against the two pathologies this plant falls into -- the one-legged hop
             # (walk_mit measured 4.76 Hz, left duty 0.01) and the dragged stance -- and they were
@@ -1446,6 +1490,34 @@ class DashEnvV2:
                 t[name] = t[name] * fade
         total = sum(jnp.asarray(v, dtype=jnp.float32) for v in t.values())
         book = dict(air_time=air_time, contact_time=contact_time, duty_ema=duty_ema, swing_ema=swing_ema)
+        if c.bilateral_enable:
+            foot_x, slip = self._bilateral_inputs(data)
+            toe_on, heel_on, _, _ = self._contacts(data)
+            # GAIT-10 uses the same phase-offset knob as the controller. Historical
+            # presets keep their fixed half-cycle reward clock for exact replays.
+            phases = (jnp.stack(gait.phases(spec, phi, gp)) if c.bilateral_controller_phase
+                      else jnp.stack([phi, phi-jnp.pi]))
+            swing = 1.-gait.stance_indicator(phases, params.stance_ratio)
+            bs, bt, bm = bilateral_gait.update(state.bilateral, toe_on | heel_on,
+                        heights, foot_x, slip, swing, dt, c, jnp, frequency_hz=f_now)
+            if c.bilateral_repeat_air_weight > 0:
+                bm['controller_swing'] = 1.-gait.stance_indicator(
+                    jnp.stack(gait.phases(spec, phi, gp)), params.stance_ratio)
+            motor_q = data.qpos[p.act_qadr]
+            bm['joint_limit_violation'] = jnp.maximum(0., jnp.maximum(
+                jnp.max(jnp.asarray(p.q_lo)-motor_q), jnp.max(motor_q-jnp.asarray(p.q_hi))))
+            for name, value in bt.items():
+                # GAIT-09 retains earned shaping; only the new event costs ramp.
+                scale = (params.shape_scale if name in ('bilateral_repeat', 'bilateral_incomplete', 'bilateral_repeat_air')
+                         or not c.bilateral_attempt_enable else 1.0)
+                if c.sequential_steps_enable:
+                    scale = jnp.where(value < 0., params.shape_scale, 1.)
+                t[name] = value * scale * gait_on
+            if c.drag_success_curriculum:
+                t['contact_drag'] = (-c.drag_weight_final * params.drag_scale * gait_on
+                    * jnp.mean(bilateral_gait.drag_cost(slip, c.drag_reference_mps, jnp)))
+            book.update(bilateral=bs, bilateral_metrics=bm)
+            total = sum(jnp.asarray(v, dtype=jnp.float32) for v in t.values())
         terms = {k: jnp.asarray(v, dtype=jnp.float32) for k, v in t.items()}
         return total, terms, book
 

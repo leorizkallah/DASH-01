@@ -23,6 +23,39 @@ def _fullinertia(inertia):
     return " ".join(f"{inertia[k]:.9g}" for k in ("ixx", "iyy", "izz", "ixy", "ixz", "iyz"))
 
 
+def apply_body_inertials(root, properties, *, strict=False):
+    """Apply SI properties in each body's local frame, with inertia about its CoM.
+
+    Shared by identification and the v2 CAD importer. Strict mode rejects missing
+    body names instead of silently leaving a CAD placeholder in place.
+    """
+    bodies = {b.get("name"): b for b in root.iter("body")}
+    if strict:
+        missing = set(properties) - set(bodies)
+        if missing:
+            raise ValueError(f"Unknown inertial bodies: {sorted(missing)}")
+    changed = []
+    for name, bp in properties.items():
+        body = bodies.get(name)
+        if body is None:
+            continue
+        inertial = body.find("inertial")
+        if inertial is None:
+            if not strict:
+                continue
+            inertial = ET.SubElement(body, "inertial")
+        if bp.get("mass") is not None:
+            inertial.set("mass", f"{float(bp['mass']):.12g}")
+        if bp.get("com") is not None:
+            inertial.set("pos", " ".join(f"{float(v):.12g}" for v in bp["com"]))
+        if bp.get("inertia"):
+            for attr in ("diaginertia", "quat", "euler", "axisangle", "xyaxes", "zaxis"):
+                inertial.attrib.pop(attr, None)
+            inertial.set("fullinertia", _fullinertia(bp["inertia"]))
+        changed.append(name)
+    return changed
+
+
 def apply(model_path, params, out_path=None):
     """params: dict (identified_params.json). Returns a summary of what was patched."""
     out_path = out_path or model_path
@@ -30,23 +63,7 @@ def apply(model_path, params, out_path=None):
     root = tree.getroot()
     changed = {"bodies": [], "armature": [], "damping": []}
 
-    bodies = {b.get("name"): b for b in root.iter("body")}
-    for name, bp in (params.get("bodies") or {}).items():
-        body = bodies.get(name)
-        if body is None:
-            continue
-        inertial = body.find("inertial")
-        if inertial is None:
-            continue
-        if bp.get("mass") is not None:
-            inertial.set("mass", f"{float(bp['mass']):.9g}")
-        if bp.get("com") is not None:
-            inertial.set("pos", " ".join(f"{float(v):.9g}" for v in bp["com"]))
-        if bp.get("inertia"):
-            inertial.attrib.pop("diaginertia", None)
-            inertial.attrib.pop("quat", None)
-            inertial.set("fullinertia", _fullinertia(bp["inertia"]))
-        changed["bodies"].append(name)
+    changed["bodies"] = apply_body_inertials(root, params.get("bodies") or {})
 
     arm = params.get("rotor_armature") or {}
     fr = params.get("friction") or {}

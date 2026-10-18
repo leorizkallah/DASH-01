@@ -1,0 +1,62 @@
+<!doctype html><html lang="en"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GAIT-11 walking videos</title><style>
+body{font:17px/1.5 system-ui,sans-serif;background:#111925;color:#eef3fa;max-width:1280px;margin:32px auto;padding:0 20px}
+a{color:#8dccff}video,img{width:100%;background:#000;border-radius:8px}section{margin:36px 0}
+button{font:inherit;background:#24364d;color:white;border:1px solid #7290b5;border-radius:5px;padding:6px 14px;cursor:pointer}
+</style><h1>GAIT-11: judge the walking, not just survival</h1>
+<p>Training completed: 65.65M steps in 7h52m. Start with the two <strong>0.15 m/s</strong>
+clips below. Left foot is blue; right is orange. Both views show the same instant.</p>
+<p>Watch the extra right-foot lifts, foot clearance and forward sliding, and whether
+forward motion stays fluid during foot exchanges. Equal accepted-step counts are
+partly enforced by the supervisor and do not prove clean walking.</p>
+<p>Playback: <button onclick="rate(1)">Normal</button> <button onclick="rate(.5)">Half speed</button>
+<button onclick="rate(.25)">Quarter speed</button> <span id="rate">1x</span></p>
+<p>Separate final 12-trial evaluation at 0.15 m/s: all survived, 24.44% incomplete
+attempts, zero qualified gaits. Candidate is the saved diagnostic ranking winner;
+the final has fewer incomplete attempts and lower slip. Neither is certified.</p>
+<section><h2>Saved diagnostic candidate: 0.15 m/s</h2>
+<video controls playsinline preload="metadata" src="videos/gait11_candidate_0.15mps.mp4"></video>
+<p><a href="videos/gait11_candidate_0.15mps.mp4">Open / download video</a> · 49.28M steps.
+Replay completed at 25.00 s; mean forward speed after 5 s: 0.156 m/s.</p>
+<p>Valid steps L/R: [9, 9]; all attempts: [13, 12];
+repeated attempts: [3, 2] (after 5 s).</p></section>
+<section><h2>Final policy: 0.15 m/s</h2>
+<video controls playsinline preload="metadata" src="videos/gait11_final_0.15mps.mp4"></video>
+<p><a href="videos/gait11_final_0.15mps.mp4">Open / download video</a> · 65.65M steps.
+Replay completed at 25.00 s; mean forward speed after 5 s: 0.148 m/s.</p>
+<p>Valid steps L/R: [10, 10]; all attempts: [10, 14];
+repeated attempts: [0, 4] (after 5 s).</p></section>
+<section><h2>Saved diagnostic candidate: 0.10 m/s</h2>
+<video controls playsinline preload="metadata" src="videos/gait11_candidate_0.10mps.mp4"></video>
+<p><a href="videos/gait11_candidate_0.10mps.mp4">Open / download video</a> · 49.28M steps.
+Replay completed at 25.00 s; mean forward speed after 5 s: 0.096 m/s.</p>
+<p>Valid steps L/R: [10, 10]; all attempts: [10, 10];
+repeated attempts: [0, 0] (after 5 s).</p></section>
+<section><h2>Final policy: 0.10 m/s</h2>
+<video controls playsinline preload="metadata" src="videos/gait11_final_0.10mps.mp4"></video>
+<p><a href="videos/gait11_final_0.10mps.mp4">Open / download video</a> · 65.65M steps.
+Replay fell at 9.73 s; mean forward speed after 5 s: -0.015 m/s.</p>
+<p>Valid steps L/R: [1, 1]; all attempts: [2, 2];
+repeated attempts: [0, 0] (after 5 s).</p></section>
+<section><h2>Saved diagnostic candidate: 0.20 m/s</h2>
+<video controls playsinline preload="metadata" src="videos/gait11_candidate_0.20mps.mp4"></video>
+<p><a href="videos/gait11_candidate_0.20mps.mp4">Open / download video</a> · 49.28M steps.
+Replay fell at 6.97 s; mean forward speed after 5 s: 0.473 m/s.</p>
+<p>Valid steps L/R: [0, 0]; all attempts: [2, 0];
+repeated attempts: [2, 0] (after 5 s).</p></section>
+<section><h2>Final policy: 0.20 m/s</h2>
+<video controls playsinline preload="metadata" src="videos/gait11_final_0.20mps.mp4"></video>
+<p><a href="videos/gait11_final_0.20mps.mp4">Open / download video</a> · 65.65M steps.
+Replay fell at 2.89 s; mean forward speed after 5 s: no post-5-second window.</p>
+<p>Valid steps L/R: [0, 0]; all attempts: [0, 0];
+repeated attempts: [0, 0] (after 5 s).</p></section>
+<h2>Training progress</h2><img src="figures/gait11_progress.png" alt="Survival, incomplete attempts, repeated attempts and foot clearance during training">
+<p>Fresh nominal greedy replays, seed 1000; all three requested speeds shown for
+both checkpoints, without selecting successful trials. Clips stop at first
+termination or 25 seconds; no auto-resets. Evaluation uses seed 3103. Transfer
+clips at 0.10 and 0.20 m/s are outside the sole training target.</p>
+<p><a href="../docs/gait11-experiment-report.md">Experiment report</a> ·
+<a href="../docs/experiments/gait11_20261019_v1/replay-provenance.json">Provenance</a> ·
+<a href="gait09-videos.html">Earlier GAIT-09 videos</a></p>
+<script>function rate(r){document.querySelectorAll('video').forEach(v=>v.playbackRate=r);document.getElementById('rate').textContent=r+'x';}</script></html>

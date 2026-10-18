@@ -1,0 +1,30 @@
+{
+ "device": "cuda:0",
+ "platform": "gpu",
+ "preset": "cad_v2_gait01",
+ "env": [
+  {
+   "n_envs": 512,
+   "env_sps": 5302.754454363092,
+   "substeps_per_s": 53027.544543630924,
+   "sim_seconds_per_wall_s": 53.027544543630924,
+   "reset_s": 17.092316150665283,
+   "compile_s": 42.383219480514526,
+   "step_ms": 96.55359387397766
+  }
+ ],
+ "ppo": [
+  {
+   "n_envs": 512,
+   "n_steps": 32,
+   "batch": 16384,
+   "iter_first_s": 48.49804472923279,
+   "iter_s": 16.564961433410645,
+   "ppo_sps": 989.0756501825803,
+   "rollout_s": 3.1123764514923096,
+   "minibatches": 4
+  }
+ ],
+ "mjx_iterations": 16,
+ "mjx_ls_iterations": 8
+}

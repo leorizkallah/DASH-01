@@ -1,0 +1,51 @@
+{
+  "replay_job": 3222519,
+  "state": "COMPLETED",
+  "elapsed": "00:03:18",
+  "exit_code": "0:0",
+  "remote_root": "/home/rizkalla/running_robot/experiments/gait08_replay_20261018_v1",
+  "run_snapshot": "gait08_20261017_v1",
+  "checkpoints": {
+    "eval_25165824.msgpack": "e558d8b810c7a260d1d50011e26513a115c26d3faf366a2dbf1aa2ff99ad4ad8",
+    "final.msgpack": "c1f6b016846a837c21ca1f39fedb3ea781b0e186a9e746214b0d3e62c20860d0"
+  },
+  "seed": 1000,
+  "target_mps": 0.25,
+  "views": [
+    115,
+    295
+  ],
+  "foot_colors": {
+    "left": "blue",
+    "right": "orange"
+  },
+  "local_files": {
+    "RLframework/tools/gait_video.py": "16357f8950da5b73b8bc7b034ec18febaace176d2061632b9b3408c00dba5fa0",
+    "RLframework/slurm/izar_cad_v2_gait08_video.sbatch": "7700db90edbb2b3401489f9c4cf6f9abbc59f701b71f6b4e0675f78f16396cd0",
+    "RLframework/model/dash01_cad_v2_free.xml": "a8beffae5d40fddba299463767cc4ae244f6c780243d80d020cf4cdae83ce708",
+    "docs\\experiments\\gait08_20261017_v1\\gait08_trace_eval_25165824.npz": "809b0bb1643083fef49ca1bff806cce25b1a1cda3602d6e9a92ce0412fa83e2c",
+    "docs\\experiments\\gait08_20261017_v1\\gait08_trace_final.npz": "c03905347d1b85990106708a38ace15c69a86c18bb0ac7ddd5b8b9bb5dd91dcf"
+  },
+  "videos": {
+    "report/videos/gait08_best_0.25mps.mp4": {
+      "sha256": "76caaa7241c4b42eca85ba3b1e486ac7d77e185fbf306323cac72784e98610c9",
+      "frames": 750,
+      "fps": 30.0,
+      "duration_s": 25.0,
+      "size": [
+        1280,
+        720
+      ]
+    },
+    "report/videos/gait08_final_0.25mps.mp4": {
+      "sha256": "7b1d92b6e9f51c1d0d82997501ca1155bd905840a684968616d803fca6b1be82",
+      "frames": 750,
+      "fps": 30.0,
+      "duration_s": 25.0,
+      "size": [
+        1280,
+        720
+      ]
+    }
+  }
+}

@@ -86,8 +86,13 @@ class Plant:
                                         if m.jnt_bodyid[j] != self.base_bid])
         self.leg_dofs = np.array([int(m.jnt_dofadr[j]) for j in range(m.njnt)
                                   if m.jnt_bodyid[j] != self.base_bid])
-        self.loop_sites = np.array([mujoco.mj_name2id(m, O.mjOBJ_SITE, n)
-                                    for n in ("rod_tip_L", "leg_anchor_L", "rod_tip_R", "leg_anchor_R")])
+        # Include the articulated-foot CAD's Achilles loops as well as the knee loops.
+        loop_names = ("rod_tip_L", "leg_anchor_L", "rod_tip_R", "leg_anchor_R")
+        if mujoco.mj_name2id(m, O.mjOBJ_NUMERIC, "cad_v2") >= 0:
+            loop_names += ("achilles_tip_L", "foot_anchor_L", "achilles_tip_R", "foot_anchor_R")
+        self.loop_sites = np.array([mujoco.mj_name2id(m, O.mjOBJ_SITE, n) for n in loop_names])
+        if np.any(self.loop_sites < 0):
+            raise ValueError("Plant is missing a required linkage site")
         # keyframe + nominal targets
         self.key_id = mujoco.mj_name2id(m, O.mjOBJ_KEY, cfg.keyframe)
         self.key_qpos = m.key_qpos[self.key_id].copy()

@@ -1,0 +1,34 @@
+{
+  "preset": "cad_v2_gait01",
+  "devices": [
+    "cuda:0"
+  ],
+  "seconds": 5.0,
+  "elapsed_including_compile_s": 45.560992115177214,
+  "finite": true,
+  "terminated": true,
+  "max_tilt_deg": 54.48219299316406,
+  "min_height_m": 0.6116740107536316,
+  "max_drift_xy_m": 0.688112915073792,
+  "final_loop_gap_m": 3.4774423056660453e-06,
+  "flight_fraction": 0.0,
+  "observation_dim": 413,
+  "action_dim": 47,
+  "standing_passed": false,
+  "gate": "physics",
+  "physics_comparison": {
+    "seconds": 1.0,
+    "pitch_perturbations_rad": [
+      0,
+      -0.001,
+      0.001
+    ],
+    "finite": true,
+    "max_coordinate_error": 5.1252132906663e-06,
+    "max_velocity_error": 0.004118223434982725,
+    "coordinate_tolerance": 0.005,
+    "velocity_tolerance": 0.05,
+    "passed": true
+  },
+  "passed": true
+}

@@ -1,0 +1,1169 @@
+{
+  "step": 0,
+  "trials": 12,
+  "seed": 3103,
+  "seconds": 25.0,
+  "finite": true,
+  "qualified_fraction": 0.0,
+  "keeper_eligible": false,
+  "survival_fraction": 0.0,
+  "track_error": 0.25,
+  "reward_floor_fraction": 0.0,
+  "per_trial": {
+    "survived": [
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false
+    ],
+    "track_error": [
+      0.25,
+      0.25,
+      0.25,
+      0.25,
+      0.25,
+      0.25,
+      0.25,
+      0.25,
+      0.25,
+      0.25,
+      0.25,
+      0.25
+    ],
+    "heading_error": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "steps": [
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        0
+      ]
+    ],
+    "clear_fraction": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0
+      ]
+    ],
+    "alternation": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "max_symmetry": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "flight_fraction": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "contact_slip": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "joint_limit_violation": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  "passed": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+  ],
+  "reward_means": {
+    "action_rate": 0.0,
+    "air_time": 0.0,
+    "alive": 0.0,
+    "ang_xy": 0.0,
+    "angmom": 0.0,
+    "bilateral_clearance": 0.0,
+    "bilateral_forward_progress": 0.0,
+    "bilateral_lift_progress": 0.0,
+    "bilateral_missing": 0.0,
+    "bilateral_pair_progress": 0.0,
+    "bilateral_phase": 0.0,
+    "bilateral_repeat": 0.0,
+    "bilateral_slip": 0.0,
+    "bilateral_step": 0.0,
+    "bilateral_swing": 0.0,
+    "bilateral_symmetry": 0.0,
+    "brake_foot": 0.0,
+    "clearance": 0.0,
+    "duty_sym": 0.0,
+    "energy": 0.0,
+    "flight": 0.0,
+    "foot_slip": 0.0,
+    "fwd_speed": 0.0,
+    "heading": 0.0,
+    "height": 0.0,
+    "hip_roll": 0.0,
+    "knob": 0.0,
+    "lane": 0.0,
+    "lat_vel": 0.0,
+    "motor_vel": 0.0,
+    "overrun": 0.0,
+    "phase_contact": 0.0,
+    "residual": 0.0,
+    "residual_rate": 0.0,
+    "spec_cycle": 0.0,
+    "stance": 0.0,
+    "stance_time": 0.0,
+    "stand": 0.0,
+    "step_rate": 0.0,
+    "stop": 0.0,
+    "stop_amp": 0.0,
+    "stop_speed": 0.0,
+    "swing_floor": 0.0,
+    "thermal": 0.0,
+    "time": 0.0,
+    "torque": 0.0,
+    "track": 0.0,
+    "upright": 0.0,
+    "vz": 0.0,
+    "yaw_rate": 0.0
+  },
+  "note": "12 nominal greedy trials per target, not hardware robustness trials. Top-level metrics and keeper eligibility refer to the training target only. Quality after 5 s; survival over all 25 s. All targets retained in per_target.",
+  "per_target": {
+    "0.20": {
+      "trials": 12,
+      "qualified_fraction": 0.0,
+      "keeper_eligible": false,
+      "survival_fraction": 0.0,
+      "track_error": 0.20000000000000004,
+      "reward_floor_fraction": 0.0,
+      "per_trial": {
+        "survived": [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "track_error": [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ],
+        "heading_error": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "steps": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "clear_fraction": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        "alternation": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_symmetry": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "flight_fraction": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "contact_slip": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "joint_limit_violation": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "passed": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "reward_means": {
+        "action_rate": 0.0,
+        "air_time": 0.0,
+        "alive": 0.0,
+        "ang_xy": 0.0,
+        "angmom": 0.0,
+        "bilateral_clearance": 0.0,
+        "bilateral_forward_progress": 0.0,
+        "bilateral_lift_progress": 0.0,
+        "bilateral_missing": 0.0,
+        "bilateral_pair_progress": 0.0,
+        "bilateral_phase": 0.0,
+        "bilateral_repeat": 0.0,
+        "bilateral_slip": 0.0,
+        "bilateral_step": 0.0,
+        "bilateral_swing": 0.0,
+        "bilateral_symmetry": 0.0,
+        "brake_foot": 0.0,
+        "clearance": 0.0,
+        "duty_sym": 0.0,
+        "energy": 0.0,
+        "flight": 0.0,
+        "foot_slip": 0.0,
+        "fwd_speed": 0.0,
+        "heading": 0.0,
+        "height": 0.0,
+        "hip_roll": 0.0,
+        "knob": 0.0,
+        "lane": 0.0,
+        "lat_vel": 0.0,
+        "motor_vel": 0.0,
+        "overrun": 0.0,
+        "phase_contact": 0.0,
+        "residual": 0.0,
+        "residual_rate": 0.0,
+        "spec_cycle": 0.0,
+        "stance": 0.0,
+        "stance_time": 0.0,
+        "stand": 0.0,
+        "step_rate": 0.0,
+        "stop": 0.0,
+        "stop_amp": 0.0,
+        "stop_speed": 0.0,
+        "swing_floor": 0.0,
+        "thermal": 0.0,
+        "time": 0.0,
+        "torque": 0.0,
+        "track": 0.0,
+        "upright": 0.0,
+        "vz": 0.0,
+        "yaw_rate": 0.0
+      }
+    },
+    "0.25": {
+      "trials": 12,
+      "qualified_fraction": 0.0,
+      "keeper_eligible": false,
+      "survival_fraction": 0.0,
+      "track_error": 0.25,
+      "reward_floor_fraction": 0.0,
+      "per_trial": {
+        "survived": [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "track_error": [
+          0.25,
+          0.25,
+          0.25,
+          0.25,
+          0.25,
+          0.25,
+          0.25,
+          0.25,
+          0.25,
+          0.25,
+          0.25,
+          0.25
+        ],
+        "heading_error": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "steps": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "clear_fraction": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        "alternation": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_symmetry": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "flight_fraction": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "contact_slip": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "joint_limit_violation": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "passed": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "reward_means": {
+        "action_rate": 0.0,
+        "air_time": 0.0,
+        "alive": 0.0,
+        "ang_xy": 0.0,
+        "angmom": 0.0,
+        "bilateral_clearance": 0.0,
+        "bilateral_forward_progress": 0.0,
+        "bilateral_lift_progress": 0.0,
+        "bilateral_missing": 0.0,
+        "bilateral_pair_progress": 0.0,
+        "bilateral_phase": 0.0,
+        "bilateral_repeat": 0.0,
+        "bilateral_slip": 0.0,
+        "bilateral_step": 0.0,
+        "bilateral_swing": 0.0,
+        "bilateral_symmetry": 0.0,
+        "brake_foot": 0.0,
+        "clearance": 0.0,
+        "duty_sym": 0.0,
+        "energy": 0.0,
+        "flight": 0.0,
+        "foot_slip": 0.0,
+        "fwd_speed": 0.0,
+        "heading": 0.0,
+        "height": 0.0,
+        "hip_roll": 0.0,
+        "knob": 0.0,
+        "lane": 0.0,
+        "lat_vel": 0.0,
+        "motor_vel": 0.0,
+        "overrun": 0.0,
+        "phase_contact": 0.0,
+        "residual": 0.0,
+        "residual_rate": 0.0,
+        "spec_cycle": 0.0,
+        "stance": 0.0,
+        "stance_time": 0.0,
+        "stand": 0.0,
+        "step_rate": 0.0,
+        "stop": 0.0,
+        "stop_amp": 0.0,
+        "stop_speed": 0.0,
+        "swing_floor": 0.0,
+        "thermal": 0.0,
+        "time": 0.0,
+        "torque": 0.0,
+        "track": 0.0,
+        "upright": 0.0,
+        "vz": 0.0,
+        "yaw_rate": 0.0
+      }
+    },
+    "0.35": {
+      "trials": 12,
+      "qualified_fraction": 0.0,
+      "keeper_eligible": false,
+      "survival_fraction": 0.0,
+      "track_error": 0.35000000000000003,
+      "reward_floor_fraction": 0.0,
+      "per_trial": {
+        "survived": [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "track_error": [
+          0.35,
+          0.35,
+          0.35,
+          0.35,
+          0.35,
+          0.35,
+          0.35,
+          0.35,
+          0.35,
+          0.35,
+          0.35,
+          0.35
+        ],
+        "heading_error": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "steps": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "clear_fraction": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        "alternation": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_symmetry": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "flight_fraction": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "contact_slip": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "joint_limit_violation": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "passed": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "reward_means": {
+        "action_rate": 0.0,
+        "air_time": 0.0,
+        "alive": 0.0,
+        "ang_xy": 0.0,
+        "angmom": 0.0,
+        "bilateral_clearance": 0.0,
+        "bilateral_forward_progress": 0.0,
+        "bilateral_lift_progress": 0.0,
+        "bilateral_missing": 0.0,
+        "bilateral_pair_progress": 0.0,
+        "bilateral_phase": 0.0,
+        "bilateral_repeat": 0.0,
+        "bilateral_slip": 0.0,
+        "bilateral_step": 0.0,
+        "bilateral_swing": 0.0,
+        "bilateral_symmetry": 0.0,
+        "brake_foot": 0.0,
+        "clearance": 0.0,
+        "duty_sym": 0.0,
+        "energy": 0.0,
+        "flight": 0.0,
+        "foot_slip": 0.0,
+        "fwd_speed": 0.0,
+        "heading": 0.0,
+        "height": 0.0,
+        "hip_roll": 0.0,
+        "knob": 0.0,
+        "lane": 0.0,
+        "lat_vel": 0.0,
+        "motor_vel": 0.0,
+        "overrun": 0.0,
+        "phase_contact": 0.0,
+        "residual": 0.0,
+        "residual_rate": 0.0,
+        "spec_cycle": 0.0,
+        "stance": 0.0,
+        "stance_time": 0.0,
+        "stand": 0.0,
+        "step_rate": 0.0,
+        "stop": 0.0,
+        "stop_amp": 0.0,
+        "stop_speed": 0.0,
+        "swing_floor": 0.0,
+        "thermal": 0.0,
+        "time": 0.0,
+        "torque": 0.0,
+        "track": 0.0,
+        "upright": 0.0,
+        "vz": 0.0,
+        "yaw_rate": 0.0
+      }
+    }
+  },
+  "target_mps": 0.25,
+  "total_trials": 36,
+  "checkpoint": "eval_0.msgpack",
+  "candidate_score": [
+    0.0,
+    0.0,
+    0.0,
+    -0.25
+  ],
+  "candidate_rank_version": 2
+}

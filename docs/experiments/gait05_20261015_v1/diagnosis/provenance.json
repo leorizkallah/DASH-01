@@ -1,0 +1,16 @@
+{
+  "date": "2026-10-16",
+  "job": 3221291,
+  "state": "COMPLETED",
+  "elapsed": "00:03:41",
+  "exit_code": "0:0",
+  "remote_root": "/home/rizkalla/running_robot/experiments/gait05_diagnosis_20261016_v1",
+  "files": {
+    "RLframework/tools/diagnose_gait05.py": "d49b716623fbe95724fde90d9c3c0c480ccb8a9a1b4c07fdaee350b2476682d5",
+    "RLframework/slurm/izar_cad_v2_gait05_diagnosis.sbatch": "b7ff1c05ae988041920521e7ab5151f64c48ea77fb042169fec2fc7220666c97",
+    "RLframework/tools/gait_video.py": "16357f8950da5b73b8bc7b034ec18febaace176d2061632b9b3408c00dba5fa0",
+    "report/scripts/build_gait05_diagnosis.py": "ff7d6c9829a35a39c1052093cd9a56b30ceeefeb52b718d2933dfed87725b9d3",
+    "docs/experiments/gait05_20261015_v1/source-manifest.json": "f04d6909ebeb6fe7449b318f314332c1f3cae40f4fde44f2a3094c038e8c47e8",
+    "docs/experiments/gait05_20261015_v1/progress.csv": "5875a708ac074786b2e982bfac015ff390c976d1bcde0bf234e9fa4d3f48fe6d"
+  }
+}

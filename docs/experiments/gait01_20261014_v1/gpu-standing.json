@@ -1,0 +1,18 @@
+{
+  "preset": "cad_v2_gait01",
+  "devices": [
+    "cuda:0"
+  ],
+  "seconds": 5.0,
+  "elapsed_including_compile_s": 45.7662254832685,
+  "finite": true,
+  "terminated": true,
+  "max_tilt_deg": 55.672916412353516,
+  "min_height_m": 0.6011829376220703,
+  "max_drift_xy_m": 0.7010894423311202,
+  "final_loop_gap_m": 3.444250069151167e-06,
+  "flight_fraction": 0.0,
+  "observation_dim": 413,
+  "action_dim": 47,
+  "passed": false
+}

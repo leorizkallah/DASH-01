@@ -1,0 +1,22 @@
+{
+  "target_mps": 0.35,
+  "window_s": [
+    5,
+    25
+  ],
+  "method": "Classic MuJoCo kinematics of recorded MJX poses; minimum height across both heel/toe collision-box support points for each foot. Heights are not force/contact measurements.",
+  "feet": {
+    "left": {
+      "max_whole_sole_clearance_m": 0.19406260800112202,
+      "p95_whole_sole_clearance_m": 0.13085945736674054,
+      "fraction_whole_sole_above_1cm": 0.1315,
+      "fore_aft_range_in_torso_frame_m": 0.39088720591167425
+    },
+    "right": {
+      "max_whole_sole_clearance_m": 0.017999929935643748,
+      "p95_whole_sole_clearance_m": 0.0013929968917732506,
+      "fraction_whole_sole_above_1cm": 0.0035,
+      "fore_aft_range_in_torso_frame_m": 0.20322523112121826
+    }
+  }
+}
