@@ -1,4 +1,4 @@
-# DASH-01 v2 — walking and autonomous stopping
+# DASH-01 v2 — speed-first gait discovery
 
 This repository continues the work from [nathmo/running_robot](https://github.com/nathmo/running_robot),
 developed by [nathmo](https://github.com/nathmo) for his master's thesis on DASH-01,
@@ -12,6 +12,26 @@ the continuation of that project.
 The original Git history and [Mozilla Public License 2.0](LICENSE) are preserved.
 
 ## Purpose of this branch
+
+Active branch: **`dash-01-v2-speed-discovery`**. Start a fresh policy to discover
+the fastest sustained feasible forward locomotion for CAD-v2, beginning with
+Nathann's original speed objectives and a careful reward audit. This replaces
+the recent prescribed-alternation approach as the active research direction.
+
+Read the [upstream reward/source review](report/nathann-speed-reward-audit.md)
+and [implementation plan](docs/speed-discovery-plan.md). Seven upstream branches
+were inspected; the modern `dash_sprint` preset is the closest existing starting
+point. No new training has been launched from this branch yet.
+
+GAIT-01–11, the CAD corrections, reports and videos are preserved on
+`dash-01-v2` at commit `c035774`. Local ignored run artifacts and remote SCITAS
+checkpoints retain their existing locations. The speed-first experiment permits
+gait discovery rather than promising a walking-only or symmetric result.
+
+### Earlier campaign and later demonstration goals
+
+The campaign description below is historical. The speed-discovery objective
+above supersedes its walking-only restriction for this investigation.
 
 The `dash-01-v2` branch prepares for the new CAD model and a new policy-training
 campaign. The new CAD and corrected mass/inertia properties are now in
@@ -61,7 +81,7 @@ real robot:
 | [`BalanceRL/`](BalanceRL/README.md) | push-recovery stander that writes the MIT force-control frame directly; a side quest off `RLframework/` |
 | [`sprint_runner/`](sprint_runner/README.md) | the restored `walk_mit` stack and the 3.06 m/s runner (`sprint_m3_mit_s0`), kept so it can still be run, measured and filmed. Not deployable on the current flat-foot robot |
 | `dash-01CAD/` | the current robot's CAD export (MJCF + meshes) that the training plants and the web UI's digital twin are built from |
-| [`dash-01CAD-v2/`](dash-01CAD-v2/README.md) | reserved for the forthcoming CAD model; no model files have been supplied yet |
+| [`dash-01CAD-v2/`](dash-01CAD-v2/README.md) | supplied v2 CAD, corrected masses/inertias and import audit |
 
 ## What is deployed
 

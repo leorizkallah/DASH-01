@@ -1,5 +1,11 @@
 # DASH-01 report workspace
 
+**New direction — speed-first discovery:** branch `dash-01-v2-speed-discovery`.
+[Nathann's reward and branch audit](nathann-speed-reward-audit.md) identifies the
+existing `dash_sprint` objective and the limitations of the older 3.06 m/s result.
+[Implementation plan](../docs/speed-discovery-plan.md). GAIT-01–11 remain archived
+on `dash-01-v2` at `c035774`; no new speed-training run has been launched yet.
+
 **GAIT-11:** [fresh continuous alternating walking](../docs/gait11-experiment-report.md)
 at 0.15 m/s, eight-hour allocation without a step cap. Expected-foot commands
 replace implicit sequencing; no mandatory pause between steps. Retains bilateral

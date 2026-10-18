@@ -1,5 +1,16 @@
 # Work log and next questions
 
+2026-10-19: user rejected the GAIT-11 videos and changed direction to fresh
+maximum-speed discovery. Committed the existing CAD-v2/GAIT-01–11 campaign on
+`dash-01-v2` (`c035774`) and created `dash-01-v2-speed-discovery`. Fetched and
+inspected seven Nathann upstream branches, the M3 saved configuration, modern
+`dash_sprint`, and historical free-body M6 records. Preserved nine historical
+JSON records with source hashes. The review distinguishes clipped speed income,
+alive bonus, gait shaping and physical-model assumptions. No reward code was
+changed and no new job launched during this review.
+[Source audit](nathann-speed-reward-audit.md) and
+[new plan](../docs/speed-discovery-plan.md).
+
 2026-10-19: GAIT-11 job 3223293 completed in 7h51m56s, 65,650,688 steps.
 Final 0.15 m/s survival 12/12, incomplete attempts 24.44%, with repeated right
 foot attempts and insufficient clearance. No qualified gait in 64 evaluations.

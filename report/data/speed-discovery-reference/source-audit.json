@@ -1,0 +1,219 @@
+{
+  "note": "Source/configuration evidence, not newly reproduced performance.",
+  "archive_branch": "dash-01-v2",
+  "archive_commit": "c03577431fd1b208a4cbf7ab53402c9f961f6d8e",
+  "work_branch": "dash-01-v2-speed-discovery",
+  "branches": [
+    {
+      "branch": "upstream/main",
+      "commit": "6af297152aac915fba523f853db613b2b63d2090",
+      "sources": [
+        {
+          "path": "RLframework/config.py",
+          "git_blob": "46162adbafb89d349ce6665b2475e36e1bdeb194",
+          "sha256": "2f64495150a5d5e950413c8179326dc7783f166f13599d1ab74de593681e422f",
+          "url": "https://github.com/nathmo/running_robot/blob/6af297152aac915fba523f853db613b2b63d2090/RLframework/config.py"
+        },
+        {
+          "path": "RLframework/env.py",
+          "git_blob": "e80b97bd1c0e04aa981f4e519abd0044d0eb0658",
+          "sha256": "77db3e6723274cf4b0d64535b1b7d698c3fc8f0ce4beb113045c4f636f976351",
+          "url": "https://github.com/nathmo/running_robot/blob/6af297152aac915fba523f853db613b2b63d2090/RLframework/env.py"
+        },
+        {
+          "path": "BalanceRL/config.py",
+          "git_blob": "92e5c84ab169167453cf6b71dbd93b2261a7c9f9",
+          "sha256": "30653b5ce1e9b19110a0c7397c46bf5278eed8440b99caf6b3ceb843b49a4e10",
+          "url": "https://github.com/nathmo/running_robot/blob/6af297152aac915fba523f853db613b2b63d2090/BalanceRL/config.py"
+        },
+        {
+          "path": "sprint_runner/walk_mit/config.py",
+          "git_blob": "78d72cad56632b2af527e8cddf6d71011007616b",
+          "sha256": "c09c27b5a6a9c72fe19dcab0682e054da6c6023effaf0010a451dfd94df50954",
+          "url": "https://github.com/nathmo/running_robot/blob/6af297152aac915fba523f853db613b2b63d2090/sprint_runner/walk_mit/config.py"
+        },
+        {
+          "path": "sprint_runner/walk_mit/env.py",
+          "git_blob": "9440b875235fd3027ec837246740ec19f77b6b2a",
+          "sha256": "73a9a895ae4022b36785a40ba748b9f4552f2e2dd1294f86b1fe249172d38636",
+          "url": "https://github.com/nathmo/running_robot/blob/6af297152aac915fba523f853db613b2b63d2090/sprint_runner/walk_mit/env.py"
+        }
+      ]
+    },
+    {
+      "branch": "upstream/balance-rl",
+      "commit": "c5edf0886bca2c061e1ec188ded2d2db74c88751",
+      "sources": [
+        {
+          "path": "RLframework/config.py",
+          "git_blob": "46162adbafb89d349ce6665b2475e36e1bdeb194",
+          "sha256": "2f64495150a5d5e950413c8179326dc7783f166f13599d1ab74de593681e422f",
+          "url": "https://github.com/nathmo/running_robot/blob/c5edf0886bca2c061e1ec188ded2d2db74c88751/RLframework/config.py"
+        },
+        {
+          "path": "RLframework/env.py",
+          "git_blob": "e80b97bd1c0e04aa981f4e519abd0044d0eb0658",
+          "sha256": "77db3e6723274cf4b0d64535b1b7d698c3fc8f0ce4beb113045c4f636f976351",
+          "url": "https://github.com/nathmo/running_robot/blob/c5edf0886bca2c061e1ec188ded2d2db74c88751/RLframework/env.py"
+        },
+        {
+          "path": "BalanceRL/config.py",
+          "git_blob": "92e5c84ab169167453cf6b71dbd93b2261a7c9f9",
+          "sha256": "30653b5ce1e9b19110a0c7397c46bf5278eed8440b99caf6b3ceb843b49a4e10",
+          "url": "https://github.com/nathmo/running_robot/blob/c5edf0886bca2c061e1ec188ded2d2db74c88751/BalanceRL/config.py"
+        },
+        {
+          "path": "sprint_runner/walk_mit/config.py",
+          "git_blob": "78d72cad56632b2af527e8cddf6d71011007616b",
+          "sha256": "c09c27b5a6a9c72fe19dcab0682e054da6c6023effaf0010a451dfd94df50954",
+          "url": "https://github.com/nathmo/running_robot/blob/c5edf0886bca2c061e1ec188ded2d2db74c88751/sprint_runner/walk_mit/config.py"
+        },
+        {
+          "path": "sprint_runner/walk_mit/env.py",
+          "git_blob": "9440b875235fd3027ec837246740ec19f77b6b2a",
+          "sha256": "73a9a895ae4022b36785a40ba748b9f4552f2e2dd1294f86b1fe249172d38636",
+          "url": "https://github.com/nathmo/running_robot/blob/c5edf0886bca2c061e1ec188ded2d2db74c88751/sprint_runner/walk_mit/env.py"
+        }
+      ]
+    },
+    {
+      "branch": "upstream/loop-rate",
+      "commit": "4e8433152db91b4ba63aa5767d89693e244958d4",
+      "sources": [
+        {
+          "path": "RLframework/config.py",
+          "git_blob": "46162adbafb89d349ce6665b2475e36e1bdeb194",
+          "sha256": "2f64495150a5d5e950413c8179326dc7783f166f13599d1ab74de593681e422f",
+          "url": "https://github.com/nathmo/running_robot/blob/4e8433152db91b4ba63aa5767d89693e244958d4/RLframework/config.py"
+        },
+        {
+          "path": "RLframework/env.py",
+          "git_blob": "e80b97bd1c0e04aa981f4e519abd0044d0eb0658",
+          "sha256": "77db3e6723274cf4b0d64535b1b7d698c3fc8f0ce4beb113045c4f636f976351",
+          "url": "https://github.com/nathmo/running_robot/blob/4e8433152db91b4ba63aa5767d89693e244958d4/RLframework/env.py"
+        },
+        {
+          "path": "legacy_trainer_to_port/config.py",
+          "git_blob": "0e9fe05a518c763965cf4c7f7373cfc4ff5f033c",
+          "sha256": "253f0c0d3263c1cf0c9ae9153e3738a02df3a32577905a02af35861d01401195",
+          "url": "https://github.com/nathmo/running_robot/blob/4e8433152db91b4ba63aa5767d89693e244958d4/legacy_trainer_to_port/config.py"
+        },
+        {
+          "path": "legacy_trainer_to_port/env.py",
+          "git_blob": "4ebd6e00755ced582b5a6fcff053eb072fa53f3e",
+          "sha256": "c5caa4ea45211a4aa76b19cc775165624b90bb3f74ddb8fa8814cabd0407fda9",
+          "url": "https://github.com/nathmo/running_robot/blob/4e8433152db91b4ba63aa5767d89693e244958d4/legacy_trainer_to_port/env.py"
+        }
+      ]
+    },
+    {
+      "branch": "upstream/feat/dynamic-parameter-identification",
+      "commit": "0cdf95145926b0133e52578c8883beaee32b0947",
+      "sources": [
+        {
+          "path": "training/config.py",
+          "git_blob": "313c247d8bd52c2f07e3a99cad0d73a752cd5255",
+          "sha256": "d0e168ca1762995ab4dd7d79985697a858fe3e4453040bbea51c0b2da688d816",
+          "url": "https://github.com/nathmo/running_robot/blob/0cdf95145926b0133e52578c8883beaee32b0947/training/config.py"
+        },
+        {
+          "path": "training/env.py",
+          "git_blob": "2fea1a05c28a314b9ab0ee94ede37fceed5f418e",
+          "sha256": "57bef76693cbc32bb1ec50bfc3539d1618fb71592b1822802e478d18177dcb8b",
+          "url": "https://github.com/nathmo/running_robot/blob/0cdf95145926b0133e52578c8883beaee32b0947/training/env.py"
+        }
+      ]
+    },
+    {
+      "branch": "upstream/research/ankle-spring-study",
+      "commit": "bd4c88f90364cc8c02baaa2dde970413cec53378",
+      "sources": [
+        {
+          "path": "training/config.py",
+          "git_blob": "7a28475be510248c9335233cef1cc9c1b2e76c6c",
+          "sha256": "22434bb8f158acfe1ad72f5258663e56682e7bec470f35eb2a84a0fc6307ffcc",
+          "url": "https://github.com/nathmo/running_robot/blob/bd4c88f90364cc8c02baaa2dde970413cec53378/training/config.py"
+        },
+        {
+          "path": "training/env.py",
+          "git_blob": "ad93400db9e2231445ba48090f84978984558017",
+          "sha256": "e5506a7edd0f50af0af60bae88cc22c1f675c7a06240c07d213f757b65110077",
+          "url": "https://github.com/nathmo/running_robot/blob/bd4c88f90364cc8c02baaa2dde970413cec53378/training/env.py"
+        }
+      ]
+    },
+    {
+      "branch": "upstream/moteus_pi_controller_working",
+      "commit": "7bd891f548815cf6d38baa2b07eb84aba0fbd9f7",
+      "sources": [
+        {
+          "path": "RL/config.py",
+          "git_blob": "d76ddf4007003af1ea749ce3ec46b24681b9975b",
+          "sha256": "a3dde1699081eb76fd314922f2c0cced35a1b436e2c932217d9b70f59a56648f",
+          "url": "https://github.com/nathmo/running_robot/blob/7bd891f548815cf6d38baa2b07eb84aba0fbd9f7/RL/config.py"
+        }
+      ]
+    },
+    {
+      "branch": "upstream/pendulum_sim2real",
+      "commit": "1c25c2fff050e94f2a6af52aba2861d011dbcaa5",
+      "sources": []
+    }
+  ],
+  "evidence": [
+    {
+      "file": "sprint_m3_mit_s0_config.json",
+      "commit": "f11eed83c209d8a6e7dd9f8400d18fa8f0052f46",
+      "path": "walk_mit/runs/sprint_m3_mit_s0/resolved_config.json",
+      "sha256": "6df0978add71dfcbc78fdfaa5ac99f208aa0f3d7cf08644cdc7581c60b9d18bd"
+    },
+    {
+      "file": "sprint_m3_mit_s0_curriculum.json",
+      "commit": "f11eed83c209d8a6e7dd9f8400d18fa8f0052f46",
+      "path": "walk_mit/runs/sprint_m3_mit_s0/curriculum.json",
+      "sha256": "60db3daa35d3d96096fe9a73cb1e08d302b51bdae2c01e0ee069f8273f2b75fd"
+    },
+    {
+      "file": "sprint_m3_mit_s0_diagnostics.json",
+      "commit": "f11eed83c209d8a6e7dd9f8400d18fa8f0052f46",
+      "path": "walk_mit/monitor/gait_diag_sprint_m3_mit_s0.json",
+      "sha256": "e3caac0590ba07e86202eda5de2d897b9c99c887aeb661e93d16e6238d91df54"
+    },
+    {
+      "file": "sprint_m6_lim2_s0_config.json",
+      "commit": "f11eed83c209d8a6e7dd9f8400d18fa8f0052f46",
+      "path": "walk_mit/runs/sprint_m6_lim2_s0/resolved_config.json",
+      "sha256": "f1d1ce075ce343a89600779cfa6d51359bc130e52aa772a1294bd3be36bc3ded"
+    },
+    {
+      "file": "sprint_m6_lim2_s0_curriculum.json",
+      "commit": "f11eed83c209d8a6e7dd9f8400d18fa8f0052f46",
+      "path": "walk_mit/runs/sprint_m6_lim2_s0/curriculum.json",
+      "sha256": "8590093b008974ce3cea3e9a3ba3c7e9bbec8a20f6372e705d41036919056f7d"
+    },
+    {
+      "file": "sprint_m6_lim2_s0_diagnostics.json",
+      "commit": "f11eed83c209d8a6e7dd9f8400d18fa8f0052f46",
+      "path": "walk_mit/monitor/gait_diag_sprint_m6_lim2_s0.json",
+      "sha256": "b00a30e456425a7c0443e9271a4f6c5c3c115294e4f5899e9260eb79a5d659db"
+    },
+    {
+      "file": "sprint_m6_lim2_s1_config.json",
+      "commit": "f11eed83c209d8a6e7dd9f8400d18fa8f0052f46",
+      "path": "walk_mit/runs/sprint_m6_lim2_s1/resolved_config.json",
+      "sha256": "b333f65b84b68c261349b40d691a8e9e15fac1ecc1e82849f9989c6375d5c38b"
+    },
+    {
+      "file": "sprint_m6_lim2_s1_curriculum.json",
+      "commit": "f11eed83c209d8a6e7dd9f8400d18fa8f0052f46",
+      "path": "walk_mit/runs/sprint_m6_lim2_s1/curriculum.json",
+      "sha256": "dffb72f8f5f15ad2220849afd282b4f128494f17c23190902d5a7f077223cea1"
+    },
+    {
+      "file": "sprint_m6_lim2_s1_diagnostics.json",
+      "commit": "f11eed83c209d8a6e7dd9f8400d18fa8f0052f46",
+      "path": "walk_mit/monitor/gait_diag_sprint_m6_lim2_s1.json",
+      "sha256": "0eda911010fd3e2d46d7c9059b4df369a26a0831b9a59dd965f82b68e0ebd70f"
+    }
+  ]
+}
