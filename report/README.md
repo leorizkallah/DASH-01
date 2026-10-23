@@ -1,10 +1,29 @@
 # DASH-01 report workspace
 
+**Flat-feet symmetry v1 - completed 200M steps:** [videos and graphs](flatfeet-videos.html). Best checkpoint: 28/28 full-duration trials, 0.049 m/s tracking error.
+
+**Experiment:** [reward changes and 200M run contract](../docs/flatfeet-symmetry-v1.md),
+[submission record](../docs/experiments/dash01_flatfeet_symmetry_v1/STATUS.md).
+
+**WALK-01:** [fresh 200M-step walking reproduction](../docs/walk01-experiment-report.md)
+using Nathann's joystick reward/curricula, STOP disabled, and the newly supplied
+CAD-v2 homing pose. [Status](../docs/experiments/walk01_20261019_v1/STATUS.md).
+Completed in 13h29m, 200.01M steps. Best 169.57M checkpoint: 28/28 survival,
+0.181 m/s tracking error. [Six best/final MJX replay videos](walk01-videos.html)
+at 0.25/0.75/1.50 m/s; all six 25-second trials survive.
+
+**Nathann policy transfer:** [paired original/CAD-v2 videos](policy-transfer01-videos.html)
+and [experiment report](policy-transfer01.md). Original policy survives 20 seconds
+at three commands; direct CAD-v2 swap and two simple mapping probes fall within
+0.71–0.75 seconds. No new training launched.
+
 **New direction — speed-first discovery:** branch `dash-01-v2-speed-discovery`.
 [Nathann's reward and branch audit](nathann-speed-reward-audit.md) identifies the
 existing `dash_sprint` objective and the limitations of the older 3.06 m/s result.
 [Implementation plan](../docs/speed-discovery-plan.md). GAIT-01–11 remain archived
-on `dash-01-v2` at `c035774`; no new speed-training run has been launched yet.
+on `dash-01-v2` at `c035774`. [SPEED-01](../docs/speed01-experiment-report.md)
+implements the first fresh five-hour experiment; see its
+[status](../docs/experiments/speed01_20261019_v1/STATUS.md).
 
 **GAIT-11:** [fresh continuous alternating walking](../docs/gait11-experiment-report.md)
 at 0.15 m/s, eight-hour allocation without a step cap. Expected-foot commands
@@ -83,7 +102,7 @@ It completed 5M steps: all 12 final trials survived, but none passed gait criter
 the right foot still made no valid steps. The bilateral walking problem remains open.
 The [GAIT-04 report](../docs/gait04-experiment-report.md) documents stronger
 swing-contact penalties and incremental bilateral progress rewards. Job **3220118**
-completed 15M additional steps. At 14.68M, all 12 trials survived and made 5?8
+completed 15M additional steps. At 14.68M, all 12 trials survived and made 5-8
 right steps each; final survival regressed to 8/12. No evaluation passed all gait criteria.
 Watch the [GAIT-04 video comparison](gait04-videos.html): the saved 14.22M policy
 and final policy, with two camera angles and colored feet.
@@ -165,3 +184,12 @@ downloaded run records.
 Raw source records: [STOP-01 log](../docs/stop-training-report.md),
 [STOP-02 log](../docs/stop02-experiment-report.md),
 [STOP-03 log](../docs/stop03-experiment-report.md).
+
+## Report video storage
+
+New WALK-01, transfer and flat-feet clips use compact H.264 encodings at their
+existing gallery paths. Simulation frames, playback speed and durations are
+preserved. [Encoding records](video-encoding.json) connect the compact file hashes
+to the original video hashes in historical provenance records. Full-quality
+originals remain local in ignored `videos/.originals/`. Re-run
+`python report/scripts/compact_report_videos.py` to encode newly rendered clips.

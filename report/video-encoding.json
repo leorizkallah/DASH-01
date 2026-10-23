@@ -1,0 +1,338 @@
+{
+  "flatfeet_best_0.25mps.mp4": {
+    "original_sha256": "afd0ac8899859830c4cb8adefdb1dbe593ce69fc7f83938d34f25c9d9a3d4364",
+    "encoded_sha256": "5de0f4cc03d7fe8cd842668f7f30b5dff1479c3addded3d0cda34c62e608f38e",
+    "original_bytes": 17069190,
+    "encoded_bytes": 2339355,
+    "fps": 20.0,
+    "seconds": 25.0,
+    "size": [
+      1280,
+      720
+    ],
+    "encoder": "libx264",
+    "crf": 27,
+    "preset": "medium",
+    "note": "Report encoding only; simulation, speed and frame order unchanged. Original retained locally in ignored report/videos/.originals/."
+  },
+  "flatfeet_best_0.75mps.mp4": {
+    "original_sha256": "4834866958c00c0a9f5695e11ab4e6fcebfb783f10f02b618947c70d9ca28a8e",
+    "encoded_sha256": "2de0d22269ae8b7c62e61cb8a43c0f4821018c8475f95a4450841b3e8f16a598",
+    "original_bytes": 17692687,
+    "encoded_bytes": 2584469,
+    "fps": 20.0,
+    "seconds": 25.0,
+    "size": [
+      1280,
+      720
+    ],
+    "encoder": "libx264",
+    "crf": 27,
+    "preset": "medium",
+    "note": "Report encoding only; simulation, speed and frame order unchanged. Original retained locally in ignored report/videos/.originals/."
+  },
+  "flatfeet_best_1.50mps.mp4": {
+    "original_sha256": "f774a7e36396bb9c64cdffd34caf6a86b2715d29fe2c8b812fda0c9155a72e73",
+    "encoded_sha256": "c8deb3b81f332add168adc87ce65522371d3376fc7d3ebc4a43732da2b312e5c",
+    "original_bytes": 19412385,
+    "encoded_bytes": 2860458,
+    "fps": 20.0,
+    "seconds": 25.0,
+    "size": [
+      1280,
+      720
+    ],
+    "encoder": "libx264",
+    "crf": 27,
+    "preset": "medium",
+    "note": "Report encoding only; simulation, speed and frame order unchanged. Original retained locally in ignored report/videos/.originals/."
+  },
+  "flatfeet_final_0.25mps.mp4": {
+    "original_sha256": "35fd5e28007fa8baf3ae57acd72e285653a77a65bb14f94b4edfce21f71591b4",
+    "encoded_sha256": "1dd462131354ce5d3ed099934387cf44524ba1476ad404927986f274f0de2077",
+    "original_bytes": 17061632,
+    "encoded_bytes": 2306190,
+    "fps": 20.0,
+    "seconds": 25.0,
+    "size": [
+      1280,
+      720
+    ],
+    "encoder": "libx264",
+    "crf": 27,
+    "preset": "medium",
+    "note": "Report encoding only; simulation, speed and frame order unchanged. Original retained locally in ignored report/videos/.originals/."
+  },
+  "flatfeet_final_0.75mps.mp4": {
+    "original_sha256": "901fc4ff262cb044925d7e2d03269e9cf829eac1c9b15ef14089077d67c03840",
+    "encoded_sha256": "7b89f06095a714e3f517ccfeb7810f0dfdd909f0d8babe652f1e6ddeca5e09a1",
+    "original_bytes": 17971409,
+    "encoded_bytes": 2643303,
+    "fps": 20.0,
+    "seconds": 25.0,
+    "size": [
+      1280,
+      720
+    ],
+    "encoder": "libx264",
+    "crf": 27,
+    "preset": "medium",
+    "note": "Report encoding only; simulation, speed and frame order unchanged. Original retained locally in ignored report/videos/.originals/."
+  },
+  "flatfeet_final_1.50mps.mp4": {
+    "original_sha256": "4a80bfe2147c83d0331e88907d8ad190d5a75f813c5063a6b5fb2b53529ee95f",
+    "encoded_sha256": "d1f8904a3dcb10356004251312ecbda1d72a71f7b192bec88ab10f7fb1a41a7d",
+    "original_bytes": 15077131,
+    "encoded_bytes": 2233377,
+    "fps": 20.0,
+    "seconds": 19.25,
+    "size": [
+      1280,
+      720
+    ],
+    "encoder": "libx264",
+    "crf": 27,
+    "preset": "medium",
+    "note": "Report encoding only; simulation, speed and frame order unchanged. Original retained locally in ignored report/videos/.originals/."
+  },
+  "policy_transfer01_0.25.mp4": {
+    "original_sha256": "e2ac2b7b1b37184d5dd904b8db47bb45eb1c8446d94e2894fd9b9058e7bb1264",
+    "encoded_sha256": "78afbe3ddffc18b45c900cd77d9b08f0819a1f5c773ca136abcac37b23ff8b94",
+    "original_bytes": 7194019,
+    "encoded_bytes": 1744777,
+    "fps": 25.0,
+    "seconds": 22.0,
+    "size": [
+      1280,
+      800
+    ],
+    "encoder": "libx264",
+    "crf": 27,
+    "preset": "medium",
+    "note": "Report encoding only; simulation, speed and frame order unchanged. Original retained locally in ignored report/videos/.originals/."
+  },
+  "policy_transfer01_0.50.mp4": {
+    "original_sha256": "e82ddbd0ab15f5b71a8ff613476e279819436492c28a5e447edca69e7cedcb4e",
+    "encoded_sha256": "932a16181639d7c310f1ca24c1711b6a661b5a7811def3b2621076f87eaa6f26",
+    "original_bytes": 7216122,
+    "encoded_bytes": 1767670,
+    "fps": 25.0,
+    "seconds": 22.0,
+    "size": [
+      1280,
+      800
+    ],
+    "encoder": "libx264",
+    "crf": 27,
+    "preset": "medium",
+    "note": "Report encoding only; simulation, speed and frame order unchanged. Original retained locally in ignored report/videos/.originals/."
+  },
+  "policy_transfer01_0.75.mp4": {
+    "original_sha256": "d49a43aa29743926d0e54d9e0da861049582037bb8bbd0eb82461e09c795cc40",
+    "encoded_sha256": "8bd5eda4ed421cb571d03743b8c25341d994ae58e14830e9f0957ffa246e9ffa",
+    "original_bytes": 7189997,
+    "encoded_bytes": 1768141,
+    "fps": 25.0,
+    "seconds": 22.0,
+    "size": [
+      1280,
+      800
+    ],
+    "encoder": "libx264",
+    "crf": 27,
+    "preset": "medium",
+    "note": "Report encoding only; simulation, speed and frame order unchanged. Original retained locally in ignored report/videos/.originals/."
+  },
+  "walk01_best_0.25mps.mp4": {
+    "original_sha256": "5f96214e6d77237d10210235abdd200670fb005ecec8010dd6cf115a66c8661d",
+    "encoded_sha256": "2e0429bdc6cbba9b2e9a606ed3c89491ad1acb7666ebe5445d1c2997020aa8ac",
+    "original_bytes": 18777104,
+    "encoded_bytes": 2577840,
+    "fps": 20.0,
+    "seconds": 25.0,
+    "size": [
+      1280,
+      720
+    ],
+    "encoder": "libx264",
+    "crf": 27,
+    "preset": "medium",
+    "note": "Report encoding only; simulation, speed and frame order unchanged. Original retained locally in ignored report/videos/.originals/."
+  },
+  "walk01_best_0.75mps.mp4": {
+    "original_sha256": "55d91f14040dc3aa59668975d8defca1dab3812434ce589392eb5c255162b346",
+    "encoded_sha256": "6f22c27f66f378a4e17c3afc4126ff603f248b9ef802129034c47346e6943e56",
+    "original_bytes": 19515111,
+    "encoded_bytes": 2979525,
+    "fps": 20.0,
+    "seconds": 25.0,
+    "size": [
+      1280,
+      720
+    ],
+    "encoder": "libx264",
+    "crf": 27,
+    "preset": "medium",
+    "note": "Report encoding only; simulation, speed and frame order unchanged. Original retained locally in ignored report/videos/.originals/."
+  },
+  "walk01_best_1.50mps.mp4": {
+    "original_sha256": "0920c4bf23df52636587d3a3e868843c25e85c03716c6a9187af6810bc44334f",
+    "encoded_sha256": "50b7b6a450eeeb88e8055e17662497de1d493f8ddf5aac1d274121514cd47539",
+    "original_bytes": 19675323,
+    "encoded_bytes": 3066514,
+    "fps": 20.0,
+    "seconds": 25.0,
+    "size": [
+      1280,
+      720
+    ],
+    "encoder": "libx264",
+    "crf": 27,
+    "preset": "medium",
+    "note": "Report encoding only; simulation, speed and frame order unchanged. Original retained locally in ignored report/videos/.originals/."
+  },
+  "walk01_cpu_best_0.25mps.mp4": {
+    "original_sha256": "c4224aa4bac9a5705d141079971ff573a490f38ffafae27cdcc6df7cac2ea07f",
+    "encoded_sha256": "e4be4872c90a546db7c62bd0c831c9942f301d436dc3d3491b07e84cf5596784",
+    "original_bytes": 18872277,
+    "encoded_bytes": 2583182,
+    "fps": 20.0,
+    "seconds": 25.0,
+    "size": [
+      1280,
+      720
+    ],
+    "encoder": "libx264",
+    "crf": 27,
+    "preset": "medium",
+    "note": "Report encoding only; simulation, speed and frame order unchanged. Original retained locally in ignored report/videos/.originals/."
+  },
+  "walk01_cpu_best_0.75mps.mp4": {
+    "original_sha256": "876db86bc7811a5596832e74741f33d9dbe9d6195f5fc06f529bd91a43a61932",
+    "encoded_sha256": "8e4ae70da707860b1164e45cd9763968bd6092098ba5f3fdaf306b1bd51c1ac8",
+    "original_bytes": 19444445,
+    "encoded_bytes": 2971796,
+    "fps": 20.0,
+    "seconds": 25.0,
+    "size": [
+      1280,
+      720
+    ],
+    "encoder": "libx264",
+    "crf": 27,
+    "preset": "medium",
+    "note": "Report encoding only; simulation, speed and frame order unchanged. Original retained locally in ignored report/videos/.originals/."
+  },
+  "walk01_cpu_best_1.50mps.mp4": {
+    "original_sha256": "6ab719f29ceab2226e45d83eeef40e5c8f31c37859211d9a2e38cb1155175150",
+    "encoded_sha256": "7431d9f27b15e798aad2af3ff8fc77596b8e9e601da9d4b5af4043d9381a1c84",
+    "original_bytes": 19947801,
+    "encoded_bytes": 3098429,
+    "fps": 20.0,
+    "seconds": 25.0,
+    "size": [
+      1280,
+      720
+    ],
+    "encoder": "libx264",
+    "crf": 27,
+    "preset": "medium",
+    "note": "Report encoding only; simulation, speed and frame order unchanged. Original retained locally in ignored report/videos/.originals/."
+  },
+  "walk01_cpu_final_0.25mps.mp4": {
+    "original_sha256": "99eff225f837ef454e2594f510632bedb9f8904e979477644803119bdc77fe12",
+    "encoded_sha256": "05021bb89d8e72991838ce2a66dce297e42817213cd276db36255cab428a3975",
+    "original_bytes": 18851316,
+    "encoded_bytes": 2740612,
+    "fps": 20.0,
+    "seconds": 25.0,
+    "size": [
+      1280,
+      720
+    ],
+    "encoder": "libx264",
+    "crf": 27,
+    "preset": "medium",
+    "note": "Report encoding only; simulation, speed and frame order unchanged. Original retained locally in ignored report/videos/.originals/."
+  },
+  "walk01_cpu_final_0.75mps.mp4": {
+    "original_sha256": "86b726a07cf1eca41fac9e0da398326c139781ad14d057e658d1775a81e3409d",
+    "encoded_sha256": "571f18db9c780762b3dd649174f41474c06132dd6c8ed970ca81db804b170882",
+    "original_bytes": 19013124,
+    "encoded_bytes": 2892811,
+    "fps": 20.0,
+    "seconds": 25.0,
+    "size": [
+      1280,
+      720
+    ],
+    "encoder": "libx264",
+    "crf": 27,
+    "preset": "medium",
+    "note": "Report encoding only; simulation, speed and frame order unchanged. Original retained locally in ignored report/videos/.originals/."
+  },
+  "walk01_cpu_final_1.50mps.mp4": {
+    "original_sha256": "68f88dc4ff8d42e1315936f0ddd7788e2e37616fb56a7a6816c7869bd727cf8b",
+    "encoded_sha256": "33315a651875bd895bdf550553814f887c59aa47ddb2915a2b9d5d9da47b2332",
+    "original_bytes": 20417726,
+    "encoded_bytes": 3233377,
+    "fps": 20.0,
+    "seconds": 25.0,
+    "size": [
+      1280,
+      720
+    ],
+    "encoder": "libx264",
+    "crf": 27,
+    "preset": "medium",
+    "note": "Report encoding only; simulation, speed and frame order unchanged. Original retained locally in ignored report/videos/.originals/."
+  },
+  "walk01_final_0.25mps.mp4": {
+    "original_sha256": "9a083af5602de9dd934a2e7129c9bb841c8ee36d08f38f95ec4e0b890a1a0237",
+    "encoded_sha256": "c1673fe8810b2c31a1283d60f7dec0ab9a6fe78dc5d37ef11c2324462589da83",
+    "original_bytes": 18869275,
+    "encoded_bytes": 2726049,
+    "fps": 20.0,
+    "seconds": 25.0,
+    "size": [
+      1280,
+      720
+    ],
+    "encoder": "libx264",
+    "crf": 27,
+    "preset": "medium",
+    "note": "Report encoding only; simulation, speed and frame order unchanged. Original retained locally in ignored report/videos/.originals/."
+  },
+  "walk01_final_0.75mps.mp4": {
+    "original_sha256": "d90dddae5bc7adcccb0dfdcaa3db51d4fb6cf88f877deade798fe9490f81c6e0",
+    "encoded_sha256": "c03ed873736a42c4c8e8611e8a1bb7111c252e025b2c25c4dc87de216f27e515",
+    "original_bytes": 18955172,
+    "encoded_bytes": 2899429,
+    "fps": 20.0,
+    "seconds": 25.0,
+    "size": [
+      1280,
+      720
+    ],
+    "encoder": "libx264",
+    "crf": 27,
+    "preset": "medium",
+    "note": "Report encoding only; simulation, speed and frame order unchanged. Original retained locally in ignored report/videos/.originals/."
+  },
+  "walk01_final_1.50mps.mp4": {
+    "original_sha256": "ee874e65bb958134c1943aa6330cad3f18b73e481f0e73e883745c9248f73168",
+    "encoded_sha256": "e24e9e7eed00c2bcc736552f400241fc567c9833b104e4f6c6da195847356fc7",
+    "original_bytes": 20422754,
+    "encoded_bytes": 3232289,
+    "fps": 20.0,
+    "seconds": 25.0,
+    "size": [
+      1280,
+      720
+    ],
+    "encoder": "libx264",
+    "crf": 27,
+    "preset": "medium",
+    "note": "Report encoding only; simulation, speed and frame order unchanged. Original retained locally in ignored report/videos/.originals/."
+  }
+}

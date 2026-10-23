@@ -1,0 +1,50 @@
+{
+ "step": 37748736,
+ "rollout_n": 2304,
+ "curriculum": {
+  "_ep_len_ref": {
+   "v": 1400.722875
+  },
+  "eff_scale": {
+   "streak": 0,
+   "open": false,
+   "progress": 1.0,
+   "turn": 37748736.0
+  },
+  "shape_scale": {
+   "streak": 0,
+   "open": false,
+   "progress": 1.0,
+   "turn": 37748736.0
+  }
+ },
+ "env_params": {
+  "dr_scale": 1.0,
+  "alive_scale": 1.0,
+  "sprint_dist_m": 100.0,
+  "stance_ratio": 0.65,
+  "eff_scale": 0.3,
+  "ctrl_jitter_ms": 0.0,
+  "ctrl_drop_prob": 0.0,
+  "bringup_scale": 1.0,
+  "bringup_p_drop": -1.0,
+  "bringup_p_held": -1.0,
+  "cmd_zero_p": 0.0,
+  "cmd_stop_p": 0.0,
+  "cmd_lo": 0.0,
+  "cmd_hi": 1.0,
+  "track_sigma": 0.6,
+  "shape_scale": 1.0,
+  "drag_scale": 1.0,
+  "stoplight_prob": 0.0,
+  "gait_freq_lo": 0.5,
+  "hold_s": 0.0,
+  "hold_z": 0.0,
+  "hold_pitch": 0.0,
+  "hold_roll": 0.0,
+  "start_red_s": 0.0,
+  "release_vx": 0.0,
+  "release_vy": 0.0,
+  "release_vz": 0.0
+ }
+}

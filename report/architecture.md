@@ -1,5 +1,28 @@
 # Current control architecture
 
+## WALK-01 update
+
+The current submitted experiment restores Nathann's speed-command tracking
+recipe on CAD-v2 with the supplied homing pose as the nominal reset. It starts
+fresh, retains the 384-input/47-action policy interface and six-motor PD control,
+and disables STOP/standing tasks. The same 41 gait parameters plus six residuals
+control locomotion; no step-order supervisor is present. Homing is the starting
+configuration, not a separately trained startup controller. See the
+[WALK-01 contract](../docs/walk01-experiment-report.md).
+
+## SPEED-01 update (19 October 2026)
+
+The active speed-discovery experiment starts a fresh policy on the corrected,
+fully free CAD-v2 model. At 100 Hz it controls 41 gait-generator parameters and
+six residual joint corrections; the calibrated six-motor PD/torque-speed model
+and 1 kHz physics remain. Its ordinary observations omit GAIT-11's contact-derived
+step supervisor. There is no imposed foot order, target-speed tracking, standing
+phase or STOP command. Signed world-X speed is the objective, with posture,
+control, energy, thermal and actual-contact sliding costs. Running or hopping
+can be successful under this objective; clean alternating walking is not assured.
+This remains simulation work, without physical-robot validation. See the
+[reward and evaluation contract](../docs/speed01-experiment-report.md).
+
 ## GAIT-11 update (19 October 2026)
 
 The fresh CAD-v2 walking experiment adds a contact-derived step supervisor to the

@@ -1,0 +1,17 @@
+{
+  "replay_job": 3226907,
+  "files": {
+    "docs\\experiments\\dash01_flatfeet_symmetry_v1\\flatfeet_trace_best.json": "51ae498216b1513ba43ae7e540cbc70434e4e97b9f410680efbe71f51aac97d3",
+    "docs\\experiments\\dash01_flatfeet_symmetry_v1\\flatfeet_trace_best.npz": "069e2eaaa675de525c8dae7887c983724da45984b4a8addb647d3f788ce849a4",
+    "docs\\experiments\\dash01_flatfeet_symmetry_v1\\flatfeet_trace_final.json": "027d27d803c8fece602227a0a082291ba282a08d5b92357e4551a276f9bb35c5",
+    "docs\\experiments\\dash01_flatfeet_symmetry_v1\\flatfeet_trace_final.npz": "85a6bdeffd328ee23705366af6e77db929cbeaf51f8eaaf34a5ce44eca32efa4",
+    "report\\videos\\flatfeet_best_0.25mps.mp4": "afd0ac8899859830c4cb8adefdb1dbe593ce69fc7f83938d34f25c9d9a3d4364",
+    "report\\videos\\flatfeet_best_0.75mps.mp4": "4834866958c00c0a9f5695e11ab4e6fcebfb783f10f02b618947c70d9ca28a8e",
+    "report\\videos\\flatfeet_best_1.50mps.mp4": "f774a7e36396bb9c64cdffd34caf6a86b2715d29fe2c8b812fda0c9155a72e73",
+    "report\\videos\\flatfeet_final_0.25mps.mp4": "35fd5e28007fa8baf3ae57acd72e285653a77a65bb14f94b4edfce21f71591b4",
+    "report\\videos\\flatfeet_final_0.75mps.mp4": "901fc4ff262cb044925d7e2d03269e9cf829eac1c9b15ef14089077d67c03840",
+    "report\\videos\\flatfeet_final_1.50mps.mp4": "4a80bfe2147c83d0331e88907d8ad190d5a75f813c5063a6b5fb2b53529ee95f",
+    "report\\scripts\\build_flatfeet_assets.py": "007452010125f726f85ddda8855c17a7fb8416d135a8ae9302a4ba7bd8776c9a",
+    "RLframework\\tools\\gait_video.py": "cf22da640b1aa259fd1cd7676f6e182520dd6cddac1069227866db0bf2cbd1d7"
+  }
+}

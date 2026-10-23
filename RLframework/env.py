@@ -26,7 +26,10 @@ from pathlib import Path
 from typing import NamedTuple
 
 import numpy as np
+import mujoco
+import flatfeet
 import bilateral_gait
+import speed_metrics
 import jax
 import jax.numpy as jnp
 from jax import lax
@@ -189,6 +192,7 @@ class EnvState:
     ws_out_t: jnp.ndarray
     swing_ema: jnp.ndarray
     bilateral: dict
+    flatfeet_state: dict
     push_countdown: jnp.ndarray
     trip_left: jnp.ndarray
     trip_foot: jnp.ndarray
@@ -247,8 +251,11 @@ class DashEnvV2:
     are jitted and vmapped over the leading axis."""
 
     def __init__(self, cfg, n_envs=None):
+        flatfeet.validate(cfg)
         self.cfg = cfg
         self.plant = Plant(cfg)
+        if cfg.two_point_feet and self.plant.m.opt.cone != mujoco.mjtCone.mjCONE_ELLIPTIC:
+            raise ValueError('Two-pad contact force decoding requires an elliptic contact cone')
         self.gp = GaitParams.from_cfg(cfg)
         self.n_envs = int(n_envs or cfg.n_envs)
         self.control_dt = self.plant.control_dt
@@ -354,6 +361,12 @@ class DashEnvV2:
         3 mm pad terminated 17 of 60 ticks on a robot that was simply standing."""
         con = _impl(data).contact
         p, c = self.plant, self.cfg
+        if c.two_point_feet:
+            m = flatfeet.contact_measurements(data,p,c.foot_contact_min_force_n,jnp)
+            pads = jnp.concatenate([jnp.asarray(p.foot_gids),jnp.asarray(p.heel_gids)])
+            pair = (con.geom == p.floor_gid).any(axis=1) & (con.geom[...,None] == pads).any(axis=(1,2))
+            violation = (pair & (con.dist < -c.floor_viol_m)).any()
+            return m['toe'],m['heel'],m['normal_force'].sum(axis=1),violation
         g, dist = con.geom, con.dist
         efc = _impl(data).efc_force
         adr = con.efc_address
@@ -649,6 +662,7 @@ class DashEnvV2:
             air_time=jnp.zeros(2), contact_time=jnp.zeros(2), grounded_prev=jnp.zeros(2, bool),
             prev_toe_xy=jnp.zeros((2, 2)), duty_ema=jnp.full(2, 0.5), ws_out_t=jnp.zeros(2),
             swing_ema=jnp.full(2, c.swing_floor_frac),
+            flatfeet_state=flatfeet.initial(self._contacts(data)[0] | self._contacts(data)[1],c,jnp) if c.two_point_feet else {},
             bilateral=bilateral_gait.initial(self._bilateral_inputs(data)[0], jnp,
                         progress=c.bilateral_progress_enable,
                         sequence=c.bilateral_sequence_enable,
@@ -682,6 +696,8 @@ class DashEnvV2:
         )
         toe_c, heel_c, fn, _ = self._contacts(data)
         grounded = toe_c | heel_c | (self._foot_heights(data) < c.grounded_h)
+        if c.two_point_feet:
+            grounded = toe_c | heel_c
         frame, ns, accel, v_body = self._frame(data, jnp.zeros(6), jnp.zeros(6), 0.0, state, k_frame)
         state = state.replace(hist=jnp.tile(frame[None], (self.hist_raw_len, 1)),
                               grounded_prev=grounded, prev_toe_xy=self._toe_pos(data)[:, :2],
@@ -970,6 +986,8 @@ class DashEnvV2:
         toe_c, heel_c, fn, floor_viol = self._contacts(data)   # reward + privileged tail only
         heights = self._foot_heights(data)
         grounded = contact_acc | toe_c | heel_c | (heights < c.grounded_h)
+        if c.two_point_feet:
+            grounded = toe_c | heel_c
         # foot-flat: both pads of a grounded foot on the floor. A foot down on one pad only is
         # rolling over its toe or its heel, which is what this robot does instead of using an
         # ankle it does not have.
@@ -1071,6 +1089,32 @@ class DashEnvV2:
                           thermal_x, phi, stop_now, v_target, heading_avg=heading_avg,
                           foot_flat=foot_flat)
         reward, terms, book = rw
+        foot_metrics, term_symmetry = {}, jnp.zeros((),bool)
+        flatfeet_state = state.flatfeet_state
+        if c.two_point_feet:
+            walking = (self._effective_speed(state) >= c.symmetry_min_command_mps) & (state.stop_cmd < .5)
+            contact = flatfeet.contact_measurements(data,p,c.foot_contact_min_force_n,jnp)
+            foot_metrics = dict(toe=toe_c,heel=heel_c,grounded=grounded,flat=toe_c & heel_c,
+                                slip=contact['slip'],normal_force=contact['normal_force'])
+            if c.flat_support_enable:
+                phases = jnp.stack(gait.phases(spec,phi,gp))
+                middle = flatfeet.midstance(phases,params.stance_ratio,
+                    c.flat_stance_start_fraction,c.flat_stance_end_fraction,jnp)
+                # Missing support also counts if the scheduled stance foot is airborne.
+                # A cost only: planting both feet cannot earn a flat-support bonus.
+                terms['flat_support'] = -c.w_flat_support*params.shape_scale*jnp.mean(
+                    (middle & ~(toe_c & heel_c) & walking).astype(jnp.float32))
+                reward = reward+terms['flat_support']
+                foot_metrics['midstance'] = middle
+            if c.symmetry_enable:
+                disturbed = ((push_now & (dv > 1e-6)) | (trip_on & (adv > 0.)) |
+                             (gust_start & (jnp.linalg.norm(gust) > 1e-6)))
+                flatfeet_state,sym_cost,term_symmetry,sym = flatfeet.update(
+                    state.flatfeet_state,grounded,walking,v_body[0],disturbed,
+                    params.shape_scale,c,dt,jnp)
+                terms['symmetry'] = params.shape_scale*sym_cost
+                reward = reward+terms['symmetry']
+                foot_metrics.update(sym)
         if c.w_flight > 0:
             # Real substep contacts, not the permissive near-ground height heuristic.
             terms["flight"] = -c.w_flight * flight_ticks / p.decimation
@@ -1097,6 +1141,13 @@ class DashEnvV2:
         ws_kill = (ws_out_t >= c.workspace_grace_s).any() if c.workspace_kill else jnp.zeros((), bool)
         term_low = self._base_pos(data)[2] < c.term_height
         term_tip = grav[2] > c.term_gravity_z
+        if c.speed_discovery:
+            con = _impl(data).contact
+            floor_pair = (con.geom == p.floor_gid).any(axis=1)
+            pads = jnp.concatenate([jnp.asarray(p.foot_gids), jnp.asarray(p.heel_gids)])
+            sole_pair = (con.geom[..., None] == pads).any(axis=(1, 2))
+            bad_contact = (floor_pair & ~sole_pair & (con.dist < 0.)).any()
+            floor_viol = floor_viol | bad_contact
         fallen = (~finite) | term_low | term_tip | floor_viol | ws_kill
         if c.hold_enable:
             # held: the stand is what carries it, not a fall. NOTE this masks ~finite too, so a NaN
@@ -1108,6 +1159,11 @@ class DashEnvV2:
             # drop gets one, so it cannot hide a genuine fall for long.
             fallen = fallen & (state.grace_left <= 0.0)
         reward = reward - c.fall_penalty * fallen + c.finish_bonus * (finished & ~fallen)
+        if c.two_point_feet and c.symmetry_enable:
+            # Separate terminal event, once, outside the dense reward floor/dt scale.
+            # If a physical fall coincides, its existing fall bill takes precedence.
+            terms['symmetry_terminal'] = jnp.where(term_symmetry & ~fallen,c.symmetry_terminal_penalty,0.)
+            reward = reward+terms['symmetry_terminal']
         # a non-finite plant state (an unconverged capped solver step can blow up) ends the episode
         # above; the reward computed from that state is NaN and would poison GAE, the value loss and
         # the params for good (v2c_s1_planar_fast_s0 died this way at 36.5 M) -- bill it as a fall
@@ -1118,7 +1174,7 @@ class DashEnvV2:
             from stop02_metrics import timeout_allowed
             truncated = truncated & timeout_allowed(state.stop_cmd > .5,
                 t-state.stop_started, state.stop_duration, c.stop_hold_window_s)
-        done = fallen | finished | truncated
+        done = fallen | finished | truncated | term_symmetry
         # ---- observation
         frame, ns, accel, v_body_m = self._frame(data, tau_last, residual, phi2, state, k_frame)
         hist = jnp.concatenate([state.hist[1:], frame[None]], axis=0)
@@ -1134,6 +1190,7 @@ class DashEnvV2:
             prev_toe_xy=self._toe_pos(data)[:, :2], duty_ema=book["duty_ema"], ws_out_t=ws_out_t,
             swing_ema=book["swing_ema"], push_countdown=push_countdown, trip_left=trip_left,
             bilateral=book.get("bilateral", state.bilateral),
+            flatfeet_state=flatfeet_state,
             trip_foot=trip_foot, trip_force=trip_force, gust_left=gust_left,
             gust_countdown=gust_countdown, gust_dir=gust_dir, sprint_d=sprint_d, crossed=crossed,
             t_line=t_line, stop_hold=stop_hold,
@@ -1180,6 +1237,16 @@ class DashEnvV2:
         # ---- auto-reset
         if c.bilateral_enable:
             info["bilateral"] = book["bilateral_metrics"]
+        if c.two_point_feet:
+            info['flatfeet'] = foot_metrics
+            info['term_symmetry'] = term_symmetry
+        if c.speed_discovery:
+            motor_q = data.qpos[p.act_qadr]
+            info['speed_metrics'] = dict(vx=self._vel_world(data)[0],
+                slip=book['speed_slip'], contact=self._contacts(data)[0] | self._contacts(data)[1],
+                clear=self._foot_heights(data) >= .015,
+                joint_violation=jnp.maximum(0., jnp.maximum(
+                    jnp.max(jnp.asarray(p.q_lo)-motor_q), jnp.max(motor_q-jnp.asarray(p.q_hi)))))
         rs_state, rs_obs = self._reset_one(k_reset, params, Override())
         sel = lambda a, b: jnp.where(done, a, b)
         out_state = jax.tree_util.tree_map(sel, rs_state, new_state)
@@ -1255,6 +1322,8 @@ class DashEnvV2:
                 u = jnp.clip((-grav[2] - c.speed_upright_c0) / (1.0 - c.speed_upright_c0), 0.0, 1.0)
                 income = jnp.where(income > 0.0, income * u ** c.speed_upright_k, income)
             t["fwd_speed"] = jnp.where(run_phase, income, 0.0)
+            if c.speed_discovery:
+                t['fwd_speed'] = speed_metrics.income(vx, -grav[2], c, jnp)
         # stop term: track the deceleration target while it is > 0 (stop_decel_s), then be still
         # capture step: feet ahead of the CoM while the robot is above its commanded speed
         if c.w_brake_foot > 0.0:
@@ -1321,6 +1390,9 @@ class DashEnvV2:
         gprev = state.grounded_prev
         slip_v = jnp.linalg.norm(toe[:, :2] - state.prev_toe_xy, axis=1) / dt
         slip = jnp.where(grounded & gprev, jnp.maximum(0.0, slip_v - c.slip_deadband) ** 2, 0.0)
+        if c.two_point_feet:
+            slip_v = flatfeet.contact_measurements(data,p,c.foot_contact_min_force_n,jnp)['slip']
+            slip = jnp.where(grounded,jnp.maximum(0.,slip_v-c.slip_deadband)**2,0.)
         t["foot_slip"] = -jnp.minimum(c.w_foot_slip * slip.sum(), cap)
         air_credit = jnp.where(grounded & (state.air_time > 0.0) & gait_on,
                                c.w_air_time * jnp.clip(state.air_time - c.foot_air_time_min, 0.0,
@@ -1518,6 +1590,11 @@ class DashEnvV2:
                     * jnp.mean(bilateral_gait.drag_cost(slip, c.drag_reference_mps, jnp)))
             book.update(bilateral=bs, bilateral_metrics=bm)
             total = sum(jnp.asarray(v, dtype=jnp.float32) for v in t.values())
+        if c.speed_discovery:
+            _, slip = self._bilateral_inputs(data)
+            t = speed_metrics.terms(t, slip, params.shape_scale, c, jnp)
+            book['speed_slip'] = slip
+            total = sum(t.values())
         terms = {k: jnp.asarray(v, dtype=jnp.float32) for k, v in t.items()}
         return total, terms, book
 

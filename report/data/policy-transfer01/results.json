@@ -1,0 +1,367 @@
+{
+  "bundle": "controller\\deploy\\bundles\\dash_joy3_lr_s2_180M.npz",
+  "bundle_sha256": "b095ad572cb80db7704018e3fd3f41cb05c073f2dda103ca54f4927a753beaeb",
+  "mujoco_version": "3.13.0",
+  "seconds": 20.0,
+  "control_dt": 0.01,
+  "targets": [
+    0.25,
+    0.5,
+    0.75
+  ],
+  "model_audits": {
+    "original": {
+      "model": "RLframework\\model\\dash01_free.xml",
+      "xml_sha256": "9551d8891e493f9f898b701dd2c4999f18f596834d16934fb1d11dee5ac7469f",
+      "mass_kg": 14.355999999999998,
+      "actuator_names": [
+        "hip_roll_L",
+        "cam_L",
+        "thigh_L",
+        "hip_roll_R",
+        "cam_R",
+        "thigh_R"
+      ],
+      "motor_axes": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        [
+          0.0,
+          -1.0,
+          0.0
+        ]
+      ],
+      "q_lo": [
+        -0.785,
+        -1.5,
+        -1.047,
+        -0.785,
+        -1.5,
+        -1.047
+      ],
+      "q_hi": [
+        0.785,
+        1.5,
+        1.047,
+        0.785,
+        1.5,
+        1.047
+      ],
+      "reset_motor_q": [
+        -7.91158682e-17,
+        0.1265,
+        -0.2025,
+        -2.228559069e-17,
+        -0.1265,
+        0.2025
+      ],
+      "bundle_observation_zero": [
+        -7.91158682e-17,
+        0.1265,
+        -0.2025,
+        -2.228559069e-17,
+        -0.1265,
+        0.2025
+      ],
+      "bundle_nominal_target": [
+        -0.0006566397854,
+        0.229819262,
+        -0.1160659394,
+        0.001556975715,
+        -0.2181005516,
+        0.1237881612
+      ]
+    },
+    "cad_v2": {
+      "model": "RLframework\\model\\dash01_cad_v2_free.xml",
+      "xml_sha256": "a8beffae5d40fddba299463767cc4ae244f6c780243d80d020cf4cdae83ce708",
+      "mass_kg": 14.594154,
+      "actuator_names": [
+        "hip_roll_L",
+        "cam_L",
+        "thigh_L",
+        "hip_roll_R",
+        "cam_R",
+        "thigh_R"
+      ],
+      "motor_axes": [
+        [
+          1.0,
+          2.3696532108068023e-15,
+          -1.6653709543858015e-15
+        ],
+        [
+          -2.466488292340731e-15,
+          1.0,
+          -1.1619451628315312e-15
+        ],
+        [
+          -2.7703074821244934e-15,
+          1.0,
+          8.248978086914128e-16
+        ],
+        [
+          1.0,
+          -2.6817950806075644e-16,
+          7.646238666105713e-16
+        ],
+        [
+          3.6156530793925325e-08,
+          -0.9999999999999446,
+          3.308950235585614e-07
+        ],
+        [
+          6.046233510122327e-08,
+          -0.9999999999999446,
+          3.273272312224759e-07
+        ]
+      ],
+      "q_lo": [
+        -0.436332,
+        -0.6,
+        -0.523599,
+        -0.436332,
+        -0.6,
+        -0.968055
+      ],
+      "q_hi": [
+        0.436332,
+        0.6,
+        1.047198,
+        0.436332,
+        0.6,
+        0.602742
+      ],
+      "reset_motor_q": [
+        1.47304027773e-05,
+        0.0547110659029,
+        -0.103801922978,
+        -0.00132385484777,
+        -0.055148333025,
+        0.104391239844
+      ],
+      "bundle_observation_zero": [
+        -7.91158682e-17,
+        0.1265,
+        -0.2025,
+        -2.228559069e-17,
+        -0.1265,
+        0.2025
+      ],
+      "bundle_nominal_target": [
+        -0.0006566397854,
+        0.229819262,
+        -0.1160659394,
+        0.001556975715,
+        -0.2181005516,
+        0.1237881612
+      ]
+    }
+  },
+  "trials": [
+    {
+      "model": "original",
+      "target_mps": 0.25,
+      "trace": "original_0.25.npz",
+      "elapsed_s": 20.000000000000327,
+      "survived": true,
+      "termination": null,
+      "distance_world_x_m": 10.46983791186651,
+      "mean_world_x_mps": 0.5235281531821325,
+      "steady_world_x_mps": 0.5267036791967286,
+      "steady_body_forward_mps": 0.5255741108919273,
+      "final_heading_deg": -0.9675089429428104,
+      "command_outside_range_fraction": 0.0,
+      "command_excess_max_rad": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "actual_excess_max_rad": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "model": "original",
+      "target_mps": 0.5,
+      "trace": "original_0.50.npz",
+      "elapsed_s": 20.000000000000327,
+      "survived": true,
+      "termination": null,
+      "distance_world_x_m": 11.791474489058473,
+      "mean_world_x_mps": 0.5896172084331971,
+      "steady_world_x_mps": 0.6011961362585678,
+      "steady_body_forward_mps": 0.5965870371418941,
+      "final_heading_deg": -3.4338883833070515,
+      "command_outside_range_fraction": 0.0,
+      "command_excess_max_rad": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "actual_excess_max_rad": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "model": "original",
+      "target_mps": 0.75,
+      "trace": "original_0.75.npz",
+      "elapsed_s": 20.000000000000327,
+      "survived": true,
+      "termination": null,
+      "distance_world_x_m": 13.071401061523616,
+      "mean_world_x_mps": 0.6536164148029716,
+      "steady_world_x_mps": 0.6485206672329772,
+      "steady_body_forward_mps": 0.6426453013427325,
+      "final_heading_deg": -0.7373061898142783,
+      "command_outside_range_fraction": 0.0,
+      "command_excess_max_rad": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "actual_excess_max_rad": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "model": "cad_v2",
+      "target_mps": 0.25,
+      "trace": "cad_v2_0.25.npz",
+      "elapsed_s": 0.7400000000000004,
+      "survived": false,
+      "termination": "tilt cosine < 0.3 or base height < 0.45 m",
+      "distance_world_x_m": 0.3996755753107892,
+      "mean_world_x_mps": 0.5467361382922566,
+      "steady_world_x_mps": null,
+      "steady_body_forward_mps": null,
+      "final_heading_deg": 55.168942848433716,
+      "command_outside_range_fraction": 0.2702702702702703,
+      "command_excess_max_rad": [
+        0.0,
+        0.27931626853553015,
+        0.14274595331254258,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "actual_excess_max_rad": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "model": "cad_v2",
+      "target_mps": 0.5,
+      "trace": "cad_v2_0.50.npz",
+      "elapsed_s": 0.7200000000000004,
+      "survived": false,
+      "termination": "tilt cosine < 0.3 or base height < 0.45 m",
+      "distance_world_x_m": 0.37068163880729593,
+      "mean_world_x_mps": 0.5213201096999212,
+      "steady_world_x_mps": null,
+      "steady_body_forward_mps": null,
+      "final_heading_deg": 49.19767269543851,
+      "command_outside_range_fraction": 0.2777777777777778,
+      "command_excess_max_rad": [
+        0.0,
+        0.28188930657712186,
+        0.1478491371466908,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "actual_excess_max_rad": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "model": "cad_v2",
+      "target_mps": 0.75,
+      "trace": "cad_v2_0.75.npz",
+      "elapsed_s": 0.7100000000000004,
+      "survived": false,
+      "termination": "tilt cosine < 0.3 or base height < 0.45 m",
+      "distance_world_x_m": 0.35246006366191185,
+      "mean_world_x_mps": 0.5026259147629709,
+      "steady_world_x_mps": null,
+      "steady_body_forward_mps": null,
+      "final_heading_deg": 48.689687537100774,
+      "command_outside_range_fraction": 0.2535211267605634,
+      "command_excess_max_rad": [
+        0.0,
+        0.2845317281505223,
+        0.150940189085083,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "actual_excess_max_rad": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    }
+  ],
+  "protocol": "One deterministic nominal reset per model/target; no training or random perturbations. Original weights, observation normalization, gait decoding, command limits and 12 ms actuation delay retained. Each model uses its own reset keyframe and physical joint limits. No artificial base locks. Command excursions are measured, not silently remapped. CPU deployment replay, not MJX multi-trial evaluation. Termination uses the existing play_joystick fall check; not the SPEED-01 qualification criteria."
+}

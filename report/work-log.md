@@ -1,5 +1,92 @@
 # Work log and next questions
 
+2026-10-23: repository cleanup for push. Formatted new reward, diagnostic and report
+modules; removed an unused import; declared MessagePack; corrected stale README
+status and text encoding. Kept the existing Git attributes and normalized shell
+launchers to LF. Curated new videos were encoded as smaller H.264 report copies,
+with full-quality originals retained locally under ignored `videos/.originals/`.
+`video-encoding.json` maps original and compact hashes; `cleanup-source-hashes.json`
+records source formatting hashes. Frozen training archives and results are preserved.
+22 local tests passed; lint and syntax checks passed on cleaned modules.
+
+Flat-feet v1 completion review: job 3226505 completed 200,005,632 steps in
+12h54m12s. Best at 184.32M: 28/28, tracking error 0.049 m/s (WALK-01: 0.181).
+Closer bilateral aggregate timing, but contact slip remains ~0.20 m/s.
+Downloaded CSVs and evaluation records; built comparison, support/slip, reward
+and termination plots. MJX replay job 3226907 completed in 4m18s. Best 0.75 m/s has 1/80 valid
+L/R cycles after startup but does not terminate: short contact interruptions
+can leave paired history stale while resetting the planted-leg timer. Final
+0.75 m/s is 77/68; final 1.5 m/s ends through symmetry termination.
+Six clips retain all trial outcomes.
+[Gallery](flatfeet-videos.html), [report](../docs/flatfeet-symmetry-v1.md).
+No new training launched.
+
+2026-10-20 (client date): implemented the user's focused flat-foot adaptation: actual
+toe/heel support and contact-point slip, completed-cycle symmetry, delayed persistent
+termination, and mid-stance-only flat-support cost. Fresh 200M run prepared with
+16 passing local tests and a mandatory in-allocation GPU smoke gate.
+[Exact contract](../docs/flatfeet-symmetry-v1.md);
+[submission record](../docs/experiments/dash01_flatfeet_symmetry_v1/STATUS.md).
+Stop after submission; do not monitor training.
+
+WALK-01 completion check: 200,005,632 steps in 13h29m16s, exit 0. Best checkpoint
+169.57M: 28/28 survival, 0.181 m/s error; last periodic evaluation: 28/28,
+0.328 m/s. Final command-redraw evaluation: all 28 last 30 s without falling.
+Downloaded metrics and best/final weights. Submitted faithful MJX replay 3226290;
+GPU queue estimated roughly two hours. CPU-only export allocation was rejected
+by SCITAS QOSMinGRES, so prepared labelled local deployment previews instead,
+using a small local MessagePack reader. Six 25-second trials survive. CPU solver
+requires XML 100/50 settings; MJX 16/8 caps were numerically unstable on CPU.
+The queue cleared early: MJX replay 3226290 completed in 4m27s, exit 0.
+All six MJX trials survive 25 seconds; the main gallery now uses these recorded
+training-simulator motions. CPU previews remain separately labelled.
+No training changes. [Video gallery](walk01-videos.html),
+[results and limitations](../docs/walk01-experiment-report.md).
+
+WALK-01 submitted as SCITAS job **3224989**; initial state **PENDING (Priority)**.
+Frozen 84-file source snapshot, 200M-step target, 24-hour ceiling, no STOP.
+Local model/config/budget checks passed; GPU preflight and training await allocation.
+[Status](../docs/experiments/walk01_20261019_v1/STATUS.md).
+
+2026-10-19: prepared WALK-01 at the user's request: fresh 200M-step reproduction
+of Nathann's joystick recipe without STOP practice. Imported the supplied homing
+assembly as a pose in the calibrated CAD-v2 plant, preserving corrected masses
+and rigid links. Meshes match, pose fit is sub-micrometre, and five-second nominal
+PD hold passes. Documented action-envelope, height, rigid-loop randomization and
+GPU batching adaptations. [Experiment contract](../docs/walk01-experiment-report.md).
+
+2026-10-19: tested the user's original-policy transfer proposal. Verified original
+joystick bundle and original XML match fetched upstream Git blobs. Recorded paired
+20-second CPU replays at 0.25/0.50/0.75 m/s: original survives all; unchanged
+CAD-v2 swap falls at 0.74/0.72/0.71 s with unreachable cam/thigh commands.
+Clamping and reset-relative offset probes remove command-bound violations but
+still fall within 0.71–0.75 s. Saved traces, metrics, paired videos and comparison
+figure; no training or reward change. [Transfer report](policy-transfer01.md).
+
+SPEED-01 completion: job 3223896 finished on 19 October 2026 at 23:39:38 Swiss
+time, exit 0, after 4h52m14s and 59,916,288 steps. Downloaded training and all
+30 evaluation records. Best eligible checkpoint: 0.950 m/s, 16/16 survival;
+final: 1.215 m/s, 16/16 survival but 0/16 joint-limit qualification. Substantial
+sliding and almost no 15 mm clearance remain. Checkpoints verified on SCITAS;
+video inspection is the next diagnostic, with no additional training submitted.
+[Completed results](../docs/experiments/speed01_20261019_v1/STATUS.md).
+
+2026-10-19: submitted SPEED-01 job **3223896**, five hours on SCITAS `i28`,
+18:47:24 to 23:47:24 Europe/Zurich. All 67 scheduled GPU tests and finite PPO
+checks passed. Four reward probes were finite; archived GAIT-09 motion earned
+positive reward at 0.246 m/s under full regularization, without reward-floor
+hits. The independent training process starts fresh at step zero.
+[Run status and validation evidence](../docs/experiments/speed01_20261019_v1/STATUS.md).
+
+2026-10-19: implemented the authorized five-hour SPEED-01 experiment, based on
+Nathann's modern speed objective and corrected free CAD-v2 plant. No alive bonus
+or prescribed foot-order rewards. Signed world-X income, explicit regularization
+list, actual contact-point slip and a 150-point fall cost versus a 100-point
+discounted worst-living bound. Added first-episode survival-first speed selection,
+physical diagnostics, budget probes and regression tests. Archived GAIT-09 is
+used only as a moving reward-budget probe, never training initialization.
+[Experiment details](../docs/speed01-experiment-report.md).
+
 2026-10-19: user rejected the GAIT-11 videos and changed direction to fresh
 maximum-speed discovery. Committed the existing CAD-v2/GAIT-01–11 campaign on
 `dash-01-v2` (`c035774`) and created `dash-01-v2-speed-discovery`. Fetched and

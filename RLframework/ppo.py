@@ -254,10 +254,19 @@ class PPO:
                 if cfg.bilateral_enable:
                     metrics['bilateral'] = info['bilateral']
                     metrics['reward_floor_hit'] = info['reward_floor_hit']
+                if cfg.two_point_feet:
+                    metrics['flatfeet'] = info['flatfeet']
+                    metrics['term_symmetry'] = info['term_symmetry']
+                    metrics['reward_floor_hit'] = info['reward_floor_hit']
+                if cfg.speed_discovery:
+                    metrics['speed'] = info['speed_metrics']
+                    metrics['reward_floor_hit'] = info['reward_floor_hit']
                 # the value of the state the episode ended in, for a time-limit truncation: the
                 # auto-reset has already overwritten obs2, so this reads the env's saved final obs
                 _, _, v_final, _ = policy_fwd(params, stats.normalize(info["obs_final"]))
                 trunc = info["truncated"] & ~info["fallen"] & ~info["finished"]
+                if cfg.two_point_feet:
+                    trunc = trunc & ~info['term_symmetry']
                 tr = Transition(obs=nobs, action=a, log_prob=lp, reward=r, done=done,
                                 value=value, mask=mask, trunc=trunc, v_final=v_final)
                 return (env_state, obs2, key), (tr, metrics)
@@ -975,6 +984,17 @@ class PPO:
         }
         for kk, v in m["reward_terms"].items():
             log[f"reward_terms/{kk}"] = float(np.asarray(v).mean())
+        if cfg.two_point_feet:
+            fm = m['flatfeet']
+            for i, side in enumerate(('left','right')):
+                for name in ('toe','heel','grounded','flat','slip','valid_step','stance_mean','swing_mean'):
+                    if name in fm:
+                        log[f'flatfeet/{side}_{name}'] = float(np.asarray(fm[name])[...,i].mean())
+            for name in ('error','gate','bad_pairs','planted'):
+                if name in fm:
+                    log[f'flatfeet/{name}'] = float(np.asarray(fm[name]).mean())
+            log['flatfeet/termination_fraction'] = float(np.asarray(m['term_symmetry']).mean())
+            log['flatfeet/reward_floor_fraction'] = float(np.asarray(m['reward_floor_hit']).mean())
         if cfg.bilateral_enable:
             bm = m['bilateral']
             for i, side in enumerate(('left', 'right')):
@@ -988,6 +1008,14 @@ class PPO:
             log['gait/reward_floor_fraction'] = float(np.asarray(m['reward_floor_hit']).mean())
         for kk, v in self.env_params._asdict().items():
             log[f"curriculum/{kk}"] = float(v)
+        if cfg.speed_discovery:
+            sm = m['speed']
+            log['speed/world_x_mean'] = float(np.asarray(sm['vx']).mean())
+            log['speed/ceiling_fraction'] = float((np.abs(np.asarray(sm['vx'])) >= .95*cfg.v_ceiling).mean())
+            log['speed/reward_floor_fraction'] = float(np.asarray(m['reward_floor_hit']).mean())
+            for i, side in enumerate(('left', 'right')):
+                log[f'speed/{side}_slip'] = float(np.asarray(sm['slip'])[..., i].mean())
+                log[f'speed/{side}_clear'] = float(np.asarray(sm['clear'])[..., i].mean())
         # ---- schedules for the NEXT rollout
         if cfg.drag_success_curriculum:
             st = self.cur.get('drag_success', {})

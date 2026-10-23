@@ -1,0 +1,102 @@
+{
+  "training_job": 3224989,
+  "mjx_replay_job": 3226290,
+  "replay_state": "COMPLETED",
+  "backend": "MJX GPU rollout, local MuJoCo rendering",
+  "replays": {
+    "best": {
+      "step": 169574400,
+      "seed": 1000,
+      "dt": 0.01,
+      "model": "model/dash01_cad_v2_homing.xml",
+      "checkpoint": "best.msgpack",
+      "label": "WALK-01",
+      "checkpoint_sha256": "76da960921ee22ae949820fe304eb9f7f5b40702da626b2834d6f8b1096379da",
+      "trials": [
+        {
+          "target": 0.25,
+          "ticks": 2500,
+          "seconds": 25.0,
+          "fell": false,
+          "mean_speed_after_5s": 0.3144867420196533,
+          "speed_error_after_5s": 0.07106132060289383,
+          "flight_fraction": 0.23240000009536743
+        },
+        {
+          "target": 0.75,
+          "ticks": 2500,
+          "seconds": 25.0,
+          "fell": false,
+          "mean_speed_after_5s": 0.7139947414398193,
+          "speed_error_after_5s": 0.06765273958444595,
+          "flight_fraction": 0.2990399897098541
+        },
+        {
+          "target": 1.5,
+          "ticks": 2500,
+          "seconds": 25.0,
+          "fell": false,
+          "mean_speed_after_5s": 1.2407445907592773,
+          "speed_error_after_5s": 0.2592553198337555,
+          "flight_fraction": 0.3128799796104431
+        }
+      ],
+      "note": "Fresh nominal greedy replay trials, not the multi-trial gait evaluation. All trials retained; videos end at first termination, without showing auto-resets."
+    },
+    "final": {
+      "step": 200005632,
+      "seed": 1000,
+      "dt": 0.01,
+      "model": "model/dash01_cad_v2_homing.xml",
+      "checkpoint": "final.msgpack",
+      "label": "WALK-01",
+      "checkpoint_sha256": "a94c8a8b84584f1af459798d38b262ba98659dd0ab1d4ed26288b4492a77fab1",
+      "trials": [
+        {
+          "target": 0.25,
+          "ticks": 2500,
+          "seconds": 25.0,
+          "fell": false,
+          "mean_speed_after_5s": 0.3882944881916046,
+          "speed_error_after_5s": 0.13829445838928223,
+          "flight_fraction": 0.22623999416828156
+        },
+        {
+          "target": 0.75,
+          "ticks": 2500,
+          "seconds": 25.0,
+          "fell": false,
+          "mean_speed_after_5s": 0.723696231842041,
+          "speed_error_after_5s": 0.06405425816774368,
+          "flight_fraction": 0.3041999936103821
+        },
+        {
+          "target": 1.5,
+          "ticks": 2500,
+          "seconds": 25.0,
+          "fell": false,
+          "mean_speed_after_5s": 1.3593918085098267,
+          "speed_error_after_5s": 0.14584529399871826,
+          "flight_fraction": 0.30295997858047485
+        }
+      ],
+      "note": "Fresh nominal greedy replay trials, not the multi-trial gait evaluation. All trials retained; videos end at first termination, without showing auto-resets."
+    }
+  },
+  "files": {
+    "report\\videos\\walk01_best_0.25mps.mp4": "5f96214e6d77237d10210235abdd200670fb005ecec8010dd6cf115a66c8661d",
+    "report\\videos\\walk01_best_0.75mps.mp4": "55d91f14040dc3aa59668975d8defca1dab3812434ce589392eb5c255162b346",
+    "report\\videos\\walk01_best_1.50mps.mp4": "0920c4bf23df52636587d3a3e868843c25e85c03716c6a9187af6810bc44334f",
+    "report\\videos\\walk01_final_0.25mps.mp4": "9a083af5602de9dd934a2e7129c9bb841c8ee36d08f38f95ec4e0b890a1a0237",
+    "report\\videos\\walk01_final_0.75mps.mp4": "d90dddae5bc7adcccb0dfdcaa3db51d4fb6cf88f877deade798fe9490f81c6e0",
+    "report\\videos\\walk01_final_1.50mps.mp4": "ee874e65bb958134c1943aa6330cad3f18b73e481f0e73e883745c9248f73168",
+    "docs\\experiments\\walk01_20261019_v1\\walk01_trace_best.json": "aa70e9121f55efb9cfcf471083cccd4a2b709dfb595003cf9cad3786ba910597",
+    "docs\\experiments\\walk01_20261019_v1\\walk01_trace_best.npz": "16d3e811fe38b50d0ef490a89887cd3a07afc2473a71f0eca4fa866a4ab4863d",
+    "docs\\experiments\\walk01_20261019_v1\\walk01_trace_final.json": "7aebcb8cc99fe6e799b06f3e5c2f54850be2e3b066d9cd5a961a37a443557194",
+    "docs\\experiments\\walk01_20261019_v1\\walk01_trace_final.npz": "08432bf49f86965a780905b0daae685535738811902b18292086e4d37fed8430",
+    "RLframework\\tools\\gait_video.py": "e709fdcd16027703984ee117fd48ddab9be09b88df44d16873979e5f93851223",
+    "RLframework\\model\\dash01_cad_v2_homing.xml": "5506c13600e0acb168c7573a6b999fdfae79cca7e9a6d3bc155dd5794257183a",
+    "report\\scripts\\build_walk01_assets.py": "f97060608601edeb3588041f413b70d43736031e46caab3f087e3809dbdc87b1"
+  },
+  "caveats": "Single nominal greedy rollout per condition; all trials retained. Not a robustness evaluation or proof of clean walking. Videos rendered at 20 fps; shadows disabled for rendering speed."
+}

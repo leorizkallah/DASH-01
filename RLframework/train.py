@@ -311,6 +311,13 @@ def main():
                 raise SystemExit('Gait baseline reward/survival preflight failed; inspect latest_gait_eval.json')
         last_quality_step = agent.step
     best_score = None
+    if cfg.speed_discovery:
+        if args.warm_start or args.warm_bundle:
+            raise SystemExit('Speed discovery requires fresh initialization or same-run resume')
+        from speed_eval import SpeedEvaluator, record as record_gait, training_summary
+        quality_evaluator = SpeedEvaluator(cfg)
+        record_gait(agent, quality_evaluator, run)
+        last_quality_step = agent.step
     _bj = run / "best_eval.json"
     if _bj.exists():
         _b = json.loads(_bj.read_text())
@@ -367,11 +374,16 @@ def main():
         if (eval_env is not None and cfg.eval_every_rollouts > 0 and agent.rollout_n % cfg.eval_every_rollouts == 0
                 and (budget is None or budget.evaluation_allowed())):
             t = time.time()
-            ev, ev_bu, ev_cur = run_eval(agent, cfg, eval_env)
             quality = None
-            if quality_evaluator is not None:
+            if cfg.speed_discovery:
                 quality = record_gait(agent, quality_evaluator, run)
                 last_quality_step = agent.step
+                ev, ev_bu, ev_cur = training_summary(quality), None, None
+            else:
+                ev, ev_bu, ev_cur = run_eval(agent, cfg, eval_env)
+                if quality_evaluator is not None:
+                    quality = record_gait(agent, quality_evaluator, run)
+                    last_quality_step = agent.step
             if stop_evaluator is not None:
                 stand_result = standing_evaluator.evaluate(agent) if standing_evaluator else None
                 stop_result = record_stop_eval(agent, stop_evaluator, run, ev, standing=stand_result)
@@ -392,7 +404,9 @@ def main():
                 for k_, v in ev_row.items():
                     if isinstance(v, (int, float)) and np.isfinite(v):
                         tb.add_scalar(f"eval/{k_}", v, agent.step)
-            if cfg.objective == "joystick":
+            if cfg.speed_discovery:
+                print(f"[speed eval] {time.time()-t:.0f}s; candidate/feasible checkpoints handled separately", flush=True)
+            elif cfg.objective == "joystick":
                 lad = "  ".join(f"{v / max(cfg.v_max, 1e-9) * 100:3.0f}%:{e:.2f}/{a * 100:.0f}%"
                                 for v, e, a in ev.get("per_cmd", []))
                 print(f"[eval @ {agent.step:,}] ladder cmd-err {ev['track_err_mean']:.2f} m/s, "
@@ -414,7 +428,9 @@ def main():
                       f"({time.time() - t:.0f}s)", flush=True)
             # keep the best greedy checkpoint: a later collapse (the end-of-fade cliff,
             # v2c_s1_planar_s1 at 47 M) must not lose a usable policy
-            if cfg.objective == "joystick":
+            if cfg.speed_discovery:
+                _score = quality['selection_score']
+            elif cfg.objective == "joystick":
                 _score = keeper_score(cfg, ev, ev_bu)
             else:
                 _score = (int(ev.get("finishes", 0)), float(ev.get("dist_mean", float("nan"))))
@@ -429,13 +445,15 @@ def main():
                      "per_cmd": ev.get("per_cmd", []),
                      "bringup_alive": (ev_bu or {}).get("alive_frac", float("nan")),
                      **{k: float(v) for k, v in ev.items() if isinstance(v, (int, float))}}, indent=1))
-                if cfg.objective == "joystick":
+                if cfg.speed_discovery:
+                    print(f'[train] best feasible speed -> best.msgpack ({_score:.3f} m/s)', flush=True)
+                elif cfg.objective == "joystick":
                     print(f"[train] best checkpoint -> best.msgpack (step {agent.step:,}, "
                           f"keeper score {_score:.3f})")
                 else:
                     print(f"[train] best checkpoint -> best.msgpack (step {agent.step:,}, finishes {_score[0]}, dist {_score[1]:.1f} m)")
             _spd = float(ev.get("speed_mean", float("nan")))
-            if (cfg.objective != "joystick" and _score[1] >= float(cfg.sprint_dist_m)
+            if (not cfg.speed_discovery and cfg.objective != "joystick" and _score[1] >= float(cfg.sprint_dist_m)
                     and _spd == _spd and (best_speed is None or _spd > best_speed)):
                 best_speed = _spd
                 agent.save(run / "best_speed.msgpack")

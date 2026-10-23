@@ -1,0 +1,11 @@
+<!doctype html><meta charset="utf-8"><title>WALK-01 leg and motor diagnostics</title>
+<style>body{font:17px/1.5 system-ui;max-width:1350px;margin:30px auto;padding:20px}img{width:100%}section{margin:50px 0}a{color:#1674ac}</style>
+<h1>WALK-01: both legs and all six motors</h1>
+<p>Blue = left; orange = right. Plots use the supplied CAD-v2 homing model.
+Workspace means positions actually visited by this policy, not the complete reachable envelope.
+Joint angles use the model's native signs; opposite signs can be physically symmetric.
+Forces are ground-on-foot, in world coordinates (positive z upward); forces the foot exerts
+on the ground have the opposite sign. Current is estimated phase/joint-equivalent current tau/Kt,
+not measured battery current. Summaries use 5–25 s; time-series panels zoom to 10–12 s.</p>
+<p><a href="../docs/flatfeet-symmetry-v1.md">Reward changes and baseline findings</a> · <a href="walk01-videos.html">Videos</a> ·
+<a href="data/walk01-diagnostics/summary.json">All numerical results</a></p><section><h2>best — target 0.75 m/s</h2><img loading="lazy" src="data/walk01-diagnostics/best_0.75_workspace.png"></section><section><h2>best — target 0.25 m/s</h2><img loading="lazy" src="data/walk01-diagnostics/best_0.25_workspace.png"></section><section><h2>best — target 1.50 m/s</h2><img loading="lazy" src="data/walk01-diagnostics/best_1.50_workspace.png"></section><section><h2>final — target 0.75 m/s</h2><img loading="lazy" src="data/walk01-diagnostics/final_0.75_workspace.png"></section><section><h2>final — target 0.25 m/s</h2><img loading="lazy" src="data/walk01-diagnostics/final_0.25_workspace.png"></section><section><h2>final — target 1.50 m/s</h2><img loading="lazy" src="data/walk01-diagnostics/final_1.50_workspace.png"></section>

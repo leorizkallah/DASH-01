@@ -1,0 +1,143 @@
+{
+  "trials": [
+    {
+      "mode": "clamp_only",
+      "target_mps": 0.25,
+      "elapsed_s": 0.7400000000000004,
+      "survived": false,
+      "trace": "clamp_only_0.25.npz",
+      "reset_offset_rad": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "command_excess_max_rad": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "mode": "clamp_only",
+      "target_mps": 0.5,
+      "elapsed_s": 0.7100000000000004,
+      "survived": false,
+      "trace": "clamp_only_0.50.npz",
+      "reset_offset_rad": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "command_excess_max_rad": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "mode": "clamp_only",
+      "target_mps": 0.75,
+      "elapsed_s": 0.7100000000000004,
+      "survived": false,
+      "trace": "clamp_only_0.75.npz",
+      "reset_offset_rad": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "command_excess_max_rad": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "mode": "reset_relative_and_clamp",
+      "target_mps": 0.25,
+      "elapsed_s": 0.7500000000000004,
+      "survived": false,
+      "trace": "reset_relative_and_clamp_0.25.npz",
+      "reset_offset_rad": [
+        1.4730402777379117e-05,
+        -0.0717889340971,
+        0.09869807702200001,
+        -0.0013238548477699777,
+        0.071351666975,
+        -0.09810876015600001
+      ],
+      "command_excess_max_rad": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "mode": "reset_relative_and_clamp",
+      "target_mps": 0.5,
+      "elapsed_s": 0.7300000000000004,
+      "survived": false,
+      "trace": "reset_relative_and_clamp_0.50.npz",
+      "reset_offset_rad": [
+        1.4730402777379117e-05,
+        -0.0717889340971,
+        0.09869807702200001,
+        -0.0013238548477699777,
+        0.071351666975,
+        -0.09810876015600001
+      ],
+      "command_excess_max_rad": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "mode": "reset_relative_and_clamp",
+      "target_mps": 0.75,
+      "elapsed_s": 0.7200000000000004,
+      "survived": false,
+      "trace": "reset_relative_and_clamp_0.75.npz",
+      "reset_offset_rad": [
+        1.4730402777379117e-05,
+        -0.0717889340971,
+        0.09869807702200001,
+        -0.0013238548477699777,
+        0.071351666975,
+        -0.09810876015600001
+      ],
+      "command_excess_max_rad": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    }
+  ],
+  "note": "Untouched network weights. Clamp-only replaces controller command bounds with CAD-v2 bounds. Reset-relative additionally shifts observation zero and nominal target by the reset-joint difference and restarts history. This heuristic is not a verified physical frame transform or linkage retargeting. Original paired replay is unchanged."
+}

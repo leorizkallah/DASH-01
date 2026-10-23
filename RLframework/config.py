@@ -13,6 +13,30 @@ from typing import Any, List
 
 @dataclass
 class Config:
+    # Optional two-pad reward adaptation; legacy presets retain their exact path.
+    two_point_feet: bool = False
+    foot_contact_min_force_n: float = 2.0
+    flat_support_enable: bool = False
+    w_flat_support: float = 0.25
+    flat_stance_start_fraction: float = 0.20
+    flat_stance_end_fraction: float = 0.80
+    symmetry_enable: bool = False
+    w_symmetry: float = 5.0
+    symmetry_min_steps_per_foot: int = 2
+    symmetry_window_steps: int = 3
+    symmetry_min_phase_s: float = 0.04
+    symmetry_terminate_threshold: float = 0.40
+    symmetry_persistent_pairs: int = 2
+    symmetry_terminal_penalty: float = -10.0
+    symmetry_grace_s: float = 5.0
+    symmetry_termination_shape_scale: float = 0.65
+    symmetry_min_command_mps: float = 0.05
+    symmetry_min_forward_mps: float = 0.10
+    symmetry_motion_s: float = 2.0
+    symmetry_planted_s: float = 2.5
+    symmetry_planted_grace_s: float = 8.0
+    symmetry_planted_other_steps: int = 4
+    symmetry_recovery_s: float = 2.0
     # ----- plant & timing ---------------------------------------------------------------------
     # model/make_v2_model.py builds both from walk_mit/model/dash01.xml: rigid ankle folded into
     # the shin (no joint, -0.209 kg of spring hardware per shin), loop closure stiffened to the
@@ -461,6 +485,8 @@ class Config:
     bilateral_turn_progress: bool = False  # lift credit uses required foot, not clock overlap
     bilateral_protect_repeat_cost: bool = False  # charge repetition after dense reward floor
     sequential_steps_enable: bool = False
+    speed_discovery: bool = False
+    speed_slip_weight: float = .2
     sequential_support_s: float = .02  # reset/failed-attempt support filter, no post-step dwell
     walking_gate_min_speed: float = .125
     walking_gate_requires_steps: bool = True
@@ -1072,12 +1098,15 @@ PRESETS = {
     "dash_joy3": lambda: _cfg(model_path="model/dash01_free.xml", **_DASH_JOY3, **_FAST),
     # the A/B for the late collapses: dash_joy3 with the step size following the KL early stop
     "dash_joy3_lr": lambda: _cfg(model_path="model/dash01_free.xml", **_DASH_JOY3, **_FAST, lr_kl_adaptive=True),
+    "cad_v2_walk01": lambda: _cad_v2_walk01(),
+    "cad_v2_flatfeet_symmetry_v1": lambda: _cad_v2_flatfeet_symmetry_v1(),
 
     # dash_joy with a real stop: at zero stick the robot is paid to stand in the stable stance.
     "dash_joy_stand": lambda: _cfg(model_path="model/dash01_free.xml", **_DASH_JOY_STAND, **_FAST),
 
     # Run, as fast as possible, and never stop. Linear speed income, no command, no stop phase.
     "dash_sprint": lambda: _cfg(model_path="model/dash01_free.xml", **_DASH_SPRINT, **_FAST),
+    "cad_v2_speed01": lambda: _cad_v2_speed01(),
 
     # Tiny and fast: what smoke_test.py and the CI path build.  Never train on it.
     "smoke": lambda: _cfg(**dict(_DASH, model_path="model/dash01_free.xml",
@@ -1092,6 +1121,40 @@ def _stop06(feedback):
         total_steps=5_000_000, learning_rate=2.5e-5, lr_final=5e-6,
         stop_hold_window_s=9., cmd_stop_duration_s=(14.,16.),
         stop_guard_grace_steps=1_000_000, stop_guard_patience=3)
+
+
+def _cad_v2_walk01():
+    """Nathann joystick recipe, fresh CAD-v2 homing reset, walking only."""
+    from dataclasses import replace
+    base = _cfg(model_path="model/dash01_cad_v2_homing.xml",
+                **_DASH_JOY3, **_FAST, lr_kl_adaptive=True)
+    return replace(base,
+        keyframe="homing", total_steps=200_000_000, walltime_hours=24.,
+        # Same 18,432 samples/update as 2048x9; smaller vectorization fits CAD-v2.
+        n_envs=512, n_steps=36, mjx_iterations=16, mjx_ls_iterations=8,
+        stop_flag=False, cmd_stop_frac=0., cmd_zero_frac=0.,
+        stand_at_zero=False, w_stop_speed=0., w_stop_amp=0.,
+        w_stand_pose=0., w_stand_vel=0., eval_stop_transitions=False,
+        cmd_range=(.05, 1.),  # No exact-zero draw or standing task.
+        curriculum_order=(("cmd_lo", "cmd_hi"), ("shape_scale", "eff_scale", "stance_ratio"),
+                          "dr_scale"),
+        # CAD-relative action envelope, without GAIT-01..11 reward additions.
+        cam_amp=.25, thigh_amp=.3, roll_amp=.12,
+        o_cam_max=.03, o_thigh_max=.03, o_hip_max=.06,
+        # Preserve original allowed height loss relative to the new reset height.
+        term_height=.3948752244, height_floor_m=.6948752244,
+        # Independent hinge/site perturbations break the four rigid closed loops.
+        reset_joint_noise=0., dr_loop_site_m=0.,
+        eval_ladder=(.1, .2, .3, .4, .6, .8, 1.),
+        eval_seconds=30., eval_warm_ticks=500, eval_every_rollouts=400,
+        checkpoint_every_steps=2_000_000)
+
+
+def _cad_v2_flatfeet_symmetry_v1():
+    """Fresh WALK-01 recipe with two-pad contact, completed-step symmetry and mid-stance support."""
+    from dataclasses import replace
+    return replace(_cad_v2_walk01(), two_point_feet=True, symmetry_enable=True,
+                   flat_support_enable=True, w_foot_flat=0.)
 
 
 def _cad_v2_gait01():
@@ -1220,6 +1283,40 @@ def _cad_v2_gait11():
                    drag_scale_start=0., walking_gate_min_speed=.075,
                    walking_gate_requires_steps=False,
                    warmstart_reset_log_std=True, reset_joint_noise=.01)
+
+
+def _cad_v2_speed01():
+    """Independent speed discovery, based on Nathann's sprint rather than GAIT-11."""
+    from dataclasses import replace
+    base = _cfg(model_path='model/dash01_cad_v2_free.xml', **_DASH_SPRINT, **_FAST)
+    return replace(base, speed_discovery=True, sprint_world_speed=True,
+        total_steps=0, walltime_hours=5., lr_schedule_steps=60_000_000,
+        n_envs=512, n_steps=32, mjx_iterations=16, mjx_ls_iterations=8,
+        episode_s=30., eval_seconds=30., eval_every_rollouts=128,
+        checkpoint_every_steps=1_000_000,
+        gait_freq_hz=(.5, 4.), gait_freq_floor_steps=0,
+        cam_amp=.25, thigh_amp=.3, roll_amp=.12,
+        o_cam_max=.03, o_thigh_max=.03, o_hip_max=.06,
+        w_alive=0., alive_decay_steps=0, alive_scale_final=1., fall_penalty=150.,
+        w_phase_contact=0., w_air_time=0., w_clearance=0., w_contact_switch=0.,
+        w_duty_sym=0., w_swing_floor=0., w_stance_time=0., w_flight=0.,
+        w_foot_slip=0., w_foot_flat=0., w_knob=0., w_sym=0., w_sym_res=0.,
+        w_upright=5., w_height=2.5, w_heading=1., w_lat_vel=.5,
+        w_action_rate=.05, w_residual=.05, w_residual_rate=.01,
+        w_angmom=0., w_vz=0., w_angvel_xy=0., w_hip_roll=0., w_no_cross=0.,
+        shape_scale_start=.05, shape_curriculum_steps=15_000_000,
+        efficiency_ramp_steps=15_000_000, efficiency_target=.3,
+        curriculum_order=(), stance_ratio_start=.65, stance_ratio_final=.65,
+        gait_curriculum_steps=0,
+        learning_rate=3e-4, lr_final=1e-4, lr_warmup_updates=0,
+        ent_coef=.01, ent_final=.002, std_anneal_target=.35,
+        ent_anneal_deadline_steps=0, ent_schedule_autoscale=False,
+        dr_enable=False, dr_curriculum_steps=0, obs_noise_enable=False,
+        push_interval_s=0., wind_force_max=0., wind_gust_n=0., trip_prob=0.,
+        ctrl_jitter_ms_final=0., ctrl_drop_prob_final=0., jitter_curriculum_steps=0,
+        thermal_hot_start_max=0., reset_joint_noise=.01,
+        term_height=.60, height_floor_m=.75,
+        bringup_enable=False, hold_enable=False, eval_stop_transitions=False)
 
 
 def get_config(name: str = "dash") -> Config:

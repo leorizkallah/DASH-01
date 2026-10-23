@@ -1,0 +1,27 @@
+{
+  "preset": "cad_v2_walk01",
+  "physics_comparison": {
+    "seconds": 1.0,
+    "pitch_perturbations_rad": [
+      0,
+      -0.001,
+      0.001
+    ],
+    "finite": true,
+    "max_coordinate_error": 7.8232879025808e-06,
+    "max_velocity_error": 0.004793692598617808,
+    "coordinate_tolerance": 0.005,
+    "velocity_tolerance": 0.05,
+    "passed": true
+  },
+  "actor_dim": 384,
+  "obs_dim": 413,
+  "action_dim": 47,
+  "finite": true,
+  "nan_terminations": 0,
+  "stop_ticks": 0,
+  "command_min": 0.4036707878112793,
+  "command_max": 1.1217879056930542,
+  "reward_mean": 0.3067948818206787,
+  "note": "Random-action finite/STOP-disabled probe, not a learned walking result."
+}

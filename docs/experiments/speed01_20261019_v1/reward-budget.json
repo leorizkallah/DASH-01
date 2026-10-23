@@ -1,0 +1,112 @@
+{
+  "preset": "cad_v2_speed01",
+  "actor_dim": 384,
+  "obs_dim": 413,
+  "action_dim": 47,
+  "discounted_worst_living_cost": 99.99999999999991,
+  "fall_penalty": 150.0,
+  "reference": {
+    "path": "/home/rizkalla/running_robot/experiments/gait09_20261018_v1/RLframework/runs/cad_v2_gait09_s0/final.msgpack",
+    "sha256": "a4a1cdea6a7d115f031cc0d1bdcf3433c12366fff6533fb25d89bf8fe8dd7bf2",
+    "note": "Diagnostic only; task feature pinned to old value. Never training initialization."
+  },
+  "probes": [
+    {
+      "label": "zero-action nominal controller; not guaranteed standing",
+      "finite": true,
+      "mean_first_episode_s": 2.083125,
+      "mean_speed": 0.030807291391980993,
+      "nonterminal_reward": -0.042686639509180925,
+      "floor_fraction": 0.1344134413441344,
+      "discounted_return": -57.810174783242715,
+      "reward_terms": {
+        "action_rate": 0.0,
+        "contact_slip": -4.3910163285100635e-05,
+        "energy": 0.0,
+        "fwd_speed": -0.0381462905201653,
+        "heading": -8.236181436337367e-08,
+        "height": -0.0016056398997748896,
+        "lat_vel": -2.1065155839440775e-06,
+        "motor_vel": 0.0,
+        "residual": 0.0,
+        "residual_rate": 0.0,
+        "thermal": 0.0,
+        "torque": 0.0,
+        "upright": -0.27117855828551607
+      }
+    },
+    {
+      "label": "fresh policy sampled with std 0.7",
+      "finite": true,
+      "mean_first_episode_s": 0.70875,
+      "mean_speed": -0.04971727912808642,
+      "nonterminal_reward": -0.12524980466566274,
+      "floor_fraction": 0.21781305114638447,
+      "discounted_return": -114.43150813657772,
+      "reward_terms": {
+        "action_rate": -0.0007208280882927896,
+        "contact_slip": -0.007804953021767699,
+        "energy": 0.0,
+        "fwd_speed": -0.15438900633043293,
+        "heading": -0.005481039195254156,
+        "height": -0.0011849360280987236,
+        "lat_vel": -0.0014392337260843375,
+        "motor_vel": 0.0,
+        "residual": -0.006094071389926594,
+        "residual_rate": -0.0022444178397903578,
+        "thermal": 0.0,
+        "torque": 0.0,
+        "upright": -0.34071293583622686
+      }
+    },
+    {
+      "label": "zero action at full regularization",
+      "finite": true,
+      "mean_first_episode_s": 2.085625,
+      "mean_speed": 0.03058840323251845,
+      "nonterminal_reward": -0.043329764403194165,
+      "floor_fraction": 0.13485166317051245,
+      "discounted_return": -57.883363273322445,
+      "reward_terms": {
+        "action_rate": 0.0,
+        "contact_slip": -0.0008780403983139299,
+        "energy": -1.9108895005885448e-05,
+        "fwd_speed": -0.03828952367483659,
+        "heading": -8.201026833558426e-08,
+        "height": -0.0016027787219702859,
+        "lat_vel": -4.212883353269061e-05,
+        "motor_vel": -9.394747869033173e-07,
+        "residual": 0.0,
+        "residual_rate": 0.0,
+        "thermal": 0.0,
+        "torque": -0.005210779868524018,
+        "upright": -0.2708348270515714
+      }
+    },
+    {
+      "label": "archived GAIT-09 motion under full SPEED-01 reward",
+      "finite": true,
+      "mean_first_episode_s": 6.0,
+      "mean_speed": 0.24577987670898438,
+      "nonterminal_reward": 0.11678558349609375,
+      "floor_fraction": 0.0,
+      "discounted_return": 20.794671405509966,
+      "reward_terms": {
+        "action_rate": -0.0005936664839585622,
+        "contact_slip": -0.011462899049123128,
+        "energy": -0.0015369210640589397,
+        "fwd_speed": 0.4845695495605469,
+        "heading": -1.617817518611749e-05,
+        "height": 0.0,
+        "lat_vel": -0.010252468585968018,
+        "motor_vel": -0.00015943548331658045,
+        "residual": -0.12064631144205729,
+        "residual_rate": -0.0009829567869504292,
+        "thermal": 0.0,
+        "torque": -0.0368330446879069,
+        "upright": -0.06851450602213542
+      }
+    }
+  ],
+  "note": "Six-second first-episode probes; cold failures are expected. Same-state speed monotonicity and delayed-fall ranking are regression-tested, not guarantees of learning."
+}

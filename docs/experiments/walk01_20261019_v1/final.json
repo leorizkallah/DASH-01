@@ -1,0 +1,97 @@
+{
+ "step": 200005632,
+ "rollout_n": 10851,
+ "curriculum": {
+  "_ep_len_ref": {
+   "v": 1843.4231381606214
+  },
+  "dr_scale": {
+   "streak": 5,
+   "open": true,
+   "progress": 0.33546239999999944,
+   "adv": false,
+   "turn": 60014592.0
+  },
+  "stance_ratio": {
+   "streak": 0,
+   "open": false,
+   "progress": 0.5798399999999524,
+   "adv": false,
+   "turn": 69580800.0
+  },
+  "eff_scale": {
+   "streak": 0,
+   "open": false,
+   "progress": 0.5798399999999524,
+   "adv": false,
+   "turn": 69580800.0
+  },
+  "ctrl_jitter_ms": {
+   "streak": 5,
+   "open": true,
+   "progress": 1.0,
+   "turn": 200005632.0,
+   "adv": false
+  },
+  "ctrl_drop_prob": {
+   "streak": 5,
+   "open": true,
+   "progress": 1.0,
+   "turn": 200005632.0,
+   "adv": false
+  },
+  "shape_scale": {
+   "streak": 0,
+   "open": true,
+   "progress": 1.0,
+   "turn": 69562368.0
+  },
+  "cmd_lo": {
+   "streak": 0,
+   "open": false,
+   "progress": 0.9901670399999979,
+   "turn": 70428672.0
+  },
+  "cmd_hi": {
+   "streak": 0,
+   "open": false,
+   "progress": 0.9901670399999979,
+   "turn": 70428672.0
+  },
+  "cmd_zero_p": {
+   "streak": 0,
+   "open": false,
+   "progress": 1.0,
+   "turn": 200005632.0
+  }
+ },
+ "env_params": {
+  "dr_scale": 0.2674118399999998,
+  "alive_scale": 1.0,
+  "sprint_dist_m": 100.0,
+  "stance_ratio": 0.516636800000011,
+  "eff_scale": 0.5798399999999524,
+  "ctrl_jitter_ms": 0.0,
+  "ctrl_drop_prob": 0.0,
+  "bringup_scale": 1.0,
+  "bringup_p_drop": -1.0,
+  "bringup_p_held": -1.0,
+  "cmd_zero_p": 0.0,
+  "cmd_stop_p": 0.0,
+  "cmd_lo": 0.05098329600000022,
+  "cmd_hi": 0.9945918719999989,
+  "track_sigma": 0.30000000000000004,
+  "shape_scale": 1.0,
+  "drag_scale": 1.0,
+  "stoplight_prob": 0.0,
+  "gait_freq_lo": 1.5,
+  "hold_s": 0.0,
+  "hold_z": 0.0,
+  "hold_pitch": 0.0,
+  "hold_roll": 0.0,
+  "start_red_s": 0.0,
+  "release_vx": 0.0,
+  "release_vy": 0.0,
+  "release_vz": 0.0
+ }
+}

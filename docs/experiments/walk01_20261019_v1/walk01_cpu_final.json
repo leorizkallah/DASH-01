@@ -1,0 +1,35 @@
+{
+  "step": 200005632,
+  "dt": 0.01,
+  "model": "model/dash01_cad_v2_homing.xml",
+  "checkpoint": "final.msgpack",
+  "checkpoint_sha256": "a94c8a8b84584f1af459798d38b262ba98659dd0ab1d4ed26288b4492a77fab1",
+  "label": "WALK-01 final | CPU preview",
+  "trials": [
+    {
+      "target": 0.25,
+      "ticks": 2500,
+      "seconds": 25.0,
+      "fell": false,
+      "mean_speed_after_5s": 0.39312467330447604,
+      "speed_error_after_5s": 0.14312467330447606
+    },
+    {
+      "target": 0.75,
+      "ticks": 2500,
+      "seconds": 25.0,
+      "fell": false,
+      "mean_speed_after_5s": 0.7416172636321297,
+      "speed_error_after_5s": 0.06040848613649028
+    },
+    {
+      "target": 1.5,
+      "ticks": 2500,
+      "seconds": 25.0,
+      "fell": false,
+      "mean_speed_after_5s": 1.36569721044394,
+      "speed_error_after_5s": 0.14118430103028126
+    }
+  ],
+  "note": "CPU deployment simulation; not the queued MJX replay. Original trained weights and stats, nominal homing reset, 12 ms delay, no rail, XML CPU solver 100/50. Thermal evolution and full MJX termination checks are not reproduced. No randomization; single trial per target. Flight field is a rendering placeholder and must not be interpreted as a measurement."
+}

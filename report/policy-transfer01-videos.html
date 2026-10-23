@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nathann policy: original vs CAD-v2</title>
+<style>body{font:17px/1.5 system-ui;background:#111925;color:#eef3fa;max-width:1280px;margin:32px auto;padding:0 20px}
+a{color:#8dccff}video,img{width:100%}section{margin:36px 0}button{padding:8px;margin-right:8px;cursor:pointer}</style>
+<h1>Same policy, two robot models</h1>
+<p>Nathann's original 180M-step joystick policy, without training. Original weights,
+normalization, gait decoder and motor delay are retained. Both models are free in 3D.</p>
+<p>Each column has side and oblique views. On CAD-v2, blue identifies the left foot and
+orange the right; the original model's foot meshes retain their dark appearance.
+The CAD-v2 pose freezes at the first fall and is labelled accordingly; it is not balancing in that pose.
+Use quarter speed to inspect the short failure.</p>
+<p>These are one deterministic nominal trial per condition, not robustness statistics.
+Commands of 0.25 / 0.50 / 0.75 m/s do not imply those speeds were achieved.
+Clamping and reset-offset diagnostic variants also fell within 0.71–0.75 s.</p>
+<p><a href="policy-transfer01.md">Protocol, results and interpretation</a> ·
+<a href="data/policy-transfer01/results.json">Raw metrics</a> · <a href="index.html">Report home</a></p>
+<img src="figures/policy_transfer01.png" alt="Twenty-second survival on the original model; subsecond falls and out-of-range commands on CAD-v2">
+<section><h2>Requested speed 0.25 m/s</h2>
+<p>Original: survives 20 s; mean world-X speed 0.52 m/s.
+CAD-v2: falls at 0.74 s. Left column: original. Right: CAD-v2.</p>
+<video controls playsinline preload="metadata" src="videos/policy_transfer01_0.25.mp4"></video>
+<p><button onclick="rate(this,1)">Real time</button>
+<button onclick="rate(this,0.25)">Quarter speed</button>
+<button onclick="restart(this)">Restart</button> <a href="videos/policy_transfer01_0.25.mp4">Open video</a></p></section>
+<section><h2>Requested speed 0.50 m/s</h2>
+<p>Original: survives 20 s; mean world-X speed 0.59 m/s.
+CAD-v2: falls at 0.72 s. Left column: original. Right: CAD-v2.</p>
+<video controls playsinline preload="metadata" src="videos/policy_transfer01_0.50.mp4"></video>
+<p><button onclick="rate(this,1)">Real time</button>
+<button onclick="rate(this,0.25)">Quarter speed</button>
+<button onclick="restart(this)">Restart</button> <a href="videos/policy_transfer01_0.50.mp4">Open video</a></p></section>
+<section><h2>Requested speed 0.75 m/s</h2>
+<p>Original: survives 20 s; mean world-X speed 0.65 m/s.
+CAD-v2: falls at 0.71 s. Left column: original. Right: CAD-v2.</p>
+<video controls playsinline preload="metadata" src="videos/policy_transfer01_0.75.mp4"></video>
+<p><button onclick="rate(this,1)">Real time</button>
+<button onclick="rate(this,0.25)">Quarter speed</button>
+<button onclick="restart(this)">Restart</button> <a href="videos/policy_transfer01_0.75.mp4">Open video</a></p></section>
+<script>
+function rate(b,r){b.closest('section').querySelector('video').playbackRate=r;}
+function restart(b){const v=b.closest('section').querySelector('video');v.currentTime=0;v.play();}
+</script></html>

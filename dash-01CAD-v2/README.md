@@ -3,7 +3,15 @@
 Imported **14 October 2026**. Mass/inertia correction and floating-base training
 integration are complete. [GAIT-01](../docs/gait01-experiment-report.md) records
 validation and the fresh walking pilot. Fixed motor targets do not robustly
-balance this model; walking is trained directly, with homing/standing deferred.
+balance the earlier reset robustly; walking is trained directly.
+
+**New homing pose:** `homing/EXPORT_assembly_stable_closed/` contains the supplied
+stable assembly. It is used only as a pose reference; corrected masses/inertias
+remain in force. `../RLframework/model/dash01_cad_v2_homing.xml` contains the
+loaded `homing` keyframe used by WALK-01. The prior model remains unchanged.
+See [homing audit](../report/data/homing01/audit.json),
+[preview](../report/data/homing01/pose.png), and
+[training contract](../docs/walk01-experiment-report.md).
 
 - `EXPORT_assembly_closed/`: original supplied export and meshes, unchanged.
 - `properties/inerties_masses.pdf`: preserved source document.

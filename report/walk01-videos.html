@@ -1,0 +1,56 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>WALK-01 policy videos</title><style>
+body{font:17px/1.5 system-ui;background:#111925;color:#edf4ff;max-width:1280px;margin:32px auto;padding:0 20px}
+a{color:#8dccff}video,img{width:100%;border-radius:8px}section{margin:36px 0}button{padding:8px 16px;margin-right:8px;cursor:pointer}
+</style><h1>WALK-01: inspect the learned gait</h1>
+<p>Training completed: <strong>200.01M steps in 13h29m</strong>. Best saved checkpoint:
+169.57M steps. Start with the 0.75 m/s clips below. Left foot is blue, right foot orange;
+both camera views show the same instant.</p>
+<p><strong>These are GPU MJX replay recordings.</strong> Job 3226290 completed in 4m27s.
+The saved policies drive the frozen training simulator from the supplied homing pose;
+local rendering displays the recorded motion. Each condition is one nominal trial,
+seed 1000, with a fixed speed command and no STOP command.</p>
+<p>Look at foot sliding, clearance, alternating support and small repeated steps.
+All six trials survive, but survival and speed tracking do not establish clean walking.</p>
+<p><button onclick="rate(1)">Real time</button><button onclick="rate(.5)">Half speed</button>
+<button onclick="rate(.25)">Quarter speed</button><span id="rate">1x</span></p>
+<section><h2>Best policy — requested 0.75 m/s</h2>
+<video controls playsinline preload="metadata" src="videos/walk01_best_0.75mps.mp4"></video>
+<p>169.57M steps; completed 25 s without falling.
+Mean body-forward speed after 5 s: <strong>0.714 m/s</strong>.
+<a href="videos/walk01_best_0.75mps.mp4">Open / download</a></p></section>
+<section><h2>Final policy — requested 0.75 m/s</h2>
+<video controls playsinline preload="metadata" src="videos/walk01_final_0.75mps.mp4"></video>
+<p>200.01M steps; completed 25 s without falling.
+Mean body-forward speed after 5 s: <strong>0.724 m/s</strong>.
+<a href="videos/walk01_final_0.75mps.mp4">Open / download</a></p></section>
+<section><h2>Best policy — requested 0.25 m/s</h2>
+<video controls playsinline preload="metadata" src="videos/walk01_best_0.25mps.mp4"></video>
+<p>169.57M steps; completed 25 s without falling.
+Mean body-forward speed after 5 s: <strong>0.314 m/s</strong>.
+<a href="videos/walk01_best_0.25mps.mp4">Open / download</a></p></section>
+<section><h2>Final policy — requested 0.25 m/s</h2>
+<video controls playsinline preload="metadata" src="videos/walk01_final_0.25mps.mp4"></video>
+<p>200.01M steps; completed 25 s without falling.
+Mean body-forward speed after 5 s: <strong>0.388 m/s</strong>.
+<a href="videos/walk01_final_0.25mps.mp4">Open / download</a></p></section>
+<section><h2>Best policy — requested 1.50 m/s</h2>
+<video controls playsinline preload="metadata" src="videos/walk01_best_1.50mps.mp4"></video>
+<p>169.57M steps; completed 25 s without falling.
+Mean body-forward speed after 5 s: <strong>1.241 m/s</strong>.
+<a href="videos/walk01_best_1.50mps.mp4">Open / download</a></p></section>
+<section><h2>Final policy — requested 1.50 m/s</h2>
+<video controls playsinline preload="metadata" src="videos/walk01_final_1.50mps.mp4"></video>
+<p>200.01M steps; completed 25 s without falling.
+Mean body-forward speed after 5 s: <strong>1.359 m/s</strong>.
+<a href="videos/walk01_final_1.50mps.mp4">Open / download</a></p></section>
+<h2>Training evaluation</h2><img src="figures/walk01_progress.png" alt="Training survival and speed tracking history">
+<p>The saved best policy survived 28/28 fixed-ladder trials with 0.181 m/s mean
+tracking error. The last periodic evaluation near 199.1M steps also survived 28/28,
+but error rose to 0.328 m/s. The final checkpoint's separate command-redraw evaluation
+had no falls in 28 thirty-second trials. These are different protocols.</p>
+<p><a href="../docs/walk01-experiment-report.md">Experiment report</a> ·
+<a href="../docs/experiments/walk01_20261019_v1/STATUS.md">Run status</a> ·
+<a href="../docs/experiments/walk01_20261019_v1/replay-provenance.json">Replay provenance</a> ·
+<a href="walk01-cpu-previews.html">Earlier CPU deployment previews</a></p>
+<script>function rate(r){document.querySelectorAll('video').forEach(v=>v.playbackRate=r);document.getElementById('rate').textContent=r+'x';}</script></html>

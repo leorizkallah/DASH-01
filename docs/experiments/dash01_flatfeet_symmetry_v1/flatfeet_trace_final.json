@@ -1,0 +1,123 @@
+{
+  "step": 200005632,
+  "seed": 1000,
+  "dt": 0.01,
+  "model": "model/dash01_cad_v2_homing.xml",
+  "checkpoint": "final.msgpack",
+  "label": "Flatfeet-v1",
+  "checkpoint_sha256": "bc2f332502b551f402605904c21adabfff5f082c74fef991eb895eb7965df614",
+  "trials": [
+    {
+      "target": 0.25,
+      "ticks": 2500,
+      "seconds": 25.0,
+      "fell": false,
+      "mean_speed_after_5s": 0.29835790395736694,
+      "speed_error_after_5s": 0.04835793375968933,
+      "flight_fraction": 0.0,
+      "symmetry_terminated": false,
+      "outcome": "25 s completed",
+      "toe_mean_after_5s": [
+        0.439,
+        0.441
+      ],
+      "heel_mean_after_5s": [
+        0.6785,
+        0.635
+      ],
+      "grounded_mean_after_5s": [
+        0.7975,
+        0.716
+      ],
+      "flat_mean_after_5s": [
+        0.32,
+        0.36
+      ],
+      "slip_mean_after_5s": [
+        0.10719756036996841,
+        0.07891087979078293
+      ],
+      "error_mean_after_5s": 0.14113745093345642,
+      "gate_mean_after_5s": 1.0,
+      "completed_steps_after_5s": [
+        36,
+        60
+      ]
+    },
+    {
+      "target": 0.75,
+      "ticks": 2500,
+      "seconds": 25.0,
+      "fell": false,
+      "mean_speed_after_5s": 0.7206469774246216,
+      "speed_error_after_5s": 0.03497999534010887,
+      "flight_fraction": 0.0005200000014156103,
+      "symmetry_terminated": false,
+      "outcome": "25 s completed",
+      "toe_mean_after_5s": [
+        0.382,
+        0.439
+      ],
+      "heel_mean_after_5s": [
+        0.5745,
+        0.5385
+      ],
+      "grounded_mean_after_5s": [
+        0.6445,
+        0.6075
+      ],
+      "flat_mean_after_5s": [
+        0.312,
+        0.37
+      ],
+      "slip_mean_after_5s": [
+        0.10975423455238342,
+        0.09434498846530914
+      ],
+      "error_mean_after_5s": 0.12604142725467682,
+      "gate_mean_after_5s": 1.0,
+      "completed_steps_after_5s": [
+        77,
+        68
+      ]
+    },
+    {
+      "target": 1.5,
+      "ticks": 1922,
+      "seconds": 19.22,
+      "fell": false,
+      "mean_speed_after_5s": 1.5005874633789062,
+      "speed_error_after_5s": 0.045395031571388245,
+      "flight_fraction": 0.02471384033560753,
+      "symmetry_terminated": true,
+      "outcome": "symmetry termination",
+      "toe_mean_after_5s": [
+        0.21729957805907174,
+        0.20182841068917018
+      ],
+      "heel_mean_after_5s": [
+        0.5007032348804501,
+        0.5879043600562588
+      ],
+      "grounded_mean_after_5s": [
+        0.5021097046413502,
+        0.5886075949367089
+      ],
+      "flat_mean_after_5s": [
+        0.2158931082981716,
+        0.2011251758087201
+      ],
+      "slip_mean_after_5s": [
+        0.20892459154129028,
+        0.28243109583854675
+      ],
+      "error_mean_after_5s": 0.22208832204341888,
+      "gate_mean_after_5s": 1.0,
+      "completed_steps_after_5s": [
+        54,
+        36
+      ]
+    }
+  ],
+  "note": "Fresh nominal greedy replay trials, not the multi-trial gait evaluation. All trials retained; videos end at first termination, without showing auto-resets."
+}

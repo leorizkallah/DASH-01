@@ -1,0 +1,15 @@
+{
+ "step": 37748736,
+ "keeper_score": 0.9498289823532104,
+ "per_cmd": [],
+ "bringup_alive": NaN,
+ "finishes": 0.0,
+ "falls": 0.0,
+ "n": 16.0,
+ "t_line_mean": NaN,
+ "dist_mean": 28.49486804008484,
+ "speed_mean": 0.9498289823532104,
+ "track_err_mean": NaN,
+ "heading_err_mean": 0.11178805700937908,
+ "alive_frac": 1.0
+}

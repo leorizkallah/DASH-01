@@ -1,0 +1,28 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Flat-feet symmetry v1: results and videos</title><style>body{font:17px/1.5 system-ui;background:#111925;color:#edf4ff;max-width:1280px;margin:30px auto;padding:20px}a{color:#8dccff}video,img{width:100%;border-radius:8px}section{margin:40px 0}button{padding:8px 16px;margin:5px}</style>
+<h1>Flat-feet symmetry v1: completed 200M steps</h1>
+<p>Job 3226505 completed in 12h54m. Best checkpoint: 184.32M, 28/28 full-duration trials,
+0.049 m/s tracking error (WALK-01 best: 0.181 m/s). Final periodic evaluation: 27/28,
+0.044 m/s. Better tracking is not proof of clean walking: inspect slip and foot motion.</p>
+<p>Videos use the frozen training simulator, nominal plant, fixed commands, seed 1000.
+Both cameras show the same instant. Blue = left foot; orange = right. Trials stop at their
+first termination; resets are not spliced into the video. These are single trials per condition.</p>
+<p><strong>Important: the best checkpoint is not consistently the cleanest gait.</strong>
+At 0.75 m/s it registers only 1 valid left cycle versus 80 right cycles after 5 s,
+without terminating. Brief contact interruptions can prevent valid-cycle history from updating
+while also resetting the planted-leg timer. The final checkpoint is more balanced at this speed
+(77/68), but its 1.5 m/s trial ends through the symmetry rule. Inspect both checkpoints.</p>
+<p><button onclick="rate(1)">Real time</button><button onclick="rate(.5)">Half speed</button><button onclick="rate(.25)">Quarter speed</button></p>
+<section><h2>Best — 0.25 m/s</h2><video controls playsinline preload="metadata" src="videos/flatfeet_best_0.25mps.mp4"></video><p>Checkpoint 184,320,000; 25.00 s; 25 s completed. Mean speed after 5 s: 0.344 m/s. Completed cycles L/R after 5 s: [78, 80].</p><details><summary>Speed, toe/heel contacts and slip (10–12 s detail)</summary><img loading="lazy" src="figures/flatfeet_best_0.25_contacts.png"></details></section>
+<section><h2>Best — 0.75 m/s</h2><video controls playsinline preload="metadata" src="videos/flatfeet_best_0.75mps.mp4"></video><p>Checkpoint 184,320,000; 25.00 s; 25 s completed. Mean speed after 5 s: 0.787 m/s. Completed cycles L/R after 5 s: [1, 80].</p><details><summary>Speed, toe/heel contacts and slip (10–12 s detail)</summary><img loading="lazy" src="figures/flatfeet_best_0.75_contacts.png"></details></section>
+<section><h2>Best — 1.50 m/s</h2><video controls playsinline preload="metadata" src="videos/flatfeet_best_1.50mps.mp4"></video><p>Checkpoint 184,320,000; 25.00 s; 25 s completed. Mean speed after 5 s: 1.483 m/s. Completed cycles L/R after 5 s: [80, 80].</p><details><summary>Speed, toe/heel contacts and slip (10–12 s detail)</summary><img loading="lazy" src="figures/flatfeet_best_1.50_contacts.png"></details></section>
+<section><h2>Final — 0.25 m/s</h2><video controls playsinline preload="metadata" src="videos/flatfeet_final_0.25mps.mp4"></video><p>Checkpoint 200,005,632; 25.00 s; 25 s completed. Mean speed after 5 s: 0.298 m/s. Completed cycles L/R after 5 s: [36, 60].</p><details><summary>Speed, toe/heel contacts and slip (10–12 s detail)</summary><img loading="lazy" src="figures/flatfeet_final_0.25_contacts.png"></details></section>
+<section><h2>Final — 0.75 m/s</h2><video controls playsinline preload="metadata" src="videos/flatfeet_final_0.75mps.mp4"></video><p>Checkpoint 200,005,632; 25.00 s; 25 s completed. Mean speed after 5 s: 0.721 m/s. Completed cycles L/R after 5 s: [77, 68].</p><details><summary>Speed, toe/heel contacts and slip (10–12 s detail)</summary><img loading="lazy" src="figures/flatfeet_final_0.75_contacts.png"></details></section>
+<section><h2>Final — 1.50 m/s</h2><video controls playsinline preload="metadata" src="videos/flatfeet_final_1.50mps.mp4"></video><p>Checkpoint 200,005,632; 19.22 s; symmetry termination. Mean speed after 5 s: 1.501 m/s. Completed cycles L/R after 5 s: [54, 36].</p><details><summary>Speed, toe/heel contacts and slip (10–12 s detail)</summary><img loading="lazy" src="figures/flatfeet_final_1.50_contacts.png"></details></section><h2>Learning compared with WALK-01</h2><img loading="lazy" src="figures/flatfeet_learning.png"><h2>Tracking by target speed</h2><img loading="lazy" src="figures/flatfeet_speed_comparison.png"><h2>Both legs during training</h2><img loading="lazy" src="figures/flatfeet_bilateral_training.png"><h2>Reward contributions and termination</h2><img loading="lazy" src="figures/flatfeet_reward_terms.png">
+<p>Training plots average 50 adjacent logged updates and include randomized plants and commands.
+They are not the same protocol as the fixed-command nominal clips. Aggregate L/R agreement can
+hide asymmetry within individual episodes. Flat contact fractions are over all ticks, not just mid-stance.</p>
+<p>Early slip-curve gaps mark nonfinite diagnostic entries (31 logged updates per side,
+9.49–56.99M steps). Logged mean rewards remain finite. These missing diagnostic values are not interpolated.</p>
+<p><a href="../docs/flatfeet-symmetry-v1.md">Experiment report</a> · <a href="../docs/experiments/dash01_flatfeet_symmetry_v1/results-summary.json">Numerical results</a> · <a href="walk01-videos.html">Previous WALK-01 videos</a></p>
+<script>function rate(r){document.querySelectorAll('video').forEach(v=>v.playbackRate=r)}</script></html>

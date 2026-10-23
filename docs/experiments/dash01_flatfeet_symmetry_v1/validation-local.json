@@ -1,0 +1,10 @@
+{
+  "local_unit_tests": 16,
+  "scitas_unit_tests": 16,
+  "jax_reset_step_shape_trace": "passed on SCITAS CPU; no rollout",
+  "actor_dim": 384,
+  "obs_dim": 413,
+  "action_dim": 47,
+  "gpu_smoke": "pending; mandatory job prerequisite before long training",
+  "archive_sha256": "a1fcf3b67ae24dd99c8272a1cf9574f80aab4c5274d4f0ec27a40e22a22c94da"
+}

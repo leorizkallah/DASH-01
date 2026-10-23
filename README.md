@@ -13,6 +13,15 @@ The original Git history and [Mozilla Public License 2.0](LICENSE) are preserved
 
 ## Purpose of this branch
 
+**Latest completed experiment: flat-feet symmetry v1**, 200M steps on CAD-v2
+with the supplied homing pose. It adds force-qualified heel/toe contact,
+contact-point slip, completed-step symmetry and mid-stance flat support.
+[Videos and graphs](report/flatfeet-videos.html) ·
+[Results and known gait limitations](docs/flatfeet-symmetry-v1.md).
+
+[WALK-01](docs/walk01-experiment-report.md) is the preceding 200M-step
+reproduction of Nathann's joystick walking recipe, without STOP practice.
+
 Active branch: **`dash-01-v2-speed-discovery`**. Start a fresh policy to discover
 the fastest sustained feasible forward locomotion for CAD-v2, beginning with
 Nathann's original speed objectives and a careful reward audit. This replaces
@@ -21,7 +30,9 @@ the recent prescribed-alternation approach as the active research direction.
 Read the [upstream reward/source review](report/nathann-speed-reward-audit.md)
 and [implementation plan](docs/speed-discovery-plan.md). Seven upstream branches
 were inspected; the modern `dash_sprint` preset is the closest existing starting
-point. No new training has been launched from this branch yet.
+point. The first implementation is [SPEED-01](docs/speed01-experiment-report.md),
+a fresh five-hour speed-discovery experiment with no standing bonus or prescribed
+foot-order rewards. [Run status](docs/experiments/speed01_20261019_v1/STATUS.md).
 
 GAIT-01–11, the CAD corrections, reports and videos are preserved on
 `dash-01-v2` at commit `c035774`. Local ignored run artifacts and remote SCITAS

@@ -1,0 +1,9 @@
+{
+  "elapsed_process_s": 16935.164514828008,
+  "remaining_s": 597.7150367680006,
+  "reserve_s": 600.0,
+  "signal": null,
+  "reason": "walltime_budget",
+  "steps": 59916288,
+  "step_limit": null
+}

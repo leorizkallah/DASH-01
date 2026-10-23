@@ -1,0 +1,39 @@
+{
+  "step": 200005632,
+  "seed": 1000,
+  "dt": 0.01,
+  "model": "model/dash01_cad_v2_homing.xml",
+  "checkpoint": "final.msgpack",
+  "label": "WALK-01",
+  "checkpoint_sha256": "a94c8a8b84584f1af459798d38b262ba98659dd0ab1d4ed26288b4492a77fab1",
+  "trials": [
+    {
+      "target": 0.25,
+      "ticks": 2500,
+      "seconds": 25.0,
+      "fell": false,
+      "mean_speed_after_5s": 0.3882944881916046,
+      "speed_error_after_5s": 0.13829445838928223,
+      "flight_fraction": 0.22623999416828156
+    },
+    {
+      "target": 0.75,
+      "ticks": 2500,
+      "seconds": 25.0,
+      "fell": false,
+      "mean_speed_after_5s": 0.723696231842041,
+      "speed_error_after_5s": 0.06405425816774368,
+      "flight_fraction": 0.3041999936103821
+    },
+    {
+      "target": 1.5,
+      "ticks": 2500,
+      "seconds": 25.0,
+      "fell": false,
+      "mean_speed_after_5s": 1.3593918085098267,
+      "speed_error_after_5s": 0.14584529399871826,
+      "flight_fraction": 0.30295997858047485
+    }
+  ],
+  "note": "Fresh nominal greedy replay trials, not the multi-trial gait evaluation. All trials retained; videos end at first termination, without showing auto-resets."
+}

@@ -108,3 +108,7 @@ legacy_trainer_to_port/**/__pycache__/
 !/RLframework/results/stop01_replay/dash_stop01b_final.npz
 /RLframework/results/stop*/**/*.jpg
 /RLframework/results/stop*/**/*.msgpack
+/RLframework/results/walk01_replay/
+
+# Full-quality source videos retained locally when encoding compact report copies.
+/report/videos/.originals/

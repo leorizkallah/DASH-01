@@ -2,8 +2,9 @@
 
 Branch: `dash-01-v2-speed-discovery`. Previous experiments: `dash-01-v2` at
 `c035774`. [Nathann reward/source audit](../report/nathann-speed-reward-audit.md).
-This is the implementation plan following the requested source review; no new
-reward preset or training job has been activated yet.
+The first implementation is now [SPEED-01](speed01-experiment-report.md), authorized
+for a five-hour run. It implements the reward-budget comparison without an alive
+bonus and preserves the earlier campaign independently.
 
 ## Objective
 

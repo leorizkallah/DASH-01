@@ -1,0 +1,85 @@
+Failed to import warp: No module named 'warp'
+Failed to import mujoco_warp: No module named 'warp'
+E1021 14:46:17.372827 3612009 numa_hwloc.cc:121] Call to hwloc_set_cpubind() failed: Invalid argument [22]
+[ppo] resumed best.msgpack at 169,574,400 steps
+[eval] best.msgpack @ 169,574,400 steps  plant nominal
+[ppo] resumed best.msgpack at 169,574,400 steps
+{
+  "step": 169574400,
+  "seed": 1000,
+  "dt": 0.01,
+  "model": "model/dash01_cad_v2_homing.xml",
+  "checkpoint": "best.msgpack",
+  "label": "WALK-01",
+  "checkpoint_sha256": "76da960921ee22ae949820fe304eb9f7f5b40702da626b2834d6f8b1096379da",
+  "trials": [
+    {
+      "target": 0.25,
+      "ticks": 2500,
+      "seconds": 25.0,
+      "fell": false,
+      "mean_speed_after_5s": 0.3144867420196533,
+      "speed_error_after_5s": 0.07106132060289383,
+      "flight_fraction": 0.23240000009536743
+    },
+    {
+      "target": 0.75,
+      "ticks": 2500,
+      "seconds": 25.0,
+      "fell": false,
+      "mean_speed_after_5s": 0.7139947414398193,
+      "speed_error_after_5s": 0.06765273958444595,
+      "flight_fraction": 0.2990399897098541
+    },
+    {
+      "target": 1.5,
+      "ticks": 2500,
+      "seconds": 25.0,
+      "fell": false,
+      "mean_speed_after_5s": 1.2407445907592773,
+      "speed_error_after_5s": 0.2592553198337555,
+      "flight_fraction": 0.3128799796104431
+    }
+  ],
+  "note": "Fresh nominal greedy replay trials, not the multi-trial gait evaluation. All trials retained; videos end at first termination, without showing auto-resets."
+}
+[ppo] resumed final.msgpack at 200,005,632 steps
+{
+  "step": 200005632,
+  "seed": 1000,
+  "dt": 0.01,
+  "model": "model/dash01_cad_v2_homing.xml",
+  "checkpoint": "final.msgpack",
+  "label": "WALK-01",
+  "checkpoint_sha256": "a94c8a8b84584f1af459798d38b262ba98659dd0ab1d4ed26288b4492a77fab1",
+  "trials": [
+    {
+      "target": 0.25,
+      "ticks": 2500,
+      "seconds": 25.0,
+      "fell": false,
+      "mean_speed_after_5s": 0.3882944881916046,
+      "speed_error_after_5s": 0.13829445838928223,
+      "flight_fraction": 0.22623999416828156
+    },
+    {
+      "target": 0.75,
+      "ticks": 2500,
+      "seconds": 25.0,
+      "fell": false,
+      "mean_speed_after_5s": 0.723696231842041,
+      "speed_error_after_5s": 0.06405425816774368,
+      "flight_fraction": 0.3041999936103821
+    },
+    {
+      "target": 1.5,
+      "ticks": 2500,
+      "seconds": 25.0,
+      "fell": false,
+      "mean_speed_after_5s": 1.3593918085098267,
+      "speed_error_after_5s": 0.14584529399871826,
+      "flight_fraction": 0.30295997858047485
+    }
+  ],
+  "note": "Fresh nominal greedy replay trials, not the multi-trial gait evaluation. All trials retained; videos end at first termination, without showing auto-resets."
+}

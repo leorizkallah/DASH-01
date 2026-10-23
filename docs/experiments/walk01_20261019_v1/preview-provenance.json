@@ -1,0 +1,98 @@
+{
+  "training_job": 3224989,
+  "backend": "classic MuJoCo CPU preview",
+  "replays": {
+    "best": {
+      "step": 169574400,
+      "dt": 0.01,
+      "model": "model/dash01_cad_v2_homing.xml",
+      "checkpoint": "best.msgpack",
+      "checkpoint_sha256": "76da960921ee22ae949820fe304eb9f7f5b40702da626b2834d6f8b1096379da",
+      "label": "WALK-01 best | CPU preview",
+      "trials": [
+        {
+          "target": 0.25,
+          "ticks": 2500,
+          "seconds": 25.0,
+          "fell": false,
+          "mean_speed_after_5s": 0.32745377435593376,
+          "speed_error_after_5s": 0.08075825107885454
+        },
+        {
+          "target": 0.75,
+          "ticks": 2500,
+          "seconds": 25.0,
+          "fell": false,
+          "mean_speed_after_5s": 0.7236778682046827,
+          "speed_error_after_5s": 0.06618274855394526
+        },
+        {
+          "target": 1.5,
+          "ticks": 2500,
+          "seconds": 25.0,
+          "fell": false,
+          "mean_speed_after_5s": 1.3124286331684123,
+          "speed_error_after_5s": 0.18757136683158773
+        }
+      ],
+      "note": "CPU deployment simulation; not the queued MJX replay. Original trained weights and stats, nominal homing reset, 12 ms delay, no rail, XML CPU solver 100/50. Thermal evolution and full MJX termination checks are not reproduced. No randomization; single trial per target. Flight field is a rendering placeholder and must not be interpreted as a measurement."
+    },
+    "final": {
+      "step": 200005632,
+      "dt": 0.01,
+      "model": "model/dash01_cad_v2_homing.xml",
+      "checkpoint": "final.msgpack",
+      "checkpoint_sha256": "a94c8a8b84584f1af459798d38b262ba98659dd0ab1d4ed26288b4492a77fab1",
+      "label": "WALK-01 final | CPU preview",
+      "trials": [
+        {
+          "target": 0.25,
+          "ticks": 2500,
+          "seconds": 25.0,
+          "fell": false,
+          "mean_speed_after_5s": 0.39312467330447604,
+          "speed_error_after_5s": 0.14312467330447606
+        },
+        {
+          "target": 0.75,
+          "ticks": 2500,
+          "seconds": 25.0,
+          "fell": false,
+          "mean_speed_after_5s": 0.7416172636321297,
+          "speed_error_after_5s": 0.06040848613649028
+        },
+        {
+          "target": 1.5,
+          "ticks": 2500,
+          "seconds": 25.0,
+          "fell": false,
+          "mean_speed_after_5s": 1.36569721044394,
+          "speed_error_after_5s": 0.14118430103028126
+        }
+      ],
+      "note": "CPU deployment simulation; not the queued MJX replay. Original trained weights and stats, nominal homing reset, 12 ms delay, no rail, XML CPU solver 100/50. Thermal evolution and full MJX termination checks are not reproduced. No randomization; single trial per target. Flight field is a rendering placeholder and must not be interpreted as a measurement."
+    }
+  },
+  "files": {
+    "report\\videos\\walk01_cpu_best_0.25mps.mp4": "c4224aa4bac9a5705d141079971ff573a490f38ffafae27cdcc6df7cac2ea07f",
+    "report\\videos\\walk01_cpu_best_0.75mps.mp4": "876db86bc7811a5596832e74741f33d9dbe9d6195f5fc06f529bd91a43a61932",
+    "report\\videos\\walk01_cpu_best_1.50mps.mp4": "6ab719f29ceab2226e45d83eeef40e5c8f31c37859211d9a2e38cb1155175150",
+    "report\\videos\\walk01_cpu_final_0.25mps.mp4": "99eff225f837ef454e2594f510632bedb9f8904e979477644803119bdc77fe12",
+    "report\\videos\\walk01_cpu_final_0.75mps.mp4": "86b726a07cf1eca41fac9e0da398326c139781ad14d057e658d1775a81e3409d",
+    "report\\videos\\walk01_cpu_final_1.50mps.mp4": "68f88dc4ff8d42e1315936f0ddd7788e2e37616fb56a7a6816c7869bd727cf8b",
+    "docs\\experiments\\walk01_20261019_v1\\walk01_cpu_best.json": "eda30393bf3847626901f60b8a3a5b2024e75bc61295d50ace6267d72d317a9a",
+    "docs\\experiments\\walk01_20261019_v1\\walk01_cpu_best.npz": "83d436cfa94bf5dedbe30f1a07f73d8d2c839131d354d95cb471a94bb3eb1ab7",
+    "docs\\experiments\\walk01_20261019_v1\\walk01_cpu_final.json": "c85d6f6d9dbafc8f516406d915014c37a890ed5440a0eaed7bfd16f007b090a8",
+    "docs\\experiments\\walk01_20261019_v1\\walk01_cpu_final.npz": "05d6fb957599f28b48202b6cf8f129020fb49a989f265fd3c1492f1f378375be",
+    "RLframework\\tools\\cpu_walk_preview.py": "c1ae6d2191e7db12454f75d27777a4c031445ad6a16034fb34c54b73b3bfc4f3",
+    "RLframework\\tools\\gait_video.py": "e709fdcd16027703984ee117fd48ddab9be09b88df44d16873979e5f93851223",
+    "controller\\deploy\\controller_v2.py": "1716772895c243acf05363eb21485fdd20e1ed42c398fc9231f51cf62ca68e36",
+    "controller\\deploy\\gait_v2.py": "0ba6b876250f992bad6fa8f14ff29beaa118e44d7cca854d5cb22d865728eece",
+    "controller\\deploy\\policy_net.py": "61022d48d37cf3b5c7688053ce069dda28a8d903744f7b8a47b0da0b91396621",
+    "RLframework\\model\\dash01_cad_v2_homing.xml": "5506c13600e0acb168c7573a6b999fdfae79cca7e9a6d3bc155dd5794257183a",
+    "report\\scripts\\build_walk01_assets.py": "2ce06bc42c971c63c5926a0848e4204a446ed34fb7d25e6e0a05a381261155de"
+  },
+  "caveats": "Single nominal CPU rollout per condition; original serialized weights/stats. XML solver 100/50 required: trying MJX caps 16/8 in classic MuJoCo produced numerical warnings; those invalid trials were discarded, not labelled policy failures. No thermal evolution or full MJX termination checks. GPU recordings are now available separately in replay-provenance.json.",
+  "mjx_replay_job": 3226290,
+  "mjx_replay_state": "COMPLETED"
+}

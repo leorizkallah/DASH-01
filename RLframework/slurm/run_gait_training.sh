@@ -24,6 +24,11 @@ if [[ "$PRESET" == cad_v2_gait11 ]]; then
   python -m unittest RLframework.tests.test_sequential_steps RLframework.tests.test_walltime_budget -q
 fi
 python RLframework/bench.py --preset "$PRESET" --n-envs 512 --steps 32 --ppo --json validation/benchmark.json
+if [[ "$PRESET" == cad_v2_speed01 ]]; then
+  python -m unittest RLframework.tests.test_speed_discovery RLframework.tests.test_walltime_budget -q
+  python RLframework/tools/speed_preflight.py --out validation/reward-budget.json \
+    --reference /home/rizkalla/running_robot/experiments/gait09_20261018_v1/RLframework/runs/cad_v2_gait09_s0/final.msgpack
+fi
 parent=$(python -c "import json; print(json.load(open('source-manifest.json')).get('source_checkpoint') or '')")
 warm_args=()
 if [[ -n "$parent" ]]; then warm_args=(--warm-start "$parent"); fi

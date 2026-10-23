@@ -1,0 +1,28 @@
+{
+  "passed": true,
+  "device": "cuda:0",
+  "preset": "cad_v2_flatfeet_symmetry_v1",
+  "smoke_steps": 256,
+  "terminal_once_and_autoreset": true,
+  "updates": [
+    {
+      "train/loss_pg": 1.30385160446167e-08,
+      "train/loss_vf": 85.88268280029297,
+      "train/approx_kl": 4.11226608321158e-13,
+      "rollout/reward_mean": 2.083820343017578,
+      "reward_terms/flat_support": -0.004687500186264515,
+      "reward_terms/symmetry": 0.0,
+      "flatfeet/termination_fraction": 0.0
+    },
+    {
+      "train/loss_pg": -1.4901161193847656e-08,
+      "train/loss_vf": 260.6092529296875,
+      "train/approx_kl": 4.1233683134578314e-13,
+      "rollout/reward_mean": 1.2163872718811035,
+      "reward_terms/flat_support": -0.014208982698619366,
+      "reward_terms/symmetry": 0.0,
+      "flatfeet/termination_fraction": 0.0
+    }
+  ],
+  "note": "16x8, one epoch for smoke only; training retains original 512x36 and four epochs."
+}
