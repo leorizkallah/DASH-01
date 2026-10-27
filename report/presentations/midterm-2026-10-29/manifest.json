@@ -1,0 +1,27 @@
+{
+  "presentation_date": "2026-10-29",
+  "data_cutoff": "2026-10-26",
+  "reference": "C:\\Users\\LeoPaul\\Downloads\\DASH01_midterm.pptx",
+  "reference_sha256": "1201aa832cff3ee58599c6eacc365bc563c0b03ec2a953a6e485f57a8a852809",
+  "main_slides": 18,
+  "template": "Original COVER / LIGHT / DARK layouts, masters and theme; cloned cover, outline, four dividers and closing",
+  "deck_stem": "DASH01_controller_midterm_Tim_template",
+  "backup_slides": 3,
+  "suggested_seconds": 575,
+  "inputs": {
+    "docs/experiments/clearance01_20261025_v1/clearance_evaluations.jsonl": "0c27e8453c09e625505cc0a6307f96ba72773ffc28943efb2203b80991718321",
+    "docs/experiments/dash01_flatfeet_symmetry_v1/best_eval.json": "e42945c198e7ac173ca528ed74786212899dc4a8b41c4961b2db7657c4b3d0d5",
+    "docs/experiments/walk01_20261019_v1/best_eval.json": "29f49e19100319666cea08769d9e874515f1e699f9cd3507ba38309c7c5f338d",
+    "report/videos/clearance01_final_1.50mps.mp4": "5ea85a09a06d2ac05ef1012d9e82d04074510d5732193bbdcf29a2bbcceb2369",
+    "report/videos/clearance01_standalone_1.50mps.mp4": "53f1a664169b770bcc050678d59e73af7020a8a0e2f10e14fa66dcde3d1575cd",
+    "report/videos/flatfeet_best_1.50mps.mp4": "c8deb3b81f332add168adc87ce65522371d3376fc7d3ebc4a43732da2b312e5c",
+    "report/videos/walk01_best_1.50mps.mp4": "50b7b6a450eeeb88e8055e17662497de1d493f8ddf5aac1d274121514cd47539"
+  },
+  "media": {
+    "clearance01.mp4": "8ceb405a8f89e1d1a0686361f1f1ab2b799001c1055b1ef771b4ef1578ee887e",
+    "flatfeet.mp4": "391e4e765bf9555c43b1b61b838c335a3459e21205acc9202b12826c29534e2d",
+    "standalone_failure.mp4": "52b509a898d043710f0f4a8e05c31f442457f8868e38341463e5739dbd8103a0",
+    "walk01.mp4": "88f71f3ed85006685e5e7a25d26fe64a587fec32fba3ff222dead81fa374a2b7"
+  },
+  "notes": "Main videos: 6\u201318 s nominal MJX excerpts at 1x. Failure retained from 0 s. Header/footer cropped only; source motions unchanged. No hardware performance or unreviewed training result claimed."
+}

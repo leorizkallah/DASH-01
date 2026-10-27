@@ -1,0 +1,9 @@
+{
+  "elapsed_process_s": 12240.946494270116,
+  "remaining_s": 16281.610051931813,
+  "reserve_s": 600.0,
+  "signal": null,
+  "reason": "step_limit",
+  "steps": 50006016,
+  "step_limit": 50000000
+}

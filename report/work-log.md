@@ -1,5 +1,106 @@
 # Work log and next questions
 
+2026-10-27: prepared repository cleanup and publication of the clearance work
+and current Tim-template presentation. Removed unused imports, made repeated
+presentation builds reset their section state, and added local report
+dependencies. Ignored caches, Office locks, derived previews and the superseded
+local draft without deleting files. Compact clearance gallery videos retain
+full-quality originals under ignored `report/videos/.originals/`; sizes fall
+from 24.3 MB to 3.7 MB, with both hashes recorded in `video-encoding.json`.
+Frozen experiment manifests/archives, raw metrics, replay traces and delivered
+presentation bytes are preserved. No training monitoring or reward changes
+were introduced by this cleanup. Focused local tests: 24 passed, 3 JAX-only
+evaluator tests skipped (all 27 passed on SCITAS before CLEARANCE-02 submission).
+
+2026-10-26: revised the controller midterm at the user's request to follow
+**Tim’s actual presentation template**, rather than only matching colors.
+Reused the supplied masters/theme, COVER/LIGHT/DARK layouts, cover, outline,
+four section dividers and closing. Kept controller evidence, four embedded clips,
+speaker notes and relative roadmap. New separate file:
+`DASH01_controller_midterm_Tim_template.pptx`, with PDF preview. 18 main slides
+including dividers (~9m35) plus three hidden backups. Original source deck and
+the first controller deck are preserved. No training monitoring performed.
+
+2026-10-26: prepared the controller midterm presentation using Tim Kobler’s
+supplied PPTX as the visual reference; his original is unchanged. User chose
+8–10 minutes and a relative timeline. Created 12 main slides (~9 minutes) and
+three hidden backup slides, with editable architecture/demo/timeline diagrams,
+four embedded simulation clips, sourced tracking/clearance plots and speaker
+notes. Roadmap retains the original startup → START/speed control → STOP/5 s hold
+sequence and prioritizes treadmill testing at the next available prepared test
+session. Simulation results, known replay failure and unreviewed CLEARANCE-02
+submission are explicitly distinguished. No training monitoring performed.
+[Deck, PDF, notes and provenance](presentations/midterm-2026-10-29/README.md).
+
+2026-10-26: user authorized CLEARANCE-02, 200M additional steps starting again
+from **flat-feet v1 best 184.32M**, not the higher-lift CLEARANCE-01 checkpoint.
+Lower scheduled mid-swing target to 10 mm, bonus saturation to 25 mm, add explicit
+excess-height cost above 25 mm because bonus saturation alone did not prevent
+40–50 mm peaks. Keep all existing symmetry/flat-support/slip shaping, fixed
+1.50 m/s, inherited plant difficulty and warm-start normalization/noise settings.
+Preserve normal swing-edge ramps and fluid motion. Candidate selection balances
+low and excessive lift; evaluate minimum coverage, mean, maximum and time above
+cap with truthful 10 mm metric labels. See [contract](../docs/clearance02-experiment-report.md).
+Frozen archive SHA256 `5e21b61f32c72127378d0632b44e88fb0f718d8a2bc2a5fd7ddca567e7ce945a`.
+Local: 24 tests passed; 3 evaluator tests deferred to SCITAS JAX. GPU smoke and
+baseline survival/reward gates run within the allocation before real training.
+Submit once; no automatic follow-on run or repeated Codex monitoring.
+Submitted successfully as **SCITAS job 3231747**. All 27 tests pass remotely,
+92 source hashes and exact parent hash/step verified. Submission receipt saved;
+no training monitoring after submission.
+
+2026-10-26: reviewed CLEARANCE-01 on explicit request and archived results.
+Job 3230928 completed 50,006,016 additional steps in 3h30m21s, exit 0:0.
+Matched nominal parent/final evaluations (12 first episodes, 30 s, seed 1000,
+5 s warmup, fixed 1.50 m/s) improve mean airborne height L/R from 2.46/2.25 mm
+to 23.62/20.91 mm. Final survival 12/12 and error 0.0292 m/s, but mid-swing
+>=20 mm fractions 57.18%/71.43% fail 80%; no qualified checkpoint.
+Archived evaluation records and generated learning/mean-comparison graphs.
+Replay 3231710 falls at 3.67 s in a single pinned-command environment; retained
+the failure rather than selecting around it. Replay 3231713 uses the evaluator's
+12-environment batch and saved reset command. Both batch size and command handling
+differ, so no causal attribution yet. Recorded this limitation in the report and
+handoff. No new training launched. See [results/videos](clearance01-videos.html).
+Replay 3231713 completed in 2m21s: 12/12 full 25 s, 80/80 cycles per foot.
+Rendered trial 0 without selecting among trials, plus the standalone failure.
+Recomputed whole-foot clearance from oriented pad corners with exact frozen-model
+hash verification and post-step contact alignment. Trial-0 mean L/R 23.55/20.91 mm;
+median complete >=40 ms air-bout peaks 46.55/40.80 mm. Saved raw traces, CSV/NPZ
+measurements, source/checkpoint hashes and the known single nonfinite diagnostic
+update at 14.32M in the experiment report.
+
+2026-10-25: prepared CLEARANCE-01 at the user's request: 50M additional steps
+from flat-feet best 184.32M, fixed command 1.50 m/s. Added a dense deficiency cost
+for scheduled-swing whole-foot height below a 20 mm target, with takeoff/landing
+ramps, and a separate bonus from 20 to 30 mm. Kept parent plant difficulty and
+added clearance-aware candidate checkpointing. 23 tests pass locally and on
+SCITAS. GPU smoke and baseline reward-budget gates precede long training in-job.
+[Contract](../docs/clearance01-experiment-report.md),
+[submission receipt](../docs/experiments/clearance01_20261025_v1/STATUS.md).
+No continuous Codex monitoring after submission.
+
+2026-10-25: user narrowed clearance work to **1.50 m/s** and requested mean
+height alongside peaks. Promoted the time-averaged airborne measurements in the
+[clearance report](flatfeet-clearance.md): best L/R 2.44/2.17 mm, final
+0.52/0.52 mm; pooled means 2.31/0.52 mm. Added a focused mean/peak figure and
+1.50 m/s CSV, retaining other speeds as supplementary data. No training change.
+
+2026-10-25: measured swing clearance from the existing flat-feet MJX recordings,
+using the frozen homing XML and orientation-aware minimum toe/heel corner height.
+Aligned pre-step poses with previous-step contact flags; excluded startup/resets.
+Typical swing peaks are below 10 mm. Final left-foot median peaks at targets
+0.25/0.75/1.50 m/s are 0.24/1.91/1.05 mm. The existing 20 mm clearance deadband
+makes its bonus zero in these steady-state clips. Saved summary/bout CSVs, signed
+height traces, source hashes and figures in [the clearance report](flatfeet-clearance.md).
+The user's next interest is gradually increasing foot lift; no reward change or
+new training job has been made for this data request.
+
+2026-10-25: reviewed the local experiment records and wrote
+[`PROJECT_CONTEXT.md`](../PROJECT_CONTEXT.md) as the current summary and session
+handoff. Updated README/architecture descriptions to reflect supplied homing,
+completed flat-feet training and the remaining contact-history blind spot.
+No new training, remote status query, commit or push was performed for this update.
+
 2026-10-23: repository cleanup for push. Formatted new reward, diagnostic and report
 modules; removed an unused import; declared MessagePack; corrected stale README
 status and text encoding. Kept the existing Git attributes and normalized shell

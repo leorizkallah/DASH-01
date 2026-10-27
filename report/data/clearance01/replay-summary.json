@@ -1,0 +1,56 @@
+{
+  "trial": {
+    "target": 1.5,
+    "ticks": 2500,
+    "seconds": 25.0,
+    "fell": false,
+    "mean_speed_after_5s": 1.5031882524490356,
+    "speed_error_after_5s": 0.0290730819106102,
+    "flight_fraction": 0.1199599951505661,
+    "symmetry_terminated": false,
+    "outcome": "25 s completed",
+    "toe_mean_after_5s": [
+      0.2595,
+      0.28
+    ],
+    "heel_mean_after_5s": [
+      0.475,
+      0.4665
+    ],
+    "grounded_mean_after_5s": [
+      0.475,
+      0.4665
+    ],
+    "flat_mean_after_5s": [
+      0.2595,
+      0.28
+    ],
+    "slip_mean_after_5s": [
+      0.2066870629787445,
+      0.1407128870487213
+    ],
+    "error_mean_after_5s": 0.07288604974746704,
+    "gate_mean_after_5s": 1.0,
+    "completed_steps_after_5s": [
+      80,
+      80
+    ]
+  },
+  "feet": [
+    {
+      "foot": "Left",
+      "mean_air_mm": 23.552798132656882,
+      "median_complete_bout_peak_mm": 46.547333901102135,
+      "max_air_mm": 49.35576980548775,
+      "airborne_seconds": 10.5
+    },
+    {
+      "foot": "Right",
+      "mean_air_mm": 20.90982117935587,
+      "median_complete_bout_peak_mm": 40.799997878368416,
+      "max_air_mm": 43.267781768864864,
+      "airborne_seconds": 10.67
+    }
+  ],
+  "note": "Single nominal 25 s trial; seed 1000; warmup 5 s; force threshold 2 N. Means use all airborne samples; peak summaries use complete bouts >=40 ms. Heights from frozen-model rigid kinematics at 100 Hz, no re-simulation."
+}

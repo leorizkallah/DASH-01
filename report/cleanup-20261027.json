@@ -1,0 +1,20 @@
+{
+  "clearance01_20261025_v1_frozen_source_files": 92,
+  "clearance02_20261026_v1_frozen_source_files": 92,
+  "clearance01_final_1.50mps.mp4": {
+    "frames_decoded": 500,
+    "seconds": 25.0,
+    "encoded_bytes": 3101609
+  },
+  "clearance01_standalone_1.50mps.mp4": {
+    "frames_decoded": 111,
+    "seconds": 3.7,
+    "encoded_bytes": 554100
+  },
+  "presentation_hashes_unchanged": true,
+  "link_check_passed": true,
+  "syntax_check_passed": true,
+  "local_tests_passed": 24,
+  "jax_only_tests_skipped": 3,
+  "no_training_monitoring": true
+}

@@ -29,7 +29,7 @@ def main():
     BACKUP.mkdir(exist_ok=True)
     record = json.loads(RECORD.read_text()) if RECORD.exists() else {}
     for path in sorted(VIDEOS.glob("*.mp4")):
-        if not path.name.startswith(("walk01_", "flatfeet_", "policy_transfer01_")):
+        if not path.name.startswith(("walk01_", "flatfeet_", "policy_transfer01_", "clearance01_")):
             continue
         if path.name in record:
             assert digest(path) == record[path.name]["encoded_sha256"], path

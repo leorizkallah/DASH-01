@@ -1,0 +1,53 @@
+{
+  "training_job": 3230928,
+  "replay_jobs": [
+    3231710,
+    3231713
+  ],
+  "date": "2026-10-26",
+  "checkpoint_sha256": "dd9ee383e809dcb44ae9a6a3c4425e05ad1ec353a9a263005c7b5482dc189d3d",
+  "video_checks": {
+    "clearance01_final_1.50mps.mp4": {
+      "duration": 25.0,
+      "fps": 20.0,
+      "size": [
+        1280,
+        720
+      ]
+    },
+    "clearance01_standalone_1.50mps.mp4": {
+      "duration": 3.7,
+      "fps": 30.0,
+      "size": [
+        1280,
+        720
+      ]
+    }
+  },
+  "files": {
+    "docs/experiments/clearance01_20261025_v1/clearance01_trace_eval12.json": "9ad8991abf934d307f5ba3bc426adc9b69db6e6d4bca2e78915a892a940ede8e",
+    "docs/experiments/clearance01_20261025_v1/clearance01_trace_eval12.npz": "d9c5567446876f46c8dc87c53572532cdc1f613f4fd3f041daae1ff0c4608bb9",
+    "docs/experiments/clearance01_20261025_v1/clearance01_trace_final.json": "d39084dd6ceccdfdd08a8fc4c57398ecab1625f275e67407530895b7fd1a2458",
+    "docs/experiments/clearance01_20261025_v1/clearance01_trace_final.npz": "625ab8c442a0397c5f8fa83856d18794304af01bc00b06284529c1cda0a3dfe4",
+    "docs/experiments/clearance01_20261025_v1/clearance01_trace_standalone.json": "28cdea015cf25a68a95420015aa2eb737926f4d9643b1cf69e98d664cf0b5313",
+    "docs/experiments/clearance01_20261025_v1/clearance01_trace_standalone.npz": "46df9d95e001890f342e9e430522b44cc0f4d83483f8582f477df9820006ab4f",
+    "docs/experiments/clearance01_20261025_v1/replay-recorder.py": "9a2245c544838f6dbf29c794cc8eaca479963653f435e36a495ecbb7ae99cf2c",
+    "report/scripts/build_clearance01_assets.py": "1a53b36a8d75a977806ce6735f11cf13f102e88b6be60ab4db9d8796d4d2b583",
+    "RLframework/tools/gait_video.py": "74b37daebaf54ee51d8165dce50eced2835edc8a40ed605645451f868286aec6",
+    "report/clearance01-videos.html": "21e4d762d81e89ccf5afb19d621cfd94bcbd6d7a02a3836140c98644a8ad5c27",
+    "report/figures/clearance01_comparison.png": "a403407362ab691e39e0ff2f77b393d30c0fb97ce0c15976c69ef78742684ee3",
+    "report/figures/clearance01_comparison.svg": "79773c316cb4dc45ba336315d4134d78cd449bddbc978ba261eb4e7eb409bc9e",
+    "report/figures/clearance01_learning.png": "3c34ea5e332f584a503c997d29c4db07f4ee7ac328a5991f7bf11d8e5fed6952",
+    "report/figures/clearance01_learning.svg": "4b20527172ec0675d33df4cffad0b69ad34e6e205e144bd617ae2dd845e8fa1d",
+    "report/figures/clearance01_trace.png": "4bf75d48e6b60f3549edaae6fc1eb0046c3fc2d82ab658012932456a5d2f6a9e",
+    "report/figures/clearance01_trace.svg": "e847784cfe8cb78f00c7d3977164efe4e2b02bdf4907ac5f747a039e900c3067",
+    "report/videos/clearance01_final_1.50mps.mp4": "5ea85a09a06d2ac05ef1012d9e82d04074510d5732193bbdcf29a2bbcceb2369",
+    "report/videos/clearance01_standalone_1.50mps.mp4": "53f1a664169b770bcc050678d59e73af7020a8a0e2f10e14fa66dcde3d1575cd",
+    "report/data/clearance01/evaluations.csv": "6400038c1348693b840090d59da4dbed2c09a637b87f9232e33f8afa8ce0f58e",
+    "report/data/clearance01/replay-bouts.csv": "c3da2b915f41c12c153a28e9a5b82a102b674e57bfc143e1f4981c922f4804da",
+    "report/data/clearance01/replay-clearance.npz": "b435fc3715f5ff3027f9d0ddd28cdca53b22b69cef22906bfd7bf7dd964445f7",
+    "report/data/clearance01/replay-summary.csv": "a4e9e4c8b7b44ccda0ce02cfef73c0510ca45f844e86646d8408f59b7e2bff60",
+    "report/data/clearance01/replay-summary.json": "9eac2ec9428a24620b9f38b5aa87bdcd1701bfe580a2e4c4ce8efc923a74d37a"
+  },
+  "note": "Trial 0 of full retained 12-trial recording. Standalone failure retained. No additional training."
+}

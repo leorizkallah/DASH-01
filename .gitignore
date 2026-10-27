@@ -53,6 +53,10 @@ Thumbs.db
 # Temporary
 *.tmp
 *.log
+__pycache__/
+.ruff_cache/
+.pytest_cache/
+~$*
 # MuJoCo's own warning log, written next to whatever script ran (trailing comments are NOT
 # supported in .gitignore, hence the separate line)
 MUJOCO_LOG.TXT
@@ -112,3 +116,10 @@ legacy_trainer_to_port/**/__pycache__/
 
 # Full-quality source videos retained locally when encoding compact report copies.
 /report/videos/.originals/
+
+# Regenerable presentation previews and superseded local draft; retain the
+# current Tim-template PPTX/PDF, assets, sources and speaker notes in Git.
+/report/presentations/**/preview/
+/report/presentations/**/reference-preview/
+/report/presentations/midterm-2026-10-29/DASH01_controller_midterm.pptx
+/report/presentations/midterm-2026-10-29/DASH01_controller_midterm.pdf

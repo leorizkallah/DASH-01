@@ -28,6 +28,7 @@ from typing import NamedTuple
 import numpy as np
 import mujoco
 import flatfeet
+import swing_clearance
 import bilateral_gait
 import speed_metrics
 import jax
@@ -39,7 +40,7 @@ from mujoco import mjx
 import gait
 import drive
 from gait import GaitParams
-from plant import Plant, PlantDraw, PlantFields, Override, draw_plant, model_with
+from plant import Plant, PlantDraw, Override, draw_plant, model_with
 
 FRAME_DIM = 34            # the actor's per-tick frame, incl. the integrated-gyro heading estimate
 # The critic's privileged tail: 25 as before, plus the two sole pads per foot.  The actor's frame
@@ -252,6 +253,7 @@ class DashEnvV2:
 
     def __init__(self, cfg, n_envs=None):
         flatfeet.validate(cfg)
+        swing_clearance.validate(cfg)
         self.cfg = cfg
         self.plant = Plant(cfg)
         if cfg.two_point_feet and self.plant.m.opt.cone != mujoco.mjtCone.mjCONE_ELLIPTIC:
@@ -1106,6 +1108,15 @@ class DashEnvV2:
                     (middle & ~(toe_c & heel_c) & walking).astype(jnp.float32))
                 reward = reward+terms['flat_support']
                 foot_metrics['midstance'] = middle
+            if c.swing_clearance_enable:
+                low, extra, clearance_metrics = swing_clearance.shaping(
+                    heights,jnp.stack(gait.phases(spec,phi,gp)),params.stance_ratio,
+                    grounded,walking,book['air_time'],c,jnp)
+                terms['low_swing_clearance'] = params.shape_scale*low
+                terms['extra_swing_clearance'] = params.shape_scale*extra
+                terms['excess_swing_clearance'] = params.shape_scale*clearance_metrics['clearance_excess_cost']
+                reward = reward+terms['low_swing_clearance']+terms['extra_swing_clearance']+terms['excess_swing_clearance']
+                foot_metrics.update(clearance_metrics)
             if c.symmetry_enable:
                 disturbed = ((push_now & (dv > 1e-6)) | (trip_on & (adv > 0.)) |
                              (gust_start & (jnp.linalg.norm(gust) > 1e-6)))

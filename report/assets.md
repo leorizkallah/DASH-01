@@ -187,3 +187,18 @@ steps after five seconds. Two simultaneous angles, 30 fps, normal speed, blue
 left/orange right foot. Source/checkpoint/video hashes and traces are under
 `docs/experiments/gait08_20261017_v1/`. These are individual illustrative replays,
 not the multi-trial gait evaluation.
+
+
+### CLEARANCE-01 and controller midterm (27 October cleanup)
+
+[Clearance gallery](clearance01-videos.html) retains the successful evaluation
+replay and standalone startup failure. The compact encodings preserve duration,
+frame order and playback speed. Full-quality originals remain locally in
+`videos/.originals/`; original and encoded hashes are in `video-encoding.json`.
+Historical replay manifests still describe their original bytes; do not rewrite
+those manifests to match a later display encoding.
+
+[Midterm presentation](presentations/midterm-2026-10-29/README.md): the current
+Tim-template PPTX/PDF, embedded-clip assets, notes and provenance are versioned.
+The superseded first draft, Office lock file and regenerable previews stay local.
+Install report tooling using `pip install -r report/requirements.txt`.

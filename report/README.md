@@ -1,5 +1,28 @@
 # DASH-01 report workspace
 
+**Controller midterm presentation — Tim’s template:** [PowerPoint](presentations/midterm-2026-10-29/DASH01_controller_midterm_Tim_template.pptx),
+[PDF preview](presentations/midterm-2026-10-29/DASH01_controller_midterm_Tim_template.pdf),
+[speaker notes and sources](presentations/midterm-2026-10-29/README.md).
+18 main slides (~9m35, including outline/dividers/closing), embedded videos, three hidden backups;
+architecture, experiments, demo and early treadmill/sim-to-real roadmap.
+
+**CLEARANCE-02:** [200M-step run from the flat-feet baseline](../docs/clearance02-experiment-report.md),
+[submission status](../docs/experiments/clearance02_20261026_v1/STATUS.md).
+At 1.50 m/s: 10 mm minimum scheduled mid-swing height, bonus capped at 25 mm,
+explicit excess-height cost above 25 mm. Symmetry, flat support and slip retained.
+
+**CLEARANCE-01 completed:** [videos and foot-clearance graphs](clearance01-videos.html),
+[experiment report](../docs/clearance01-experiment-report.md).
+50.01M additional steps in 3h30m. Mean airborne lift **23.62/20.91 mm** left/right;
+12/12 nominal trials survive. Mid-swing coverage **57%/71%** remains below the
+80% criterion, so the policy is not fully qualified.
+
+[Project summary and session handoff](../PROJECT_CONTEXT.md).
+
+**Swing clearance baseline, focus 1.50 m/s:** [mean and peak foot lift during swing](flatfeet-clearance.md),
+with left/right peak distributions, time traces and CSV data for both checkpoints.
+Typical whole-foot peaks are below 10 mm; the existing clearance bonus begins at 20 mm.
+
 **Flat-feet symmetry v1 - completed 200M steps:** [videos and graphs](flatfeet-videos.html). Best checkpoint: 28/28 full-duration trials, 0.049 m/s tracking error.
 
 **Experiment:** [reward changes and 200M run contract](../docs/flatfeet-symmetry-v1.md),

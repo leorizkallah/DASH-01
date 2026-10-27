@@ -1,0 +1,34 @@
+Failed to import warp: No module named 'warp'
+Failed to import mujoco_warp: No module named 'warp'
+E1026 10:52:12.347721 1414507 numa_hwloc.cc:121] Call to hwloc_set_cpubind() failed: Invalid argument [22]
+[ppo] entropy schedule rescaled to the 50,000,000-step budget: deadline 40,000,000 -> 40,000,000, anneal 40,000,000 -> 25,000,000
+[ppo] resumed final.msgpack at 50,006,016 steps
+[eval] final.msgpack @ 50,006,016 steps  plant nominal
+[ppo] resumed final.msgpack at 50,006,016 steps
+{
+  "step": 50006016,
+  "seed": 1000,
+  "dt": 0.01,
+  "model": "model/dash01_cad_v2_homing.xml",
+  "checkpoint": "final.msgpack",
+  "label": "CLEARANCE-01",
+  "checkpoint_sha256": "dd9ee383e809dcb44ae9a6a3c4425e05ad1ec353a9a263005c7b5482dc189d3d",
+  "trials": [
+    {
+      "target": 1.5,
+      "ticks": 367,
+      "seconds": 3.67,
+      "fell": true,
+      "mean_speed_after_5s": null,
+      "speed_error_after_5s": null,
+      "flight_fraction": 0.1128065437078476,
+      "symmetry_terminated": false,
+      "outcome": "fall",
+      "completed_steps_after_5s": [
+        0,
+        0
+      ]
+    }
+  ],
+  "note": "Fresh nominal greedy replay trials, not the multi-trial gait evaluation. All trials retained; videos end at first termination, without showing auto-resets."
+}

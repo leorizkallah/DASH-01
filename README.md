@@ -13,7 +13,22 @@ The original Git history and [Mozilla Public License 2.0](LICENSE) are preserved
 
 ## Purpose of this branch
 
-**Latest completed experiment: flat-feet symmetry v1**, 200M steps on CAD-v2
+[Project summary and session handoff](PROJECT_CONTEXT.md).
+
+**Latest reviewed result: CLEARANCE-01**, 50.01M additional steps from the
+flat-feet baseline at 1.50 m/s. Mean airborne foot height reaches 23.62/20.91 mm
+left/right; mid-swing coverage and standalone startup remain unresolved.
+[Videos and graphs](report/clearance01-videos.html).
+
+**CLEARANCE-02 submitted:** 200M additional steps from the original flat-feet
+best checkpoint, targeting a lower 10–25 mm swing band. Job `3231747`; no later
+status is claimed here. [Training contract](docs/clearance02-experiment-report.md).
+
+[Controller midterm slides, PDF and notes](report/presentations/midterm-2026-10-29/README.md)
+use Tim’s actual presentation template. Local report tools:
+`pip install -r report/requirements.txt`.
+
+**Walking baseline: flat-feet symmetry v1**, 200M steps on CAD-v2
 with the supplied homing pose. It adds force-qualified heel/toe contact,
 contact-point slip, completed-step symmetry and mid-stance flat support.
 [Videos and graphs](report/flatfeet-videos.html) ·
@@ -22,10 +37,11 @@ contact-point slip, completed-step symmetry and mid-stance flat support.
 [WALK-01](docs/walk01-experiment-report.md) is the preceding 200M-step
 reproduction of Nathann's joystick walking recipe, without STOP practice.
 
-Active branch: **`dash-01-v2-speed-discovery`**. Start a fresh policy to discover
-the fastest sustained feasible forward locomotion for CAD-v2, beginning with
-Nathann's original speed objectives and a careful reward audit. This replaces
-the recent prescribed-alternation approach as the active research direction.
+Active branch: **`dash-01-v2-speed-discovery`**. It records speed discovery,
+original-policy transfer, and subsequent command-tracking walking experiments
+on CAD-v2. Clearance fine-tuning retains two-point flat feet and completed-step
+symmetry; the baseline’s remaining contact-history limitation is documented
+in the results above.
 
 Read the [upstream reward/source review](report/nathann-speed-reward-audit.md)
 and [implementation plan](docs/speed-discovery-plan.md). Seven upstream branches
@@ -41,8 +57,9 @@ gait discovery rather than promising a walking-only or symmetric result.
 
 ### Earlier campaign and later demonstration goals
 
-The campaign description below is historical. The speed-discovery objective
-above supersedes its walking-only restriction for this investigation.
+The campaign description below describes the broader demonstration goals.
+The latest completed training focuses on walking; startup and STOP integration
+remain later tasks.
 
 The `dash-01-v2` branch prepares for the new CAD model and a new policy-training
 campaign. The new CAD and corrected mass/inertia properties are now in
@@ -57,8 +74,9 @@ speeds. The demonstration will stay within walking speeds; transitions between
 walking and running gaits are outside its scope.
 
 Current priority: **learn walking directly**, with balance during motion learned
-as part of that task. Separate standing/startup training is deferred until a
-known homing position is supplied. The current simulated reset is not hardware homing.
+as part of that task. A supplied homing position is now the simulation reset.
+Separate standing/startup training remains deferred; the reset does not establish
+a hardware homing procedure.
 
 We will then train and validate the complete Robotics Day demonstration:
 

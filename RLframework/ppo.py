@@ -995,6 +995,18 @@ class PPO:
                     log[f'flatfeet/{name}'] = float(np.asarray(fm[name]).mean())
             log['flatfeet/termination_fraction'] = float(np.asarray(m['term_symmetry']).mean())
             log['flatfeet/reward_floor_fraction'] = float(np.asarray(m['reward_floor_hit']).mean())
+            if cfg.swing_clearance_enable:
+                for i, side in enumerate(('left','right')):
+                    height = np.maximum(np.asarray(fm['clearance'])[...,i],0.)
+                    air = ~np.asarray(fm['grounded'])[...,i]
+                    middle = np.asarray(fm['clearance_middle'])[...,i]
+                    log[f'clearance/{side}_mean_air_mm'] = float((height*air).sum()/max(air.sum(),1)*1000)
+                    log[f'clearance/{side}_mean_midswing_mm'] = float((height*middle).sum()/max(middle.sum(),1)*1000)
+                    coverage = float(((height>=cfg.swing_clearance_min_m)&middle).sum()/max(middle.sum(),1))
+                    log[f'clearance/{side}_midswing_ge_min'] = coverage
+                    log[f'clearance/{side}_midswing_ge{cfg.swing_clearance_min_m*1000:g}mm'] = coverage
+                    log[f'clearance/{side}_air_over_cap'] = float(((height>cfg.swing_clearance_bonus_cap_m)&air).sum()/max(air.sum(),1))
+                    log[f'clearance/{side}_air_fraction'] = float(air.mean())
         if cfg.bilateral_enable:
             bm = m['bilateral']
             for i, side in enumerate(('left', 'right')):

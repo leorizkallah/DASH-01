@@ -8,7 +8,7 @@ Every step-denominated number (curriculum spans, deadlines, anneals) is HALF its
 300 M steps at 100 Hz is the same 34.7 sim-days as 600 M at 200 Hz (§07 "timing and discount").
 """
 from dataclasses import dataclass, field
-from typing import Any, List
+from typing import List
 
 
 @dataclass
@@ -37,6 +37,13 @@ class Config:
     symmetry_planted_grace_s: float = 8.0
     symmetry_planted_other_steps: int = 4
     symmetry_recovery_s: float = 2.0
+    swing_clearance_enable: bool = False
+    swing_clearance_min_m: float = 0.020
+    swing_clearance_bonus_cap_m: float = 0.030
+    swing_clearance_ramp_fraction: float = 0.20
+    w_low_swing_clearance: float = 8.0
+    w_extra_swing_clearance: float = 1.0
+    w_excess_swing_clearance: float = 0.0  # Optional cost above the bonus cap; legacy runs unchanged.
     # ----- plant & timing ---------------------------------------------------------------------
     # model/make_v2_model.py builds both from walk_mit/model/dash01.xml: rigid ankle folded into
     # the shin (no joint, -0.209 kg of spring hardware per shin), loop closure stiffened to the
@@ -1100,6 +1107,8 @@ PRESETS = {
     "dash_joy3_lr": lambda: _cfg(model_path="model/dash01_free.xml", **_DASH_JOY3, **_FAST, lr_kl_adaptive=True),
     "cad_v2_walk01": lambda: _cad_v2_walk01(),
     "cad_v2_flatfeet_symmetry_v1": lambda: _cad_v2_flatfeet_symmetry_v1(),
+    "cad_v2_clearance01": lambda: _cad_v2_clearance01(),
+    "cad_v2_clearance02": lambda: _cad_v2_clearance02(),
 
     # dash_joy with a real stop: at zero stick the robot is paid to stand in the stable stance.
     "dash_joy_stand": lambda: _cfg(model_path="model/dash01_free.xml", **_DASH_JOY_STAND, **_FAST),
@@ -1155,6 +1164,41 @@ def _cad_v2_flatfeet_symmetry_v1():
     from dataclasses import replace
     return replace(_cad_v2_walk01(), two_point_feet=True, symmetry_enable=True,
                    flat_support_enable=True, w_foot_flat=0.)
+
+
+def _cad_v2_clearance01():
+    """50M warm-start pilot at 1.5 m/s; keep the selected parent's plant difficulty."""
+    from dataclasses import replace
+    return replace(_cad_v2_flatfeet_symmetry_v1(),
+        swing_clearance_enable=True, w_clearance=0.,
+        total_steps=50_000_000, walltime_hours=8.,
+        cmd_range=(.6,.6), cmd_range_start=(.6,.6), cmd_curriculum_steps=0,
+        eval_ladder=(.6,), eval_every_rollouts=200,
+        shape_curriculum_steps=0, shape_scale_start=1.,
+        track_sigma_steps=0, track_sigma_start=.3,
+        gait_curriculum_steps=0, stance_ratio_start=.5312979200000086,
+        stance_ratio_final=.5312979200000086,
+        efficiency_ramp_steps=0, efficiency_target=.5160959999999624,
+        # Nonzero span makes the existing initializer use dr_scale_start.
+        # Equal endpoints keep plant randomization fixed at the inherited level.
+        dr_curriculum_steps=1, dr_scale_start=.28418495999999915,
+        dr_scale_final=.28418495999999915, curriculum_order=(),
+        jitter_curriculum_steps=0,
+        learning_rate=5e-5, lr_final=1e-5, lr_kl_adaptive=True,
+        lr_warmup_updates=0, target_kl=.015,
+        warmstart_reset_log_std=False, warmstart_obs_count_cap=0.,
+        warmstart_var_floor=0., freeze_obs_stats=True,
+        max_log_std=-1.3862943611198906, std_anneal_target=.18,
+        ent_coef=.001, ent_final=.0005)
+
+
+def _cad_v2_clearance02():
+    """200M additional steps from flat-feet best, with a lower 10-25 mm target band."""
+    from dataclasses import replace
+    return replace(_cad_v2_clearance01(),
+        total_steps=200_000_000, walltime_hours=24.,
+        swing_clearance_min_m=.010, swing_clearance_bonus_cap_m=.025,
+        w_excess_swing_clearance=2., eval_every_rollouts=400)
 
 
 def _cad_v2_gait01():

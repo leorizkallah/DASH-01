@@ -32,18 +32,31 @@ def record(args):
     def simulate(weights, mean, var, count):
         stats = ObsStats(mean=mean, var=var, count=count)
         state, obs = env.reset(jax.random.PRNGKey(args.seed), params)
-        # Rebuild command-dependent reset features to match the pinned target.
-        state = state.replace(
-            v_cmd=targets,
-            cmd_left=jnp.full_like(state.cmd_left, 1e9),
-            stop_cmd=jnp.zeros_like(state.stop_cmd),
-        )
-        once = jax.vmap(env._once, in_axes=(0, None, 0, 0))(
-            state, params, state.phase, state.commit.astype(jnp.float32)
-        )
-        # The history width is the reset history flattened after subsampling.
-        start = state.hist[:, env.hist_idx].reshape((env.n_envs, -1)).shape[1]
-        obs = obs.at[:, start : start + once.shape[1]].set(once)
+        if not args.keep_reset_command:
+            # Rebuild command-dependent reset features to match the pinned target.
+            state = state.replace(
+                v_cmd=targets,
+                cmd_left=jnp.full_like(state.cmd_left, 1e9),
+                stop_cmd=jnp.zeros_like(state.stop_cmd),
+            )
+            once = jax.vmap(env._once, in_axes=(0, None, 0, 0))(
+                state, params, state.phase, state.commit.astype(jnp.float32)
+            )
+            # The history width is the reset history flattened after subsampling.
+            start = state.hist[:, env.hist_idx].reshape((env.n_envs, -1)).shape[1]
+            obs = obs.at[:, start : start + once.shape[1]].set(once)
+        else:
+            # Preserve the training evaluator's reset/command path, including redraws.
+            expected = np.asarray(args.targets)
+            lo, hi = np.asarray(cfg.cmd_range) * cfg.v_max
+            if (
+                cfg.cmd_zero_frac
+                or not np.allclose([lo, hi], expected[0])
+                or not np.allclose(expected, expected[0])
+            ):
+                raise ValueError(
+                    "--keep-reset-command requires the saved fixed command to match every target"
+                )
 
         def tick(carry, _):
             state, obs = carry
@@ -177,6 +190,10 @@ def save_record(args, cfg, env, agent, targets, rows, checkpoint, trace):
         dt=env.control_dt,
         model=cfg.model_path,
         checkpoint=checkpoint,
+        command_protocol="saved reset command"
+        if args.keep_reset_command
+        else "pinned command",
+        batch_size=len(args.targets),
         label=args.label or f"{args.run.name} {Path(checkpoint).stem}",
         checkpoint_sha256=hashlib.sha256(
             (args.run / checkpoint).read_bytes()
@@ -311,6 +328,11 @@ def main():
     )
     p.add_argument("--targets", nargs="+", type=float, default=[0.2, 0.35, 0.5])
     p.add_argument("--seed", type=int, default=1000)
+    p.add_argument(
+        "--keep-reset-command",
+        action="store_true",
+        help="Keep fixed-command reset unchanged to match the training clearance evaluator",
+    )
     p.add_argument("--prefix", default="gait02_best")
     p.add_argument("--label")
     p.add_argument("--two-views", action="store_true")

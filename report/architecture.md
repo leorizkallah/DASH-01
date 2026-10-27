@@ -1,8 +1,41 @@
 # Current control architecture
 
+## Latest reviewed architecture: clearance fine-tuning (27 October 2026)
+
+CLEARANCE-01 and the submitted CLEARANCE-02 retain the flat-feet baseline’s
+384-observation, 47-action interface and motor controller. The extra swing-height
+terms affect training rewards and evaluation, not actor sensor inputs. Motor
+effort is already observed through six torque channels per history frame:
+simulated applied torque during training, and current-derived torque estimates
+in the deployment code. This is not a separate raw-current observation channel.
+See [CLEARANCE-01 results](../docs/clearance01-experiment-report.md) and
+[CLEARANCE-02 contract](../docs/clearance02-experiment-report.md). No new hardware
+validation or post-submission job status is implied by this documentation update.
+
+## Flat-feet baseline (25 October 2026)
+
+The latest completed run uses CAD-v2 with the supplied `homing` reset. Its actor
+still has 384 observations and 47 actions (41 latched gait parameters and six
+live residuals), running at 100 Hz with six-motor PD control and 1 kHz physics.
+The training critic has 413 inputs. No explicit next-foot supervisor or new
+contact sensor input was added to the actor. STOP is disabled in this run.
+
+The environment now supports force-qualified toe/heel contacts, actual
+contact-point slip, symmetry measured over completed stance/swing cycles, and
+a modest flat-support cost in the middle 60% of scheduled stance. These are
+training reward/termination measurements. The original gait generator, motor
+controller and PPO architecture are retained. Homing supplies the initial pose;
+it is not an independently trained automatic startup controller.
+
+Job 3226505 completed 200M steps. Better speed tracking does not resolve all gait
+quality problems: short contact interruptions can evade completed-cycle symmetry
+termination. See the [results](../docs/flatfeet-symmetry-v1.md) and
+[project handoff](../PROJECT_CONTEXT.md). The updates below describe earlier
+experiments, rather than the latest deployment status.
+
 ## WALK-01 update
 
-The current submitted experiment restores Nathann's speed-command tracking
+This preceding completed experiment restores Nathann's speed-command tracking
 recipe on CAD-v2 with the supplied homing pose as the nominal reset. It starts
 fresh, retains the 384-input/47-action policy interface and six-motor PD control,
 and disables STOP/standing tasks. The same 41 gait parameters plus six residuals

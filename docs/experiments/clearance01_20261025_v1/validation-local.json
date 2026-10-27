@@ -1,0 +1,9 @@
+{
+  "local_tests": 23,
+  "scitas_tests": 23,
+  "parent_checkpoint_warm_start": "passed on SCITAS CPU",
+  "jax_reset_step_trace": "passed",
+  "actor_interface": "384 observations / 47 actions",
+  "gpu_smoke": "mandatory in-job prerequisite; not yet run",
+  "archive_sha256": "b266783b85181987e6342910a9b3cc2ba0abee68e4c63c6c8359c5800a590b32"
+}

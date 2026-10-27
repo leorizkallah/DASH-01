@@ -334,5 +334,37 @@
     "crf": 27,
     "preset": "medium",
     "note": "Report encoding only; simulation, speed and frame order unchanged. Original retained locally in ignored report/videos/.originals/."
+  },
+  "clearance01_final_1.50mps.mp4": {
+    "original_sha256": "5ea85a09a06d2ac05ef1012d9e82d04074510d5732193bbdcf29a2bbcceb2369",
+    "encoded_sha256": "dbbd21608d229839fac6261b77b8505a41088a7ae8b031cbe5fb9677d673c17a",
+    "original_bytes": 20619887,
+    "encoded_bytes": 3101609,
+    "fps": 20.0,
+    "seconds": 25.0,
+    "size": [
+      1280,
+      720
+    ],
+    "encoder": "libx264",
+    "crf": 27,
+    "preset": "medium",
+    "note": "Report encoding only; simulation, speed and frame order unchanged. Original retained locally in ignored report/videos/.originals/."
+  },
+  "clearance01_standalone_1.50mps.mp4": {
+    "original_sha256": "53f1a664169b770bcc050678d59e73af7020a8a0e2f10e14fa66dcde3d1575cd",
+    "encoded_sha256": "941d47505e5ecd94ca2c490824ec918cc0d68dfc6f3b65228e8feda17921c4ec",
+    "original_bytes": 3643719,
+    "encoded_bytes": 554100,
+    "fps": 30.0,
+    "seconds": 3.7,
+    "size": [
+      1280,
+      720
+    ],
+    "encoder": "libx264",
+    "crf": 27,
+    "preset": "medium",
+    "note": "Report encoding only; simulation, speed and frame order unchanged. Original retained locally in ignored report/videos/.originals/."
   }
 }

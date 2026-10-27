@@ -1,0 +1,53 @@
+{
+  "step": 50006016,
+  "seed": 1000,
+  "dt": 0.01,
+  "model": "model/dash01_cad_v2_homing.xml",
+  "checkpoint": "final.msgpack",
+  "command_protocol": "saved reset command",
+  "batch_size": 12,
+  "label": "CLEARANCE-01",
+  "checkpoint_sha256": "dd9ee383e809dcb44ae9a6a3c4425e05ad1ec353a9a263005c7b5482dc189d3d",
+  "trials": [
+    {
+      "target": 1.5,
+      "ticks": 2500,
+      "seconds": 25.0,
+      "fell": false,
+      "mean_speed_after_5s": 1.5031882524490356,
+      "speed_error_after_5s": 0.0290730819106102,
+      "flight_fraction": 0.1199599951505661,
+      "symmetry_terminated": false,
+      "outcome": "25 s completed",
+      "toe_mean_after_5s": [
+        0.2595,
+        0.28
+      ],
+      "heel_mean_after_5s": [
+        0.475,
+        0.4665
+      ],
+      "grounded_mean_after_5s": [
+        0.475,
+        0.4665
+      ],
+      "flat_mean_after_5s": [
+        0.2595,
+        0.28
+      ],
+      "slip_mean_after_5s": [
+        0.2066870629787445,
+        0.1407128870487213
+      ],
+      "error_mean_after_5s": 0.07288604974746704,
+      "gate_mean_after_5s": 1.0,
+      "completed_steps_after_5s": [
+        80,
+        80
+      ]
+    }
+  ],
+  "note": "Fresh nominal greedy replay trials, not the multi-trial gait evaluation. All trials retained; videos end at first termination, without showing auto-resets.",
+  "source_batch_trial": 0,
+  "source_batch_size": 12
+}

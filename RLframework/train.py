@@ -16,7 +16,6 @@ tensorboardX is installed).
 import argparse
 import csv
 import json
-import os
 import sys
 import time
 import signal
@@ -311,6 +310,16 @@ def main():
                 raise SystemExit('Gait baseline reward/survival preflight failed; inspect latest_gait_eval.json')
         last_quality_step = agent.step
     best_score = None
+    if cfg.swing_clearance_enable:
+        from clearance_eval import ClearanceEvaluator, record as record_gait
+        quality_evaluator = ClearanceEvaluator(cfg)
+        baseline_clearance = record_gait(agent, quality_evaluator, run)
+        last_quality_step = agent.step
+        if (agent.step == 0 and warm is not None and
+                (baseline_clearance['survival_fraction'] < .8 or
+                 baseline_clearance['actual_reward_mean'] <= 0. or
+                 baseline_clearance['reward_floor_fraction'] > .10)):
+            raise SystemExit('Clearance baseline reward/survival preflight failed; see clearance_baseline.json')
     if cfg.speed_discovery:
         if args.warm_start or args.warm_bundle:
             raise SystemExit('Speed discovery requires fresh initialization or same-run resume')

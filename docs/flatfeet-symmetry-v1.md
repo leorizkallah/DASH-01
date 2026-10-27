@@ -6,6 +6,12 @@ four-arm diagnostic experiment request: implement one focused adaptation, submit
 
 ## Completed results
 
+Follow-up measurement (25 October): [swing clearance baseline](../report/flatfeet-clearance.md).
+Typical whole-foot peaks are below 10 mm in these replays, with the final left
+foot especially low. The existing clearance reward begins above 20 mm and is
+zero over the measured post-startup windows. Both checkpoints and all speeds
+are documented with geometric height traces and per-bout CSV data.
+
 **Job 3226505 completed normally: 200,005,632 steps in 12h54m12s, exit 0:0.**
 The GPU smoke test passed, including one-time symmetry termination/autoreset and
 both finite PPO updates. No new training was launched during this results review.

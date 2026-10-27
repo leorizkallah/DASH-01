@@ -1,0 +1,9 @@
+# Local report, plot, replay-rendering and presentation tools; no JAX required.
+# PowerPoint is used separately by export_midterm_controller.ps1 on Windows.
+numpy>=2.0
+matplotlib>=3.8
+mujoco==3.13.0
+imageio>=2.34
+imageio-ffmpeg>=0.4.9
+pillow>=10.0
+python-pptx==1.0.2

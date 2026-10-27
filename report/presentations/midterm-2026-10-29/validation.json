@@ -1,0 +1,47 @@
+{
+  "passed": true,
+  "deck_stem": "DASH01_controller_midterm_Tim_template",
+  "slides": 21,
+  "main_slides": 18,
+  "hidden_backup_slides": [
+    19,
+    20,
+    21
+  ],
+  "suggested_seconds": 575,
+  "speaker_notes": true,
+  "pdf_pages": 18,
+  "embedded_videos": 4,
+  "external_relationships": 0,
+  "template_parts_xml_unchanged": [
+    "ppt/slideLayouts/slideLayout4.xml",
+    "ppt/slideLayouts/slideLayout3.xml",
+    "ppt/slideLayouts/slideLayout2.xml",
+    "ppt/slideLayouts/slideLayout1.xml",
+    "ppt/slideMasters/slideMaster1.xml",
+    "ppt/theme/theme1.xml",
+    "ppt/theme/theme2.xml"
+  ],
+  "reference_unchanged": true,
+  "new_content_overflow": [],
+  "inherited_template_bounds": [
+    {
+      "slide": 1,
+      "text": "DASH-01",
+      "excessHeight": 6,
+      "excessWidth": -139.62496948242188
+    },
+    {
+      "slide": 18,
+      "text": "Questions?",
+      "excessHeight": 6,
+      "excessWidth": -41.75
+    }
+  ],
+  "sha256": {
+    "DASH01_controller_midterm_Tim_template.pptx": "0a5ab4e3e26815e6e5e519d9658f3057789eedb30bf593c83b8379d69a96f6b2",
+    "DASH01_controller_midterm_Tim_template.pdf": "7fbc9198d657bf498295d127bcc91ad1e3523609efcc4a020d8aede7826123fe",
+    "speaker-notes.md": "279be2d5dd491deb00d2bd7767659f99c7d97511da99ed3853c976ff13b6e17e",
+    "sources.md": "356eaebf1404592debdb5c5f667a6927c33a82f02bbc9cd5c874507ebe5516e5"
+  }
+}

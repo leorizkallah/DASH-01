@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "files_verified": 92,
+  "parent_step": 184320000,
+  "parent_sha256": "b1d82e549c8402b185fb90eb5665ebe4d334838f65b81b55e3268443c693f3cc",
+  "preset": "cad_v2_clearance02",
+  "tests_passed": 27,
+  "archive_sha256": "5e21b61f32c72127378d0632b44e88fb0f718d8a2bc2a5fd7ddca567e7ce945a",
+  "note": "Source/configuration/parent verified; GPU smoke and baseline budget gate remain in-allocation checks."
+}

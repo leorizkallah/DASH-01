@@ -1,0 +1,636 @@
+Verified source and parent checkpoint hashes
+----------------------------------------------------------------------
+Ran 23 tests in 2.183s
+
+OK
+Failed to import warp: No module named 'warp'
+Failed to import mujoco_warp: No module named 'warp'
+[ppo] entropy schedule rescaled to the 50,000,000-step budget: deadline 40,000,000 -> 40,000,000, anneal 40,000,000 -> 25,000,000
+[ppo] warm-started weights + obs stats <- best.msgpack (fresh optimizer, schedules, step 0)
+{
+  "passed": true,
+  "device": "cuda:0",
+  "parent_sha256": "b1d82e549c8402b185fb90eb5665ebe4d334838f65b81b55e3268443c693f3cc",
+  "warm_start_step_reset": true,
+  "updates": [
+    {
+      "train/loss_pg": 2.7939677238464355e-08,
+      "train/loss_vf": 70.07234191894531,
+      "train/approx_kl": 2.2562507417944744e-12,
+      "rollout/reward_mean": -0.5,
+      "reward_terms/low_swing_clearance": -7.595350742340088,
+      "reward_terms/extra_swing_clearance": 0.0,
+      "clearance/left_mean_air_mm": 0.07789503169161352,
+      "clearance/right_mean_air_mm": 0.0
+    },
+    {
+      "train/loss_pg": -2.2351741790771484e-08,
+      "train/loss_vf": 95.08839416503906,
+      "train/approx_kl": 5.712652573208743e-13,
+      "rollout/reward_mean": 0.18578055500984192,
+      "reward_terms/low_swing_clearance": -2.518686532974243,
+      "reward_terms/extra_swing_clearance": 0.0,
+      "clearance/left_mean_air_mm": 0.36146133564985716,
+      "clearance/right_mean_air_mm": 7.140073568924613
+    }
+  ],
+  "smoke_steps": 256,
+  "note": "Temporary 16x8, one epoch; real training initializes again from the unchanged parent."
+}
+Failed to import warp: No module named 'warp'
+Failed to import mujoco_warp: No module named 'warp'
+[train] jax 0.11.1 devices [CudaDevice(id=0)]
+[train] env: model/dash01_cad_v2_homing.xml spec_source=policy n_envs=512x1 actor_obs=384 obs=413 action=47 control 100 Hz
+[ppo] entropy schedule rescaled to the 50,000,000-step budget: deadline 40,000,000 -> 40,000,000, anneal 40,000,000 -> 25,000,000
+[ppo] warm-started weights + obs stats <- best.msgpack (fresh optimizer, schedules, step 0)
+[train] reset 512 envs on 1 device(s) in 18.2s
+[clearance @ 0] survived 100%; mean air L/R [2.4633276262718553, 2.247962871218821] mm; qualified 0%
+[train] target 50,000,000 steps, rollout 18,432 (512x36), 4 minibatches of 4608, starting at 0
+[train] walltime remaining 28354s; reserve 600s; step limit 50000000
+[      18,432] ep_len      24  ret   -106.4  fin   0/3    rew -0.344  kl 0.0142 std 0.18 f 4.00Hz sat 0.01  346 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[ppo] curriculum gate 'dr_scale' opened at 165,888 steps (ep_len 287)
+[     184,320] ep_len     336  ret    349.2  fin   0/4    rew +1.819  kl 0.0058 std 0.18 f 4.00Hz sat 0.04  5,536 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[     368,640] ep_len     675  ret    759.1  fin   0/5    rew +1.650  kl 0.0067 std 0.18 f 4.00Hz sat 0.05  5,472 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[ppo] entropy anneal opened via competence gate (swing_min=0.470) at 405,504 steps
+[     552,960] ep_len     482  ret    708.6  fin   0/4    rew +1.538  kl 0.0065 std 0.18 f 4.00Hz sat 0.06  5,493 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[     737,280] ep_len     956  ret   1539.2  fin   0/6    rew +1.336  kl 0.0098 std 0.18 f 4.00Hz sat 0.07  5,394 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[     921,600] ep_len    1509  ret   2026.7  fin   0/9    rew +1.478  kl 0.0083 std 0.18 f 4.00Hz sat 0.09  5,350 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[   1,105,920] ep_len    1359  ret   1896.6  fin   0/7    rew +1.769  kl 0.0104 std 0.18 f 4.00Hz sat 0.08  5,351 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[   1,290,240] ep_len    2268  ret   3254.2  fin   0/6    rew +1.763  kl 0.0113 std 0.18 f 4.00Hz sat 0.09  5,381 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[   1,474,560] ep_len    2514  ret   4121.8  fin   0/4    rew +1.777  kl 0.0077 std 0.18 f 4.00Hz sat 0.08  5,330 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[   1,658,880] ep_len    1128  ret   1743.8  fin   0/8    rew +1.683  kl 0.0089 std 0.18 f 4.00Hz sat 0.07  5,382 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[   1,843,200] ep_len    2018  ret   3170.4  fin   0/9    rew +1.665  kl 0.0090 std 0.18 f 4.00Hz sat 0.06  5,370 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[   2,027,520] ep_len    1365  ret   2316.6  fin   0/7    rew +1.815  kl 0.0115 std 0.18 f 4.00Hz sat 0.08  5,325 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[   2,211,840] ep_len    1377  ret   2272.3  fin   0/7    rew +1.735  kl 0.0058 std 0.18 f 4.00Hz sat 0.07  5,347 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[   2,396,160] ep_len    1590  ret   2575.0  fin   0/10   rew +1.787  kl 0.0084 std 0.18 f 4.00Hz sat 0.08  4,683 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[   2,580,480] ep_len    2024  ret   3643.8  fin   0/5    rew +1.806  kl 0.0116 std 0.18 f 4.00Hz sat 0.08  5,487 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[   2,764,800] ep_len    1851  ret   3085.4  fin   0/8    rew +1.763  kl 0.0066 std 0.18 f 4.00Hz sat 0.08  5,414 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[   2,949,120] ep_len    1495  ret   2696.0  fin   0/8    rew +1.835  kl 0.0083 std 0.18 f 4.00Hz sat 0.08  5,388 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[   3,133,440] ep_len    1609  ret   2715.2  fin   0/13   rew +1.684  kl 0.0086 std 0.18 f 4.00Hz sat 0.07  5,384 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[   3,317,760] ep_len    2226  ret   4148.0  fin   0/5    rew +1.824  kl 0.0084 std 0.18 f 4.00Hz sat 0.06  5,373 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[   3,502,080] ep_len     784  ret   1201.6  fin   0/4    rew +1.760  kl 0.0082 std 0.18 f 4.00Hz sat 0.07  5,356 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[   3,686,400] ep_len    1213  ret   2044.6  fin   0/4    rew +1.790  kl 0.0077 std 0.18 f 4.00Hz sat 0.06  5,356 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[clearance @ 3,686,400] survived 92%; mean air L/R [0.7999840727158802, 3.859260865720519] mm; qualified 0%
+[eval @ 3,686,400] ladder cmd-err 0.03 m/s, heading 2.2 deg, upright 100%, bring-up 100%  (316s)
+            per stick (err m/s / upright):  60%:0.03/100%
+[   3,870,720] ep_len    2049  ret   3583.8  fin   0/10   rew +1.804  kl 0.0073 std 0.18 f 4.00Hz sat 0.07  5,353 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[   4,055,040] ep_len    1981  ret   3552.6  fin   0/7    rew +1.862  kl 0.0112 std 0.18 f 4.00Hz sat 0.07  5,368 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[   4,239,360] ep_len    1560  ret   2812.9  fin   0/11   rew +1.846  kl 0.0130 std 0.18 f 4.00Hz sat 0.07  5,331 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[   4,423,680] ep_len    2019  ret   3799.7  fin   0/9    rew +1.817  kl 0.0099 std 0.18 f 4.00Hz sat 0.07  5,313 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[   4,608,000] ep_len    2786  ret   5158.7  fin   0/42   rew +1.829  kl 0.0069 std 0.18 f 4.00Hz sat 0.06  5,376 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[   4,792,320] ep_len    2522  ret   4646.5  fin   0/7    rew +1.914  kl 0.0061 std 0.18 f 4.00Hz sat 0.06  5,400 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[   4,976,640] ep_len    1965  ret   3598.7  fin   0/8    rew +1.874  kl 0.0059 std 0.18 f 4.00Hz sat 0.05  5,376 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[   5,160,960] ep_len    2554  ret   4805.9  fin   0/8    rew +1.934  kl 0.0117 std 0.18 f 4.00Hz sat 0.06  5,340 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[   5,345,280] ep_len    2619  ret   5004.8  fin   0/12   rew +1.910  kl 0.0077 std 0.18 f 4.00Hz sat 0.06  5,426 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[   5,529,600] ep_len    1969  ret   3667.8  fin   0/7    rew +1.975  kl 0.0066 std 0.18 f 4.00Hz sat 0.06  5,460 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[   5,713,920] ep_len    2102  ret   3945.7  fin   0/8    rew +1.948  kl 0.0079 std 0.18 f 4.00Hz sat 0.05  5,385 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[   5,898,240] ep_len    2148  ret   3934.2  fin   0/6    rew +2.024  kl 0.0063 std 0.18 f 4.00Hz sat 0.05  5,440 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[   6,082,560] ep_len    2800  ret   5453.4  fin   0/10   rew +2.055  kl 0.0067 std 0.18 f 4.00Hz sat 0.05  5,406 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[   6,266,880] ep_len    2449  ret   4899.0  fin   0/3    rew +2.054  kl 0.0054 std 0.18 f 4.00Hz sat 0.05  5,452 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[   6,451,200] ep_len    2005  ret   3617.5  fin   0/8    rew +2.084  kl 0.0071 std 0.18 f 4.00Hz sat 0.05  5,471 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[   6,635,520] ep_len    1704  ret   3322.4  fin   0/6    rew +2.024  kl 0.0061 std 0.18 f 4.00Hz sat 0.04  5,404 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[   6,819,840] ep_len    2591  ret   5445.6  fin   0/6    rew +2.088  kl 0.0051 std 0.18 f 4.00Hz sat 0.04  5,378 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[   7,004,160] ep_len    2540  ret   5544.1  fin   0/7    rew +2.099  kl 0.0057 std 0.18 f 4.00Hz sat 0.05  5,487 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[   7,188,480] ep_len    2187  ret   4204.4  fin   0/8    rew +2.100  kl 0.0061 std 0.18 f 4.00Hz sat 0.04  5,436 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[   7,372,800] ep_len    2140  ret   4359.5  fin   0/11   rew +2.078  kl 0.0071 std 0.18 f 4.00Hz sat 0.04  5,416 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[clearance @ 7,372,800] survived 100%; mean air L/R [4.678391753739436, 6.25340427086843] mm; qualified 0%
+[eval @ 7,372,800] ladder cmd-err 0.02 m/s, heading 3.4 deg, upright 100%, bring-up 100%  (196s)
+            per stick (err m/s / upright):  60%:0.02/100%
+[   7,557,120] ep_len    1742  ret   3426.0  fin   0/6    rew +2.142  kl 0.0068 std 0.18 f 4.00Hz sat 0.04  5,426 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[   7,741,440] ep_len    2195  ret   4788.4  fin   0/4    rew +2.127  kl 0.0115 std 0.18 f 4.00Hz sat 0.04  5,491 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[   7,925,760] ep_len    1594  ret   3137.7  fin   0/12   rew +2.138  kl 0.0056 std 0.18 f 4.00Hz sat 0.04  5,463 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[   8,110,080] ep_len    2418  ret   4968.2  fin   0/9    rew +2.066  kl 0.0070 std 0.18 f 4.00Hz sat 0.04  5,456 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[   8,294,400] ep_len    2766  ret   5858.0  fin   0/11   rew +2.188  kl 0.0077 std 0.18 f 4.00Hz sat 0.04  5,414 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[   8,478,720] ep_len    2974  ret   6139.4  fin   0/2    rew +2.166  kl 0.0060 std 0.18 f 4.00Hz sat 0.04  5,463 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[   8,663,040] ep_len    1383  ret   2865.0  fin   0/4    rew +2.144  kl 0.0063 std 0.18 f 4.00Hz sat 0.04  5,434 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[   8,847,360] ep_len    2386  ret   5241.4  fin   0/7    rew +2.196  kl 0.0088 std 0.18 f 4.00Hz sat 0.04  5,488 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[   9,031,680] ep_len    2236  ret   4833.5  fin   0/14   rew +2.163  kl 0.0079 std 0.18 f 4.00Hz sat 0.04  5,558 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[   9,216,000] ep_len    2677  ret   5987.3  fin   0/17   rew +2.101  kl 0.0070 std 0.18 f 4.00Hz sat 0.03  5,484 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[   9,400,320] ep_len    2035  ret   4220.2  fin   0/9    rew +2.094  kl 0.0049 std 0.18 f 4.00Hz sat 0.04  5,421 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[   9,584,640] ep_len    2057  ret   4359.9  fin   0/8    rew +2.164  kl 0.0061 std 0.18 f 4.00Hz sat 0.03  5,411 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[   9,768,960] ep_len    1436  ret   2729.3  fin   0/6    rew +2.146  kl 0.0061 std 0.18 f 4.00Hz sat 0.03  5,443 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[   9,953,280] ep_len    1531  ret   3467.6  fin   0/6    rew +2.259  kl 0.0069 std 0.18 f 4.00Hz sat 0.03  5,457 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  10,137,600] ep_len    1693  ret   3548.0  fin   0/10   rew +2.224  kl 0.0052 std 0.18 f 4.00Hz sat 0.03  5,437 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  10,321,920] ep_len    1487  ret   3060.4  fin   0/15   rew +2.145  kl 0.0061 std 0.18 f 4.00Hz sat 0.03  5,481 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  10,506,240] ep_len    1988  ret   4259.0  fin   0/7    rew +2.218  kl 0.0071 std 0.18 f 4.00Hz sat 0.04  5,421 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  10,690,560] ep_len    1768  ret   3633.8  fin   0/7    rew +2.205  kl 0.0067 std 0.18 f 4.00Hz sat 0.03  5,434 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  10,874,880] ep_len    1441  ret   2978.3  fin   0/13   rew +2.195  kl 0.0055 std 0.18 f 4.00Hz sat 0.04  5,448 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  11,059,200] ep_len    2706  ret   5942.1  fin   0/4    rew +2.356  kl 0.0064 std 0.18 f 4.00Hz sat 0.04  5,384 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[clearance @ 11,059,200] survived 92%; mean air L/R [9.823085621220024, 9.698045162627865] mm; qualified 0%
+[eval @ 11,059,200] ladder cmd-err 0.02 m/s, heading 1.3 deg, upright 100%, bring-up 100%  (198s)
+            per stick (err m/s / upright):  60%:0.02/100%
+[  11,243,520] ep_len    1842  ret   4066.1  fin   0/15   rew +2.271  kl 0.0066 std 0.18 f 4.00Hz sat 0.04  5,452 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  11,427,840] ep_len    2269  ret   5406.9  fin   0/9    rew +2.268  kl 0.0052 std 0.18 f 4.00Hz sat 0.04  5,450 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  11,612,160] ep_len    2020  ret   4417.0  fin   0/7    rew +2.307  kl 0.0068 std 0.18 f 4.00Hz sat 0.04  5,466 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  11,796,480] ep_len    1944  ret   4703.6  fin   0/7    rew +2.290  kl 0.0083 std 0.18 f 4.00Hz sat 0.04  5,338 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  11,980,800] ep_len    1753  ret   4059.2  fin   0/8    rew +2.376  kl 0.0064 std 0.18 f 4.00Hz sat 0.04  5,354 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  12,165,120] ep_len    1954  ret   4385.8  fin   0/11   rew +2.373  kl 0.0069 std 0.18 f 4.00Hz sat 0.05  5,402 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  12,349,440] ep_len    2254  ret   5593.8  fin   0/11   rew +2.372  kl 0.0071 std 0.18 f 4.00Hz sat 0.05  5,447 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  12,533,760] ep_len    1886  ret   4525.5  fin   0/14   rew +2.318  kl 0.0045 std 0.18 f 4.00Hz sat 0.05  5,458 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  12,718,080] ep_len    1818  ret   4074.2  fin   0/5    rew +2.460  kl 0.0106 std 0.18 f 4.00Hz sat 0.05  5,502 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  12,902,400] ep_len    1852  ret   4242.5  fin   0/12   rew +2.400  kl 0.0056 std 0.18 f 4.00Hz sat 0.05  5,399 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  13,086,720] ep_len    3000  ret   7786.7  fin   0/6    rew +2.468  kl 0.0072 std 0.18 f 4.00Hz sat 0.05  5,380 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  13,271,040] ep_len    1373  ret   3125.9  fin   0/9    rew +2.417  kl 0.0072 std 0.18 f 4.00Hz sat 0.05  5,399 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  13,455,360] ep_len    1622  ret   3691.5  fin   0/10   rew +2.384  kl 0.0065 std 0.18 f 4.00Hz sat 0.05  5,390 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  13,639,680] ep_len    2356  ret   5885.9  fin   0/7    rew +2.410  kl 0.0074 std 0.18 f 4.00Hz sat 0.05  5,461 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  13,824,000] ep_len    2389  ret   5914.1  fin   0/13   rew +2.414  kl 0.0061 std 0.18 f 4.00Hz sat 0.05  5,383 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  14,008,320] ep_len    1231  ret   2791.5  fin   0/4    rew +2.494  kl 0.0071 std 0.18 f 4.00Hz sat 0.06  5,411 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  14,192,640] ep_len    2222  ret   5574.4  fin   0/8    rew +2.415  kl 0.0052 std 0.18 f 4.00Hz sat 0.06  5,388 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  14,376,960] ep_len    1899  ret   4482.7  fin   0/11   rew +2.448  kl 0.0059 std 0.17 f 4.00Hz sat 0.06  5,386 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  14,561,280] ep_len    2893  ret   6928.5  fin   0/7    rew +2.526  kl 0.0088 std 0.17 f 4.00Hz sat 0.06  5,387 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  14,745,600] ep_len    1599  ret   3678.4  fin   0/8    rew +2.544  kl 0.0072 std 0.17 f 4.00Hz sat 0.06  5,299 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[clearance @ 14,745,600] survived 100%; mean air L/R [12.71738963064318, 15.992748044610986] mm; qualified 0%
+[eval @ 14,745,600] ladder cmd-err 0.04 m/s, heading 2.6 deg, upright 100%, bring-up 100%  (193s)
+            per stick (err m/s / upright):  60%:0.04/100%
+[  14,929,920] ep_len    2766  ret   7073.9  fin   0/7    rew +2.526  kl 0.0079 std 0.17 f 4.00Hz sat 0.06  5,309 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  15,114,240] ep_len    1418  ret   3344.3  fin   0/11   rew +2.528  kl 0.0046 std 0.17 f 4.00Hz sat 0.06  5,379 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  15,298,560] ep_len    2251  ret   5470.9  fin   0/11   rew +2.557  kl 0.0073 std 0.17 f 4.00Hz sat 0.05  5,322 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  15,482,880] ep_len    1881  ret   4694.3  fin   0/10   rew +2.534  kl 0.0050 std 0.17 f 4.00Hz sat 0.06  5,331 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  15,667,200] ep_len    1916  ret   5102.3  fin   0/10   rew +2.486  kl 0.0054 std 0.17 f 4.00Hz sat 0.06  5,414 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  15,851,520] ep_len    2273  ret   5861.9  fin   0/7    rew +2.497  kl 0.0066 std 0.17 f 4.00Hz sat 0.05  5,457 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  16,035,840] ep_len    1173  ret   2958.1  fin   0/9    rew +2.572  kl 0.0096 std 0.17 f 4.00Hz sat 0.05  5,359 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  16,220,160] ep_len    2019  ret   5116.6  fin   0/11   rew +2.564  kl 0.0069 std 0.17 f 4.00Hz sat 0.06  5,314 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  16,404,480] ep_len    1466  ret   3875.2  fin   0/8    rew +2.526  kl 0.0061 std 0.17 f 4.00Hz sat 0.06  5,336 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  16,588,800] ep_len    1954  ret   4989.8  fin   0/9    rew +2.530  kl 0.0057 std 0.17 f 4.00Hz sat 0.06  5,374 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  16,773,120] ep_len    2396  ret   6772.5  fin   0/7    rew +2.641  kl 0.0093 std 0.17 f 4.00Hz sat 0.06  5,406 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  16,957,440] ep_len    1284  ret   2998.6  fin   0/12   rew +2.523  kl 0.0063 std 0.17 f 4.00Hz sat 0.05  5,396 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  17,141,760] ep_len    2300  ret   6029.0  fin   0/5    rew +2.777  kl 0.0092 std 0.17 f 4.00Hz sat 0.06  5,426 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  17,326,080] ep_len    1903  ret   5098.9  fin   0/11   rew +2.597  kl 0.0053 std 0.17 f 4.00Hz sat 0.06  5,407 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  17,510,400] ep_len    1859  ret   4786.3  fin   0/6    rew +2.615  kl 0.0066 std 0.17 f 4.00Hz sat 0.05  5,366 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  17,694,720] ep_len    1821  ret   4706.9  fin   0/7    rew +2.681  kl 0.0082 std 0.17 f 4.00Hz sat 0.05  5,426 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  17,879,040] ep_len    2052  ret   5384.6  fin   0/7    rew +2.650  kl 0.0080 std 0.17 f 4.00Hz sat 0.05  5,424 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  18,063,360] ep_len    2525  ret   6675.9  fin   0/8    rew +2.728  kl 0.0052 std 0.17 f 4.00Hz sat 0.05  5,417 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  18,247,680] ep_len    1471  ret   3720.1  fin   0/7    rew +2.778  kl 0.0076 std 0.17 f 4.00Hz sat 0.04  5,391 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  18,432,000] ep_len    2366  ret   6295.3  fin   0/12   rew +2.713  kl 0.0072 std 0.17 f 4.00Hz sat 0.05  5,426 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[clearance @ 18,432,000] survived 100%; mean air L/R [15.859371323203423, 16.37501360245609] mm; qualified 0%
+[eval @ 18,432,000] ladder cmd-err 0.04 m/s, heading 2.7 deg, upright 100%, bring-up 100%  (195s)
+            per stick (err m/s / upright):  60%:0.04/100%
+[  18,616,320] ep_len    2063  ret   5653.2  fin   0/9    rew +2.710  kl 0.0049 std 0.17 f 4.00Hz sat 0.04  5,392 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  18,800,640] ep_len    2262  ret   6084.4  fin   0/10   rew +2.755  kl 0.0083 std 0.17 f 4.00Hz sat 0.04  5,443 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  18,984,960] ep_len    1990  ret   5638.5  fin   0/8    rew +2.839  kl 0.0065 std 0.17 f 4.00Hz sat 0.05  5,406 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  19,169,280] ep_len    1224  ret   3384.3  fin   0/10   rew +2.788  kl 0.0057 std 0.17 f 4.00Hz sat 0.05  5,449 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  19,353,600] ep_len    1733  ret   4845.4  fin   0/5    rew +2.891  kl 0.0075 std 0.17 f 4.00Hz sat 0.05  5,394 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  19,537,920] ep_len    1823  ret   4880.8  fin   0/11   rew +2.787  kl 0.0063 std 0.17 f 4.00Hz sat 0.05  5,372 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  19,722,240] ep_len    2339  ret   6469.9  fin   0/10   rew +2.840  kl 0.0057 std 0.17 f 4.00Hz sat 0.05  5,376 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  19,906,560] ep_len    1841  ret   5176.0  fin   0/11   rew +2.849  kl 0.0046 std 0.17 f 4.00Hz sat 0.05  5,368 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  20,090,880] ep_len    2432  ret   7253.8  fin   0/8    rew +2.877  kl 0.0066 std 0.17 f 4.00Hz sat 0.05  5,397 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  20,275,200] ep_len    1892  ret   5513.9  fin   0/7    rew +2.869  kl 0.0045 std 0.17 f 4.00Hz sat 0.05  5,356 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  20,459,520] ep_len    2420  ret   6778.3  fin   0/13   rew +2.901  kl 0.0066 std 0.17 f 4.00Hz sat 0.05  5,389 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  20,643,840] ep_len    2401  ret   6967.5  fin   0/12   rew +2.945  kl 0.0069 std 0.17 f 4.00Hz sat 0.05  5,386 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  20,828,160] ep_len    2086  ret   5972.3  fin   0/9    rew +2.897  kl 0.0084 std 0.17 f 4.00Hz sat 0.05  5,406 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  21,012,480] ep_len    1899  ret   5300.7  fin   0/13   rew +2.930  kl 0.0065 std 0.17 f 4.00Hz sat 0.06  5,409 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  21,196,800] ep_len    2124  ret   6116.6  fin   0/8    rew +2.924  kl 0.0071 std 0.17 f 4.00Hz sat 0.05  5,444 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  21,381,120] ep_len    2346  ret   6831.0  fin   0/9    rew +2.940  kl 0.0063 std 0.17 f 4.00Hz sat 0.06  5,399 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  21,565,440] ep_len    2711  ret   8288.0  fin   0/9    rew +2.942  kl 0.0058 std 0.17 f 4.00Hz sat 0.06  5,391 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  21,749,760] ep_len    1284  ret   3932.8  fin   0/3    rew +2.901  kl 0.0074 std 0.17 f 4.00Hz sat 0.06  5,391 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  21,934,080] ep_len    1726  ret   4985.8  fin   0/11   rew +2.922  kl 0.0055 std 0.16 f 4.00Hz sat 0.06  5,383 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  22,118,400] ep_len    2052  ret   5964.2  fin   0/9    rew +2.913  kl 0.0064 std 0.16 f 4.00Hz sat 0.06  5,388 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[clearance @ 22,118,400] survived 100%; mean air L/R [16.873522033426177, 16.39237875643327] mm; qualified 0%
+[eval @ 22,118,400] ladder cmd-err 0.05 m/s, heading 6.5 deg, upright 100%, bring-up 100%  (198s)
+            per stick (err m/s / upright):  60%:0.05/100%
+[  22,302,720] ep_len    1596  ret   4875.6  fin   0/5    rew +2.989  kl 0.0056 std 0.16 f 4.00Hz sat 0.06  5,398 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  22,487,040] ep_len    1595  ret   4547.9  fin   0/8    rew +2.975  kl 0.0073 std 0.16 f 4.00Hz sat 0.06  5,408 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  22,671,360] ep_len    1839  ret   5160.6  fin   0/8    rew +3.016  kl 0.0075 std 0.16 f 4.00Hz sat 0.06  5,420 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  22,855,680] ep_len    1559  ret   4411.0  fin   0/13   rew +2.861  kl 0.0066 std 0.16 f 4.00Hz sat 0.06  5,402 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  23,040,000] ep_len    1746  ret   5031.9  fin   0/10   rew +2.985  kl 0.0057 std 0.16 f 4.00Hz sat 0.05  5,427 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  23,224,320] ep_len    1309  ret   3776.9  fin   0/8    rew +2.975  kl 0.0063 std 0.16 f 4.00Hz sat 0.05  5,437 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  23,408,640] ep_len    3000  ret   9584.4  fin   0/4    rew +3.120  kl 0.0053 std 0.16 f 4.00Hz sat 0.05  5,454 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  23,592,960] ep_len    1714  ret   5054.3  fin   0/9    rew +3.075  kl 0.0077 std 0.16 f 4.00Hz sat 0.05  5,431 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  23,777,280] ep_len    1953  ret   6183.7  fin   0/9    rew +3.081  kl 0.0071 std 0.16 f 4.00Hz sat 0.06  5,427 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  23,961,600] ep_len    2240  ret   6767.5  fin   0/15   rew +2.988  kl 0.0053 std 0.16 f 4.00Hz sat 0.05  5,442 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  24,145,920] ep_len    1236  ret   3421.2  fin   0/12   rew +3.000  kl 0.0074 std 0.16 f 4.00Hz sat 0.05  5,502 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  24,330,240] ep_len    2272  ret   7284.7  fin   0/11   rew +3.072  kl 0.0076 std 0.16 f 4.00Hz sat 0.05  5,468 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  24,514,560] ep_len    1983  ret   6144.7  fin   0/8    rew +3.122  kl 0.0079 std 0.16 f 4.00Hz sat 0.05  5,408 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  24,698,880] ep_len    1827  ret   5568.3  fin   0/17   rew +2.990  kl 0.0059 std 0.16 f 4.00Hz sat 0.05  5,463 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  24,883,200] ep_len    2063  ret   6354.2  fin   0/7    rew +3.112  kl 0.0067 std 0.16 f 4.00Hz sat 0.05  5,461 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  25,067,520] ep_len    2309  ret   7335.6  fin   0/8    rew +3.117  kl 0.0064 std 0.16 f 4.00Hz sat 0.05  5,524 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  25,251,840] ep_len    2126  ret   6656.9  fin   0/13   rew +3.202  kl 0.0084 std 0.16 f 4.00Hz sat 0.05  5,486 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  25,436,160] ep_len    2262  ret   7077.2  fin   0/9    rew +3.159  kl 0.0091 std 0.16 f 4.00Hz sat 0.05  5,489 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  25,620,480] ep_len    1926  ret   6004.7  fin   0/10   rew +3.108  kl 0.0060 std 0.16 f 4.00Hz sat 0.05  5,438 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  25,804,800] ep_len    2235  ret   7160.0  fin   0/16   rew +3.139  kl 0.0051 std 0.16 f 4.00Hz sat 0.05  5,460 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[clearance @ 25,804,800] survived 92%; mean air L/R [16.526941809174147, 15.986424210735265] mm; qualified 0%
+[eval @ 25,804,800] ladder cmd-err 0.04 m/s, heading 1.3 deg, upright 92%, bring-up 100%  (207s)
+            per stick (err m/s / upright):  60%:0.04/92%
+[  25,989,120] ep_len    2493  ret   8069.2  fin   0/4    rew +3.221  kl 0.0079 std 0.16 f 4.00Hz sat 0.05  5,490 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  26,173,440] ep_len    2274  ret   7054.5  fin   0/7    rew +3.182  kl 0.0065 std 0.16 f 4.00Hz sat 0.05  5,439 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  26,357,760] ep_len    1893  ret   6412.4  fin   0/5    rew +3.224  kl 0.0060 std 0.16 f 4.00Hz sat 0.05  5,412 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  26,542,080] ep_len    1686  ret   5567.6  fin   0/7    rew +3.252  kl 0.0069 std 0.16 f 4.00Hz sat 0.05  5,444 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  26,726,400] ep_len    1972  ret   6283.1  fin   0/13   rew +3.185  kl 0.0058 std 0.16 f 4.00Hz sat 0.05  5,405 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  26,910,720] ep_len    1962  ret   6008.4  fin   0/7    rew +3.203  kl 0.0058 std 0.16 f 4.00Hz sat 0.05  5,447 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  27,095,040] ep_len    1655  ret   5080.0  fin   0/7    rew +3.221  kl 0.0075 std 0.16 f 4.00Hz sat 0.05  5,448 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  27,279,360] ep_len    1843  ret   5991.8  fin   0/7    rew +3.212  kl 0.0077 std 0.16 f 4.00Hz sat 0.05  5,444 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  27,463,680] ep_len    2112  ret   6336.4  fin   0/7    rew +3.172  kl 0.0076 std 0.16 f 4.00Hz sat 0.06  5,432 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  27,648,000] ep_len    2020  ret   6552.7  fin   0/13   rew +3.195  kl 0.0067 std 0.16 f 4.00Hz sat 0.06  5,465 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  27,832,320] ep_len    1840  ret   5856.5  fin   0/8    rew +3.212  kl 0.0061 std 0.16 f 4.00Hz sat 0.06  5,487 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  28,016,640] ep_len    1382  ret   4289.6  fin   0/7    rew +3.224  kl 0.0065 std 0.16 f 4.00Hz sat 0.05  5,466 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  28,200,960] ep_len    2540  ret   8248.6  fin   0/11   rew +3.208  kl 0.0055 std 0.16 f 4.00Hz sat 0.05  5,429 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  28,385,280] ep_len    2492  ret   7996.1  fin   0/5    rew +3.211  kl 0.0058 std 0.16 f 4.00Hz sat 0.04  5,402 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  28,569,600] ep_len    1262  ret   3710.1  fin   0/13   rew +3.174  kl 0.0059 std 0.16 f 4.00Hz sat 0.05  5,444 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  28,753,920] ep_len    2262  ret   7214.7  fin   0/5    rew +3.231  kl 0.0069 std 0.16 f 4.00Hz sat 0.05  5,516 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  28,938,240] ep_len    2325  ret   7667.9  fin   0/17   rew +3.173  kl 0.0064 std 0.16 f 4.00Hz sat 0.05  5,459 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  29,122,560] ep_len    2263  ret   7320.8  fin   0/8    rew +3.127  kl 0.0064 std 0.16 f 4.00Hz sat 0.05  5,467 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  29,306,880] ep_len     860  ret   2417.3  fin   0/8    rew +3.235  kl 0.0060 std 0.16 f 4.00Hz sat 0.06  5,470 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  29,491,200] ep_len    2264  ret   7446.1  fin   0/6    rew +3.255  kl 0.0084 std 0.16 f 4.00Hz sat 0.05  5,461 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[clearance @ 29,491,200] survived 100%; mean air L/R [16.156569715484306, 15.79291233054132] mm; qualified 0%
+[eval @ 29,491,200] ladder cmd-err 0.03 m/s, heading 1.2 deg, upright 100%, bring-up 100%  (191s)
+            per stick (err m/s / upright):  60%:0.03/100%
+[  29,675,520] ep_len    2071  ret   6858.7  fin   0/7    rew +3.284  kl 0.0055 std 0.16 f 4.00Hz sat 0.05  5,554 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  29,859,840] ep_len    2544  ret   8432.6  fin   0/7    rew +3.314  kl 0.0073 std 0.16 f 4.00Hz sat 0.05  5,457 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  30,044,160] ep_len    2104  ret   6943.3  fin   0/9    rew +3.258  kl 0.0074 std 0.16 f 4.00Hz sat 0.05  5,496 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  30,228,480] ep_len    2159  ret   7139.0  fin   0/9    rew +3.287  kl 0.0050 std 0.16 f 4.00Hz sat 0.05  5,505 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  30,412,800] ep_len    1917  ret   6084.4  fin   0/10   rew +3.234  kl 0.0047 std 0.16 f 4.00Hz sat 0.05  5,509 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  30,597,120] ep_len    1891  ret   5998.2  fin   0/14   rew +3.217  kl 0.0059 std 0.16 f 4.00Hz sat 0.04  5,464 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  30,781,440] ep_len    2403  ret   7893.6  fin   0/7    rew +3.316  kl 0.0062 std 0.16 f 4.00Hz sat 0.05  5,459 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  30,965,760] ep_len    1426  ret   4414.7  fin   0/10   rew +3.246  kl 0.0057 std 0.16 f 4.00Hz sat 0.05  5,507 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  31,150,080] ep_len    1575  ret   5154.9  fin   0/3    rew +3.381  kl 0.0085 std 0.16 f 4.00Hz sat 0.05  5,585 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  31,334,400] ep_len    2162  ret   7225.6  fin   0/10   rew +3.396  kl 0.0067 std 0.16 f 4.00Hz sat 0.05  5,496 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  31,518,720] ep_len    2130  ret   7080.9  fin   0/10   rew +3.338  kl 0.0050 std 0.16 f 4.00Hz sat 0.05  5,518 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  31,703,040] ep_len    2170  ret   6775.5  fin   0/7    rew +3.328  kl 0.0054 std 0.16 f 4.00Hz sat 0.05  5,525 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  31,887,360] ep_len    2372  ret   7892.4  fin   0/10   rew +3.306  kl 0.0063 std 0.16 f 4.00Hz sat 0.05  5,543 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  32,071,680] ep_len    1611  ret   5464.9  fin   0/7    rew +3.324  kl 0.0070 std 0.16 f 4.00Hz sat 0.05  5,471 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  32,256,000] ep_len    2253  ret   7811.7  fin   0/15   rew +3.315  kl 0.0051 std 0.16 f 4.00Hz sat 0.05  5,476 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  32,440,320] ep_len    1984  ret   6689.7  fin   0/12   rew +3.330  kl 0.0057 std 0.16 f 4.00Hz sat 0.05  5,483 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  32,624,640] ep_len    1854  ret   6099.2  fin   0/5    rew +3.421  kl 0.0054 std 0.16 f 4.00Hz sat 0.05  5,459 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  32,808,960] ep_len    2658  ret   8773.5  fin   0/8    rew +3.395  kl 0.0055 std 0.16 f 4.00Hz sat 0.05  5,450 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  32,993,280] ep_len    1850  ret   6306.6  fin   0/9    rew +3.408  kl 0.0057 std 0.16 f 4.00Hz sat 0.05  5,504 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  33,177,600] ep_len    1642  ret   5096.0  fin   0/13   rew +3.354  kl 0.0058 std 0.16 f 4.00Hz sat 0.05  5,505 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[clearance @ 33,177,600] survived 100%; mean air L/R [16.42942675216591, 15.705918797968229] mm; qualified 0%
+[eval @ 33,177,600] ladder cmd-err 0.03 m/s, heading 11.6 deg, upright 100%, bring-up 100%  (196s)
+            per stick (err m/s / upright):  60%:0.03/100%
+[  33,361,920] ep_len    2046  ret   6894.1  fin   0/10   rew +3.354  kl 0.0083 std 0.16 f 4.00Hz sat 0.05  5,450 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  33,546,240] ep_len    1820  ret   6364.2  fin   0/8    rew +3.406  kl 0.0057 std 0.16 f 4.00Hz sat 0.05  5,496 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  33,730,560] ep_len    1970  ret   6425.5  fin   0/7    rew +3.392  kl 0.0043 std 0.16 f 4.00Hz sat 0.05  5,445 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  33,914,880] ep_len    2190  ret   7697.7  fin   0/12   rew +3.386  kl 0.0047 std 0.16 f 4.00Hz sat 0.05  5,475 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  34,099,200] ep_len     740  ret   2276.8  fin   0/8    rew +3.419  kl 0.0052 std 0.16 f 4.00Hz sat 0.05  5,465 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  34,283,520] ep_len    2543  ret   8730.0  fin   0/9    rew +3.518  kl 0.0066 std 0.16 f 4.00Hz sat 0.05  5,472 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  34,467,840] ep_len    1217  ret   3867.4  fin   0/10   rew +3.394  kl 0.0058 std 0.16 f 4.00Hz sat 0.05  5,440 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  34,652,160] ep_len    2233  ret   7635.4  fin   0/14   rew +3.425  kl 0.0050 std 0.16 f 4.00Hz sat 0.05  5,450 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  34,836,480] ep_len    2485  ret   8603.4  fin   0/13   rew +3.449  kl 0.0044 std 0.16 f 4.00Hz sat 0.05  5,429 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  35,020,800] ep_len    2145  ret   7026.5  fin   0/16   rew +3.300  kl 0.0068 std 0.16 f 4.00Hz sat 0.05  5,389 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  35,205,120] ep_len    2463  ret   8366.6  fin   0/5    rew +3.510  kl 0.0055 std 0.16 f 4.00Hz sat 0.06  5,430 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  35,389,440] ep_len    1926  ret   6379.2  fin   0/8    rew +3.481  kl 0.0057 std 0.16 f 4.00Hz sat 0.06  5,439 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  35,573,760] ep_len    1722  ret   5333.2  fin   0/11   rew +3.522  kl 0.0073 std 0.16 f 4.00Hz sat 0.05  5,511 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  35,758,080] ep_len    2578  ret   9019.8  fin   0/6    rew +3.578  kl 0.0062 std 0.16 f 4.00Hz sat 0.05  5,444 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  35,942,400] ep_len    1828  ret   6492.5  fin   0/14   rew +3.427  kl 0.0035 std 0.16 f 4.00Hz sat 0.05  5,499 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  36,126,720] ep_len    2088  ret   7060.0  fin   0/9    rew +3.501  kl 0.0054 std 0.16 f 4.00Hz sat 0.05  5,499 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  36,311,040] ep_len    1436  ret   4915.0  fin   0/5    rew +3.495  kl 0.0058 std 0.16 f 4.00Hz sat 0.05  5,464 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  36,495,360] ep_len    2328  ret   8195.8  fin   0/9    rew +3.484  kl 0.0076 std 0.16 f 4.00Hz sat 0.05  5,489 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  36,679,680] ep_len    1977  ret   6598.7  fin   0/6    rew +3.471  kl 0.0062 std 0.16 f 4.00Hz sat 0.05  5,463 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  36,864,000] ep_len    2248  ret   7991.8  fin   0/16   rew +3.452  kl 0.0054 std 0.16 f 4.00Hz sat 0.06  5,413 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[clearance @ 36,864,000] survived 100%; mean air L/R [17.019822451739984, 18.18912572550485] mm; qualified 0%
+[eval @ 36,864,000] ladder cmd-err 0.03 m/s, heading 8.0 deg, upright 100%, bring-up 100%  (200s)
+            per stick (err m/s / upright):  60%:0.03/100%
+[  37,048,320] ep_len    1706  ret   5495.9  fin   0/12   rew +3.501  kl 0.0079 std 0.16 f 4.00Hz sat 0.06  5,471 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  37,232,640] ep_len    2210  ret   7966.8  fin   0/15   rew +3.404  kl 0.0039 std 0.16 f 4.00Hz sat 0.06  5,403 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  37,416,960] ep_len    1850  ret   6494.5  fin   0/10   rew +3.509  kl 0.0059 std 0.16 f 4.00Hz sat 0.06  5,411 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  37,601,280] ep_len    2098  ret   7469.5  fin   0/8    rew +3.523  kl 0.0072 std 0.16 f 4.00Hz sat 0.06  5,438 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  37,785,600] ep_len    2642  ret   9594.4  fin   0/8    rew +3.462  kl 0.0046 std 0.16 f 4.00Hz sat 0.05  5,406 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  37,969,920] ep_len    1802  ret   6405.1  fin   0/6    rew +3.549  kl 0.0056 std 0.16 f 4.00Hz sat 0.05  5,420 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  38,154,240] ep_len    1330  ret   4701.2  fin   0/9    rew +3.543  kl 0.0047 std 0.16 f 4.00Hz sat 0.05  5,421 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  38,338,560] ep_len    2025  ret   7152.1  fin   0/7    rew +3.459  kl 0.0053 std 0.16 f 4.00Hz sat 0.06  5,417 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  38,522,880] ep_len    1384  ret   4636.9  fin   0/9    rew +3.522  kl 0.0045 std 0.16 f 4.00Hz sat 0.06  5,450 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  38,707,200] ep_len    2024  ret   6924.5  fin   0/11   rew +3.450  kl 0.0051 std 0.16 f 4.00Hz sat 0.06  5,392 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  38,891,520] ep_len    2305  ret   8037.1  fin   0/13   rew +3.482  kl 0.0055 std 0.16 f 4.00Hz sat 0.06  5,395 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  39,075,840] ep_len    1630  ret   5573.9  fin   0/9    rew +3.431  kl 0.0048 std 0.16 f 4.00Hz sat 0.06  5,331 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  39,260,160] ep_len    2279  ret   7678.4  fin   0/5    rew +3.597  kl 0.0045 std 0.16 f 4.00Hz sat 0.06  5,462 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  39,444,480] ep_len    1548  ret   5420.3  fin   0/11   rew +3.520  kl 0.0046 std 0.16 f 4.00Hz sat 0.06  5,423 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  39,628,800] ep_len    1523  ret   5278.4  fin   0/15   rew +3.533  kl 0.0037 std 0.16 f 4.00Hz sat 0.06  5,381 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  39,813,120] ep_len    2200  ret   8146.7  fin   0/6    rew +3.529  kl 0.0039 std 0.16 f 4.00Hz sat 0.05  5,450 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  39,997,440] ep_len    1603  ret   5501.5  fin   0/8    rew +3.505  kl 0.0039 std 0.16 f 4.00Hz sat 0.06  5,429 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  40,181,760] ep_len    2202  ret   8000.3  fin   0/2    rew +3.574  kl 0.0069 std 0.16 f 4.00Hz sat 0.06  5,433 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  40,366,080] ep_len    2450  ret   8373.0  fin   0/12   rew +3.502  kl 0.0035 std 0.16 f 4.00Hz sat 0.05  5,429 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  40,550,400] ep_len    2398  ret   8965.3  fin   0/8    rew +3.574  kl 0.0040 std 0.16 f 4.00Hz sat 0.06  5,382 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[clearance @ 40,550,400] survived 100%; mean air L/R [17.13616775524901, 17.636623509559605] mm; qualified 0%
+[eval @ 40,550,400] ladder cmd-err 0.03 m/s, heading 9.1 deg, upright 100%, bring-up 100%  (199s)
+            per stick (err m/s / upright):  60%:0.03/100%
+[  40,734,720] ep_len    2026  ret   6756.7  fin   0/5    rew +3.581  kl 0.0055 std 0.16 f 4.00Hz sat 0.06  5,383 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  40,919,040] ep_len    1624  ret   5507.9  fin   0/8    rew +3.561  kl 0.0058 std 0.16 f 4.00Hz sat 0.06  5,336 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  41,103,360] ep_len    1821  ret   6788.7  fin   0/4    rew +3.589  kl 0.0065 std 0.16 f 4.00Hz sat 0.06  5,371 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  41,287,680] ep_len    1838  ret   6346.0  fin   0/9    rew +3.548  kl 0.0074 std 0.16 f 4.00Hz sat 0.06  5,417 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  41,472,000] ep_len    2106  ret   7366.8  fin   0/11   rew +3.490  kl 0.0054 std 0.16 f 4.00Hz sat 0.06  5,449 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  41,656,320] ep_len    2098  ret   7548.6  fin   0/10   rew +3.606  kl 0.0039 std 0.16 f 4.00Hz sat 0.05  5,456 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  41,840,640] ep_len    2070  ret   7625.4  fin   0/15   rew +3.508  kl 0.0056 std 0.16 f 4.00Hz sat 0.05  5,425 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  42,024,960] ep_len    1823  ret   6388.4  fin   0/14   rew +3.569  kl 0.0043 std 0.16 f 4.00Hz sat 0.06  5,374 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  42,209,280] ep_len    1897  ret   6685.4  fin   0/14   rew +3.565  kl 0.0043 std 0.16 f 4.00Hz sat 0.06  5,414 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  42,393,600] ep_len    2326  ret   8608.4  fin   0/5    rew +3.681  kl 0.0034 std 0.16 f 4.00Hz sat 0.06  5,408 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  42,577,920] ep_len    2032  ret   7237.4  fin   0/8    rew +3.606  kl 0.0052 std 0.16 f 4.00Hz sat 0.06  5,424 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  42,762,240] ep_len    2402  ret   8662.0  fin   0/7    rew +3.593  kl 0.0033 std 0.16 f 4.00Hz sat 0.07  5,415 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  42,946,560] ep_len    2185  ret   8229.2  fin   0/10   rew +3.687  kl 0.0051 std 0.16 f 4.00Hz sat 0.06  5,372 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  43,130,880] ep_len    3000  ret  11410.7  fin   0/4    rew +3.649  kl 0.0038 std 0.16 f 4.00Hz sat 0.07  5,409 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  43,315,200] ep_len    2198  ret   8000.3  fin   0/12   rew +3.593  kl 0.0046 std 0.16 f 4.00Hz sat 0.08  5,407 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  43,499,520] ep_len    2240  ret   8147.4  fin   0/8    rew +3.563  kl 0.0039 std 0.16 f 4.00Hz sat 0.08  5,463 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  43,683,840] ep_len     969  ret   3009.5  fin   0/5    rew +3.599  kl 0.0045 std 0.16 f 4.00Hz sat 0.07  5,452 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  43,868,160] ep_len    1693  ret   5990.6  fin   0/7    rew +3.549  kl 0.0059 std 0.16 f 4.00Hz sat 0.07  5,471 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  44,052,480] ep_len    2089  ret   7452.3  fin   0/10   rew +3.575  kl 0.0034 std 0.16 f 4.00Hz sat 0.07  5,426 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  44,236,800] ep_len    2678  ret  10028.6  fin   0/7    rew +3.649  kl 0.0029 std 0.16 f 4.00Hz sat 0.07  5,475 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[clearance @ 44,236,800] survived 100%; mean air L/R [18.091855577850417, 17.958353854355565] mm; qualified 0%
+[eval @ 44,236,800] ladder cmd-err 0.03 m/s, heading 7.6 deg, upright 100%, bring-up 100%  (193s)
+            per stick (err m/s / upright):  60%:0.03/100%
+[  44,421,120] ep_len    1715  ret   6332.6  fin   0/5    rew +3.648  kl 0.0044 std 0.16 f 4.00Hz sat 0.07  5,451 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  44,605,440] ep_len    2590  ret   9621.6  fin   0/9    rew +3.676  kl 0.0047 std 0.16 f 4.00Hz sat 0.07  5,452 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  44,789,760] ep_len    1932  ret   7032.9  fin   0/10   rew +3.623  kl 0.0047 std 0.16 f 4.00Hz sat 0.07  5,482 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  44,974,080] ep_len    1342  ret   4454.8  fin   0/10   rew +3.591  kl 0.0048 std 0.16 f 4.00Hz sat 0.06  5,418 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  45,158,400] ep_len    2361  ret   8639.5  fin   0/7    rew +3.707  kl 0.0049 std 0.16 f 4.00Hz sat 0.07  5,439 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  45,342,720] ep_len    2411  ret   8780.1  fin   0/8    rew +3.677  kl 0.0035 std 0.16 f 4.00Hz sat 0.06  5,466 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  45,527,040] ep_len    1615  ret   5712.5  fin   0/7    rew +3.597  kl 0.0047 std 0.16 f 4.00Hz sat 0.07  5,438 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  45,711,360] ep_len    1325  ret   4583.4  fin   0/8    rew +3.728  kl 0.0039 std 0.16 f 4.00Hz sat 0.07  5,420 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  45,895,680] ep_len    2784  ret   9981.7  fin   0/9    rew +3.625  kl 0.0034 std 0.16 f 4.00Hz sat 0.07  5,417 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  46,080,000] ep_len    1974  ret   7206.5  fin   0/6    rew +3.641  kl 0.0046 std 0.16 f 4.00Hz sat 0.07  5,426 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  46,264,320] ep_len    2164  ret   8053.1  fin   0/9    rew +3.705  kl 0.0033 std 0.16 f 4.00Hz sat 0.07  5,428 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  46,448,640] ep_len    2221  ret   7932.8  fin   0/9    rew +3.746  kl 0.0037 std 0.16 f 4.00Hz sat 0.07  5,445 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  46,632,960] ep_len    2489  ret   9521.2  fin   0/9    rew +3.657  kl 0.0029 std 0.16 f 4.00Hz sat 0.07  5,416 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  46,817,280] ep_len    1827  ret   6787.1  fin   0/7    rew +3.689  kl 0.0029 std 0.16 f 4.00Hz sat 0.07  5,428 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  47,001,600] ep_len    1904  ret   6966.4  fin   0/7    rew +3.681  kl 0.0033 std 0.16 f 4.00Hz sat 0.07  5,391 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  47,185,920] ep_len    1788  ret   6499.0  fin   0/6    rew +3.669  kl 0.0021 std 0.16 f 4.00Hz sat 0.07  5,446 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  47,370,240] ep_len    2592  ret   9351.7  fin   0/10   rew +3.700  kl 0.0040 std 0.16 f 4.00Hz sat 0.07  5,465 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  47,554,560] ep_len    2493  ret   9819.5  fin   0/5    rew +3.755  kl 0.0049 std 0.16 f 4.00Hz sat 0.07  5,420 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  47,738,880] ep_len    2739  ret  10369.7  fin   0/11   rew +3.770  kl 0.0049 std 0.16 f 4.00Hz sat 0.07  5,404 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  47,923,200] ep_len    2543  ret   9760.1  fin   0/9    rew +3.751  kl 0.0027 std 0.16 f 4.00Hz sat 0.08  5,396 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[clearance @ 47,923,200] survived 100%; mean air L/R [22.640383700744632, 20.69927564193438] mm; qualified 0%
+[eval @ 47,923,200] ladder cmd-err 0.03 m/s, heading 8.6 deg, upright 100%, bring-up 92%  (209s)
+            per stick (err m/s / upright):  60%:0.03/100%
+[  48,107,520] ep_len    1302  ret   4876.7  fin   0/6    rew +3.716  kl 0.0037 std 0.16 f 4.00Hz sat 0.08  5,349 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  48,291,840] ep_len    1180  ret   4013.6  fin   0/11   rew +3.726  kl 0.0047 std 0.16 f 4.00Hz sat 0.07  5,373 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  48,476,160] ep_len    2765  ret  10566.7  fin   0/5    rew +3.794  kl 0.0044 std 0.16 f 4.00Hz sat 0.08  5,367 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  48,660,480] ep_len    2398  ret   9092.8  fin   0/8    rew +3.774  kl 0.0035 std 0.16 f 4.00Hz sat 0.07  5,399 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  48,844,800] ep_len    2105  ret   7849.3  fin   0/3    rew +3.877  kl 0.0045 std 0.16 f 4.00Hz sat 0.08  5,367 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  49,029,120] ep_len    2247  ret   8540.0  fin   0/12   rew +3.757  kl 0.0037 std 0.16 f 4.00Hz sat 0.07  5,376 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  49,213,440] ep_len    2345  ret   8668.8  fin   0/8    rew +3.813  kl 0.0037 std 0.16 f 4.00Hz sat 0.07  5,335 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  49,397,760] ep_len    2331  ret   8878.6  fin   0/14   rew +3.750  kl 0.0017 std 0.16 f 4.00Hz sat 0.07  5,384 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  49,582,080] ep_len    2132  ret   7827.8  fin   0/8    rew +3.768  kl 0.0016 std 0.16 f 4.00Hz sat 0.07  5,371 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  49,766,400] ep_len    2872  ret  10768.1  fin   0/3    rew +3.799  kl 0.0019 std 0.16 f 4.00Hz sat 0.07  5,329 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[  49,950,720] ep_len    1587  ret   5442.5  fin   0/7    rew +3.731  kl 0.0017 std 0.16 f 4.00Hz sat 0.07  5,349 sps
+               dr 0.284 bringup off cmd [0.60,0.60] zero 0.00 jit 0.00ms
+[clearance @ 50,006,016] survived 100%; mean air L/R [23.621861863583966, 20.90673490195406] mm; qualified 0%
+[train] done -> /home/rizkalla/running_robot/experiments/clearance01_20261025_v1/RLframework/runs/cad_v2_clearance01_s0/final.msgpack
