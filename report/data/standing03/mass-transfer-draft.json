@@ -1,0 +1,270 @@
+{
+  "status": "DRAFT: no corrected XML written and no training authorized by this audit",
+  "total_proposed_kg": 14.537322008016323,
+  "extra_torso_mass_kg": 1.0,
+  "motors_and_battery_added_again": false,
+  "unchanged_raw_local_inertials": 9,
+  "changed_components": 6,
+  "bodies": {
+    "EXPORT_body-v4_1": {
+      "mass_kg": 5.409075,
+      "com_m": [
+        -0.0020440000000000002,
+        0.00045400000000000003,
+        -0.057873
+      ],
+      "fullinertia_kg_m2": [
+        0.043036317368155455,
+        0.015322793726575305,
+        0.04764910395037508,
+        8.636104431014443e-05,
+        0.00030890948441566546,
+        -0.00016770423558229338
+      ],
+      "method": "v2 PDF transfer; raw local inertials match; frame/geometry check still required"
+    },
+    "EXPORT_hip_right-v3_1": {
+      "mass_kg": 3.537567,
+      "com_m": [
+        -0.035093000000000006,
+        -0.009108000000000002,
+        -3.8e-05
+      ],
+      "fullinertia_kg_m2": [
+        0.003614,
+        0.05294,
+        0.05095,
+        -4.1923187e-05,
+        -1.4914770000000001e-05,
+        2.71602e-06
+      ],
+      "method": "v2 PDF transfer; raw local inertials match; frame/geometry check still required"
+    },
+    "EXPORT_cam_right-v3_1": {
+      "mass_kg": 0.10605200000000001,
+      "com_m": [
+        0.029885000000000002,
+        -0.0014290000000000001,
+        -0.000125
+      ],
+      "fullinertia_kg_m2": [
+        2.3647332e-05,
+        0.0002312,
+        0.0002154,
+        3.6258980000000002e-06,
+        3.1722500000000006e-07,
+        1.392664e-06
+      ],
+      "method": "v2 PDF transfer; raw local inertials match; frame/geometry check still required"
+    },
+    "EXPORT_pushrod_right-v2_1": {
+      "mass_kg": 0.060723,
+      "com_m": [
+        -0.20500000000000002,
+        -0.005879,
+        0.0
+      ],
+      "fullinertia_kg_m2": [
+        6.500268e-06,
+        0.001464,
+        0.0014620000000000002,
+        -4.55e-14,
+        4.406e-15,
+        -3.4100000000000005e-19
+      ],
+      "method": "v2 PDF transfer; raw local inertials match; frame/geometry check still required"
+    },
+    "EXPORT_thight_right-v4_1": {
+      "mass_kg": 0.439736246511691,
+      "com_m": [
+        0.0012816947061947484,
+        -0.015020599863609747,
+        -0.18316538048454706
+      ],
+      "fullinertia_kg_m2": [
+        0.0088188143646992,
+        0.008970160237553638,
+        0.00024385330411991072,
+        2.5632581860520614e-08,
+        8.738159182742845e-05,
+        -3.3567688812162185e-07
+      ],
+      "method": "provisional v2 density-correction factor on new CAD mass/tensor; retain new COM"
+    },
+    "EXPORT_tibia_right-v2_1": {
+      "mass_kg": 0.218767,
+      "com_m": [
+        -0.24274400000000002,
+        0.000101,
+        0.000833
+      ],
+      "fullinertia_kg_m2": [
+        3.6076062e-05,
+        0.0055450000000000004,
+        0.005515,
+        -5.369529000000001e-06,
+        -3.2608007e-05,
+        -7.14293e-07
+      ],
+      "method": "v2 PDF transfer; raw local inertials match; frame/geometry check still required"
+    },
+    "EXPORT_foot-v2_1": {
+      "mass_kg": 0.14907279408322932,
+      "com_m": [
+        -0.009742436764990849,
+        2.9157486181263524e-05,
+        -0.06770428375419091
+      ],
+      "fullinertia_kg_m2": [
+        0.0013642461647366442,
+        0.001388957864160615,
+        7.076643632234366e-05,
+        -1.8559176728234632e-08,
+        0.00012119969196190274,
+        -3.991989971285329e-09
+      ],
+      "method": "provisional v2 density-correction factor on new CAD mass/tensor; retain new COM"
+    },
+    "EXPORT_achilles_right-v3_1": {
+      "mass_kg": 0.0503270068304158,
+      "com_m": [
+        -0.2453579952046386,
+        -0.00805039570585407,
+        0.0022352471656008205
+      ],
+      "fullinertia_kg_m2": [
+        3.7329695844060353e-06,
+        0.0015942480106601027,
+        0.0015935361828862762,
+        1.138965612407944e-06,
+        -3.7775195401545734e-07,
+        3.198990859074162e-07
+      ],
+      "method": "provisional v2 density-correction factor on new CAD mass/tensor; retain new COM"
+    },
+    "EXPORT_hip_left-v2_1": {
+      "mass_kg": 3.537567,
+      "com_m": [
+        -0.035093000000000006,
+        0.009108000000000002,
+        3.8e-05
+      ],
+      "fullinertia_kg_m2": [
+        0.003614,
+        0.05294,
+        0.05095,
+        4.1923187e-05,
+        1.4914770000000001e-05,
+        2.71602e-06
+      ],
+      "method": "v2 PDF transfer; raw local inertials match; frame/geometry check still required"
+    },
+    "EXPORT_cam_left-v3_1": {
+      "mass_kg": 0.10605200000000001,
+      "com_m": [
+        0.029885000000000002,
+        0.001435,
+        2.687e-13
+      ],
+      "fullinertia_kg_m2": [
+        2.3647332e-05,
+        0.00023140000000000001,
+        0.0002153,
+        -3.639748e-06,
+        -1.6650000000000004e-14,
+        3.2880000000000004e-17
+      ],
+      "method": "v2 PDF transfer; raw local inertials match; frame/geometry check still required"
+    },
+    "EXPORT_pushrod_left-v3_1": {
+      "mass_kg": 0.060723,
+      "com_m": [
+        -0.20500000000000002,
+        0.005879,
+        0.0
+      ],
+      "fullinertia_kg_m2": [
+        6.500268e-06,
+        0.001464,
+        0.0014620000000000002,
+        4.55e-14,
+        -4.406e-15,
+        1.0510000000000001e-19
+      ],
+      "method": "v2 PDF transfer; raw local inertials match; frame/geometry check still required"
+    },
+    "EXPORT_thight_left-v2_1": {
+      "mass_kg": 0.4397361596773419,
+      "com_m": [
+        0.0012816947061947553,
+        -0.015020599863609768,
+        -0.18316538048454695
+      ],
+      "fullinertia_kg_m2": [
+        0.008818812623255281,
+        0.0089701584662236,
+        0.00024385325596639935,
+        2.5632576801958025e-08,
+        8.738157457226341e-05,
+        -3.356768218359148e-07
+      ],
+      "method": "provisional v2 density-correction factor on new CAD mass/tensor; retain new COM"
+    },
+    "EXPORT_achilles_left-v5_1": {
+      "mass_kg": 0.050327006830416694,
+      "com_m": [
+        -0.24535799520468485,
+        0.008050395705854274,
+        0.002245247165645635
+      ],
+      "fullinertia_kg_m2": [
+        3.7329695668275076e-06,
+        0.0015942480106476778,
+        0.0015935361828914303,
+        -1.1389656123653975e-06,
+        -3.77751956684849e-07,
+        -3.1989908591501016e-07
+      ],
+      "method": "provisional v2 density-correction factor on new CAD mass/tensor; retain new COM"
+    },
+    "EXPORT_tibia_left-v2_1": {
+      "mass_kg": 0.222524,
+      "com_m": [
+        -0.23973500000000003,
+        4.4999999999999996e-05,
+        0.001218
+      ],
+      "fullinertia_kg_m2": [
+        3.8475901e-05,
+        0.005665000000000001,
+        0.005633,
+        -3.2351200000000003e-06,
+        -4.7491043e-05,
+        -3.0855000000000005e-07
+      ],
+      "method": "v2 PDF transfer; raw local inertials match; frame/geometry check still required"
+    },
+    "EXPORT_foot-v2_2": {
+      "mass_kg": 0.14907279408322932,
+      "com_m": [
+        -0.00974243676499085,
+        2.915748618121535e-05,
+        -0.06770428375419092
+      ],
+      "fullinertia_kg_m2": [
+        0.0013642461647366414,
+        0.0013889578641606544,
+        7.076643632234389e-05,
+        -1.8559176723266836e-08,
+        0.00012119969196190358,
+        -3.991989970207925e-09
+      ],
+      "method": "provisional v2 density-correction factor on new CAD mass/tensor; retain new COM"
+    }
+  },
+  "limitations": [
+    "V2 PDF frames were confirmed for v2, not automatically for X-shape",
+    "Changed-component COM and inertia are CAD/density estimates, not new measurements",
+    "Body stiffness, joint play and printed-part strength are not validated by this audit"
+  ]
+}

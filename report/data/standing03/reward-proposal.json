@@ -1,0 +1,88 @@
+{
+  "status": "proposal_only_not_runtime_configuration",
+  "date": "2026-11-09",
+  "models": [
+    {
+      "name": "v1",
+      "reward_weights": {
+        "alive": 1.0,
+        "upright": 1.0,
+        "height": 0.5,
+        "support": 1.5,
+        "quiet": 2.0,
+        "pose": 0.2,
+        "torque_cost": 0.5,
+        "action_rate_cost": 0.02,
+        "contact_slip_cost": 0.5,
+        "gain_cost": 0.02,
+        "joint_limit_cost": 1.0,
+        "foot_drift_cost": 1.0,
+        "flat_missing_cost": 0.25,
+        "fall_event_cost": 20.0,
+        "planted_task_event_cost": 5.0
+      },
+      "reference": "stand"
+    },
+    {
+      "name": "v2",
+      "reward_weights": {
+        "alive": 1.0,
+        "upright": 1.0,
+        "height": 0.5,
+        "support": 1.5,
+        "quiet": 2.0,
+        "pose": 0.2,
+        "torque_cost": 0.5,
+        "action_rate_cost": 0.02,
+        "contact_slip_cost": 0.5,
+        "gain_cost": 0.02,
+        "joint_limit_cost": 1.0,
+        "foot_drift_cost": 1.0,
+        "flat_missing_cost": 0.25,
+        "fall_event_cost": 20.0,
+        "planted_task_event_cost": 5.0
+      },
+      "reference": "homing"
+    },
+    {
+      "name": "xshape",
+      "reward_weights": {
+        "alive": 1.0,
+        "upright": 1.0,
+        "height": 0.5,
+        "support": 1.5,
+        "quiet": 2.0,
+        "pose": 0.2,
+        "torque_cost": 0.5,
+        "action_rate_cost": 0.02,
+        "contact_slip_cost": 0.5,
+        "gain_cost": 0.02,
+        "joint_limit_cost": 1.0,
+        "foot_drift_cost": 1.0,
+        "flat_missing_cost": 0.25,
+        "fall_event_cost": 20.0,
+        "planted_task_event_cost": 5.0
+      },
+      "reference": "pending valid standing keyframe"
+    }
+  ],
+  "control_dt_s": 0.01,
+  "physics_dt_s": 0.001,
+  "initial_task": "both_feet_planted",
+  "recovery_steps_initially_allowed": false,
+  "recovery_steps_later_allowed": true,
+  "contact_min_normal_force_n": 2.0,
+  "quiet_s": 5.0,
+  "recovery_deadline_s": 2.0,
+  "initial_push_level_dv_mps": 0.02,
+  "proposed_planted_push_ceiling_dv_mps": 0.15,
+  "push_duration_s": 0.1,
+  "initial_push_force_at": "torso_COM",
+  "push_spacing_s": [
+    10,
+    14
+  ],
+  "same_mass_normalized_impulse": true,
+  "no_artificial_ground_foot_constraints": true,
+  "training_jobs_submitted": 0
+}

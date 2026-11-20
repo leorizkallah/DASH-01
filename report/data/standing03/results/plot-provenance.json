@@ -1,0 +1,17 @@
+{
+  "date": "2026-11-10",
+  "training_array": 3246822,
+  "replay_array": 3247563,
+  "smoothing": "100-update nonoverlapping block means; unsmoothed evaluation points",
+  "inputs_sha256": {
+    "data/standing03/results/v1/progress.jsonl": "d2e026e50580bc03269e5bdd3cf1bd6aec56ccbed4491bb3e7f80e833db84e80",
+    "data/standing03/results/v2/progress.jsonl": "9d09237a342b35d8de1982b6ced8cf2616da8dd4bb046aab036234a98f33840e",
+    "data/standing03/results/xshape/progress.jsonl": "6d77229a9c6c3b43ae5afb78ac0ba57f0539986b50a86edce8c5113b89299d03",
+    "data/standing03/results/v1/standing_evaluations.jsonl": "25f0efd8e9734956c2c8863c029e4819bec22ddc4d1591a2cc96ab4a529bb579",
+    "data/standing03/results/v2/standing_evaluations.jsonl": "3beb51886559940c919280b9e1e4e587ec2bccbb65674e237d725037dc03b640",
+    "data/standing03/results/xshape/standing_evaluations.jsonl": "55200929e0942b7418e4bbbf90f43343f888fe972b55f6acfb1d6706b5122750",
+    "data/standing03/results/v1/best.json": "50c46e07ba5c02dc53b1b02635d947614c0235d20afa2ee317d7f851895a2acd",
+    "data/standing03/results/v2/best.json": "d75939485d96d873d38e186af8af88d3e77f38b0772847cd405e644c2cf8ff30",
+    "data/standing03/results/xshape/best.json": "ae8d5ddee946b8abaea95453768fbdc195fd456f55e94d964998431108c81d5c"
+  }
+}

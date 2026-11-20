@@ -1,0 +1,214 @@
+{
+  "checked_on": "2026-11-02",
+  "timezone": "Europe/Zurich",
+  "job_id": 3232851,
+  "slurm_state": "COMPLETED",
+  "exit_code": "0:0",
+  "node": "ixl01",
+  "started": "2026-10-27T13:28:47+01:00",
+  "ended": "2026-10-28T00:36:40+01:00",
+  "elapsed": "11:07:53",
+  "actual_additional_steps": 200005632,
+  "stop_reason": "step_limit",
+  "evaluations": 29,
+  "any_qualified_checkpoint": false,
+  "maximum_qualified_trial_fraction": 0.0,
+  "baseline": {
+    "step": 0,
+    "target_mps": 1.5,
+    "seed": 1000,
+    "trials": 12,
+    "survival_fraction": 1.0,
+    "qualified_fraction": 0.0,
+    "keeper_eligible": false,
+    "track_error_mps": 0.025767880503336588,
+    "mean_air_clearance_mm": [
+      2.4657214241657024,
+      2.267495006149705
+    ],
+    "minimum_clearance_mm": 10.0,
+    "bonus_cap_mm": 25.0,
+    "upper_height_penalty_enabled": true,
+    "upper_qualification_tolerance_mm": 1.0,
+    "midswing_ge_min_fraction": [
+      0.0,
+      0.0
+    ],
+    "peak_air_clearance_mm": [
+      15.695169448852539,
+      7.850857257843018
+    ],
+    "air_over_cap_fraction": [
+      0.0,
+      0.0
+    ],
+    "mean_excess_air_mm": [
+      0.0,
+      0.0
+    ],
+    "midswing_mean_deficit_fraction": [
+      0.9991135733468192,
+      0.9990924072265625
+    ],
+    "actual_reward_mean": 2.6110182291666666,
+    "reward_floor_fraction": 0.0195,
+    "note": "12 nominal first episodes; warmup 5 s. Qualified: full survival, error <=0.15 m/s, both mean air heights >=10 mm, both scheduled mid-swing threshold fractions >=80%, at least 8 valid completed cycles per foot. Both observed airborne peaks <= 26 mm (cap + 1 mm tolerance).",
+    "midswing_ge10mm_fraction": [
+      0.0,
+      0.0
+    ],
+    "candidate_rank": [
+      1.0,
+      -0.0,
+      1.0,
+      -7.992823922293527,
+      0.0,
+      0.002267495006149705
+    ]
+  },
+  "best_candidate": {
+    "step": 132710400,
+    "target_mps": 1.5,
+    "seed": 1000,
+    "trials": 12,
+    "survival_fraction": 1.0,
+    "qualified_fraction": 0.0,
+    "keeper_eligible": false,
+    "track_error_mps": 0.035686487579345706,
+    "mean_air_clearance_mm": [
+      16.94476100372632,
+      20.064928247368638
+    ],
+    "minimum_clearance_mm": 10.0,
+    "bonus_cap_mm": 25.0,
+    "upper_height_penalty_enabled": true,
+    "upper_qualification_tolerance_mm": 1.0,
+    "midswing_ge_min_fraction": [
+      1.0,
+      1.0
+    ],
+    "peak_air_clearance_mm": [
+      30.217117309570312,
+      30.042390823364258
+    ],
+    "air_over_cap_fraction": [
+      0.031614498553221224,
+      0.12892821958980719
+    ],
+    "mean_excess_air_mm": [
+      0.023144191722254764,
+      0.14719042534425755
+    ],
+    "midswing_mean_deficit_fraction": [
+      0.0,
+      0.0
+    ],
+    "actual_reward_mean": 5.853814670138889,
+    "reward_floor_fraction": 0.010222222222222223,
+    "note": "12 nominal first episodes; warmup 5 s. Qualified: full survival, error <=0.15 m/s, both mean air heights >=10 mm, both scheduled mid-swing threshold fractions >=80%, at least 8 valid completed cycles per foot. Both observed airborne peaks <= 26 mm (cap + 1 mm tolerance).",
+    "midswing_ge10mm_fraction": [
+      1.0,
+      1.0
+    ],
+    "candidate_rank": [
+      1.0,
+      -0.0,
+      1.0,
+      -0.011355641137767486,
+      1.0,
+      0.009999999999999998
+    ],
+    "independent_acceptance_pass_counts": {
+      "full_30s": 12,
+      "speed_error_le_0_15_mps": 12,
+      "both_mean_heights_ge_10mm": 12,
+      "both_mid_swing_coverage_ge_80pct": 12,
+      "both_valid_cycles_ge_8": 12,
+      "both_peaks_le_26mm": 0
+    }
+  },
+  "final": {
+    "step": 200005632,
+    "target_mps": 1.5,
+    "seed": 1000,
+    "trials": 12,
+    "survival_fraction": 1.0,
+    "qualified_fraction": 0.0,
+    "keeper_eligible": false,
+    "track_error_mps": 0.027055197652180993,
+    "mean_air_clearance_mm": [
+      15.816529699950214,
+      18.195492694181528
+    ],
+    "minimum_clearance_mm": 10.0,
+    "bonus_cap_mm": 25.0,
+    "upper_height_penalty_enabled": true,
+    "upper_qualification_tolerance_mm": 1.0,
+    "midswing_ge_min_fraction": [
+      1.0,
+      1.0
+    ],
+    "peak_air_clearance_mm": [
+      31.745820999145508,
+      34.73655319213867
+    ],
+    "air_over_cap_fraction": [
+      0.06879110113060415,
+      0.19949718171136713
+    ],
+    "mean_excess_air_mm": [
+      0.24803449482536694,
+      0.36987578307443597
+    ],
+    "midswing_mean_deficit_fraction": [
+      0.0,
+      0.0
+    ],
+    "actual_reward_mean": 5.997007378472222,
+    "reward_floor_fraction": 0.00875,
+    "note": "12 nominal first episodes; warmup 5 s. Qualified: full survival, error <=0.15 m/s, both mean air heights >=10 mm, both scheduled mid-swing threshold fractions >=80%, at least 8 valid completed cycles per foot. Both observed airborne peaks <= 26 mm (cap + 1 mm tolerance).",
+    "midswing_ge10mm_fraction": [
+      1.0,
+      1.0
+    ],
+    "candidate_rank": [
+      1.0,
+      -0.0,
+      1.0,
+      -0.04119401852665352,
+      1.0,
+      0.009999999999999998
+    ],
+    "independent_acceptance_pass_counts": {
+      "full_30s": 12,
+      "speed_error_le_0_15_mps": 12,
+      "both_mean_heights_ge_10mm": 12,
+      "both_mid_swing_coverage_ge_80pct": 12,
+      "both_valid_cycles_ge_8": 12,
+      "both_peaks_le_26mm": 0
+    }
+  },
+  "current_user_queue_empty": true,
+  "new_job_submitted": false,
+  "limitations": [
+    "Nominal 12-trial evaluation at 1.50 m/s, not hardware validation",
+    "No new video or independent replay; prior standalone startup discrepancy not resolved",
+    "Airborne peaks sampled at 100 Hz, not a continuous-time height bound"
+  ],
+  "archived_files_sha256": {
+    "clearance_baseline.json": "6904cfb18bb253886b5e5f02956e793551846ff784a774d0c29b1c0fa2a2fb24",
+    "latest_clearance_eval.json": "95c7075f8a4666ec691a7a3e24f2d139d43f1c4a436be43fb030e2b04373deec",
+    "best_clearance_candidate_eval.json": "998faaf2e9897cdf60560c98646476cdeb77668a5bd10bddb38b7fc592590289",
+    "best_clearance_candidate.json": "08a5b58208ae42fa48ee41df45037e41f45f01b1af85a332cb0ec669ed4574c8",
+    "final.json": "d6da69317fe0dbf3acd64f391ffe2c0910dd5caf1aead85aefeb572f240ba697",
+    "clearance_evaluations.jsonl": "b66a889bee039c5e8c0cff5f564338a6808c5ed68f74e09ed432d792193414ef",
+    "eval.csv": "afef805bea8673bd12053b52ad52b5bfe4c90a03b8bc182d15e40d52ce642ab7",
+    "progress.csv": "895b009ad18dcaeaa8f6f0986831686eff73bcd056c8015684e4c4818a15c414",
+    "resolved_config.json": "e1e36cc7c03b44a8614dfa6e1e4e98b2abecd7a8147554af7c89c06482f3e3e0",
+    "walltime_stop.json": "52dea5c915a84fd9ad3e6bb7ec2da290007a026747ac209c4038845494ff5690",
+    "training_plots.png": "be4023fd4a729ffd8ef5dd888a38c16b7fc65ebe59c1b02140ec2f37562a3875",
+    "cad-v2-clearance02-3232851.out": "bead2c2f40e1fed6077f59ca694bcc3342074e9a7c3977ae000caa49732e4ad0",
+    "gpu-startup.json": "a50e31b42b9f97d42900190eee2d7292dcc2b766c3d703fd7c8077f3171d1763",
+    "clearance-preflight.json": "43ed8cf3f241e07c6af9c4f3e4783d680a0cb2ac82ceb218b26067adeacdb4f3"
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "model": "v1",
+  "source": "STAND-04 best, independently replayed successful quiet trial 0",
+  "checkpoint_step": 169574400,
+  "checkpoint_sha256": "42901f8b8dc22885dfbd0685feb133f97286336ce2d4ed5942056e7c557aaccd",
+  "trace_sha256": "95d87fac6143090fcb23ecb3d102b9c2f1dc2dc22bc39ae36b73b8aacb02412c",
+  "model_sha256": "f50dd110a8232019cfe75c9f230dc0571962f4028598c7bf16fd41a2dac3b589",
+  "candidate_window_s": [
+    10.0,
+    20.0
+  ],
+  "quiet_streak_min_s": 1.0,
+  "candidate_samples": 100,
+  "selected_trace_tick": 1510,
+  "selected_time_s": 15.1,
+  "selected_quiet_streak_s": 15.100250244140625,
+  "candidate_match_fraction": 1.0,
+  "target_semantics": "Posture at any recovered floor location; no global XY or heading target",
+  "features": {
+    "motor_q": [
+      0.025001509115099907,
+      0.10513066500425339,
+      -0.19148673117160797,
+      0.02196369133889675,
+      -0.06772523373365402,
+      0.1249615028500557
+    ],
+    "gravity_body": [
+      -0.024910986150217657,
+      0.018120968227764676,
+      -0.9995254240285795
+    ],
+    "soles_body": [
+      [
+        0.001752949741916705,
+        0.20996279703450804,
+        -0.8335237987937548
+      ],
+      [
+        -0.02155205220378084,
+        -0.17066575187151692,
+        -0.8398416065121721
+      ]
+    ],
+    "height_over_soles": 0.8368882909836104
+  },
+  "reference_qpos_for_visualization_only": [
+    0.00520112132653594,
+    -0.00478326017037034,
+    0.8367533683776855,
+    -0.016905348747968674,
+    -0.02575848251581192,
+    0.04801107197999954,
+    0.025001509115099907,
+    0.10513066500425339,
+    -2.2174482345581055,
+    -0.19148673117160797,
+    0.055843621492385864,
+    0.02196369133889675,
+    -0.06772523373365402,
+    -2.3132476806640625,
+    0.1249615028500557,
+    0.00947192870080471
+  ]
+}

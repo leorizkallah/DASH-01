@@ -23,6 +23,42 @@ class Config:
     mjx_iterations: int = 16                # see RLframework/config.py: 16 x 8 replays the CPU plant
     mjx_ls_iterations: int = 8
     episode_s: float = 12.0                 # ~3 pushes per episode
+    standing_compare: bool = False         # isolated three-CAD planted-standing task
+    contact_regions_per_foot: int = 2
+    standing_contact_force_n: float = 2.0
+    recovery_steps: bool = False           # opt-in STAND-04; STAND-03 stays planted
+    recovery_begin_s: float = 3.0
+    recovery_quiet_s: float = 5.0
+    recovery_contact_off_n: float = 1.0
+    recovery_contact_dwell_s: float = .02
+    recovery_foot_speed_mps: float = .02
+    recovery_foot_travel_weight: float = 2.0  # cost per metre, both feet
+    recovery_event_cost: float = .10       # every liftoff AND landing, no size exemption
+    recovery_switch_cost: float = .005     # raw any-foot contact switches, before debounce
+    recovery_extra_step_cost: float = .30
+    recovery_soft_steps: int = 3
+    recovery_episode_radius_m: float = .50
+    recovery_stance_span_m: float = .65
+    recovery_dur_s: tuple = (.08, .15)
+    recovery_elev_deg: float = 10.0
+    recovery_point_m: float = .02
+    recovery_force_max_n: float = 60.0
+    recovery_probe_every: int = 200
+    recovery_probe_trials: int = 240        # 40 quiet + 200 pushes, 25 per sector
+    recovery_pose_return: bool = False
+    quiet_reference_path: str = ''
+    return_balance_dwell_s: float = .25
+    return_begin_s: float = 4.0             # start final quiet streak after regaining balance
+    return_joint_rms_rad: float = .05235987756  # 3 deg
+    return_joint_max_rad: float = .10471975512  # 6 deg
+    return_tilt_rad: float = .05235987756
+    return_foot_error_m: float = .030
+    return_height_error_m: float = .020
+    return_joint_scale_rad: float = .10
+    return_tilt_scale_rad: float = .10
+    return_foot_scale_m: float = .040
+    return_height_scale_m: float = .030
+    return_pose_weight: float = 1.0
 
     # ----- the operator hold (how this robot is really started) -----------------------------------
     # The base is supported for the first hold_s of the episode, then let go -- the bring-up the
@@ -251,10 +287,32 @@ class Config:
 
 PRESETS = {
     "balance": dict(),
+    **{f"stand_{name}": dict(
+        standing_compare=True, contact_regions_per_foot=(1 if name == "v1" else 2),
+        model_path=f"model/stand_{name}.xml", keyframe="stand", episode_s=30.,
+        hold_s_range=(0., 0.), hold_release_v=0., reset_joint_noise=0., reflex_enable=False,
+        dr_enable=False, dr_loop_site_m=0., com_shift_m=(0., 0., 0.),
+        ctrl_jitter_ms=0., ctrl_drop_prob=0., w_sym=0.,
+        push_first_s=(5., 5.), push_interval_s=(10., 14.), push_dur_s=(.1, .1),
+        push_elev_deg=0., push_level_start=.02, push_level_max=.15,
+        push_level_up=1.10, push_level_down=.80, push_gate_up=.90,
+        push_gate_down=.70, push_gate_min_n=200, push_survive_s=7.1,
+        plant_scale_start=0., n_envs=512, n_steps=36, n_epochs=4,
+        batch_size=4608, est_batch=4608, total_steps=200_000_000,
+        eval_every=400, ckpt_every=110,
+    ) for name in ("v1", "v2", "xshape")},
     # CPU smoke: tiny batch, few steps
     "smoke": dict(n_envs=16, n_steps=8, total_steps=16 * 8 * 3, batch_size=64, est_batch=64,
                   eval_every=2, ckpt_every=2, mjx_iterations=8),
 }
+
+for _name in ('v1', 'v2', 'xshape'):
+    PRESETS['recover_'+_name] = dict(PRESETS['stand_'+_name], recovery_steps=True,
+        plant_scale_start=1., push_level_start=.10, push_level_max=.30,
+        push_first_s=(5., 8.), push_interval_s=(14., 18.), learning_rate=3e-5,
+        lr_max=1e-4, total_steps=200_000_000)
+    PRESETS['return_'+_name] = dict(PRESETS['recover_'+_name], recovery_pose_return=True,
+                                  quiet_reference_path=f'model/quiet_{_name}.json')
 
 
 def get_config(name="balance", **over) -> Config:

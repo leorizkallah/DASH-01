@@ -1,0 +1,16 @@
+new_body,v2_body,v2_part,raw_mass_kg,proposed_mass_kg,method
+EXPORT_body-v4_1,EXPORT_body-v4_1,Body,1.1678499088860506,5.409075,v2 PDF transfer; raw local inertials match; frame/geometry check still required
+EXPORT_hip_right-v3_1,EXPORT_hip_right-v3_1,Hip_right,1.0178564410715383,3.537567,v2 PDF transfer; raw local inertials match; frame/geometry check still required
+EXPORT_cam_right-v3_1,EXPORT_cam_right-v3_1,Cam_right,0.045926000759053114,0.10605200000000001,v2 PDF transfer; raw local inertials match; frame/geometry check still required
+EXPORT_pushrod_right-v2_1,EXPORT_pushrod_right-v2_1,Pushrod_right,0.10955214594424226,0.060723,v2 PDF transfer; raw local inertials match; frame/geometry check still required
+EXPORT_thight_right-v4_1,EXPORT_thigh_right-v3_1,Thigh_right,0.4305311553940593,0.439736246511691,provisional v2 density-correction factor on new CAD mass/tensor; retain new COM
+EXPORT_tibia_right-v2_1,EXPORT_tibia_right-v2_1,Tibia_right,0.2157700635222531,0.218767,v2 PDF transfer; raw local inertials match; frame/geometry check still required
+EXPORT_foot-v2_1,EXPORT_foot-v4_2,Foot,0.2102469824514004,0.14907279408322932,provisional v2 density-correction factor on new CAD mass/tensor; retain new COM
+EXPORT_achilles_right-v3_1,EXPORT_achilles_right-v4_1,Achilles_right,0.043831246964985235,0.0503270068304158,provisional v2 density-correction factor on new CAD mass/tensor; retain new COM
+EXPORT_hip_left-v2_1,EXPORT_hip_left-v2_1,Hip_left,1.0178564410715387,3.537567,v2 PDF transfer; raw local inertials match; frame/geometry check still required
+EXPORT_cam_left-v3_1,EXPORT_cam_left-v3_1,Cam_left,0.04592600075904326,0.10605200000000001,v2 PDF transfer; raw local inertials match; frame/geometry check still required
+EXPORT_pushrod_left-v3_1,EXPORT_pushrod_left-v3_1,Pushrod_left,0.1095521459442426,0.060723,v2 PDF transfer; raw local inertials match; frame/geometry check still required
+EXPORT_thight_left-v2_1,EXPORT_thigh_left-v3_1,Thigh_left,0.4305311553940593,0.4397361596773419,provisional v2 density-correction factor on new CAD mass/tensor; retain new COM
+EXPORT_achilles_left-v5_1,EXPORT_achilles_left-v7_1,Achilles_left,0.043831246964986074,0.050327006830416694,provisional v2 density-correction factor on new CAD mass/tensor; retain new COM
+EXPORT_tibia_left-v2_1,EXPORT_tibia_left-v2_1,Tibia_left,0.21577006352225897,0.222524,v2 PDF transfer; raw local inertials match; frame/geometry check still required
+EXPORT_foot-v2_2,EXPORT_foot-v4_1,Foot,0.2102469824514004,0.14907279408322932,provisional v2 density-correction factor on new CAD mass/tensor; retain new COM

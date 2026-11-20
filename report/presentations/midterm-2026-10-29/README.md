@@ -1,5 +1,42 @@
 # DASH-01 controller midterm
 
+**Latest final presentation, mechanical challenges revised:** [PowerPoint](DASH01_controller_midterm_final_mechanical_update.pptx).
+Based on the user's `DASH01_controller_midterm_final.pptx`. Slides 14/15 now
+connect Tim's observed Achilles/printed-part/leg-play problem to unmodeled effects,
+the proposed mechanical repair, model updates and supported hardware validation.
+The remaining slide parts/media are byte-identical. Embedded notes and
+[speaker-notes_updated.md](speaker-notes_updated.md) include the revised scripts.
+[Source findings and validation](mechanical-challenges-update.json) distinguish
+reported mechanical observations from effects still requiring characterization.
+
+**Selected version, 28 October:** [PowerPoint with synchronized speaker notes](DASH01_controller_midterm_speaker_notes_updated.pptx)
+and [speaker-notes_updated.md](speaker-notes_updated.md). The user retained the
+illustrated state-of-the-art slide 4 and removed the thesis alternative.
+19 main slides + three hidden backups; planned speaking time **9 min 40 s**.
+Notes follow the actual reordered deck: stopping videos at 9, walking at 10,
+Challenges before Objectives and timeline. Embedded notes and manual footer numbers
+are synchronized. Saved a separate matching copy because the source file could not be replaced.
+[Update record](speaker-notes-update.json); previous deck/notes backed up under ignored `preview/notes-update-originals/`.
+
+**Two state-of-the-art alternatives, 28 October:** [PowerPoint](DASH01_controller_midterm_state_of_art_options.pptx).
+Inserted after the Context divider: **slide 4** is an illustrated literature overview
+(Cassie, ANYmal, Digit); **slide 5** adapts Nathann's thesis review into three
+controller design axes. Choose one and delete the other. Each is planned for
+about 30 seconds. Sources and notes are embedded and collected in
+[state-of-art-notes.md](state-of-art-notes.md); [provenance](state-of-art-update.json)
+records paper figures, crop coordinates and hashes. Existing slides and videos
+are preserved, with footer numbers shifted; stopping/walking clips are now at
+slides 10/11 while both alternatives remain. The source deck is unchanged.
+
+**Latest, 28 October:** [reordered deck with stopping failures](DASH01_controller_midterm_reordered_stopping.pptx).
+Based on the user-edited `DASH01_controller_midterm_reordered.pptx`, which is preserved.
+Slide 8 now shows two embedded failed stopping trials on the previous robot:
+abrupt STOP (0.5x playback) and the same policy with a smooth reference (1x).
+The previous slide 8 walking comparison is now slide 9. Other slide content,
+ordering, masters and theme are preserved; the old speed-tracking slide is replaced.
+[Changed-slide notes](stopping-slide-notes.md) · [validation and source hashes](stopping-slide-update.json).
+The template PDF below predates this update.
+
 [PowerPoint deck — Tim’s template](DASH01_controller_midterm_Tim_template.pptx) · [PDF preview](DASH01_controller_midterm_Tim_template.pdf) ·
 [Speaker notes](speaker-notes.md) · [Evidence and source references](sources.md)
 

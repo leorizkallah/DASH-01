@@ -1,0 +1,1285 @@
+Verified frozen source and all model/mesh inputs
+All three contact/physics/PPO gates passed
+Failed to import warp: No module named 'warp'
+Failed to import mujoco_warp: No module named 'warp'
+[train] stand03_v1_s0: [CudaDevice(id=0)] x1, batch 18,432 (512 envs x 36), 4 minibatches, actor 438 obs 463, action 18, budget 200,000,000
+[   0.02M] sps 268 ep_len 0 falls 0 quiet 0 hard_surv 0.00 | plant 0.00 push 0.020 | kl 0.0026 lr 1.0e-04 std 0.107 vf 0.685 kp 165 kd 3.94
+[   0.04M] sps 477 ep_len 57 falls 0 quiet 3 hard_surv 0.00 | plant 0.00 push 0.020 | kl 0.0055 lr 1.0e-04 std 0.107 vf 0.508 kp 170 kd 4.00
+[   0.06M] sps 8,674 ep_len 94 falls 0 quiet 2 hard_surv 0.00 | plant 0.00 push 0.020 | kl 0.0059 lr 1.0e-04 std 0.107 vf 0.311 kp 170 kd 3.93
+[   0.18M] sps 7,860 ep_len 109 falls 1 quiet 301 hard_surv 0.00 | plant 0.00 push 0.020 | kl 0.0168 lr 1.0e-04 std 0.107 vf 0.162 kp 167 kd 4.02
+[   0.37M] sps 7,956 ep_len 118 falls 0 quiet 278 hard_surv 0.00 | plant 0.00 push 0.020 | kl 0.0229 lr 6.7e-05 std 0.106 vf 0.097 kp 168 kd 3.98
+[   0.55M] sps 8,044 ep_len 119 falls 1 quiet 212 hard_surv 0.00 | plant 0.00 push 0.020 | kl 0.0330 lr 4.4e-05 std 0.106 vf 0.096 kp 170 kd 3.99
+[   0.74M] sps 8,358 ep_len 117 falls 0 quiet 190 hard_surv 0.00 | plant 0.00 push 0.020 | kl 0.0247 lr 6.7e-05 std 0.106 vf 0.067 kp 171 kd 4.00
+[   0.92M] sps 8,164 ep_len 117 falls 1 quiet 162 hard_surv 0.00 | plant 0.00 push 0.020 | kl 0.0250 lr 6.7e-05 std 0.106 vf 0.073 kp 171 kd 4.05
+[   1.11M] sps 7,818 ep_len 116 falls 0 quiet 131 hard_surv 0.00 | plant 0.00 push 0.020 | kl 0.0307 lr 6.7e-05 std 0.105 vf 0.097 kp 172 kd 4.01
+[   1.29M] sps 7,575 ep_len 184 falls 30 quiet 79 hard_surv 0.00 | plant 0.00 push 0.020 | kl 0.0225 lr 6.7e-05 std 0.105 vf 0.267 kp 170 kd 3.75
+[   1.47M] sps 7,901 ep_len 266 falls 32 quiet 77 hard_surv 0.00 | plant 0.00 push 0.020 | kl 0.0296 lr 6.7e-05 std 0.105 vf 0.304 kp 167 kd 3.63
+[   1.66M] sps 8,136 ep_len 298 falls 16 quiet 57 hard_surv 0.00 | plant 0.00 push 0.020 | kl 0.0325 lr 1.0e-04 std 0.104 vf 0.256 kp 166 kd 3.51
+[   1.84M] sps 8,266 ep_len 317 falls 3 quiet 43 hard_surv 0.00 | plant 0.00 push 0.020 | kl 0.0250 lr 6.7e-05 std 0.104 vf 0.329 kp 165 kd 3.50
+[   2.03M] sps 8,327 ep_len 408 falls 2 quiet 50 hard_surv 0.00 | plant 0.00 push 0.020 | kl 0.0299 lr 6.7e-05 std 0.104 vf 0.473 kp 167 kd 3.55
+[   2.21M] sps 8,504 ep_len 364 falls 5 quiet 57 hard_surv 0.00 | plant 0.00 push 0.020 | kl 0.0211 lr 6.7e-05 std 0.104 vf 0.342 kp 168 kd 3.46
+[   2.40M] sps 8,405 ep_len 390 falls 2 quiet 48 hard_surv 0.00 | plant 0.00 push 0.020 | kl 0.0270 lr 6.7e-05 std 0.103 vf 0.301 kp 170 kd 3.47
+[   2.58M] sps 8,383 ep_len 431 falls 7 quiet 41 hard_surv 0.00 | plant 0.00 push 0.020 | kl 0.0301 lr 4.4e-05 std 0.103 vf 0.285 kp 168 kd 3.52
+[   2.76M] sps 8,281 ep_len 519 falls 1 quiet 14 hard_surv 0.00 | plant 0.00 push 0.020 | kl 0.0286 lr 6.7e-05 std 0.103 vf 0.234 kp 167 kd 3.46
+[   2.95M] sps 8,062 ep_len 758 falls 0 quiet 7 hard_surv 0.00 | plant 0.00 push 0.020 | kl 0.0300 lr 6.7e-05 std 0.102 vf 0.208 kp 165 kd 3.44
+[   3.13M] sps 7,762 ep_len 998 falls 0 quiet 3 hard_surv 0.00 | plant 0.00 push 0.020 | kl 0.0312 lr 4.4e-05 std 0.102 vf 0.130 kp 162 kd 3.47
+[   3.32M] sps 8,133 ep_len 1518 falls 0 quiet 2 hard_surv 0.00 | plant 0.00 push 0.020 | kl 0.0267 lr 6.7e-05 std 0.102 vf 0.293 kp 163 kd 3.50
+[   3.50M] sps 8,085 ep_len 1596 falls 0 quiet 2 hard_surv 0.00 | plant 0.00 push 0.020 | kl 0.0167 lr 3.0e-05 std 0.101 vf 0.293 kp 166 kd 3.58
+[   3.69M] sps 7,969 ep_len 2390 falls 0 quiet 5 hard_surv 0.00 | plant 0.00 push 0.020 | kl 0.0322 lr 3.0e-05 std 0.101 vf 0.581 kp 170 kd 3.61
+[   3.87M] sps 8,108 ep_len 2456 falls 0 quiet 7 hard_surv 0.00 | plant 0.00 push 0.020 | kl 0.0197 lr 3.0e-05 std 0.101 vf 0.596 kp 174 kd 3.66
+[   4.06M] sps 8,184 ep_len 1938 falls 0 quiet 10 hard_surv 0.00 | plant 0.00 push 0.020 | kl 0.0412 lr 3.0e-05 std 0.101 vf 0.559 kp 177 kd 3.65
+[   4.24M] sps 7,871 ep_len 2593 falls 0 quiet 6 hard_surv 0.00 | plant 0.00 push 0.020 | kl 0.0279 lr 4.4e-05 std 0.100 vf 0.377 kp 179 kd 3.65
+[   4.42M] sps 7,896 ep_len 3000 falls 0 quiet 0 hard_surv 0.00 | plant 0.00 push 0.020 | kl 0.0182 lr 4.4e-05 std 0.100 vf 0.038 kp 181 kd 3.63
+[   4.61M] sps 7,950 ep_len 1872 falls 0 quiet 2 hard_surv 0.00 | plant 0.00 push 0.020 | kl 0.0353 lr 3.0e-05 std 0.100 vf 0.238 kp 185 kd 3.60
+[   4.79M] sps 8,033 ep_len 2370 falls 0 quiet 1 hard_surv 0.00 | plant 0.00 push 0.020 | kl 0.0347 lr 3.0e-05 std 0.099 vf 0.139 kp 187 kd 3.58
+[   4.98M] sps 8,172 ep_len 3000 falls 0 quiet 0 hard_surv 0.00 | plant 0.00 push 0.020 | kl 0.0172 lr 6.7e-05 std 0.099 vf 0.017 kp 190 kd 3.55
+[   5.16M] sps 8,010 ep_len 3000 falls 0 quiet 0 hard_surv 0.00 | plant 0.00 push 0.020 | kl 0.0309 lr 4.4e-05 std 0.098 vf 0.010 kp 194 kd 3.49
+[   5.35M] sps 7,999 ep_len 2729 falls 0 quiet 1 hard_surv 0.00 | plant 0.00 push 0.020 | kl 0.0218 lr 6.7e-05 std 0.098 vf 0.018 kp 197 kd 3.48
+[   5.53M] sps 8,062 ep_len 3000 falls 0 quiet 0 hard_surv 0.00 | plant 0.00 push 0.020 | kl 0.0126 lr 4.4e-05 std 0.097 vf 0.008 kp 200 kd 3.44
+[   5.71M] sps 8,150 ep_len 3000 falls 0 quiet 0 hard_surv 0.00 | plant 0.00 push 0.020 | kl 0.0261 lr 6.7e-05 std 0.097 vf 0.007 kp 201 kd 3.42
+[   5.90M] sps 8,093 ep_len 3000 falls 0 quiet 0 hard_surv 0.00 | plant 0.00 push 0.020 | kl 0.0316 lr 6.7e-05 std 0.096 vf 0.005 kp 204 kd 3.40
+[   6.08M] sps 7,955 ep_len 3000 falls 0 quiet 0 hard_surv 0.00 | plant 0.00 push 0.020 | kl 0.0266 lr 4.4e-05 std 0.096 vf 0.004 kp 208 kd 3.37
+[   6.27M] sps 7,990 ep_len 3000 falls 0 quiet 0 hard_surv 0.00 | plant 0.00 push 0.020 | kl 0.0131 lr 4.4e-05 std 0.095 vf 0.003 kp 214 kd 3.33
+[   6.45M] sps 7,904 ep_len 2317 falls 0 quiet 1 hard_surv 0.00 | plant 0.00 push 0.020 | kl 0.0216 lr 4.4e-05 std 0.095 vf 0.030 kp 221 kd 3.27
+[   6.64M] sps 7,991 ep_len 3000 falls 0 quiet 0 hard_surv 0.00 | plant 0.00 push 0.020 | kl 0.0231 lr 6.7e-05 std 0.094 vf 0.004 kp 224 kd 3.22
+[   6.82M] sps 8,121 ep_len 3000 falls 0 quiet 0 hard_surv 0.00 | plant 0.00 push 0.020 | kl 0.0226 lr 3.0e-05 std 0.094 vf 0.003 kp 227 kd 3.18
+[   7.00M] sps 8,070 ep_len 3000 falls 0 quiet 0 hard_surv 0.00 | plant 0.00 push 0.020 | kl 0.0169 lr 4.4e-05 std 0.093 vf 0.021 kp 225 kd 3.18
+[   7.19M] sps 8,004 ep_len 3000 falls 0 quiet 0 hard_surv 0.00 | plant 0.00 push 0.020 | kl 0.0326 lr 4.4e-05 std 0.093 vf 0.003 kp 228 kd 3.13
+[eval] @ 7,372,800: score 0.350 {'0.00': 0.625, '0.02': 0.375, '0.05': 0.25, '0.10': 0.4375, '0.15': 0.0625} quiet 0  (best 0.350)
+[   7.37M] sps 7,916 ep_len 3000 falls 0 quiet 0 hard_surv 0.00 | plant 0.00 push 0.020 | kl 0.0204 lr 4.4e-05 std 0.093 vf 0.002 kp 231 kd 3.12
+[   7.56M] sps 7,898 ep_len 3000 falls 0 quiet 0 hard_surv 0.00 | plant 0.00 push 0.020 | kl 0.0272 lr 4.4e-05 std 0.092 vf 0.002 kp 234 kd 3.11
+[   7.74M] sps 7,883 ep_len 3000 falls 0 quiet 0 hard_surv 0.00 | plant 0.00 push 0.020 | kl 0.0170 lr 6.7e-05 std 0.092 vf 0.002 kp 237 kd 3.08
+[   7.93M] sps 7,899 ep_len 3000 falls 0 quiet 0 hard_surv 0.00 | plant 0.00 push 0.020 | kl 0.0175 lr 4.4e-05 std 0.091 vf 0.002 kp 239 kd 3.05
+[   8.11M] sps 7,880 ep_len 3000 falls 0 quiet 0 hard_surv 0.00 | plant 0.00 push 0.020 | kl 0.0175 lr 6.7e-05 std 0.091 vf 0.002 kp 239 kd 3.05
+[   8.29M] sps 7,989 ep_len 3000 falls 0 quiet 0 hard_surv 0.00 | plant 0.00 push 0.020 | kl 0.0138 lr 4.4e-05 std 0.091 vf 0.003 kp 242 kd 3.05
+[   8.48M] sps 7,880 ep_len 3000 falls 0 quiet 0 hard_surv 0.00 | plant 0.00 push 0.020 | kl 0.0477 lr 2.0e-05 std 0.090 vf 0.002 kp 245 kd 3.02
+[   8.66M] sps 7,898 ep_len 3000 falls 0 quiet 0 hard_surv 0.00 | plant 0.00 push 0.020 | kl 0.0142 lr 6.7e-05 std 0.090 vf 0.001 kp 246 kd 3.00
+[   8.85M] sps 7,882 ep_len 3000 falls 0 quiet 0 hard_surv 0.00 | plant 0.00 push 0.020 | kl 0.0219 lr 6.7e-05 std 0.090 vf 0.001 kp 247 kd 2.98
+[   9.03M] sps 7,916 ep_len 3000 falls 0 quiet 0 hard_surv 0.00 | plant 0.00 push 0.020 | kl 0.0148 lr 6.7e-05 std 0.089 vf 0.001 kp 248 kd 2.94
+[   9.22M] sps 8,153 ep_len 3000 falls 0 quiet 0 hard_surv 0.00 | plant 0.00 push 0.020 | kl 0.0200 lr 6.7e-05 std 0.089 vf 0.001 kp 252 kd 2.92
+[   9.40M] sps 8,146 ep_len 3000 falls 0 quiet 0 hard_surv 0.00 | plant 0.00 push 0.020 | kl 0.0151 lr 6.7e-05 std 0.089 vf 0.001 kp 253 kd 2.90
+[   9.58M] sps 8,100 ep_len 3000 falls 0 quiet 0 hard_surv 0.00 | plant 0.00 push 0.020 | kl 0.0177 lr 4.4e-05 std 0.088 vf 0.001 kp 255 kd 2.89
+[   9.77M] sps 8,094 ep_len 3000 falls 0 quiet 0 hard_surv 0.00 | plant 0.00 push 0.020 | kl 0.0173 lr 6.7e-05 std 0.088 vf 0.001 kp 256 kd 2.90
+[   9.95M] sps 8,172 ep_len 3000 falls 0 quiet 0 hard_surv 0.00 | plant 0.00 push 0.020 | kl 0.0195 lr 6.7e-05 std 0.088 vf 0.001 kp 256 kd 2.90
+[  10.14M] sps 8,229 ep_len 3000 falls 0 quiet 0 hard_surv 0.00 | plant 0.00 push 0.020 | kl 0.0207 lr 6.7e-05 std 0.087 vf 0.001 kp 257 kd 2.90
+[  10.32M] sps 8,279 ep_len 3000 falls 0 quiet 0 hard_surv 0.00 | plant 0.00 push 0.020 | kl 0.0190 lr 6.7e-05 std 0.087 vf 0.001 kp 257 kd 2.89
+[  10.51M] sps 8,026 ep_len 3000 falls 0 quiet 0 hard_surv 0.00 | plant 0.00 push 0.020 | kl 0.0221 lr 6.7e-05 std 0.087 vf 0.001 kp 256 kd 2.87
+[  10.69M] sps 8,024 ep_len 3000 falls 0 quiet 0 hard_surv 0.00 | plant 0.00 push 0.020 | kl 0.0167 lr 4.4e-05 std 0.086 vf 0.000 kp 259 kd 2.87
+[  10.87M] sps 8,144 ep_len 3000 falls 0 quiet 0 hard_surv 0.00 | plant 0.00 push 0.020 | kl 0.0151 lr 4.4e-05 std 0.086 vf 0.000 kp 262 kd 2.85
+[  11.06M] sps 8,216 ep_len 3000 falls 0 quiet 0 hard_surv 0.00 | plant 0.00 push 0.020 | kl 0.0343 lr 4.4e-05 std 0.086 vf 0.000 kp 263 kd 2.84
+[  11.24M] sps 8,259 ep_len 3000 falls 0 quiet 0 hard_surv 0.00 | plant 0.00 push 0.020 | kl 0.0301 lr 3.0e-05 std 0.086 vf 0.000 kp 266 kd 2.87
+[  11.43M] sps 8,307 ep_len 3000 falls 0 quiet 0 hard_surv 0.00 | plant 0.00 push 0.020 | kl 0.0158 lr 4.4e-05 std 0.085 vf 0.000 kp 267 kd 2.87
+[  11.61M] sps 9,169 ep_len 3000 falls 0 quiet 0 hard_surv 0.00 | plant 0.00 push 0.020 | kl 0.0159 lr 4.4e-05 std 0.085 vf 0.000 kp 266 kd 2.86
+[  11.80M] sps 8,911 ep_len 3000 falls 0 quiet 0 hard_surv 0.00 | plant 0.00 push 0.020 | kl 0.0194 lr 6.7e-05 std 0.085 vf 0.000 kp 268 kd 2.85
+[  11.98M] sps 9,186 ep_len 3000 falls 0 quiet 0 hard_surv 0.00 | plant 0.00 push 0.020 | kl 0.0362 lr 2.0e-05 std 0.085 vf 0.082 kp 269 kd 2.88
+[  12.17M] sps 9,331 ep_len 2672 falls 0 quiet 1 hard_surv 0.00 | plant 0.00 push 0.020 | kl 0.0265 lr 4.4e-05 std 0.085 vf 0.076 kp 273 kd 2.91
+[  12.35M] sps 9,093 ep_len 2220 falls 0 quiet 5 hard_surv 0.00 | plant 0.00 push 0.020 | kl 0.0142 lr 3.0e-05 std 0.085 vf 0.057 kp 271 kd 2.98
+[  12.53M] sps 9,044 ep_len 3000 falls 0 quiet 0 hard_surv 0.00 | plant 0.00 push 0.020 | kl 0.0273 lr 4.4e-05 std 0.084 vf 0.001 kp 275 kd 2.97
+[  12.72M] sps 8,780 ep_len 3000 falls 0 quiet 0 hard_surv 0.00 | plant 0.00 push 0.020 | kl 0.0168 lr 6.7e-05 std 0.084 vf 0.001 kp 275 kd 2.93
+[  12.90M] sps 9,364 ep_len 3000 falls 0 quiet 0 hard_surv 0.00 | plant 0.00 push 0.020 | kl 0.0197 lr 6.7e-05 std 0.084 vf 0.001 kp 275 kd 2.94
+[  13.09M] sps 9,185 ep_len 2422 falls 0 quiet 1 hard_surv 0.00 | plant 0.00 push 0.020 | kl 0.0261 lr 3.0e-05 std 0.084 vf 0.134 kp 274 kd 2.93
+[  13.27M] sps 9,124 ep_len 3000 falls 0 quiet 0 hard_surv 0.00 | plant 0.00 push 0.020 | kl 0.0155 lr 4.4e-05 std 0.083 vf 0.003 kp 276 kd 2.97
+[  13.46M] sps 8,961 ep_len 3000 falls 0 quiet 0 hard_surv 0.00 | plant 0.00 push 0.020 | kl 0.0136 lr 3.0e-05 std 0.083 vf 0.074 kp 275 kd 2.94
+[  13.64M] sps 8,966 ep_len 3000 falls 0 quiet 0 hard_surv 0.00 | plant 0.00 push 0.020 | kl 0.0178 lr 4.4e-05 std 0.083 vf 0.008 kp 277 kd 2.95
+[  13.82M] sps 8,062 ep_len 3000 falls 0 quiet 0 hard_surv 0.00 | plant 0.00 push 0.020 | kl 0.0137 lr 2.0e-05 std 0.083 vf 0.011 kp 275 kd 2.97
+[  14.01M] sps 7,866 ep_len 3000 falls 0 quiet 0 hard_surv 0.00 | plant 0.00 push 0.020 | kl 0.0147 lr 3.0e-05 std 0.083 vf 0.004 kp 275 kd 2.96
+[  14.19M] sps 7,847 ep_len 3000 falls 0 quiet 0 hard_surv 0.00 | plant 0.00 push 0.020 | kl 0.0169 lr 3.0e-05 std 0.083 vf 0.041 kp 275 kd 2.92
+[  14.38M] sps 8,075 ep_len 3000 falls 0 quiet 0 hard_surv 0.00 | plant 0.00 push 0.020 | kl 0.0153 lr 4.4e-05 std 0.083 vf 0.003 kp 281 kd 2.91
+[  14.56M] sps 7,992 ep_len 3000 falls 0 quiet 0 hard_surv 0.00 | plant 0.00 push 0.020 | kl 0.0120 lr 3.0e-05 std 0.083 vf 0.004 kp 280 kd 2.92
+[eval] @ 14,745,600: score 0.025 {'0.00': 0.0, '0.02': 0.0625, '0.05': 0.0, '0.10': 0.0625, '0.15': 0.0} quiet 0  (best 0.350)
+[  14.75M] sps 7,953 ep_len 3000 falls 0 quiet 0 hard_surv 0.00 | plant 0.00 push 0.020 | kl 0.0131 lr 3.0e-05 std 0.083 vf 0.007 kp 282 kd 2.91
+[  14.93M] sps 7,795 ep_len 2947 falls 0 quiet 1 hard_surv 0.00 | plant 0.00 push 0.020 | kl 0.0288 lr 3.0e-05 std 0.082 vf 0.087 kp 282 kd 2.90
+[  15.11M] sps 7,519 ep_len 2969 falls 0 quiet 1 hard_surv 0.00 | plant 0.00 push 0.020 | kl 0.0165 lr 2.0e-05 std 0.082 vf 0.267 kp 283 kd 2.90
+[  15.30M] sps 7,469 ep_len 3000 falls 0 quiet 0 hard_surv 0.00 | plant 0.00 push 0.020 | kl 0.0214 lr 3.0e-05 std 0.082 vf 0.018 kp 282 kd 2.92
+[  15.48M] sps 7,630 ep_len 2646 falls 0 quiet 3 hard_surv 0.00 | plant 0.00 push 0.020 | kl 0.0149 lr 2.0e-05 std 0.082 vf 0.610 kp 280 kd 2.94
+[  15.67M] sps 7,704 ep_len 2443 falls 0 quiet 3 hard_surv 0.00 | plant 0.00 push 0.020 | kl 0.0197 lr 2.0e-05 std 0.082 vf 0.140 kp 281 kd 2.92
+[  15.85M] sps 7,700 ep_len 2090 falls 1 quiet 2 hard_surv 0.00 | plant 0.00 push 0.020 | kl 0.0196 lr 2.0e-05 std 0.082 vf 0.256 kp 283 kd 2.94
+[  16.04M] sps 7,530 ep_len 2606 falls 0 quiet 2 hard_surv 0.00 | plant 0.00 push 0.020 | kl 0.0359 lr 2.0e-05 std 0.082 vf 0.492 kp 285 kd 2.94
+[  16.22M] sps 7,715 ep_len 3000 falls 0 quiet 0 hard_surv 0.00 | plant 0.00 push 0.020 | kl 0.0178 lr 3.0e-05 std 0.082 vf 0.075 kp 284 kd 2.93
+[  16.40M] sps 7,881 ep_len 3000 falls 0 quiet 0 hard_surv 0.00 | plant 0.00 push 0.020 | kl 0.0184 lr 4.4e-05 std 0.082 vf 0.012 kp 286 kd 2.93
+[  16.59M] sps 7,742 ep_len 2914 falls 0 quiet 1 hard_surv 0.00 | plant 0.00 push 0.020 | kl 0.0164 lr 2.3e-05 std 0.082 vf 0.120 kp 293 kd 3.00
+[  16.77M] sps 7,917 ep_len 3000 falls 0 quiet 0 hard_surv 0.00 | plant 0.00 push 0.020 | kl 0.0155 lr 1.5e-05 std 0.082 vf 0.072 kp 299 kd 3.08
+[  16.96M] sps 7,948 ep_len 3000 falls 0 quiet 0 hard_surv 0.00 | plant 0.00 push 0.020 | kl 0.0150 lr 3.4e-05 std 0.082 vf 0.002 kp 303 kd 3.09
+[  17.14M] sps 7,935 ep_len 3000 falls 0 quiet 0 hard_surv 0.00 | plant 0.00 push 0.020 | kl 0.0141 lr 3.4e-05 std 0.081 vf 0.001 kp 308 kd 3.11
+[  17.33M] sps 8,093 ep_len 3000 falls 0 quiet 0 hard_surv 0.00 | plant 0.00 push 0.020 | kl 0.0281 lr 3.4e-05 std 0.081 vf 0.001 kp 311 kd 3.10
+[  17.51M] sps 8,475 ep_len 3000 falls 0 quiet 0 hard_surv 0.00 | plant 0.00 push 0.020 | kl 0.0271 lr 5.1e-05 std 0.081 vf 0.001 kp 315 kd 3.09
+[  17.69M] sps 8,538 ep_len 3000 falls 0 quiet 0 hard_surv 0.00 | plant 0.00 push 0.020 | kl 0.0146 lr 3.4e-05 std 0.081 vf 0.001 kp 319 kd 3.10
+[  17.88M] sps 8,665 ep_len 3000 falls 0 quiet 0 hard_surv 0.00 | plant 0.00 push 0.020 | kl 0.0159 lr 5.1e-05 std 0.081 vf 0.001 kp 322 kd 3.11
+[curriculum] @ 18,044,928: quiet standing passed; enable 0.02 m/s pushes and independent noise ramp
+[  18.06M] sps 8,637 ep_len 3000 falls 0 quiet 0 hard_surv 0.00 | plant 0.00 push 0.020 | kl 0.0280 lr 3.4e-05 std 0.080 vf 0.001 kp 321 kd 3.14
+[  18.25M] sps 8,753 ep_len 3000 falls 0 quiet 0 hard_surv 0.00 | plant 0.01 push 0.020 | kl 0.0237 lr 3.4e-05 std 0.080 vf 0.001 kp 325 kd 3.15
+[  18.43M] sps 9,055 ep_len 3000 falls 0 quiet 0 hard_surv 0.00 | plant 0.02 push 0.020 | kl 0.0136 lr 3.4e-05 std 0.080 vf 0.009 kp 325 kd 3.20
+[  18.62M] sps 9,094 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 0.03 push 0.020 | kl 0.0176 lr 3.4e-05 std 0.080 vf 0.005 kp 326 kd 3.22
+[  18.80M] sps 9,109 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 0.04 push 0.020 | kl 0.0296 lr 3.4e-05 std 0.080 vf 0.005 kp 327 kd 3.21
+[  18.98M] sps 9,135 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 0.05 push 0.020 | kl 0.0163 lr 3.4e-05 std 0.080 vf 0.017 kp 327 kd 3.25
+[  19.17M] sps 9,126 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 0.06 push 0.020 | kl 0.0206 lr 3.4e-05 std 0.080 vf 0.012 kp 327 kd 3.25
+[curriculum] @ 19,279,872: push level -> 0.0220 m/s; settled success 0.995
+[  19.35M] sps 9,102 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 0.07 push 0.022 | kl 0.0255 lr 5.1e-05 std 0.080 vf 0.005 kp 326 kd 3.23
+[  19.54M] sps 8,774 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 0.07 push 0.022 | kl 0.0198 lr 3.4e-05 std 0.080 vf 0.030 kp 324 kd 3.18
+[  19.72M] sps 8,713 ep_len 3000 falls 0 quiet 0 hard_surv 0.75 | plant 0.08 push 0.022 | kl 0.0666 lr 3.4e-05 std 0.080 vf 0.016 kp 327 kd 3.15
+[  19.91M] sps 8,910 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 0.09 push 0.022 | kl 0.0162 lr 3.4e-05 std 0.080 vf 0.029 kp 330 kd 3.20
+[curriculum] @ 19,943,424: push level -> 0.0242 m/s; settled success 0.990
+[  20.09M] sps 9,009 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 0.10 push 0.024 | kl 0.0152 lr 3.4e-05 std 0.079 vf 0.019 kp 330 kd 3.22
+[  20.28M] sps 9,229 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 0.11 push 0.024 | kl 0.0299 lr 3.4e-05 std 0.079 vf 0.098 kp 329 kd 3.24
+[curriculum] @ 20,404,224: push level -> 0.0266 m/s; settled success 0.915
+[  20.46M] sps 8,823 ep_len 1848 falls 0 quiet 2 hard_surv 0.40 | plant 0.12 push 0.027 | kl 0.0237 lr 3.4e-05 std 0.079 vf 0.045 kp 320 kd 3.18
+[  20.64M] sps 8,782 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 0.13 push 0.027 | kl 0.0146 lr 2.3e-05 std 0.079 vf 0.073 kp 328 kd 3.23
+[  20.83M] sps 8,654 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 0.14 push 0.027 | kl 0.0170 lr 3.4e-05 std 0.079 vf 0.018 kp 325 kd 3.23
+[  21.01M] sps 8,745 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 0.15 push 0.027 | kl 0.0206 lr 3.4e-05 std 0.079 vf 0.034 kp 327 kd 3.24
+[  21.20M] sps 8,677 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 0.16 push 0.027 | kl 0.0159 lr 3.4e-05 std 0.079 vf 0.025 kp 321 kd 3.23
+[  21.38M] sps 8,690 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 0.17 push 0.027 | kl 0.0216 lr 3.4e-05 std 0.079 vf 0.050 kp 326 kd 3.23
+[  21.57M] sps 8,940 ep_len 2275 falls 0 quiet 1 hard_surv 0.93 | plant 0.18 push 0.027 | kl 0.0246 lr 5.1e-05 std 0.079 vf 0.053 kp 323 kd 3.25
+[  21.75M] sps 9,112 ep_len 2710 falls 0 quiet 0 hard_surv 0.92 | plant 0.19 push 0.027 | kl 0.0353 lr 2.3e-05 std 0.079 vf 0.136 kp 321 kd 3.28
+[  21.93M] sps 8,695 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 0.19 push 0.027 | kl 0.0178 lr 3.4e-05 std 0.079 vf 0.053 kp 317 kd 3.21
+[eval] @ 22,118,400: score 0.037 {'0.00': 0.0, '0.02': 0.0625, '0.05': 0.0625, '0.10': 0.0625, '0.15': 0.0} quiet 0  (best 0.350)
+[  22.12M] sps 8,651 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 0.20 push 0.027 | kl 0.0164 lr 3.4e-05 std 0.079 vf 0.028 kp 325 kd 3.23
+[  22.30M] sps 8,864 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 0.21 push 0.027 | kl 0.0217 lr 5.1e-05 std 0.079 vf 0.017 kp 326 kd 3.26
+[  22.49M] sps 8,710 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 0.22 push 0.027 | kl 0.0205 lr 3.4e-05 std 0.079 vf 0.217 kp 325 kd 3.19
+[  22.67M] sps 8,641 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 0.23 push 0.027 | kl 0.0207 lr 3.4e-05 std 0.079 vf 0.019 kp 326 kd 3.16
+[  22.86M] sps 8,616 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 0.24 push 0.027 | kl 0.0170 lr 3.4e-05 std 0.078 vf 0.064 kp 327 kd 3.13
+[  23.04M] sps 8,823 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 0.25 push 0.027 | kl 0.0183 lr 3.4e-05 std 0.078 vf 0.020 kp 331 kd 3.18
+[  23.22M] sps 8,753 ep_len 1433 falls 0 quiet 0 hard_surv 1.00 | plant 0.26 push 0.027 | kl 0.0194 lr 3.4e-05 std 0.078 vf 0.031 kp 329 kd 3.19
+[  23.41M] sps 8,730 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 0.27 push 0.027 | kl 0.0155 lr 3.4e-05 std 0.078 vf 0.023 kp 329 kd 3.18
+[  23.59M] sps 8,562 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 0.28 push 0.027 | kl 0.0169 lr 3.4e-05 std 0.078 vf 0.037 kp 331 kd 3.14
+[  23.78M] sps 8,900 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 0.29 push 0.027 | kl 0.0138 lr 3.4e-05 std 0.078 vf 0.163 kp 329 kd 3.20
+[  23.96M] sps 8,665 ep_len 2238 falls 0 quiet 0 hard_surv 1.00 | plant 0.30 push 0.027 | kl 0.0210 lr 3.4e-05 std 0.078 vf 0.080 kp 330 kd 3.13
+[  24.15M] sps 8,762 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 0.31 push 0.027 | kl 0.0144 lr 3.4e-05 std 0.078 vf 0.026 kp 331 kd 3.11
+[  24.33M] sps 8,711 ep_len 2639 falls 0 quiet 0 hard_surv 1.00 | plant 0.31 push 0.027 | kl 0.0185 lr 5.1e-05 std 0.078 vf 0.023 kp 332 kd 3.08
+[  24.51M] sps 8,912 ep_len 1916 falls 0 quiet 3 hard_surv 0.80 | plant 0.32 push 0.027 | kl 0.0268 lr 5.1e-05 std 0.078 vf 0.176 kp 329 kd 3.12
+[  24.70M] sps 8,675 ep_len 2631 falls 0 quiet 0 hard_surv 0.67 | plant 0.33 push 0.027 | kl 0.0264 lr 3.4e-05 std 0.078 vf 0.021 kp 330 kd 3.10
+[  24.88M] sps 8,273 ep_len 2799 falls 0 quiet 0 hard_surv 1.00 | plant 0.34 push 0.027 | kl 0.0238 lr 3.4e-05 std 0.078 vf 0.057 kp 331 kd 3.07
+[  25.07M] sps 8,515 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 0.35 push 0.027 | kl 0.0198 lr 3.4e-05 std 0.078 vf 0.072 kp 334 kd 3.05
+[  25.25M] sps 8,567 ep_len 2747 falls 0 quiet 1 hard_surv 1.00 | plant 0.36 push 0.027 | kl 0.0261 lr 3.4e-05 std 0.078 vf 0.133 kp 334 kd 3.11
+[  25.44M] sps 8,303 ep_len 2644 falls 0 quiet 1 hard_surv 1.00 | plant 0.37 push 0.027 | kl 0.0139 lr 2.3e-05 std 0.078 vf 0.057 kp 327 kd 3.07
+[  25.62M] sps 8,272 ep_len 1782 falls 0 quiet 0 hard_surv 1.00 | plant 0.38 push 0.027 | kl 0.0196 lr 3.4e-05 std 0.078 vf 0.306 kp 329 kd 3.08
+[  25.80M] sps 7,729 ep_len 2472 falls 0 quiet 0 hard_surv 1.00 | plant 0.39 push 0.027 | kl 0.0183 lr 3.4e-05 std 0.078 vf 0.339 kp 325 kd 3.06
+[  25.99M] sps 7,648 ep_len 1878 falls 1 quiet 1 hard_surv 0.62 | plant 0.40 push 0.027 | kl 0.0234 lr 5.1e-05 std 0.077 vf 0.424 kp 326 kd 3.08
+[  26.17M] sps 8,012 ep_len 2394 falls 0 quiet 1 hard_surv 0.88 | plant 0.41 push 0.027 | kl 0.0350 lr 2.3e-05 std 0.077 vf 0.484 kp 326 kd 3.08
+[  26.36M] sps 7,834 ep_len 2362 falls 1 quiet 1 hard_surv 0.86 | plant 0.42 push 0.027 | kl 0.0291 lr 2.3e-05 std 0.077 vf 0.516 kp 329 kd 3.10
+[  26.54M] sps 7,979 ep_len 2949 falls 0 quiet 1 hard_surv 0.92 | plant 0.42 push 0.027 | kl 0.0173 lr 3.4e-05 std 0.077 vf 0.101 kp 332 kd 3.10
+[  26.73M] sps 8,226 ep_len 1642 falls 0 quiet 0 hard_surv 0.89 | plant 0.43 push 0.027 | kl 0.0302 lr 3.4e-05 std 0.077 vf 0.275 kp 334 kd 3.10
+[  26.91M] sps 7,926 ep_len 2795 falls 1 quiet 0 hard_surv 0.88 | plant 0.44 push 0.027 | kl 0.0201 lr 3.4e-05 std 0.077 vf 0.141 kp 333 kd 3.11
+[  27.10M] sps 7,742 ep_len 1851 falls 0 quiet 0 hard_surv 0.91 | plant 0.45 push 0.027 | kl 0.0293 lr 5.1e-05 std 0.077 vf 0.574 kp 337 kd 3.13
+[  27.28M] sps 8,440 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 0.46 push 0.027 | kl 0.0250 lr 3.4e-05 std 0.077 vf 0.040 kp 339 kd 3.12
+[  27.46M] sps 8,445 ep_len 2821 falls 0 quiet 0 hard_surv 0.86 | plant 0.47 push 0.027 | kl 0.0309 lr 5.1e-05 std 0.077 vf 0.037 kp 343 kd 3.10
+[  27.65M] sps 8,445 ep_len 2417 falls 0 quiet 0 hard_surv 1.00 | plant 0.48 push 0.027 | kl 0.0218 lr 3.4e-05 std 0.077 vf 0.133 kp 342 kd 3.09
+[  27.83M] sps 8,276 ep_len 2268 falls 0 quiet 0 hard_surv 1.00 | plant 0.49 push 0.027 | kl 0.0407 lr 2.3e-05 std 0.077 vf 0.057 kp 344 kd 3.07
+[  28.02M] sps 8,253 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 0.50 push 0.027 | kl 0.0277 lr 5.1e-05 std 0.077 vf 0.034 kp 348 kd 3.08
+[  28.20M] sps 8,272 ep_len 2559 falls 0 quiet 1 hard_surv 1.00 | plant 0.51 push 0.027 | kl 0.0153 lr 2.3e-05 std 0.077 vf 0.072 kp 349 kd 3.08
+[  28.39M] sps 8,252 ep_len 2986 falls 0 quiet 0 hard_surv 0.67 | plant 0.52 push 0.027 | kl 0.0254 lr 5.1e-05 std 0.077 vf 0.264 kp 351 kd 3.10
+[  28.57M] sps 8,481 ep_len 2636 falls 0 quiet 1 hard_surv 1.00 | plant 0.53 push 0.027 | kl 0.0185 lr 3.4e-05 std 0.077 vf 0.075 kp 351 kd 3.10
+[  28.75M] sps 8,101 ep_len 2462 falls 0 quiet 0 hard_surv 1.00 | plant 0.54 push 0.027 | kl 0.0153 lr 2.3e-05 std 0.077 vf 0.252 kp 349 kd 3.12
+[  28.94M] sps 8,200 ep_len 2641 falls 0 quiet 1 hard_surv 1.00 | plant 0.54 push 0.027 | kl 0.0206 lr 3.4e-05 std 0.077 vf 0.392 kp 352 kd 3.11
+[  29.12M] sps 8,490 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 0.55 push 0.027 | kl 0.0363 lr 3.4e-05 std 0.077 vf 0.267 kp 351 kd 3.13
+[  29.31M] sps 8,561 ep_len 2775 falls 0 quiet 0 hard_surv 0.67 | plant 0.56 push 0.027 | kl 0.0232 lr 3.4e-05 std 0.076 vf 0.028 kp 353 kd 3.10
+[eval] @ 29,491,200: score 0.325 {'0.00': 0.25, '0.02': 0.375, '0.05': 0.5, '0.10': 0.5, '0.15': 0.0} quiet 0  (best 0.350)
+[  29.49M] sps 8,373 ep_len 3000 falls 0 quiet 0 hard_surv 0.86 | plant 0.57 push 0.027 | kl 0.0258 lr 5.1e-05 std 0.076 vf 0.031 kp 353 kd 3.09
+[  29.68M] sps 8,387 ep_len 2797 falls 0 quiet 0 hard_surv 1.00 | plant 0.58 push 0.027 | kl 0.0175 lr 3.4e-05 std 0.076 vf 0.045 kp 354 kd 3.09
+[  29.86M] sps 8,394 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 0.59 push 0.027 | kl 0.0167 lr 3.4e-05 std 0.076 vf 0.032 kp 356 kd 3.10
+[  30.04M] sps 8,405 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 0.60 push 0.027 | kl 0.0275 lr 5.1e-05 std 0.076 vf 0.021 kp 354 kd 3.09
+[  30.23M] sps 8,314 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 0.61 push 0.027 | kl 0.0167 lr 3.4e-05 std 0.076 vf 0.043 kp 356 kd 3.10
+[  30.41M] sps 8,196 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 0.62 push 0.027 | kl 0.0142 lr 2.3e-05 std 0.076 vf 0.099 kp 357 kd 3.09
+[  30.60M] sps 8,172 ep_len 2449 falls 0 quiet 0 hard_surv 0.80 | plant 0.63 push 0.027 | kl 0.0247 lr 5.1e-05 std 0.076 vf 0.039 kp 357 kd 3.09
+[  30.78M] sps 8,153 ep_len 2647 falls 0 quiet 0 hard_surv 0.75 | plant 0.64 push 0.027 | kl 0.0321 lr 2.3e-05 std 0.076 vf 0.051 kp 355 kd 3.07
+[  30.97M] sps 8,129 ep_len 2604 falls 0 quiet 0 hard_surv 0.88 | plant 0.65 push 0.027 | kl 0.0195 lr 3.4e-05 std 0.076 vf 0.223 kp 356 kd 3.10
+[  31.15M] sps 8,207 ep_len 2784 falls 1 quiet 1 hard_surv 1.00 | plant 0.66 push 0.027 | kl 0.0169 lr 5.1e-05 std 0.076 vf 0.042 kp 354 kd 3.09
+[  31.33M] sps 7,928 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 0.66 push 0.027 | kl 0.0380 lr 3.4e-05 std 0.076 vf 0.127 kp 354 kd 3.11
+[  31.52M] sps 7,985 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 0.67 push 0.027 | kl 0.0254 lr 5.1e-05 std 0.076 vf 0.123 kp 352 kd 3.10
+[  31.70M] sps 8,042 ep_len 2855 falls 0 quiet 0 hard_surv 0.90 | plant 0.68 push 0.027 | kl 0.0344 lr 5.1e-05 std 0.076 vf 0.278 kp 355 kd 3.09
+[  31.89M] sps 8,229 ep_len 2923 falls 0 quiet 0 hard_surv 0.90 | plant 0.69 push 0.027 | kl 0.0178 lr 3.4e-05 std 0.076 vf 0.308 kp 357 kd 3.10
+[  32.07M] sps 8,116 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 0.70 push 0.027 | kl 0.0282 lr 5.1e-05 std 0.076 vf 0.024 kp 359 kd 3.11
+[  32.26M] sps 7,978 ep_len 3000 falls 0 quiet 0 hard_surv 0.90 | plant 0.71 push 0.027 | kl 0.0244 lr 5.1e-05 std 0.076 vf 0.040 kp 357 kd 3.13
+[  32.44M] sps 7,986 ep_len 3000 falls 0 quiet 0 hard_surv 0.87 | plant 0.72 push 0.027 | kl 0.0140 lr 3.4e-05 std 0.076 vf 0.048 kp 357 kd 3.14
+[  32.62M] sps 8,079 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 0.73 push 0.027 | kl 0.0287 lr 5.1e-05 std 0.075 vf 0.025 kp 355 kd 3.16
+[  32.81M] sps 8,139 ep_len 2024 falls 0 quiet 0 hard_surv 1.00 | plant 0.74 push 0.027 | kl 0.0156 lr 2.3e-05 std 0.075 vf 0.040 kp 355 kd 3.16
+[  32.99M] sps 8,037 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 0.75 push 0.027 | kl 0.0148 lr 3.4e-05 std 0.075 vf 0.117 kp 356 kd 3.18
+[  33.18M] sps 8,070 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 0.76 push 0.027 | kl 0.0231 lr 5.1e-05 std 0.075 vf 0.015 kp 358 kd 3.17
+[  33.36M] sps 8,010 ep_len 2601 falls 0 quiet 1 hard_surv 1.00 | plant 0.77 push 0.027 | kl 0.0229 lr 5.1e-05 std 0.075 vf 0.028 kp 359 kd 3.19
+[  33.55M] sps 8,008 ep_len 3000 falls 0 quiet 0 hard_surv 0.91 | plant 0.78 push 0.027 | kl 0.0259 lr 5.1e-05 std 0.075 vf 0.057 kp 358 kd 3.20
+[  33.73M] sps 8,031 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 0.78 push 0.027 | kl 0.0251 lr 5.1e-05 std 0.075 vf 0.088 kp 357 kd 3.19
+[  33.91M] sps 7,914 ep_len 2775 falls 0 quiet 1 hard_surv 1.00 | plant 0.79 push 0.027 | kl 0.0274 lr 5.1e-05 std 0.075 vf 0.035 kp 358 kd 3.18
+[  34.10M] sps 7,995 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 0.80 push 0.027 | kl 0.0257 lr 3.4e-05 std 0.075 vf 0.025 kp 358 kd 3.18
+[  34.28M] sps 8,066 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 0.81 push 0.027 | kl 0.0281 lr 5.1e-05 std 0.075 vf 0.036 kp 358 kd 3.19
+[  34.47M] sps 8,113 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 0.82 push 0.027 | kl 0.0242 lr 3.4e-05 std 0.075 vf 0.075 kp 359 kd 3.19
+[  34.65M] sps 7,957 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 0.83 push 0.027 | kl 0.0266 lr 5.1e-05 std 0.075 vf 0.114 kp 359 kd 3.20
+[  34.84M] sps 8,221 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 0.84 push 0.027 | kl 0.0375 lr 3.4e-05 std 0.075 vf 0.024 kp 361 kd 3.23
+[  35.02M] sps 8,251 ep_len 2650 falls 0 quiet 0 hard_surv 1.00 | plant 0.85 push 0.027 | kl 0.0191 lr 5.1e-05 std 0.075 vf 0.031 kp 359 kd 3.21
+[  35.21M] sps 8,130 ep_len 2885 falls 0 quiet 0 hard_surv 1.00 | plant 0.86 push 0.027 | kl 0.0252 lr 5.1e-05 std 0.075 vf 0.268 kp 359 kd 3.20
+[  35.39M] sps 7,995 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 0.87 push 0.027 | kl 0.0244 lr 5.1e-05 std 0.075 vf 0.032 kp 359 kd 3.20
+[  35.57M] sps 7,972 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 0.88 push 0.027 | kl 0.0156 lr 3.4e-05 std 0.075 vf 0.158 kp 362 kd 3.18
+[  35.76M] sps 8,071 ep_len 2909 falls 0 quiet 0 hard_surv 0.88 | plant 0.89 push 0.027 | kl 0.0595 lr 1.5e-05 std 0.075 vf 0.169 kp 359 kd 3.16
+[  35.94M] sps 8,022 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 0.89 push 0.027 | kl 0.0284 lr 3.4e-05 std 0.074 vf 0.149 kp 360 kd 3.17
+[  36.13M] sps 8,016 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 0.90 push 0.027 | kl 0.0391 lr 3.4e-05 std 0.074 vf 0.033 kp 361 kd 3.17
+[  36.31M] sps 8,135 ep_len 2782 falls 0 quiet 0 hard_surv 1.00 | plant 0.91 push 0.027 | kl 0.0118 lr 2.3e-05 std 0.074 vf 0.041 kp 362 kd 3.19
+[  36.50M] sps 8,195 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 0.92 push 0.027 | kl 0.0322 lr 2.3e-05 std 0.074 vf 0.038 kp 360 kd 3.21
+[  36.68M] sps 7,840 ep_len 2284 falls 0 quiet 0 hard_surv 0.88 | plant 0.93 push 0.027 | kl 0.0159 lr 3.4e-05 std 0.074 vf 0.072 kp 361 kd 3.20
+[eval] @ 36,864,000: score 0.613 {'0.00': 0.75, '0.02': 0.625, '0.05': 0.9375, '0.10': 0.5625, '0.15': 0.1875} quiet 0  (best 0.613)
+[  36.86M] sps 8,014 ep_len 2327 falls 0 quiet 0 hard_surv 1.00 | plant 0.94 push 0.027 | kl 0.0171 lr 3.4e-05 std 0.074 vf 0.053 kp 360 kd 3.21
+[  37.05M] sps 7,781 ep_len 2461 falls 0 quiet 0 hard_surv 1.00 | plant 0.95 push 0.027 | kl 0.0237 lr 3.4e-05 std 0.074 vf 0.101 kp 362 kd 3.23
+[  37.23M] sps 8,169 ep_len 2036 falls 0 quiet 1 hard_surv 1.00 | plant 0.96 push 0.027 | kl 0.0118 lr 3.4e-05 std 0.074 vf 0.049 kp 361 kd 3.23
+[  37.42M] sps 8,124 ep_len 2322 falls 0 quiet 0 hard_surv 1.00 | plant 0.97 push 0.027 | kl 0.0296 lr 5.1e-05 std 0.074 vf 0.170 kp 360 kd 3.22
+[  37.60M] sps 7,997 ep_len 2879 falls 0 quiet 0 hard_surv 0.83 | plant 0.98 push 0.027 | kl 0.0323 lr 3.4e-05 std 0.074 vf 0.246 kp 361 kd 3.23
+[  37.79M] sps 7,876 ep_len 2710 falls 0 quiet 1 hard_surv 0.57 | plant 0.99 push 0.027 | kl 0.0341 lr 3.4e-05 std 0.074 vf 0.520 kp 361 kd 3.24
+[  37.97M] sps 7,878 ep_len 2017 falls 3 quiet 1 hard_surv 0.67 | plant 1.00 push 0.027 | kl 0.0197 lr 3.4e-05 std 0.074 vf 0.332 kp 362 kd 3.27
+[  38.15M] sps 8,252 ep_len 2311 falls 0 quiet 1 hard_surv 0.71 | plant 1.00 push 0.027 | kl 0.0237 lr 3.4e-05 std 0.074 vf 0.050 kp 364 kd 3.28
+[  38.34M] sps 7,971 ep_len 2453 falls 0 quiet 2 hard_surv 1.00 | plant 1.00 push 0.027 | kl 0.0366 lr 2.3e-05 std 0.074 vf 0.122 kp 362 kd 3.31
+[  38.52M] sps 8,165 ep_len 2335 falls 1 quiet 0 hard_surv 0.85 | plant 1.00 push 0.027 | kl 0.0271 lr 3.4e-05 std 0.074 vf 0.797 kp 360 kd 3.29
+[  38.71M] sps 7,884 ep_len 2622 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.027 | kl 0.0257 lr 3.4e-05 std 0.074 vf 0.223 kp 360 kd 3.28
+[  38.89M] sps 8,092 ep_len 1936 falls 0 quiet 2 hard_surv 0.67 | plant 1.00 push 0.027 | kl 0.0281 lr 3.4e-05 std 0.074 vf 0.437 kp 358 kd 3.28
+[  39.08M] sps 8,031 ep_len 2592 falls 0 quiet 0 hard_surv 0.78 | plant 1.00 push 0.027 | kl 0.0306 lr 3.4e-05 std 0.074 vf 0.448 kp 362 kd 3.28
+[  39.26M] sps 8,080 ep_len 3000 falls 0 quiet 0 hard_surv 0.88 | plant 1.00 push 0.027 | kl 0.0161 lr 3.4e-05 std 0.074 vf 0.065 kp 361 kd 3.26
+[  39.44M] sps 8,119 ep_len 2344 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.027 | kl 0.0146 lr 3.4e-05 std 0.074 vf 0.163 kp 362 kd 3.27
+[  39.63M] sps 8,061 ep_len 2215 falls 0 quiet 1 hard_surv 0.89 | plant 1.00 push 0.027 | kl 0.0327 lr 3.4e-05 std 0.074 vf 0.333 kp 360 kd 3.27
+[  39.81M] sps 8,270 ep_len 2577 falls 0 quiet 0 hard_surv 0.75 | plant 1.00 push 0.027 | kl 0.0232 lr 5.1e-05 std 0.074 vf 0.031 kp 360 kd 3.26
+[  40.00M] sps 8,189 ep_len 2692 falls 0 quiet 1 hard_surv 0.83 | plant 1.00 push 0.027 | kl 0.0192 lr 3.4e-05 std 0.074 vf 0.118 kp 359 kd 3.26
+[  40.18M] sps 7,940 ep_len 2824 falls 0 quiet 0 hard_surv 0.50 | plant 1.00 push 0.027 | kl 0.0127 lr 2.3e-05 std 0.074 vf 0.290 kp 361 kd 3.24
+[  40.37M] sps 8,162 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.027 | kl 0.0194 lr 5.1e-05 std 0.073 vf 0.040 kp 363 kd 3.24
+[  40.55M] sps 8,034 ep_len 2445 falls 0 quiet 0 hard_surv 0.64 | plant 1.00 push 0.027 | kl 0.0156 lr 3.4e-05 std 0.073 vf 0.197 kp 363 kd 3.23
+[  40.73M] sps 8,090 ep_len 2356 falls 0 quiet 1 hard_surv 0.67 | plant 1.00 push 0.027 | kl 0.0223 lr 3.4e-05 std 0.073 vf 0.293 kp 361 kd 3.24
+[  40.92M] sps 7,990 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.027 | kl 0.0221 lr 5.1e-05 std 0.073 vf 0.030 kp 363 kd 3.24
+[  41.10M] sps 8,162 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.027 | kl 0.0229 lr 5.1e-05 std 0.073 vf 0.020 kp 365 kd 3.26
+[  41.29M] sps 7,940 ep_len 3000 falls 0 quiet 0 hard_surv 0.82 | plant 1.00 push 0.027 | kl 0.0147 lr 1.5e-05 std 0.073 vf 0.179 kp 364 kd 3.25
+[  41.47M] sps 8,130 ep_len 2481 falls 0 quiet 0 hard_surv 0.86 | plant 1.00 push 0.027 | kl 0.0225 lr 3.4e-05 std 0.073 vf 0.627 kp 364 kd 3.25
+[  41.66M] sps 7,923 ep_len 2318 falls 0 quiet 1 hard_surv 0.89 | plant 1.00 push 0.027 | kl 0.0297 lr 2.3e-05 std 0.073 vf 0.428 kp 363 kd 3.24
+[  41.84M] sps 8,152 ep_len 3000 falls 0 quiet 0 hard_surv 0.89 | plant 1.00 push 0.027 | kl 0.0122 lr 3.4e-05 std 0.073 vf 0.040 kp 362 kd 3.24
+[  42.02M] sps 8,113 ep_len 2194 falls 0 quiet 2 hard_surv 1.00 | plant 1.00 push 0.027 | kl 0.0258 lr 5.1e-05 std 0.073 vf 0.030 kp 362 kd 3.24
+[  42.21M] sps 8,047 ep_len 2430 falls 0 quiet 0 hard_surv 0.71 | plant 1.00 push 0.027 | kl 0.0207 lr 2.3e-05 std 0.073 vf 0.501 kp 365 kd 3.26
+[  42.39M] sps 8,082 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.027 | kl 0.0145 lr 3.4e-05 std 0.073 vf 0.039 kp 365 kd 3.28
+[  42.58M] sps 7,995 ep_len 3000 falls 0 quiet 0 hard_surv 0.80 | plant 1.00 push 0.027 | kl 0.0222 lr 5.1e-05 std 0.073 vf 0.031 kp 366 kd 3.29
+[  42.76M] sps 8,219 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.027 | kl 0.0243 lr 3.4e-05 std 0.073 vf 0.026 kp 367 kd 3.29
+[  42.95M] sps 8,100 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.027 | kl 0.0272 lr 3.4e-05 std 0.073 vf 0.026 kp 365 kd 3.29
+[  43.13M] sps 8,085 ep_len 3000 falls 0 quiet 0 hard_surv 0.80 | plant 1.00 push 0.027 | kl 0.0254 lr 5.1e-05 std 0.073 vf 0.036 kp 363 kd 3.28
+[  43.32M] sps 8,202 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.027 | kl 0.0222 lr 5.1e-05 std 0.073 vf 0.023 kp 364 kd 3.30
+[  43.50M] sps 7,996 ep_len 3000 falls 0 quiet 0 hard_surv 0.89 | plant 1.00 push 0.027 | kl 0.0367 lr 3.4e-05 std 0.073 vf 0.031 kp 365 kd 3.31
+[  43.68M] sps 8,176 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.027 | kl 0.0219 lr 5.1e-05 std 0.073 vf 0.011 kp 367 kd 3.32
+[  43.87M] sps 8,175 ep_len 2299 falls 0 quiet 1 hard_surv 1.00 | plant 1.00 push 0.027 | kl 0.0240 lr 3.4e-05 std 0.073 vf 0.037 kp 365 kd 3.32
+[  44.05M] sps 8,213 ep_len 2826 falls 0 quiet 0 hard_surv 0.86 | plant 1.00 push 0.027 | kl 0.0303 lr 3.4e-05 std 0.073 vf 0.032 kp 366 kd 3.34
+[eval] @ 44,236,800: score 0.762 {'0.00': 0.875, '0.02': 1.0, '0.05': 0.875, '0.10': 0.6875, '0.15': 0.375} quiet 0  (best 0.762)
+[  44.24M] sps 8,157 ep_len 2734 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.027 | kl 0.0281 lr 3.4e-05 std 0.073 vf 0.263 kp 367 kd 3.34
+[  44.42M] sps 8,224 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.027 | kl 0.0253 lr 5.1e-05 std 0.073 vf 0.038 kp 368 kd 3.34
+[  44.61M] sps 8,501 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.027 | kl 0.0237 lr 3.4e-05 std 0.073 vf 0.025 kp 368 kd 3.34
+[  44.79M] sps 8,018 ep_len 2431 falls 0 quiet 0 hard_surv 0.40 | plant 1.00 push 0.027 | kl 0.0208 lr 3.4e-05 std 0.072 vf 0.255 kp 367 kd 3.34
+[  44.97M] sps 8,419 ep_len 3000 falls 0 quiet 0 hard_surv 0.86 | plant 1.00 push 0.027 | kl 0.0266 lr 5.1e-05 std 0.072 vf 0.024 kp 367 kd 3.34
+[  45.16M] sps 8,136 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.027 | kl 0.0278 lr 5.1e-05 std 0.072 vf 0.020 kp 366 kd 3.34
+[  45.34M] sps 8,335 ep_len 3000 falls 0 quiet 0 hard_surv 0.50 | plant 1.00 push 0.027 | kl 0.0273 lr 5.1e-05 std 0.072 vf 0.027 kp 365 kd 3.34
+[  45.53M] sps 8,337 ep_len 3000 falls 0 quiet 0 hard_surv 0.80 | plant 1.00 push 0.027 | kl 0.0339 lr 3.4e-05 std 0.072 vf 0.036 kp 362 kd 3.34
+[  45.71M] sps 8,162 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.027 | kl 0.0246 lr 5.1e-05 std 0.072 vf 0.025 kp 359 kd 3.34
+[  45.90M] sps 8,252 ep_len 3000 falls 0 quiet 0 hard_surv 0.83 | plant 1.00 push 0.027 | kl 0.0259 lr 5.1e-05 std 0.072 vf 0.023 kp 360 kd 3.33
+[  46.08M] sps 8,215 ep_len 2607 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.027 | kl 0.0147 lr 3.4e-05 std 0.072 vf 0.018 kp 362 kd 3.34
+[  46.26M] sps 8,065 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.027 | kl 0.0218 lr 5.1e-05 std 0.072 vf 0.028 kp 364 kd 3.35
+[  46.45M] sps 8,133 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.027 | kl 0.0197 lr 3.4e-05 std 0.072 vf 0.037 kp 364 kd 3.35
+[  46.63M] sps 8,128 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.027 | kl 0.0267 lr 5.1e-05 std 0.072 vf 0.030 kp 364 kd 3.35
+[  46.82M] sps 8,059 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.027 | kl 0.0211 lr 5.1e-05 std 0.072 vf 0.025 kp 366 kd 3.35
+[  47.00M] sps 8,160 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.027 | kl 0.0216 lr 5.1e-05 std 0.072 vf 0.016 kp 367 kd 3.36
+[  47.19M] sps 8,050 ep_len 3000 falls 0 quiet 0 hard_surv 0.91 | plant 1.00 push 0.027 | kl 0.0170 lr 3.4e-05 std 0.072 vf 0.036 kp 367 kd 3.36
+[  47.37M] sps 7,851 ep_len 2205 falls 0 quiet 0 hard_surv 0.75 | plant 1.00 push 0.027 | kl 0.0220 lr 3.4e-05 std 0.072 vf 0.049 kp 367 kd 3.36
+[  47.55M] sps 8,105 ep_len 3000 falls 0 quiet 0 hard_surv 0.90 | plant 1.00 push 0.027 | kl 0.0186 lr 5.1e-05 std 0.072 vf 0.028 kp 368 kd 3.36
+[  47.74M] sps 7,998 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.027 | kl 0.0215 lr 5.1e-05 std 0.072 vf 0.012 kp 368 kd 3.36
+[  47.92M] sps 8,058 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.027 | kl 0.0168 lr 3.4e-05 std 0.072 vf 0.018 kp 369 kd 3.36
+[  48.11M] sps 8,105 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.027 | kl 0.0226 lr 5.1e-05 std 0.072 vf 0.022 kp 370 kd 3.36
+[  48.29M] sps 8,176 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.027 | kl 0.0191 lr 3.4e-05 std 0.072 vf 0.050 kp 370 kd 3.36
+[  48.48M] sps 8,000 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.027 | kl 0.0160 lr 3.4e-05 std 0.072 vf 0.021 kp 368 kd 3.36
+[  48.66M] sps 8,185 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.027 | kl 0.0193 lr 5.1e-05 std 0.072 vf 0.025 kp 369 kd 3.36
+[  48.84M] sps 7,896 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.027 | kl 0.0183 lr 3.4e-05 std 0.072 vf 0.042 kp 368 kd 3.36
+[  49.03M] sps 8,227 ep_len 3000 falls 0 quiet 0 hard_surv 0.80 | plant 1.00 push 0.027 | kl 0.0302 lr 3.4e-05 std 0.071 vf 0.032 kp 369 kd 3.36
+[  49.21M] sps 8,122 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.027 | kl 0.0189 lr 3.4e-05 std 0.071 vf 0.019 kp 369 kd 3.36
+[  49.40M] sps 8,108 ep_len 2933 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.027 | kl 0.0253 lr 3.4e-05 std 0.071 vf 0.229 kp 369 kd 3.35
+[  49.58M] sps 8,192 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.027 | kl 0.0159 lr 2.3e-05 std 0.071 vf 0.017 kp 369 kd 3.35
+[  49.77M] sps 8,105 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.027 | kl 0.0188 lr 3.4e-05 std 0.071 vf 0.054 kp 369 kd 3.35
+[  49.95M] sps 8,110 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.027 | kl 0.0179 lr 3.4e-05 std 0.071 vf 0.021 kp 368 kd 3.34
+[  50.14M] sps 8,006 ep_len 2568 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.027 | kl 0.0280 lr 2.3e-05 std 0.071 vf 0.217 kp 368 kd 3.34
+[  50.32M] sps 8,200 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.027 | kl 0.0274 lr 5.1e-05 std 0.071 vf 0.023 kp 366 kd 3.34
+[  50.50M] sps 8,084 ep_len 2989 falls 0 quiet 1 hard_surv 1.00 | plant 1.00 push 0.027 | kl 0.0405 lr 2.3e-05 std 0.071 vf 0.239 kp 367 kd 3.35
+[  50.69M] sps 8,144 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.027 | kl 0.0245 lr 5.1e-05 std 0.071 vf 0.020 kp 366 kd 3.35
+[  50.87M] sps 8,111 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.027 | kl 0.0217 lr 5.1e-05 std 0.071 vf 0.020 kp 368 kd 3.35
+[  51.06M] sps 8,136 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.027 | kl 0.0187 lr 3.4e-05 std 0.071 vf 0.019 kp 368 kd 3.36
+[  51.24M] sps 8,164 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.027 | kl 0.0216 lr 3.4e-05 std 0.071 vf 0.023 kp 369 kd 3.36
+[  51.43M] sps 7,948 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.027 | kl 0.0291 lr 3.4e-05 std 0.071 vf 0.030 kp 369 kd 3.36
+[eval] @ 51,609,600: score 0.900 {'0.00': 0.9375, '0.02': 0.9375, '0.05': 0.9375, '0.10': 0.875, '0.15': 0.8125} quiet 0  (best 0.900)
+[  51.61M] sps 8,095 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.027 | kl 0.0246 lr 3.4e-05 std 0.071 vf 0.166 kp 368 kd 3.36
+[  51.79M] sps 8,183 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.027 | kl 0.0159 lr 3.4e-05 std 0.071 vf 0.032 kp 369 kd 3.36
+[  51.98M] sps 7,942 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.027 | kl 0.0265 lr 5.1e-05 std 0.071 vf 0.057 kp 369 kd 3.35
+[  52.16M] sps 8,149 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.027 | kl 0.0163 lr 3.4e-05 std 0.071 vf 0.034 kp 369 kd 3.36
+[  52.35M] sps 8,139 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.027 | kl 0.0216 lr 3.4e-05 std 0.071 vf 0.037 kp 369 kd 3.36
+[  52.53M] sps 8,176 ep_len 3000 falls 0 quiet 0 hard_surv 0.89 | plant 1.00 push 0.027 | kl 0.0206 lr 3.4e-05 std 0.071 vf 0.054 kp 369 kd 3.35
+[  52.72M] sps 8,057 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.027 | kl 0.0305 lr 5.1e-05 std 0.071 vf 0.028 kp 370 kd 3.36
+[  52.90M] sps 8,161 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.027 | kl 0.0187 lr 3.4e-05 std 0.071 vf 0.082 kp 369 kd 3.36
+[  53.08M] sps 8,222 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.027 | kl 0.0168 lr 3.4e-05 std 0.071 vf 0.030 kp 368 kd 3.36
+[  53.27M] sps 8,019 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.027 | kl 0.0290 lr 5.1e-05 std 0.071 vf 0.033 kp 370 kd 3.37
+[  53.45M] sps 8,108 ep_len 2890 falls 0 quiet 0 hard_surv 0.90 | plant 1.00 push 0.027 | kl 0.0250 lr 2.3e-05 std 0.071 vf 0.054 kp 369 kd 3.37
+[  53.64M] sps 8,158 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.027 | kl 0.0184 lr 3.4e-05 std 0.071 vf 0.033 kp 369 kd 3.36
+[  53.82M] sps 8,102 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.027 | kl 0.0246 lr 5.1e-05 std 0.071 vf 0.072 kp 370 kd 3.38
+[  54.01M] sps 8,160 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.027 | kl 0.0205 lr 3.4e-05 std 0.071 vf 0.021 kp 371 kd 3.38
+[  54.19M] sps 8,253 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.027 | kl 0.0160 lr 3.4e-05 std 0.071 vf 0.016 kp 370 kd 3.38
+[  54.37M] sps 8,343 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.027 | kl 0.0236 lr 5.1e-05 std 0.071 vf 0.032 kp 370 kd 3.38
+[  54.56M] sps 8,217 ep_len 3000 falls 0 quiet 0 hard_surv 0.75 | plant 1.00 push 0.027 | kl 0.0302 lr 2.3e-05 std 0.071 vf 0.045 kp 369 kd 3.38
+[  54.74M] sps 8,252 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.027 | kl 0.0287 lr 5.1e-05 std 0.071 vf 0.013 kp 370 kd 3.38
+[  54.93M] sps 8,265 ep_len 2408 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.027 | kl 0.0162 lr 2.3e-05 std 0.071 vf 0.056 kp 369 kd 3.37
+[  55.11M] sps 8,280 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.027 | kl 0.0266 lr 3.4e-05 std 0.071 vf 0.017 kp 370 kd 3.37
+[  55.30M] sps 8,252 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.027 | kl 0.0156 lr 3.4e-05 std 0.071 vf 0.013 kp 370 kd 3.37
+[  55.48M] sps 8,279 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.027 | kl 0.0162 lr 3.4e-05 std 0.071 vf 0.024 kp 370 kd 3.37
+[  55.66M] sps 8,261 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.027 | kl 0.0231 lr 5.1e-05 std 0.071 vf 0.022 kp 369 kd 3.37
+[  55.85M] sps 8,255 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.027 | kl 0.0231 lr 5.1e-05 std 0.070 vf 0.011 kp 368 kd 3.37
+[  56.03M] sps 8,380 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.027 | kl 0.0336 lr 3.4e-05 std 0.070 vf 0.009 kp 369 kd 3.38
+[  56.22M] sps 8,376 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.027 | kl 0.0262 lr 5.1e-05 std 0.070 vf 0.020 kp 369 kd 3.37
+[  56.40M] sps 8,230 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.027 | kl 0.0261 lr 5.1e-05 std 0.070 vf 0.027 kp 369 kd 3.38
+[  56.59M] sps 8,215 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.027 | kl 0.0334 lr 3.4e-05 std 0.070 vf 0.016 kp 370 kd 3.38
+[  56.77M] sps 8,207 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.027 | kl 0.0231 lr 3.4e-05 std 0.070 vf 0.025 kp 369 kd 3.39
+[  56.95M] sps 8,266 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.027 | kl 0.0137 lr 2.3e-05 std 0.070 vf 0.015 kp 370 kd 3.39
+[  57.14M] sps 8,151 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.027 | kl 0.0189 lr 3.4e-05 std 0.070 vf 0.038 kp 371 kd 3.39
+[  57.32M] sps 8,320 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.027 | kl 0.0236 lr 5.1e-05 std 0.070 vf 0.027 kp 370 kd 3.39
+[  57.51M] sps 8,244 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.027 | kl 0.0260 lr 5.1e-05 std 0.070 vf 0.027 kp 370 kd 3.39
+[  57.69M] sps 8,295 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.027 | kl 0.0209 lr 3.4e-05 std 0.070 vf 0.039 kp 369 kd 3.38
+[  57.88M] sps 8,201 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.027 | kl 0.0179 lr 3.4e-05 std 0.070 vf 0.031 kp 370 kd 3.39
+[  58.06M] sps 8,085 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.027 | kl 0.0302 lr 3.4e-05 std 0.070 vf 0.028 kp 368 kd 3.39
+[  58.25M] sps 8,197 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.027 | kl 0.0242 lr 5.1e-05 std 0.070 vf 0.023 kp 369 kd 3.39
+[  58.43M] sps 8,288 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.027 | kl 0.0182 lr 3.4e-05 std 0.070 vf 0.026 kp 370 kd 3.39
+[  58.61M] sps 8,203 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.027 | kl 0.0162 lr 3.4e-05 std 0.070 vf 0.026 kp 370 kd 3.39
+[  58.80M] sps 8,308 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.027 | kl 0.0160 lr 3.4e-05 std 0.070 vf 0.012 kp 370 kd 3.39
+[eval] @ 58,982,400: score 0.938 {'0.00': 1.0, '0.02': 1.0, '0.05': 1.0, '0.10': 0.9375, '0.15': 0.75} quiet 0  (best 0.938)
+[  58.98M] sps 8,174 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.027 | kl 0.0238 lr 5.1e-05 std 0.070 vf 0.023 kp 370 kd 3.40
+[curriculum] @ 59,111,424: push level -> 0.0293 m/s; settled success 0.985
+[  59.17M] sps 8,170 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.029 | kl 0.0248 lr 5.1e-05 std 0.070 vf 0.019 kp 368 kd 3.39
+[  59.35M] sps 8,184 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.029 | kl 0.0226 lr 5.1e-05 std 0.070 vf 0.013 kp 365 kd 3.39
+[  59.54M] sps 8,391 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.029 | kl 0.0233 lr 5.1e-05 std 0.070 vf 0.027 kp 366 kd 3.39
+[curriculum] @ 59,627,520: push level -> 0.0322 m/s; settled success 1.000
+[  59.72M] sps 8,160 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.032 | kl 0.0154 lr 3.4e-05 std 0.070 vf 0.020 kp 366 kd 3.39
+[  59.90M] sps 8,325 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.032 | kl 0.0142 lr 3.4e-05 std 0.070 vf 0.015 kp 368 kd 3.39
+[  60.09M] sps 8,359 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.032 | kl 0.0177 lr 3.4e-05 std 0.070 vf 0.018 kp 370 kd 3.39
+[curriculum] @ 60,143,616: push level -> 0.0354 m/s; settled success 0.990
+[  60.27M] sps 8,340 ep_len 3000 falls 0 quiet 0 hard_surv 0.91 | plant 1.00 push 0.035 | kl 0.0199 lr 5.1e-05 std 0.070 vf 0.025 kp 369 kd 3.39
+[  60.46M] sps 8,322 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.035 | kl 0.0179 lr 3.4e-05 std 0.070 vf 0.015 kp 371 kd 3.39
+[  60.64M] sps 8,395 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.035 | kl 0.0212 lr 5.1e-05 std 0.070 vf 0.027 kp 371 kd 3.39
+[curriculum] @ 60,678,144: push level -> 0.0390 m/s; settled success 0.985
+[  60.83M] sps 8,502 ep_len 2796 falls 0 quiet 0 hard_surv 0.89 | plant 1.00 push 0.039 | kl 0.0195 lr 3.4e-05 std 0.070 vf 0.033 kp 370 kd 3.39
+[  61.01M] sps 8,549 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.039 | kl 0.0128 lr 2.3e-05 std 0.070 vf 0.016 kp 371 kd 3.39
+[  61.19M] sps 8,285 ep_len 2658 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.039 | kl 0.0343 lr 2.3e-05 std 0.070 vf 0.186 kp 371 kd 3.39
+[curriculum] @ 61,231,104: push level -> 0.0429 m/s; settled success 0.980
+[  61.38M] sps 8,398 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.043 | kl 0.0254 lr 5.1e-05 std 0.070 vf 0.020 kp 371 kd 3.39
+[  61.56M] sps 8,474 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.043 | kl 0.0282 lr 3.4e-05 std 0.070 vf 0.031 kp 370 kd 3.39
+[  61.75M] sps 8,343 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.043 | kl 0.0244 lr 5.1e-05 std 0.070 vf 0.021 kp 371 kd 3.39
+[curriculum] @ 61,784,064: push level -> 0.0472 m/s; settled success 0.986
+[  61.93M] sps 8,724 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.047 | kl 0.0277 lr 5.1e-05 std 0.070 vf 0.031 kp 370 kd 3.39
+[  62.12M] sps 8,670 ep_len 2658 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.047 | kl 0.0307 lr 3.4e-05 std 0.070 vf 0.048 kp 370 kd 3.39
+[  62.30M] sps 8,751 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.047 | kl 0.0218 lr 3.4e-05 std 0.070 vf 0.160 kp 369 kd 3.39
+[  62.48M] sps 8,799 ep_len 2513 falls 0 quiet 0 hard_surv 0.80 | plant 1.00 push 0.047 | kl 0.0249 lr 5.1e-05 std 0.070 vf 0.134 kp 369 kd 3.39
+[  62.67M] sps 8,614 ep_len 2376 falls 0 quiet 0 hard_surv 0.91 | plant 1.00 push 0.047 | kl 0.0350 lr 2.3e-05 std 0.070 vf 0.051 kp 369 kd 3.39
+[  62.85M] sps 8,527 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.047 | kl 0.0261 lr 5.1e-05 std 0.070 vf 0.016 kp 370 kd 3.39
+[  63.04M] sps 8,409 ep_len 2915 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.047 | kl 0.0198 lr 3.4e-05 std 0.070 vf 0.195 kp 371 kd 3.40
+[  63.22M] sps 8,821 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.047 | kl 0.0331 lr 3.4e-05 std 0.070 vf 0.069 kp 370 kd 3.40
+[  63.41M] sps 8,722 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.047 | kl 0.0401 lr 3.4e-05 std 0.069 vf 0.041 kp 371 kd 3.40
+[  63.59M] sps 8,463 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.047 | kl 0.0200 lr 3.4e-05 std 0.069 vf 0.023 kp 370 kd 3.40
+[  63.77M] sps 8,268 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.047 | kl 0.0280 lr 3.4e-05 std 0.069 vf 0.034 kp 369 kd 3.40
+[  63.96M] sps 8,357 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.047 | kl 0.0203 lr 3.4e-05 std 0.069 vf 0.029 kp 369 kd 3.40
+[  64.14M] sps 8,174 ep_len 2794 falls 0 quiet 0 hard_surv 0.80 | plant 1.00 push 0.047 | kl 0.0237 lr 3.4e-05 std 0.069 vf 0.037 kp 370 kd 3.40
+[  64.33M] sps 8,267 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.047 | kl 0.0235 lr 3.4e-05 std 0.069 vf 0.030 kp 370 kd 3.40
+[  64.51M] sps 8,282 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.047 | kl 0.0187 lr 3.4e-05 std 0.069 vf 0.012 kp 371 kd 3.40
+[  64.70M] sps 8,190 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.047 | kl 0.0157 lr 3.4e-05 std 0.069 vf 0.017 kp 371 kd 3.40
+[  64.88M] sps 8,298 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.047 | kl 0.0129 lr 2.3e-05 std 0.069 vf 0.029 kp 371 kd 3.40
+[  65.06M] sps 8,290 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.047 | kl 0.0227 lr 5.1e-05 std 0.069 vf 0.039 kp 370 kd 3.40
+[  65.25M] sps 8,195 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.047 | kl 0.0191 lr 3.4e-05 std 0.069 vf 0.022 kp 370 kd 3.40
+[  65.43M] sps 8,361 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.047 | kl 0.0190 lr 2.3e-05 std 0.069 vf 0.024 kp 370 kd 3.40
+[curriculum] @ 65,470,464: push level -> 0.0519 m/s; settled success 0.995
+[  65.62M] sps 8,308 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.052 | kl 0.0173 lr 3.4e-05 std 0.069 vf 0.016 kp 371 kd 3.40
+[  65.80M] sps 8,312 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.052 | kl 0.0308 lr 3.4e-05 std 0.069 vf 0.018 kp 371 kd 3.40
+[  65.99M] sps 8,361 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.052 | kl 0.0187 lr 3.4e-05 std 0.069 vf 0.016 kp 371 kd 3.40
+[curriculum] @ 66,004,992: push level -> 0.0571 m/s; settled success 1.000
+[  66.17M] sps 8,334 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.057 | kl 0.0327 lr 3.4e-05 std 0.069 vf 0.035 kp 371 kd 3.40
+[eval] @ 66,355,200: score 0.938 {'0.00': 1.0, '0.02': 1.0, '0.05': 1.0, '0.10': 0.875, '0.15': 0.8125} quiet 0  (best 0.938)
+[  66.36M] sps 8,441 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.057 | kl 0.0246 lr 5.1e-05 std 0.069 vf 0.015 kp 371 kd 3.40
+[curriculum] @ 66,539,520: push level -> 0.0628 m/s; settled success 0.995
+[  66.54M] sps 8,396 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.063 | kl 0.0211 lr 3.4e-05 std 0.069 vf 0.017 kp 372 kd 3.40
+[  66.72M] sps 8,294 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.063 | kl 0.0212 lr 3.4e-05 std 0.069 vf 0.027 kp 372 kd 3.40
+[  66.91M] sps 8,232 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.063 | kl 0.0331 lr 3.4e-05 std 0.069 vf 0.028 kp 371 kd 3.40
+[curriculum] @ 67,055,616: push level -> 0.0690 m/s; settled success 0.990
+[  67.09M] sps 8,355 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.069 | kl 0.0208 lr 3.4e-05 std 0.069 vf 0.030 kp 371 kd 3.40
+[  67.28M] sps 8,261 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.069 | kl 0.0280 lr 5.1e-05 std 0.069 vf 0.023 kp 371 kd 3.40
+[  67.46M] sps 8,312 ep_len 2263 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.069 | kl 0.0202 lr 2.3e-05 std 0.069 vf 0.029 kp 372 kd 3.40
+[curriculum] @ 67,608,576: push level -> 0.0759 m/s; settled success 0.995
+[  67.65M] sps 8,243 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.076 | kl 0.0155 lr 2.3e-05 std 0.069 vf 0.034 kp 371 kd 3.40
+[  67.83M] sps 8,319 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.076 | kl 0.0271 lr 5.1e-05 std 0.069 vf 0.023 kp 370 kd 3.40
+[  68.01M] sps 8,222 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.076 | kl 0.0230 lr 5.1e-05 std 0.069 vf 0.019 kp 371 kd 3.40
+[curriculum] @ 68,179,968: push level -> 0.0835 m/s; settled success 0.990
+[  68.20M] sps 8,332 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.084 | kl 0.0193 lr 3.4e-05 std 0.069 vf 0.033 kp 371 kd 3.40
+[  68.38M] sps 8,385 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.084 | kl 0.0204 lr 5.1e-05 std 0.069 vf 0.017 kp 370 kd 3.40
+[  68.57M] sps 8,381 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.084 | kl 0.0172 lr 2.3e-05 std 0.069 vf 0.021 kp 370 kd 3.40
+[curriculum] @ 68,732,928: push level -> 0.0919 m/s; settled success 0.990
+[  68.75M] sps 8,264 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.092 | kl 0.0212 lr 3.4e-05 std 0.069 vf 0.028 kp 371 kd 3.40
+[  68.94M] sps 8,157 ep_len 2751 falls 0 quiet 0 hard_surv 0.88 | plant 1.00 push 0.092 | kl 0.0459 lr 2.3e-05 std 0.069 vf 0.216 kp 370 kd 3.40
+[  69.12M] sps 8,286 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.092 | kl 0.0259 lr 5.1e-05 std 0.069 vf 0.066 kp 370 kd 3.40
+[curriculum] @ 69,267,456: push level -> 0.1011 m/s; settled success 0.965
+[  69.30M] sps 8,298 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.101 | kl 0.0274 lr 3.4e-05 std 0.069 vf 0.092 kp 369 kd 3.40
+[  69.49M] sps 8,238 ep_len 3000 falls 0 quiet 0 hard_surv 0.91 | plant 1.00 push 0.101 | kl 0.0216 lr 3.4e-05 std 0.069 vf 0.055 kp 370 kd 3.40
+[  69.67M] sps 8,084 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.101 | kl 0.0188 lr 3.4e-05 std 0.069 vf 0.022 kp 368 kd 3.40
+[curriculum] @ 69,783,552: push level -> 0.1112 m/s; settled success 0.940
+[  69.86M] sps 8,296 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.111 | kl 0.0168 lr 3.4e-05 std 0.069 vf 0.026 kp 368 kd 3.39
+[  70.04M] sps 8,269 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.111 | kl 0.0256 lr 3.4e-05 std 0.069 vf 0.051 kp 366 kd 3.39
+[  70.23M] sps 8,097 ep_len 3000 falls 0 quiet 0 hard_surv 0.89 | plant 1.00 push 0.111 | kl 0.0122 lr 2.3e-05 std 0.069 vf 0.023 kp 368 kd 3.39
+[curriculum] @ 70,354,944: push level -> 0.1223 m/s; settled success 0.966
+[  70.41M] sps 8,204 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.122 | kl 0.0287 lr 5.1e-05 std 0.069 vf 0.063 kp 367 kd 3.39
+[  70.59M] sps 8,233 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.122 | kl 0.0194 lr 2.3e-05 std 0.069 vf 0.092 kp 366 kd 3.40
+[  70.78M] sps 8,057 ep_len 2684 falls 0 quiet 0 hard_surv 0.86 | plant 1.00 push 0.122 | kl 0.0299 lr 5.1e-05 std 0.069 vf 0.151 kp 366 kd 3.40
+[curriculum] @ 70,889,472: push level -> 0.1345 m/s; settled success 0.931
+[  70.96M] sps 8,177 ep_len 2716 falls 0 quiet 0 hard_surv 0.89 | plant 1.00 push 0.135 | kl 0.0248 lr 3.4e-05 std 0.069 vf 0.199 kp 367 kd 3.40
+[  71.15M] sps 8,238 ep_len 2950 falls 0 quiet 1 hard_surv 1.00 | plant 1.00 push 0.135 | kl 0.0253 lr 3.4e-05 std 0.069 vf 0.116 kp 367 kd 3.40
+[  71.33M] sps 8,238 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.135 | kl 0.0277 lr 5.1e-05 std 0.069 vf 0.048 kp 367 kd 3.40
+[  71.52M] sps 8,316 ep_len 2749 falls 0 quiet 0 hard_surv 0.92 | plant 1.00 push 0.135 | kl 0.0250 lr 3.4e-05 std 0.069 vf 0.067 kp 365 kd 3.39
+[  71.70M] sps 8,282 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.135 | kl 0.0185 lr 3.4e-05 std 0.069 vf 0.099 kp 367 kd 3.40
+[  71.88M] sps 8,332 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.135 | kl 0.0310 lr 2.3e-05 std 0.069 vf 0.077 kp 367 kd 3.39
+[  72.07M] sps 8,272 ep_len 2409 falls 0 quiet 0 hard_surv 0.88 | plant 1.00 push 0.135 | kl 0.0188 lr 5.1e-05 std 0.069 vf 0.030 kp 365 kd 3.40
+[  72.25M] sps 8,278 ep_len 3000 falls 0 quiet 0 hard_surv 0.86 | plant 1.00 push 0.135 | kl 0.0390 lr 3.4e-05 std 0.069 vf 0.047 kp 365 kd 3.40
+[  72.44M] sps 8,248 ep_len 2960 falls 0 quiet 0 hard_surv 0.90 | plant 1.00 push 0.135 | kl 0.0234 lr 5.1e-05 std 0.069 vf 0.071 kp 365 kd 3.40
+[  72.62M] sps 8,220 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.135 | kl 0.0378 lr 3.4e-05 std 0.069 vf 0.031 kp 364 kd 3.40
+[  72.81M] sps 8,278 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.135 | kl 0.0168 lr 3.4e-05 std 0.069 vf 0.056 kp 366 kd 3.40
+[  72.99M] sps 8,232 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.135 | kl 0.0254 lr 3.4e-05 std 0.069 vf 0.029 kp 366 kd 3.40
+[  73.18M] sps 8,282 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.135 | kl 0.0190 lr 3.4e-05 std 0.069 vf 0.058 kp 365 kd 3.40
+[  73.36M] sps 8,193 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.135 | kl 0.0195 lr 3.4e-05 std 0.069 vf 0.023 kp 366 kd 3.40
+[  73.54M] sps 8,291 ep_len 2793 falls 0 quiet 0 hard_surv 0.86 | plant 1.00 push 0.135 | kl 0.0366 lr 2.3e-05 std 0.069 vf 0.091 kp 365 kd 3.40
+[eval] @ 73,728,000: score 0.938 {'0.00': 1.0, '0.02': 1.0, '0.05': 1.0, '0.10': 0.9375, '0.15': 0.75} quiet 0  (best 0.938)
+[  73.73M] sps 8,099 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.135 | kl 0.0233 lr 5.1e-05 std 0.069 vf 0.029 kp 366 kd 3.40
+[  73.91M] sps 8,291 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.135 | kl 0.0320 lr 5.1e-05 std 0.069 vf 0.102 kp 366 kd 3.40
+[  74.10M] sps 8,279 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.135 | kl 0.0319 lr 2.3e-05 std 0.069 vf 0.181 kp 365 kd 3.40
+[  74.28M] sps 8,287 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.135 | kl 0.0306 lr 3.4e-05 std 0.069 vf 0.043 kp 366 kd 3.40
+[  74.47M] sps 8,417 ep_len 2990 falls 0 quiet 0 hard_surv 0.90 | plant 1.00 push 0.135 | kl 0.0371 lr 2.3e-05 std 0.069 vf 0.142 kp 365 kd 3.39
+[  74.65M] sps 8,496 ep_len 2861 falls 0 quiet 0 hard_surv 0.88 | plant 1.00 push 0.135 | kl 0.0312 lr 5.1e-05 std 0.069 vf 0.035 kp 366 kd 3.39
+[curriculum] @ 74,668,032: push level -> 0.1480 m/s; settled success 0.947
+[  74.83M] sps 8,510 ep_len 2533 falls 0 quiet 0 hard_surv 0.91 | plant 1.00 push 0.148 | kl 0.0162 lr 3.4e-05 std 0.069 vf 0.085 kp 366 kd 3.39
+[  75.02M] sps 8,597 ep_len 2495 falls 0 quiet 0 hard_surv 0.78 | plant 1.00 push 0.148 | kl 0.0199 lr 3.4e-05 std 0.069 vf 0.275 kp 366 kd 3.39
+[  75.20M] sps 8,518 ep_len 2462 falls 0 quiet 0 hard_surv 0.83 | plant 1.00 push 0.148 | kl 0.0133 lr 2.3e-05 std 0.069 vf 0.075 kp 365 kd 3.39
+[  75.39M] sps 8,512 ep_len 2884 falls 0 quiet 0 hard_surv 0.80 | plant 1.00 push 0.148 | kl 0.0256 lr 3.4e-05 std 0.069 vf 0.191 kp 365 kd 3.38
+[  75.57M] sps 8,674 ep_len 2529 falls 0 quiet 0 hard_surv 0.88 | plant 1.00 push 0.148 | kl 0.0199 lr 3.4e-05 std 0.069 vf 0.108 kp 365 kd 3.38
+[  75.76M] sps 8,467 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.148 | kl 0.0322 lr 3.4e-05 std 0.069 vf 0.066 kp 365 kd 3.37
+[  75.94M] sps 8,622 ep_len 2982 falls 0 quiet 0 hard_surv 0.88 | plant 1.00 push 0.148 | kl 0.0287 lr 5.1e-05 std 0.069 vf 0.127 kp 365 kd 3.38
+[  76.12M] sps 8,566 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.148 | kl 0.0246 lr 3.4e-05 std 0.069 vf 0.149 kp 366 kd 3.38
+[curriculum] @ 76,197,888: push level -> 0.1500 m/s; settled success 0.907
+[  76.31M] sps 8,545 ep_len 2822 falls 0 quiet 0 hard_surv 0.80 | plant 1.00 push 0.150 | kl 0.0186 lr 3.4e-05 std 0.069 vf 0.242 kp 366 kd 3.38
+[  76.49M] sps 8,483 ep_len 2168 falls 0 quiet 0 hard_surv 0.62 | plant 1.00 push 0.150 | kl 0.0241 lr 5.1e-05 std 0.069 vf 0.061 kp 366 kd 3.38
+[  76.68M] sps 8,478 ep_len 2838 falls 0 quiet 0 hard_surv 0.88 | plant 1.00 push 0.150 | kl 0.0280 lr 5.1e-05 std 0.069 vf 0.202 kp 366 kd 3.37
+[  76.86M] sps 8,556 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0193 lr 3.4e-05 std 0.069 vf 0.053 kp 367 kd 3.37
+[  77.05M] sps 8,444 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0275 lr 5.1e-05 std 0.069 vf 0.089 kp 367 kd 3.37
+[curriculum] @ 77,230,080: push level -> 0.1500 m/s; settled success 0.916
+[  77.23M] sps 8,550 ep_len 3000 falls 0 quiet 0 hard_surv 0.91 | plant 1.00 push 0.150 | kl 0.0241 lr 5.1e-05 std 0.069 vf 0.080 kp 367 kd 3.38
+[  77.41M] sps 8,516 ep_len 2768 falls 0 quiet 0 hard_surv 0.91 | plant 1.00 push 0.150 | kl 0.0181 lr 2.3e-05 std 0.069 vf 0.242 kp 365 kd 3.38
+[  77.60M] sps 8,289 ep_len 2876 falls 0 quiet 0 hard_surv 0.88 | plant 1.00 push 0.150 | kl 0.0279 lr 5.1e-05 std 0.069 vf 0.029 kp 364 kd 3.38
+[  77.78M] sps 8,321 ep_len 3000 falls 0 quiet 0 hard_surv 0.83 | plant 1.00 push 0.150 | kl 0.0224 lr 5.1e-05 std 0.069 vf 0.030 kp 365 kd 3.38
+[  77.97M] sps 8,303 ep_len 2416 falls 0 quiet 0 hard_surv 0.75 | plant 1.00 push 0.150 | kl 0.0160 lr 3.4e-05 std 0.069 vf 0.058 kp 366 kd 3.38
+[  78.15M] sps 8,265 ep_len 2925 falls 0 quiet 0 hard_surv 0.88 | plant 1.00 push 0.150 | kl 0.0281 lr 3.4e-05 std 0.069 vf 0.030 kp 365 kd 3.38
+[curriculum] @ 78,317,568: push level -> 0.1500 m/s; settled success 0.946
+[  78.34M] sps 8,366 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0231 lr 5.1e-05 std 0.069 vf 0.063 kp 363 kd 3.39
+[  78.52M] sps 8,359 ep_len 2219 falls 0 quiet 0 hard_surv 0.92 | plant 1.00 push 0.150 | kl 0.0258 lr 2.3e-05 std 0.069 vf 0.077 kp 363 kd 3.39
+[  78.70M] sps 8,214 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0306 lr 5.1e-05 std 0.069 vf 0.034 kp 366 kd 3.39
+[curriculum] @ 78,852,096: push level -> 0.1500 m/s; settled success 0.941
+[  78.89M] sps 8,449 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0274 lr 5.1e-05 std 0.069 vf 0.039 kp 366 kd 3.39
+[  79.07M] sps 8,550 ep_len 2560 falls 0 quiet 0 hard_surv 0.90 | plant 1.00 push 0.150 | kl 0.0326 lr 2.3e-05 std 0.069 vf 0.166 kp 366 kd 3.39
+[  79.26M] sps 8,592 ep_len 2505 falls 0 quiet 0 hard_surv 0.88 | plant 1.00 push 0.150 | kl 0.0199 lr 3.4e-05 std 0.069 vf 0.175 kp 367 kd 3.39
+[curriculum] @ 79,368,192: push level -> 0.1500 m/s; settled success 0.961
+[  79.44M] sps 8,568 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0215 lr 5.1e-05 std 0.069 vf 0.034 kp 367 kd 3.39
+[  79.63M] sps 8,376 ep_len 3000 falls 0 quiet 0 hard_surv 0.89 | plant 1.00 push 0.150 | kl 0.0250 lr 3.4e-05 std 0.069 vf 0.032 kp 366 kd 3.39
+[  79.81M] sps 8,446 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0266 lr 5.1e-05 std 0.069 vf 0.038 kp 366 kd 3.39
+[curriculum] @ 79,939,584: push level -> 0.1500 m/s; settled success 0.976
+[  79.99M] sps 8,429 ep_len 2681 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0273 lr 3.4e-05 std 0.069 vf 0.033 kp 365 kd 3.39
+[  80.18M] sps 8,376 ep_len 2813 falls 0 quiet 0 hard_surv 0.83 | plant 1.00 push 0.150 | kl 0.0168 lr 3.4e-05 std 0.069 vf 0.040 kp 365 kd 3.39
+[  80.36M] sps 8,296 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0280 lr 5.1e-05 std 0.069 vf 0.044 kp 366 kd 3.40
+[curriculum] @ 80,455,680: push level -> 0.1500 m/s; settled success 0.971
+[  80.55M] sps 8,287 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0264 lr 3.4e-05 std 0.069 vf 0.054 kp 365 kd 3.39
+[  80.73M] sps 8,317 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0163 lr 3.4e-05 std 0.069 vf 0.026 kp 365 kd 3.40
+[  80.92M] sps 8,414 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0303 lr 5.1e-05 std 0.069 vf 0.050 kp 366 kd 3.40
+[curriculum] @ 81,045,504: push level -> 0.1500 m/s; settled success 0.971
+[eval] @ 81,100,800: score 0.975 {'0.00': 1.0, '0.02': 1.0, '0.05': 1.0, '0.10': 0.9375, '0.15': 0.9375} quiet 0  (best 0.975)
+[  81.10M] sps 8,181 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0194 lr 3.4e-05 std 0.069 vf 0.030 kp 366 kd 3.40
+[  81.29M] sps 8,305 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0231 lr 5.1e-05 std 0.069 vf 0.018 kp 366 kd 3.40
+[  81.47M] sps 8,273 ep_len 2018 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0188 lr 5.1e-05 std 0.069 vf 0.025 kp 367 kd 3.41
+[curriculum] @ 81,561,600: push level -> 0.1500 m/s; settled success 0.995
+[  81.65M] sps 8,333 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0162 lr 2.3e-05 std 0.069 vf 0.022 kp 366 kd 3.41
+[  81.84M] sps 8,327 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0202 lr 5.1e-05 std 0.069 vf 0.057 kp 366 kd 3.41
+[  82.02M] sps 8,175 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0289 lr 3.4e-05 std 0.069 vf 0.027 kp 367 kd 3.41
+[curriculum] @ 82,114,560: push level -> 0.1500 m/s; settled success 0.970
+[  82.21M] sps 8,322 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0206 lr 3.4e-05 std 0.069 vf 0.031 kp 366 kd 3.41
+[  82.39M] sps 8,306 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0174 lr 3.4e-05 std 0.069 vf 0.047 kp 366 kd 3.40
+[  82.58M] sps 8,377 ep_len 2271 falls 0 quiet 1 hard_surv 0.88 | plant 1.00 push 0.150 | kl 0.0249 lr 5.1e-05 std 0.069 vf 0.073 kp 367 kd 3.41
+[curriculum] @ 82,630,656: push level -> 0.1500 m/s; settled success 0.950
+[  82.76M] sps 8,416 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0333 lr 3.4e-05 std 0.069 vf 0.044 kp 368 kd 3.41
+[  82.94M] sps 8,462 ep_len 2686 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0159 lr 3.4e-05 std 0.068 vf 0.064 kp 368 kd 3.41
+[  83.13M] sps 8,419 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0257 lr 5.1e-05 std 0.068 vf 0.025 kp 369 kd 3.41
+[curriculum] @ 83,146,752: push level -> 0.1500 m/s; settled success 0.955
+[  83.31M] sps 8,501 ep_len 3000 falls 0 quiet 0 hard_surv 0.82 | plant 1.00 push 0.150 | kl 0.0256 lr 3.4e-05 std 0.068 vf 0.030 kp 370 kd 3.41
+[  83.50M] sps 8,617 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0198 lr 3.4e-05 std 0.068 vf 0.023 kp 369 kd 3.41
+[curriculum] @ 83,662,848: push level -> 0.1500 m/s; settled success 0.965
+[  83.68M] sps 8,644 ep_len 2908 falls 0 quiet 0 hard_surv 0.93 | plant 1.00 push 0.150 | kl 0.0165 lr 3.4e-05 std 0.068 vf 0.044 kp 369 kd 3.41
+[  83.87M] sps 8,356 ep_len 2485 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0199 lr 3.4e-05 std 0.068 vf 0.306 kp 369 kd 3.41
+[  84.05M] sps 8,343 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0173 lr 3.4e-05 std 0.068 vf 0.054 kp 368 kd 3.41
+[curriculum] @ 84,197,376: push level -> 0.1500 m/s; settled success 0.957
+[  84.23M] sps 8,498 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0281 lr 3.4e-05 std 0.068 vf 0.038 kp 368 kd 3.41
+[  84.42M] sps 8,391 ep_len 2960 falls 0 quiet 0 hard_surv 0.75 | plant 1.00 push 0.150 | kl 0.0178 lr 3.4e-05 std 0.068 vf 0.044 kp 368 kd 3.41
+[  84.60M] sps 8,456 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0141 lr 2.3e-05 std 0.068 vf 0.038 kp 367 kd 3.41
+[curriculum] @ 84,713,472: push level -> 0.1500 m/s; settled success 0.980
+[  84.79M] sps 8,372 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0206 lr 3.4e-05 std 0.068 vf 0.047 kp 367 kd 3.41
+[  84.97M] sps 8,460 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0267 lr 5.1e-05 std 0.068 vf 0.033 kp 367 kd 3.41
+[  85.16M] sps 8,484 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0253 lr 5.1e-05 std 0.068 vf 0.035 kp 369 kd 3.41
+[curriculum] @ 85,192,704: push level -> 0.1500 m/s; settled success 0.980
+[  85.34M] sps 8,320 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0204 lr 3.4e-05 std 0.068 vf 0.033 kp 368 kd 3.42
+[  85.52M] sps 8,211 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0175 lr 3.4e-05 std 0.068 vf 0.062 kp 367 kd 3.41
+[  85.71M] sps 8,324 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0139 lr 3.4e-05 std 0.068 vf 0.029 kp 367 kd 3.42
+[curriculum] @ 85,745,664: push level -> 0.1500 m/s; settled success 0.975
+[  85.89M] sps 8,374 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0210 lr 3.4e-05 std 0.068 vf 0.026 kp 368 kd 3.42
+[  86.08M] sps 8,391 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0234 lr 5.1e-05 std 0.068 vf 0.030 kp 368 kd 3.42
+[curriculum] @ 86,224,896: push level -> 0.1500 m/s; settled success 0.985
+[  86.26M] sps 8,389 ep_len 2548 falls 0 quiet 0 hard_surv 0.83 | plant 1.00 push 0.150 | kl 0.0255 lr 5.1e-05 std 0.068 vf 0.026 kp 367 kd 3.41
+[  86.45M] sps 8,441 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0200 lr 5.1e-05 std 0.068 vf 0.109 kp 367 kd 3.41
+[  86.63M] sps 8,500 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0286 lr 3.4e-05 std 0.068 vf 0.083 kp 368 kd 3.41
+[curriculum] @ 86,759,424: push level -> 0.1500 m/s; settled success 0.937
+[  86.81M] sps 8,400 ep_len 3000 falls 0 quiet 0 hard_surv 0.86 | plant 1.00 push 0.150 | kl 0.0189 lr 3.4e-05 std 0.068 vf 0.020 kp 368 kd 3.42
+[  87.00M] sps 8,379 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0170 lr 5.1e-05 std 0.068 vf 0.034 kp 368 kd 3.42
+[  87.18M] sps 8,403 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0187 lr 3.4e-05 std 0.068 vf 0.049 kp 368 kd 3.42
+[curriculum] @ 87,330,816: push level -> 0.1500 m/s; settled success 0.975
+[  87.37M] sps 8,402 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0169 lr 3.4e-05 std 0.068 vf 0.025 kp 368 kd 3.42
+[  87.55M] sps 8,361 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0258 lr 5.1e-05 std 0.068 vf 0.047 kp 368 kd 3.42
+[  87.74M] sps 8,335 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0163 lr 3.4e-05 std 0.068 vf 0.042 kp 369 kd 3.41
+[curriculum] @ 87,883,776: push level -> 0.1500 m/s; settled success 0.980
+[  87.92M] sps 8,399 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0179 lr 3.4e-05 std 0.068 vf 0.023 kp 368 kd 3.41
+[  88.10M] sps 8,418 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0177 lr 3.4e-05 std 0.068 vf 0.020 kp 369 kd 3.42
+[  88.29M] sps 8,406 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0167 lr 3.4e-05 std 0.068 vf 0.016 kp 368 kd 3.41
+[curriculum] @ 88,455,168: push level -> 0.1500 m/s; settled success 0.976
+[eval] @ 88,473,600: score 0.950 {'0.00': 1.0, '0.02': 1.0, '0.05': 1.0, '0.10': 0.9375, '0.15': 0.8125} quiet 0  (best 0.975)
+[  88.47M] sps 8,325 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0246 lr 5.1e-05 std 0.068 vf 0.021 kp 369 kd 3.42
+[  88.66M] sps 8,276 ep_len 2824 falls 0 quiet 0 hard_surv 0.90 | plant 1.00 push 0.150 | kl 0.0224 lr 3.4e-05 std 0.068 vf 0.031 kp 368 kd 3.42
+[  88.84M] sps 8,230 ep_len 2743 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0216 lr 5.1e-05 std 0.068 vf 0.110 kp 367 kd 3.42
+[curriculum] @ 88,952,832: push level -> 0.1500 m/s; settled success 0.966
+[  89.03M] sps 8,306 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0184 lr 3.4e-05 std 0.068 vf 0.037 kp 368 kd 3.43
+[  89.21M] sps 8,322 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0188 lr 3.4e-05 std 0.068 vf 0.045 kp 368 kd 3.43
+[  89.40M] sps 8,190 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0176 lr 5.1e-05 std 0.068 vf 0.019 kp 368 kd 3.43
+[curriculum] @ 89,505,792: push level -> 0.1500 m/s; settled success 0.932
+[  89.58M] sps 8,158 ep_len 2922 falls 0 quiet 0 hard_surv 0.86 | plant 1.00 push 0.150 | kl 0.0276 lr 3.4e-05 std 0.068 vf 0.079 kp 368 kd 3.43
+[  89.76M] sps 8,250 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0286 lr 3.4e-05 std 0.068 vf 0.045 kp 368 kd 3.44
+[  89.95M] sps 8,256 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0350 lr 2.3e-05 std 0.068 vf 0.033 kp 368 kd 3.43
+[curriculum] @ 90,003,456: push level -> 0.1500 m/s; settled success 0.945
+[  90.13M] sps 8,216 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0284 lr 3.4e-05 std 0.068 vf 0.060 kp 368 kd 3.43
+[  90.32M] sps 8,325 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0188 lr 3.4e-05 std 0.068 vf 0.042 kp 368 kd 3.42
+[  90.50M] sps 8,300 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0140 lr 3.4e-05 std 0.068 vf 0.072 kp 366 kd 3.42
+[curriculum] @ 90,556,416: push level -> 0.1500 m/s; settled success 0.970
+[  90.69M] sps 8,331 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0310 lr 3.4e-05 std 0.068 vf 0.039 kp 367 kd 3.42
+[  90.87M] sps 8,184 ep_len 3000 falls 0 quiet 0 hard_surv 0.93 | plant 1.00 push 0.150 | kl 0.0275 lr 3.4e-05 std 0.068 vf 0.075 kp 366 kd 3.42
+[  91.05M] sps 8,296 ep_len 3000 falls 0 quiet 0 hard_surv 0.86 | plant 1.00 push 0.150 | kl 0.0189 lr 3.4e-05 std 0.068 vf 0.069 kp 366 kd 3.41
+[curriculum] @ 91,090,944: push level -> 0.1500 m/s; settled success 0.957
+[  91.24M] sps 8,225 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0248 lr 5.1e-05 std 0.068 vf 0.039 kp 367 kd 3.42
+[  91.42M] sps 8,260 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0236 lr 5.1e-05 std 0.068 vf 0.016 kp 367 kd 3.43
+[  91.61M] sps 8,396 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0320 lr 5.1e-05 std 0.068 vf 0.032 kp 367 kd 3.44
+[curriculum] @ 91,625,472: push level -> 0.1500 m/s; settled success 0.975
+[  91.79M] sps 8,306 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0228 lr 5.1e-05 std 0.068 vf 0.046 kp 367 kd 3.43
+[  91.98M] sps 8,481 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0342 lr 3.4e-05 std 0.068 vf 0.026 kp 366 kd 3.43
+[  92.16M] sps 8,301 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0297 lr 3.4e-05 std 0.068 vf 0.041 kp 367 kd 3.42
+[curriculum] @ 92,178,432: push level -> 0.1500 m/s; settled success 0.981
+[  92.34M] sps 8,270 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0224 lr 3.4e-05 std 0.068 vf 0.029 kp 367 kd 3.42
+[  92.53M] sps 8,250 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0276 lr 5.1e-05 std 0.068 vf 0.035 kp 367 kd 3.41
+[curriculum] @ 92,694,528: push level -> 0.1500 m/s; settled success 0.976
+[  92.71M] sps 8,291 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0185 lr 3.4e-05 std 0.068 vf 0.017 kp 368 kd 3.42
+[  92.90M] sps 8,294 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0205 lr 5.1e-05 std 0.068 vf 0.032 kp 366 kd 3.43
+[  93.08M] sps 8,352 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0174 lr 3.4e-05 std 0.068 vf 0.020 kp 366 kd 3.43
+[curriculum] @ 93,247,488: push level -> 0.1500 m/s; settled success 0.961
+[  93.27M] sps 8,399 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0204 lr 3.4e-05 std 0.068 vf 0.027 kp 366 kd 3.43
+[  93.45M] sps 8,412 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0191 lr 3.4e-05 std 0.068 vf 0.033 kp 367 kd 3.43
+[  93.63M] sps 8,398 ep_len 3000 falls 0 quiet 0 hard_surv 0.90 | plant 1.00 push 0.150 | kl 0.0215 lr 5.1e-05 std 0.068 vf 0.021 kp 369 kd 3.43
+[curriculum] @ 93,782,016: push level -> 0.1500 m/s; settled success 0.981
+[  93.82M] sps 8,482 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0252 lr 5.1e-05 std 0.068 vf 0.038 kp 368 kd 3.44
+[  94.00M] sps 8,334 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0317 lr 2.3e-05 std 0.068 vf 0.034 kp 369 kd 3.44
+[  94.19M] sps 8,558 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0310 lr 2.3e-05 std 0.068 vf 0.100 kp 369 kd 3.44
+[curriculum] @ 94,353,408: push level -> 0.1500 m/s; settled success 0.985
+[  94.37M] sps 8,471 ep_len 2867 falls 0 quiet 0 hard_surv 0.83 | plant 1.00 push 0.150 | kl 0.0161 lr 3.4e-05 std 0.068 vf 0.033 kp 368 kd 3.44
+[  94.56M] sps 8,516 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0372 lr 2.3e-05 std 0.068 vf 0.036 kp 369 kd 3.44
+[  94.74M] sps 8,589 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0181 lr 3.4e-05 std 0.068 vf 0.049 kp 368 kd 3.45
+[curriculum] @ 94,924,800: push level -> 0.1500 m/s; settled success 0.981
+[  94.92M] sps 8,630 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0240 lr 3.4e-05 std 0.068 vf 0.030 kp 369 kd 3.45
+[  95.11M] sps 8,740 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0247 lr 5.1e-05 std 0.068 vf 0.029 kp 369 kd 3.46
+[  95.29M] sps 8,664 ep_len 2535 falls 1 quiet 0 hard_surv 0.83 | plant 1.00 push 0.150 | kl 0.0287 lr 5.1e-05 std 0.068 vf 0.035 kp 370 kd 3.45
+[curriculum] @ 95,422,464: push level -> 0.1500 m/s; settled success 0.956
+[  95.48M] sps 8,752 ep_len 3000 falls 0 quiet 0 hard_surv 0.80 | plant 1.00 push 0.150 | kl 0.0263 lr 5.1e-05 std 0.068 vf 0.012 kp 369 kd 3.45
+[  95.66M] sps 8,625 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0178 lr 3.4e-05 std 0.068 vf 0.039 kp 369 kd 3.45
+[eval] @ 95,846,400: score 0.975 {'0.00': 1.0, '0.02': 1.0, '0.05': 1.0, '0.10': 0.9375, '0.15': 0.9375} quiet 0  (best 0.975)
+[  95.85M] sps 8,505 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0195 lr 3.4e-05 std 0.068 vf 0.020 kp 369 kd 3.44
+[curriculum] @ 95,956,992: push level -> 0.1500 m/s; settled success 0.947
+[  96.03M] sps 8,549 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0214 lr 3.4e-05 std 0.068 vf 0.022 kp 370 kd 3.45
+[  96.22M] sps 8,408 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0220 lr 5.1e-05 std 0.068 vf 0.043 kp 370 kd 3.44
+[  96.40M] sps 8,506 ep_len 2696 falls 0 quiet 1 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0181 lr 3.4e-05 std 0.068 vf 0.035 kp 369 kd 3.44
+[curriculum] @ 96,491,520: push level -> 0.1500 m/s; settled success 0.970
+[  96.58M] sps 8,475 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0197 lr 3.4e-05 std 0.068 vf 0.030 kp 370 kd 3.44
+[  96.77M] sps 8,407 ep_len 2741 falls 0 quiet 0 hard_surv 0.88 | plant 1.00 push 0.150 | kl 0.0242 lr 3.4e-05 std 0.068 vf 0.044 kp 369 kd 3.45
+[  96.95M] sps 8,190 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0310 lr 2.3e-05 std 0.068 vf 0.047 kp 370 kd 3.45
+[curriculum] @ 97,026,048: push level -> 0.1500 m/s; settled success 0.970
+[  97.14M] sps 8,384 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0200 lr 5.1e-05 std 0.068 vf 0.023 kp 370 kd 3.44
+[  97.32M] sps 8,362 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0309 lr 5.1e-05 std 0.068 vf 0.062 kp 371 kd 3.44
+[  97.51M] sps 8,226 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0178 lr 2.3e-05 std 0.068 vf 0.058 kp 370 kd 3.44
+[curriculum] @ 97,523,712: push level -> 0.1500 m/s; settled success 0.961
+[  97.69M] sps 8,319 ep_len 3000 falls 0 quiet 0 hard_surv 0.89 | plant 1.00 push 0.150 | kl 0.0176 lr 3.4e-05 std 0.068 vf 0.036 kp 370 kd 3.44
+[  97.87M] sps 8,339 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0211 lr 5.1e-05 std 0.068 vf 0.036 kp 369 kd 3.44
+[  98.06M] sps 8,338 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0356 lr 3.4e-05 std 0.068 vf 0.042 kp 369 kd 3.44
+[curriculum] @ 98,095,104: push level -> 0.1500 m/s; settled success 0.975
+[  98.24M] sps 8,396 ep_len 3000 falls 0 quiet 0 hard_surv 0.75 | plant 1.00 push 0.150 | kl 0.0189 lr 3.4e-05 std 0.068 vf 0.039 kp 369 kd 3.45
+[  98.43M] sps 8,414 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0148 lr 2.3e-05 std 0.068 vf 0.018 kp 370 kd 3.45
+[  98.61M] sps 8,334 ep_len 2871 falls 0 quiet 0 hard_surv 0.88 | plant 1.00 push 0.150 | kl 0.0240 lr 5.1e-05 std 0.068 vf 0.027 kp 369 kd 3.44
+[curriculum] @ 98,629,632: push level -> 0.1500 m/s; settled success 0.951
+[  98.80M] sps 8,271 ep_len 2296 falls 0 quiet 0 hard_surv 0.90 | plant 1.00 push 0.150 | kl 0.0201 lr 3.4e-05 std 0.068 vf 0.032 kp 369 kd 3.44
+[  98.98M] sps 8,302 ep_len 3000 falls 0 quiet 0 hard_surv 0.86 | plant 1.00 push 0.150 | kl 0.0180 lr 3.4e-05 std 0.068 vf 0.041 kp 370 kd 3.44
+[curriculum] @ 99,145,728: push level -> 0.1500 m/s; settled success 0.941
+[  99.16M] sps 8,317 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0183 lr 3.4e-05 std 0.068 vf 0.027 kp 369 kd 3.43
+[  99.35M] sps 8,306 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0272 lr 5.1e-05 std 0.068 vf 0.103 kp 369 kd 3.43
+[  99.53M] sps 8,266 ep_len 2997 falls 0 quiet 0 hard_surv 0.90 | plant 1.00 push 0.150 | kl 0.0169 lr 3.4e-05 std 0.068 vf 0.032 kp 369 kd 3.44
+[curriculum] @ 99,680,256: push level -> 0.1500 m/s; settled success 0.962
+[  99.72M] sps 8,358 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0190 lr 3.4e-05 std 0.068 vf 0.057 kp 370 kd 3.43
+[  99.90M] sps 8,334 ep_len 2712 falls 0 quiet 0 hard_surv 0.89 | plant 1.00 push 0.150 | kl 0.0168 lr 3.4e-05 std 0.068 vf 0.038 kp 369 kd 3.43
+[ 100.09M] sps 8,183 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0360 lr 2.3e-05 std 0.068 vf 0.040 kp 369 kd 3.43
+[curriculum] @ 100,233,216: push level -> 0.1500 m/s; settled success 0.970
+[ 100.27M] sps 8,254 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0181 lr 3.4e-05 std 0.068 vf 0.033 kp 369 kd 3.42
+[ 100.45M] sps 8,313 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0236 lr 3.4e-05 std 0.068 vf 0.021 kp 369 kd 3.43
+[ 100.64M] sps 8,228 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0347 lr 2.3e-05 std 0.068 vf 0.021 kp 368 kd 3.42
+[curriculum] @ 100,767,744: push level -> 0.1500 m/s; settled success 0.941
+[ 100.82M] sps 8,235 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0143 lr 3.4e-05 std 0.068 vf 0.032 kp 368 kd 3.42
+[ 101.01M] sps 8,314 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0218 lr 3.4e-05 std 0.068 vf 0.020 kp 367 kd 3.41
+[ 101.19M] sps 8,267 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0199 lr 5.1e-05 std 0.068 vf 0.040 kp 367 kd 3.42
+[curriculum] @ 101,320,704: push level -> 0.1500 m/s; settled success 0.981
+[ 101.38M] sps 8,220 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0168 lr 5.1e-05 std 0.068 vf 0.023 kp 367 kd 3.42
+[ 101.56M] sps 8,253 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0200 lr 3.4e-05 std 0.068 vf 0.041 kp 367 kd 3.43
+[ 101.74M] sps 8,296 ep_len 2742 falls 0 quiet 0 hard_surv 0.90 | plant 1.00 push 0.150 | kl 0.0209 lr 3.4e-05 std 0.068 vf 0.027 kp 366 kd 3.42
+[curriculum] @ 101,892,096: push level -> 0.1500 m/s; settled success 0.961
+[ 101.93M] sps 8,144 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0245 lr 5.1e-05 std 0.068 vf 0.037 kp 366 kd 3.42
+[ 102.11M] sps 8,233 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0209 lr 3.4e-05 std 0.068 vf 0.028 kp 366 kd 3.41
+[ 102.30M] sps 8,249 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0230 lr 5.1e-05 std 0.068 vf 0.020 kp 366 kd 3.41
+[curriculum] @ 102,352,896: push level -> 0.1500 m/s; settled success 0.920
+[ 102.48M] sps 8,278 ep_len 2896 falls 0 quiet 0 hard_surv 0.83 | plant 1.00 push 0.150 | kl 0.0328 lr 2.3e-05 std 0.068 vf 0.149 kp 365 kd 3.41
+[ 102.67M] sps 8,130 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0271 lr 5.1e-05 std 0.068 vf 0.042 kp 366 kd 3.42
+[ 102.85M] sps 8,191 ep_len 2483 falls 0 quiet 0 hard_surv 0.75 | plant 1.00 push 0.150 | kl 0.0154 lr 3.4e-05 std 0.068 vf 0.027 kp 364 kd 3.41
+[curriculum] @ 102,905,856: push level -> 0.1500 m/s; settled success 0.970
+[ 103.03M] sps 8,269 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0195 lr 3.4e-05 std 0.068 vf 0.024 kp 366 kd 3.41
+[eval] @ 103,219,200: score 0.838 {'0.00': 1.0, '0.02': 0.8125, '0.05': 0.875, '0.10': 0.875, '0.15': 0.625} quiet 0  (best 0.975)
+[ 103.22M] sps 8,226 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0238 lr 3.4e-05 std 0.068 vf 0.027 kp 366 kd 3.40
+[ 103.40M] sps 8,288 ep_len 3000 falls 0 quiet 0 hard_surv 0.88 | plant 1.00 push 0.150 | kl 0.0313 lr 3.4e-05 std 0.068 vf 0.031 kp 366 kd 3.41
+[curriculum] @ 103,458,816: push level -> 0.1500 m/s; settled success 0.935
+[ 103.59M] sps 8,145 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0260 lr 3.4e-05 std 0.068 vf 0.040 kp 366 kd 3.42
+[ 103.77M] sps 8,200 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0261 lr 5.1e-05 std 0.068 vf 0.043 kp 366 kd 3.42
+[ 103.96M] sps 8,240 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0291 lr 3.4e-05 std 0.068 vf 0.026 kp 366 kd 3.42
+[curriculum] @ 104,011,776: push level -> 0.1500 m/s; settled success 0.937
+[ 104.14M] sps 8,213 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0164 lr 3.4e-05 std 0.068 vf 0.022 kp 368 kd 3.42
+[ 104.33M] sps 8,075 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0232 lr 3.4e-05 std 0.068 vf 0.050 kp 367 kd 3.42
+[ 104.51M] sps 8,218 ep_len 2683 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0198 lr 3.4e-05 std 0.068 vf 0.048 kp 366 kd 3.42
+[curriculum] @ 104,564,736: push level -> 0.1500 m/s; settled success 0.956
+[ 104.69M] sps 8,141 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0285 lr 3.4e-05 std 0.068 vf 0.050 kp 366 kd 3.42
+[ 104.88M] sps 8,167 ep_len 3000 falls 0 quiet 0 hard_surv 0.86 | plant 1.00 push 0.150 | kl 0.0219 lr 3.4e-05 std 0.068 vf 0.020 kp 365 kd 3.42
+[curriculum] @ 105,062,400: push level -> 0.1500 m/s; settled success 0.950
+[ 105.06M] sps 8,001 ep_len 2991 falls 0 quiet 0 hard_surv 0.83 | plant 1.00 push 0.150 | kl 0.0184 lr 3.4e-05 std 0.068 vf 0.036 kp 363 kd 3.42
+[ 105.25M] sps 8,093 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0180 lr 3.4e-05 std 0.068 vf 0.064 kp 362 kd 3.42
+[ 105.43M] sps 8,112 ep_len 3000 falls 0 quiet 0 hard_surv 0.88 | plant 1.00 push 0.150 | kl 0.0279 lr 3.4e-05 std 0.068 vf 0.060 kp 362 kd 3.41
+[curriculum] @ 105,596,928: push level -> 0.1500 m/s; settled success 0.950
+[ 105.62M] sps 8,157 ep_len 2750 falls 0 quiet 0 hard_surv 0.67 | plant 1.00 push 0.150 | kl 0.0203 lr 3.4e-05 std 0.068 vf 0.145 kp 361 kd 3.41
+[ 105.80M] sps 8,163 ep_len 3000 falls 0 quiet 0 hard_surv 0.71 | plant 1.00 push 0.150 | kl 0.0240 lr 3.4e-05 std 0.068 vf 0.042 kp 362 kd 3.41
+[ 105.98M] sps 8,228 ep_len 2576 falls 0 quiet 1 hard_surv 0.90 | plant 1.00 push 0.150 | kl 0.0353 lr 3.4e-05 std 0.068 vf 0.034 kp 362 kd 3.41
+[curriculum] @ 106,131,456: push level -> 0.1500 m/s; settled success 0.926
+[ 106.17M] sps 8,206 ep_len 3000 falls 0 quiet 0 hard_surv 0.86 | plant 1.00 push 0.150 | kl 0.0243 lr 3.4e-05 std 0.068 vf 0.024 kp 364 kd 3.41
+[ 106.35M] sps 8,205 ep_len 3000 falls 0 quiet 0 hard_surv 0.75 | plant 1.00 push 0.150 | kl 0.0160 lr 3.4e-05 std 0.068 vf 0.012 kp 363 kd 3.42
+[ 106.54M] sps 8,140 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0186 lr 3.4e-05 std 0.068 vf 0.034 kp 364 kd 3.41
+[curriculum] @ 106,684,416: push level -> 0.1500 m/s; settled success 0.951
+[ 106.72M] sps 8,138 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0188 lr 3.4e-05 std 0.068 vf 0.020 kp 365 kd 3.41
+[ 106.91M] sps 8,123 ep_len 2819 falls 0 quiet 0 hard_surv 0.88 | plant 1.00 push 0.150 | kl 0.0376 lr 1.5e-05 std 0.068 vf 0.035 kp 367 kd 3.41
+[ 107.09M] sps 8,127 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0270 lr 5.1e-05 std 0.068 vf 0.051 kp 367 kd 3.41
+[curriculum] @ 107,237,376: push level -> 0.1500 m/s; settled success 0.947
+[ 107.27M] sps 8,051 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0198 lr 3.4e-05 std 0.068 vf 0.048 kp 367 kd 3.41
+[ 107.46M] sps 8,122 ep_len 2629 falls 0 quiet 1 hard_surv 0.90 | plant 1.00 push 0.150 | kl 0.0175 lr 3.4e-05 std 0.068 vf 0.038 kp 368 kd 3.41
+[ 107.64M] sps 8,074 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0227 lr 5.1e-05 std 0.068 vf 0.022 kp 368 kd 3.41
+[curriculum] @ 107,735,040: push level -> 0.1500 m/s; settled success 0.946
+[ 107.83M] sps 8,144 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0265 lr 5.1e-05 std 0.068 vf 0.063 kp 367 kd 3.41
+[ 108.01M] sps 8,147 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0181 lr 3.4e-05 std 0.068 vf 0.038 kp 367 kd 3.41
+[ 108.20M] sps 8,097 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0190 lr 3.4e-05 std 0.068 vf 0.035 kp 367 kd 3.42
+[curriculum] @ 108,288,000: push level -> 0.1500 m/s; settled success 0.946
+[ 108.38M] sps 8,155 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0258 lr 5.1e-05 std 0.068 vf 0.036 kp 366 kd 3.42
+[ 108.56M] sps 8,046 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0186 lr 3.4e-05 std 0.068 vf 0.036 kp 367 kd 3.42
+[ 108.75M] sps 8,026 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0293 lr 3.4e-05 std 0.068 vf 0.104 kp 366 kd 3.42
+[curriculum] @ 108,822,528: push level -> 0.1500 m/s; settled success 0.990
+[ 108.93M] sps 8,135 ep_len 2992 falls 0 quiet 0 hard_surv 0.83 | plant 1.00 push 0.150 | kl 0.0214 lr 3.4e-05 std 0.068 vf 0.029 kp 367 kd 3.42
+[ 109.12M] sps 8,129 ep_len 2866 falls 0 quiet 0 hard_surv 0.90 | plant 1.00 push 0.150 | kl 0.0278 lr 5.1e-05 std 0.068 vf 0.100 kp 368 kd 3.42
+[ 109.30M] sps 8,078 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0243 lr 5.1e-05 std 0.068 vf 0.027 kp 367 kd 3.42
+[curriculum] @ 109,338,624: push level -> 0.1500 m/s; settled success 0.956
+[ 109.49M] sps 8,059 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0218 lr 3.4e-05 std 0.068 vf 0.016 kp 368 kd 3.43
+[ 109.67M] sps 8,048 ep_len 2820 falls 0 quiet 0 hard_surv 0.83 | plant 1.00 push 0.150 | kl 0.0265 lr 5.1e-05 std 0.068 vf 0.027 kp 367 kd 3.42
+[ 109.85M] sps 8,068 ep_len 2825 falls 0 quiet 0 hard_surv 0.88 | plant 1.00 push 0.150 | kl 0.0154 lr 3.4e-05 std 0.068 vf 0.023 kp 367 kd 3.42
+[curriculum] @ 109,910,016: push level -> 0.1500 m/s; settled success 0.980
+[ 110.04M] sps 8,025 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0175 lr 2.3e-05 std 0.068 vf 0.033 kp 368 kd 3.43
+[ 110.22M] sps 8,062 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0274 lr 5.1e-05 std 0.068 vf 0.032 kp 368 kd 3.42
+[ 110.41M] sps 8,062 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0358 lr 3.4e-05 std 0.068 vf 0.020 kp 368 kd 3.42
+[curriculum] @ 110,444,544: push level -> 0.1500 m/s; settled success 0.971
+[eval] @ 110,592,000: score 0.963 {'0.00': 1.0, '0.02': 1.0, '0.05': 1.0, '0.10': 0.9375, '0.15': 0.875} quiet 0  (best 0.975)
+[ 110.59M] sps 8,009 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0189 lr 3.4e-05 std 0.068 vf 0.030 kp 367 kd 3.43
+[ 110.78M] sps 8,184 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0286 lr 3.4e-05 std 0.068 vf 0.032 kp 368 kd 3.42
+[curriculum] @ 110,960,640: push level -> 0.1500 m/s; settled success 0.985
+[ 110.96M] sps 8,060 ep_len 2872 falls 0 quiet 0 hard_surv 0.80 | plant 1.00 push 0.150 | kl 0.0268 lr 5.1e-05 std 0.068 vf 0.034 kp 368 kd 3.42
+[ 111.14M] sps 8,045 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0177 lr 3.4e-05 std 0.068 vf 0.033 kp 368 kd 3.42
+[ 111.33M] sps 7,935 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0251 lr 5.1e-05 std 0.068 vf 0.020 kp 368 kd 3.40
+[curriculum] @ 111,495,168: push level -> 0.1500 m/s; settled success 0.940
+[ 111.51M] sps 8,048 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0214 lr 3.4e-05 std 0.068 vf 0.022 kp 370 kd 3.40
+[ 111.70M] sps 8,240 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0245 lr 5.1e-05 std 0.068 vf 0.052 kp 370 kd 3.40
+[ 111.88M] sps 8,103 ep_len 2883 falls 0 quiet 0 hard_surv 0.90 | plant 1.00 push 0.150 | kl 0.0167 lr 3.4e-05 std 0.068 vf 0.034 kp 370 kd 3.40
+[curriculum] @ 112,011,264: push level -> 0.1500 m/s; settled success 0.950
+[ 112.07M] sps 8,068 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0263 lr 3.4e-05 std 0.068 vf 0.009 kp 370 kd 3.41
+[ 112.25M] sps 8,096 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0251 lr 5.1e-05 std 0.068 vf 0.021 kp 370 kd 3.41
+[ 112.44M] sps 8,107 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0216 lr 3.4e-05 std 0.068 vf 0.022 kp 370 kd 3.40
+[curriculum] @ 112,545,792: push level -> 0.1500 m/s; settled success 0.971
+[ 112.62M] sps 8,026 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0184 lr 3.4e-05 std 0.068 vf 0.065 kp 369 kd 3.41
+[ 112.80M] sps 8,138 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0166 lr 3.4e-05 std 0.068 vf 0.037 kp 369 kd 3.41
+[ 112.99M] sps 8,096 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0205 lr 3.4e-05 std 0.068 vf 0.046 kp 369 kd 3.41
+[curriculum] @ 113,135,616: push level -> 0.1500 m/s; settled success 0.950
+[ 113.17M] sps 8,194 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0164 lr 3.4e-05 std 0.068 vf 0.021 kp 368 kd 3.41
+[ 113.36M] sps 8,095 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0284 lr 3.4e-05 std 0.068 vf 0.023 kp 369 kd 3.40
+[ 113.54M] sps 8,076 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0282 lr 5.1e-05 std 0.068 vf 0.116 kp 368 kd 3.40
+[curriculum] @ 113,670,144: push level -> 0.1500 m/s; settled success 0.950
+[ 113.73M] sps 8,021 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0218 lr 5.1e-05 std 0.068 vf 0.028 kp 368 kd 3.41
+[ 113.91M] sps 8,122 ep_len 2575 falls 0 quiet 0 hard_surv 0.57 | plant 1.00 push 0.150 | kl 0.0182 lr 3.4e-05 std 0.068 vf 0.063 kp 368 kd 3.41
+[ 114.09M] sps 8,132 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0223 lr 5.1e-05 std 0.068 vf 0.028 kp 368 kd 3.41
+[curriculum] @ 114,241,536: push level -> 0.1500 m/s; settled success 0.937
+[ 114.28M] sps 8,062 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0194 lr 3.4e-05 std 0.068 vf 0.023 kp 368 kd 3.40
+[ 114.46M] sps 8,002 ep_len 2608 falls 0 quiet 0 hard_surv 0.67 | plant 1.00 push 0.150 | kl 0.0165 lr 1.5e-05 std 0.068 vf 0.296 kp 369 kd 3.40
+[ 114.65M] sps 8,086 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0304 lr 5.1e-05 std 0.068 vf 0.027 kp 368 kd 3.39
+[curriculum] @ 114,794,496: push level -> 0.1500 m/s; settled success 0.931
+[ 114.83M] sps 8,024 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0176 lr 3.4e-05 std 0.068 vf 0.033 kp 369 kd 3.40
+[ 115.02M] sps 8,208 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0227 lr 3.4e-05 std 0.068 vf 0.023 kp 369 kd 3.40
+[ 115.20M] sps 8,136 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0230 lr 5.1e-05 std 0.068 vf 0.024 kp 369 kd 3.39
+[curriculum] @ 115,365,888: push level -> 0.1500 m/s; settled success 0.965
+[ 115.38M] sps 8,194 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0303 lr 5.1e-05 std 0.068 vf 0.034 kp 370 kd 3.38
+[ 115.57M] sps 8,194 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0204 lr 3.4e-05 std 0.068 vf 0.030 kp 370 kd 3.39
+[ 115.75M] sps 8,147 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0222 lr 3.4e-05 std 0.068 vf 0.035 kp 369 kd 3.37
+[curriculum] @ 115,918,848: push level -> 0.1500 m/s; settled success 0.971
+[ 115.94M] sps 8,034 ep_len 3000 falls 0 quiet 0 hard_surv 0.83 | plant 1.00 push 0.150 | kl 0.0293 lr 5.1e-05 std 0.068 vf 0.022 kp 369 kd 3.37
+[ 116.12M] sps 8,026 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0187 lr 3.4e-05 std 0.068 vf 0.022 kp 369 kd 3.37
+[ 116.31M] sps 8,089 ep_len 2873 falls 0 quiet 0 hard_surv 0.83 | plant 1.00 push 0.150 | kl 0.0163 lr 3.4e-05 std 0.068 vf 0.035 kp 369 kd 3.37
+[curriculum] @ 116,434,944: push level -> 0.1500 m/s; settled success 0.965
+[ 116.49M] sps 8,143 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0205 lr 3.4e-05 std 0.068 vf 0.044 kp 368 kd 3.38
+[ 116.67M] sps 8,086 ep_len 3000 falls 0 quiet 0 hard_surv 0.92 | plant 1.00 push 0.150 | kl 0.0222 lr 5.1e-05 std 0.068 vf 0.015 kp 369 kd 3.38
+[ 116.86M] sps 8,134 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0237 lr 3.4e-05 std 0.068 vf 0.023 kp 369 kd 3.38
+[curriculum] @ 116,969,472: push level -> 0.1500 m/s; settled success 0.935
+[ 117.04M] sps 8,108 ep_len 2663 falls 0 quiet 0 hard_surv 0.89 | plant 1.00 push 0.150 | kl 0.0189 lr 5.1e-05 std 0.068 vf 0.027 kp 369 kd 3.37
+[ 117.23M] sps 8,222 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0172 lr 3.4e-05 std 0.068 vf 0.036 kp 369 kd 3.36
+[ 117.41M] sps 8,185 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0249 lr 5.1e-05 std 0.068 vf 0.031 kp 368 kd 3.38
+[curriculum] @ 117,485,568: push level -> 0.1500 m/s; settled success 0.916
+[ 117.60M] sps 8,074 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0151 lr 2.3e-05 std 0.068 vf 0.050 kp 368 kd 3.39
+[ 117.78M] sps 8,233 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0239 lr 5.1e-05 std 0.068 vf 0.063 kp 369 kd 3.38
+[eval] @ 117,964,800: score 0.938 {'0.00': 1.0, '0.02': 1.0, '0.05': 1.0, '0.10': 0.9375, '0.15': 0.75} quiet 0  (best 0.975)
+[ 117.96M] sps 8,144 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0213 lr 3.4e-05 std 0.068 vf 0.031 kp 369 kd 3.39
+[curriculum] @ 117,983,232: push level -> 0.1500 m/s; settled success 0.905
+[ 118.15M] sps 8,089 ep_len 2679 falls 0 quiet 0 hard_surv 0.33 | plant 1.00 push 0.150 | kl 0.0349 lr 3.4e-05 std 0.068 vf 0.283 kp 369 kd 3.39
+[ 118.33M] sps 8,191 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0232 lr 5.1e-05 std 0.068 vf 0.016 kp 369 kd 3.39
+[curriculum] @ 118,480,896: push level -> 0.1500 m/s; settled success 0.947
+[ 118.52M] sps 8,033 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0194 lr 5.1e-05 std 0.068 vf 0.039 kp 368 kd 3.40
+[ 118.70M] sps 8,092 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0248 lr 5.1e-05 std 0.068 vf 0.018 kp 368 kd 3.40
+[ 118.89M] sps 8,160 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0172 lr 3.4e-05 std 0.068 vf 0.029 kp 368 kd 3.40
+[curriculum] @ 118,996,992: push level -> 0.1500 m/s; settled success 0.960
+[ 119.07M] sps 8,229 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0337 lr 2.3e-05 std 0.068 vf 0.022 kp 369 kd 3.40
+[ 119.26M] sps 8,134 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0265 lr 3.4e-05 std 0.068 vf 0.094 kp 369 kd 3.40
+[ 119.44M] sps 8,261 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0214 lr 5.1e-05 std 0.068 vf 0.028 kp 369 kd 3.40
+[curriculum] @ 119,531,520: push level -> 0.1500 m/s; settled success 0.970
+[ 119.62M] sps 8,238 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0181 lr 3.4e-05 std 0.068 vf 0.052 kp 369 kd 3.40
+[ 119.81M] sps 8,214 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0323 lr 3.4e-05 std 0.068 vf 0.031 kp 368 kd 3.40
+[ 119.99M] sps 8,258 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0238 lr 5.1e-05 std 0.068 vf 0.019 kp 367 kd 3.40
+[curriculum] @ 120,102,912: push level -> 0.1500 m/s; settled success 0.981
+[ 120.18M] sps 8,289 ep_len 3000 falls 0 quiet 0 hard_surv 0.86 | plant 1.00 push 0.150 | kl 0.0262 lr 3.4e-05 std 0.068 vf 0.025 kp 367 kd 3.41
+[ 120.36M] sps 8,385 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0194 lr 3.4e-05 std 0.068 vf 0.053 kp 368 kd 3.41
+[ 120.55M] sps 8,400 ep_len 2621 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0163 lr 2.3e-05 std 0.068 vf 0.033 kp 366 kd 3.41
+[curriculum] @ 120,637,440: push level -> 0.1500 m/s; settled success 0.966
+[ 120.73M] sps 8,357 ep_len 2780 falls 0 quiet 0 hard_surv 0.89 | plant 1.00 push 0.150 | kl 0.0206 lr 5.1e-05 std 0.068 vf 0.015 kp 367 kd 3.41
+[ 120.91M] sps 8,423 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0190 lr 3.4e-05 std 0.068 vf 0.122 kp 367 kd 3.41
+[ 121.10M] sps 8,377 ep_len 3000 falls 0 quiet 0 hard_surv 0.91 | plant 1.00 push 0.150 | kl 0.0186 lr 3.4e-05 std 0.068 vf 0.036 kp 368 kd 3.41
+[curriculum] @ 121,190,400: push level -> 0.1500 m/s; settled success 0.956
+[ 121.28M] sps 8,423 ep_len 2716 falls 0 quiet 0 hard_surv 0.86 | plant 1.00 push 0.150 | kl 0.0209 lr 3.4e-05 std 0.068 vf 0.016 kp 367 kd 3.41
+[ 121.47M] sps 8,524 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0231 lr 3.4e-05 std 0.068 vf 0.046 kp 367 kd 3.41
+[ 121.65M] sps 8,482 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0173 lr 3.4e-05 std 0.068 vf 0.064 kp 367 kd 3.41
+[curriculum] @ 121,706,496: push level -> 0.1500 m/s; settled success 0.956
+[ 121.84M] sps 8,428 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0147 lr 2.3e-05 std 0.068 vf 0.023 kp 366 kd 3.41
+[ 122.02M] sps 8,367 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0155 lr 2.3e-05 std 0.068 vf 0.052 kp 367 kd 3.41
+[ 122.20M] sps 8,392 ep_len 2778 falls 0 quiet 0 hard_surv 0.88 | plant 1.00 push 0.150 | kl 0.0330 lr 5.1e-05 std 0.068 vf 0.026 kp 367 kd 3.41
+[curriculum] @ 122,259,456: push level -> 0.1500 m/s; settled success 0.952
+[ 122.39M] sps 8,459 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0233 lr 3.4e-05 std 0.068 vf 0.061 kp 367 kd 3.40
+[ 122.57M] sps 8,394 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0179 lr 3.4e-05 std 0.068 vf 0.050 kp 367 kd 3.40
+[ 122.76M] sps 8,338 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0199 lr 3.4e-05 std 0.068 vf 0.024 kp 367 kd 3.39
+[curriculum] @ 122,849,280: push level -> 0.1500 m/s; settled success 0.946
+[ 122.94M] sps 8,474 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0291 lr 5.1e-05 std 0.068 vf 0.027 kp 368 kd 3.39
+[ 123.13M] sps 8,560 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0204 lr 3.4e-05 std 0.068 vf 0.075 kp 369 kd 3.38
+[ 123.31M] sps 8,592 ep_len 2998 falls 0 quiet 0 hard_surv 0.50 | plant 1.00 push 0.150 | kl 0.0264 lr 5.1e-05 std 0.068 vf 0.026 kp 368 kd 3.38
+[curriculum] @ 123,420,672: push level -> 0.1500 m/s; settled success 0.946
+[ 123.49M] sps 8,570 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0150 lr 3.4e-05 std 0.068 vf 0.032 kp 368 kd 3.38
+[ 123.68M] sps 8,643 ep_len 3000 falls 0 quiet 0 hard_surv 0.75 | plant 1.00 push 0.150 | kl 0.0225 lr 5.1e-05 std 0.068 vf 0.017 kp 368 kd 3.37
+[ 123.86M] sps 8,719 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0237 lr 5.1e-05 std 0.068 vf 0.040 kp 368 kd 3.36
+[curriculum] @ 123,992,064: push level -> 0.1500 m/s; settled success 0.915
+[ 124.05M] sps 8,794 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0310 lr 5.1e-05 std 0.068 vf 0.043 kp 369 kd 3.35
+[ 124.23M] sps 8,688 ep_len 2996 falls 0 quiet 0 hard_surv 0.83 | plant 1.00 push 0.150 | kl 0.0156 lr 3.4e-05 std 0.068 vf 0.118 kp 369 kd 3.34
+[ 124.42M] sps 8,638 ep_len 3000 falls 0 quiet 0 hard_surv 0.88 | plant 1.00 push 0.150 | kl 0.0229 lr 5.1e-05 std 0.068 vf 0.082 kp 370 kd 3.34
+[ 124.60M] sps 8,690 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0369 lr 3.4e-05 std 0.068 vf 0.043 kp 370 kd 3.35
+[ 124.78M] sps 8,702 ep_len 3000 falls 0 quiet 0 hard_surv 0.87 | plant 1.00 push 0.150 | kl 0.0178 lr 3.4e-05 std 0.068 vf 0.097 kp 371 kd 3.35
+[ 124.97M] sps 8,759 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0250 lr 5.1e-05 std 0.068 vf 0.049 kp 369 kd 3.36
+[ 125.15M] sps 8,603 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0312 lr 3.4e-05 std 0.068 vf 0.063 kp 368 kd 3.37
+[eval] @ 125,337,600: score 0.938 {'0.00': 0.875, '0.02': 1.0, '0.05': 1.0, '0.10': 1.0, '0.15': 0.8125} quiet 0  (best 0.975)
+[ 125.34M] sps 8,584 ep_len 2669 falls 0 quiet 0 hard_surv 0.83 | plant 1.00 push 0.150 | kl 0.0192 lr 3.4e-05 std 0.068 vf 0.037 kp 368 kd 3.36
+[ 125.52M] sps 8,793 ep_len 2630 falls 0 quiet 1 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0335 lr 2.3e-05 std 0.068 vf 0.067 kp 368 kd 3.35
+[ 125.71M] sps 8,680 ep_len 3000 falls 0 quiet 0 hard_surv 0.89 | plant 1.00 push 0.150 | kl 0.0246 lr 3.4e-05 std 0.068 vf 0.040 kp 368 kd 3.34
+[ 125.89M] sps 8,785 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0163 lr 3.4e-05 std 0.068 vf 0.029 kp 368 kd 3.33
+[ 126.07M] sps 8,941 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0197 lr 3.4e-05 std 0.068 vf 0.029 kp 368 kd 3.33
+[ 126.26M] sps 8,937 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0183 lr 3.4e-05 std 0.068 vf 0.017 kp 369 kd 3.33
+[ 126.44M] sps 8,847 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0149 lr 2.3e-05 std 0.068 vf 0.042 kp 369 kd 3.33
+[ 126.63M] sps 8,718 ep_len 3000 falls 0 quiet 0 hard_surv 0.80 | plant 1.00 push 0.150 | kl 0.0160 lr 3.4e-05 std 0.068 vf 0.048 kp 369 kd 3.33
+[ 126.81M] sps 8,827 ep_len 2731 falls 0 quiet 1 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0208 lr 3.4e-05 std 0.068 vf 0.132 kp 367 kd 3.33
+[ 127.00M] sps 8,751 ep_len 3000 falls 0 quiet 0 hard_surv 0.71 | plant 1.00 push 0.150 | kl 0.0290 lr 5.1e-05 std 0.068 vf 0.063 kp 367 kd 3.34
+[ 127.18M] sps 8,699 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0217 lr 3.4e-05 std 0.068 vf 0.044 kp 366 kd 3.34
+[ 127.37M] sps 8,691 ep_len 2613 falls 0 quiet 0 hard_surv 0.88 | plant 1.00 push 0.150 | kl 0.0295 lr 5.1e-05 std 0.068 vf 0.027 kp 366 kd 3.35
+[ 127.55M] sps 8,757 ep_len 3000 falls 0 quiet 0 hard_surv 0.86 | plant 1.00 push 0.150 | kl 0.0226 lr 5.1e-05 std 0.068 vf 0.041 kp 366 kd 3.36
+[ 127.73M] sps 8,750 ep_len 3000 falls 0 quiet 0 hard_surv 0.86 | plant 1.00 push 0.150 | kl 0.0257 lr 5.1e-05 std 0.068 vf 0.025 kp 367 kd 3.37
+[ 127.92M] sps 8,685 ep_len 2574 falls 0 quiet 0 hard_surv 0.75 | plant 1.00 push 0.150 | kl 0.0232 lr 2.3e-05 std 0.068 vf 0.072 kp 367 kd 3.37
+[ 128.10M] sps 8,904 ep_len 3000 falls 0 quiet 0 hard_surv 0.83 | plant 1.00 push 0.150 | kl 0.0196 lr 3.4e-05 std 0.068 vf 0.113 kp 366 kd 3.37
+[curriculum] @ 128,249,856: push level -> 0.1500 m/s; settled success 0.905
+[ 128.29M] sps 8,839 ep_len 2706 falls 0 quiet 0 hard_surv 0.71 | plant 1.00 push 0.150 | kl 0.0237 lr 5.1e-05 std 0.068 vf 0.028 kp 367 kd 3.37
+[ 128.47M] sps 8,897 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0150 lr 3.4e-05 std 0.068 vf 0.040 kp 367 kd 3.35
+[ 128.66M] sps 8,796 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0178 lr 3.4e-05 std 0.068 vf 0.048 kp 368 kd 3.35
+[ 128.84M] sps 9,008 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0269 lr 3.4e-05 std 0.068 vf 0.103 kp 368 kd 3.34
+[ 129.02M] sps 9,106 ep_len 2577 falls 0 quiet 0 hard_surv 0.83 | plant 1.00 push 0.150 | kl 0.0233 lr 2.3e-05 std 0.068 vf 0.117 kp 368 kd 3.34
+[ 129.21M] sps 9,028 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0156 lr 3.4e-05 std 0.068 vf 0.045 kp 367 kd 3.33
+[ 129.39M] sps 9,123 ep_len 1814 falls 1 quiet 0 hard_surv 0.83 | plant 1.00 push 0.150 | kl 0.0220 lr 5.1e-05 std 0.068 vf 0.063 kp 367 kd 3.32
+[ 129.58M] sps 9,078 ep_len 2547 falls 0 quiet 0 hard_surv 0.86 | plant 1.00 push 0.150 | kl 0.0222 lr 3.4e-05 std 0.068 vf 0.062 kp 368 kd 3.33
+[ 129.76M] sps 9,089 ep_len 3000 falls 0 quiet 0 hard_surv 0.75 | plant 1.00 push 0.150 | kl 0.0166 lr 3.4e-05 std 0.068 vf 0.036 kp 367 kd 3.33
+[ 129.95M] sps 8,861 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0277 lr 5.1e-05 std 0.068 vf 0.022 kp 366 kd 3.33
+[ 130.13M] sps 8,953 ep_len 3000 falls 0 quiet 0 hard_surv 0.80 | plant 1.00 push 0.150 | kl 0.0260 lr 5.1e-05 std 0.068 vf 0.047 kp 366 kd 3.33
+[ 130.31M] sps 8,931 ep_len 3000 falls 0 quiet 0 hard_surv 0.88 | plant 1.00 push 0.150 | kl 0.0237 lr 5.1e-05 std 0.068 vf 0.033 kp 366 kd 3.34
+[curriculum] @ 130,406,400: push level -> 0.1500 m/s; settled success 0.905
+[ 130.50M] sps 8,930 ep_len 2712 falls 0 quiet 0 hard_surv 0.80 | plant 1.00 push 0.150 | kl 0.0207 lr 3.4e-05 std 0.068 vf 0.036 kp 365 kd 3.33
+[ 130.68M] sps 8,884 ep_len 3000 falls 0 quiet 0 hard_surv 0.83 | plant 1.00 push 0.150 | kl 0.0210 lr 5.1e-05 std 0.068 vf 0.046 kp 366 kd 3.33
+[ 130.87M] sps 8,923 ep_len 3000 falls 0 quiet 0 hard_surv 0.86 | plant 1.00 push 0.150 | kl 0.0228 lr 3.4e-05 std 0.068 vf 0.022 kp 366 kd 3.34
+[ 131.05M] sps 8,794 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0222 lr 5.1e-05 std 0.068 vf 0.025 kp 364 kd 3.34
+[ 131.24M] sps 8,727 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0161 lr 3.4e-05 std 0.068 vf 0.030 kp 364 kd 3.34
+[ 131.42M] sps 8,828 ep_len 2741 falls 0 quiet 0 hard_surv 0.89 | plant 1.00 push 0.150 | kl 0.0189 lr 3.4e-05 std 0.068 vf 0.024 kp 363 kd 3.34
+[ 131.60M] sps 8,734 ep_len 2758 falls 1 quiet 0 hard_surv 0.75 | plant 1.00 push 0.150 | kl 0.0251 lr 5.1e-05 std 0.068 vf 0.038 kp 364 kd 3.32
+[ 131.79M] sps 8,716 ep_len 2874 falls 0 quiet 0 hard_surv 0.58 | plant 1.00 push 0.150 | kl 0.0182 lr 3.4e-05 std 0.068 vf 0.081 kp 365 kd 3.33
+[ 131.97M] sps 8,636 ep_len 3000 falls 0 quiet 0 hard_surv 0.82 | plant 1.00 push 0.150 | kl 0.0239 lr 5.1e-05 std 0.068 vf 0.070 kp 366 kd 3.35
+[curriculum] @ 132,028,416: push level retreat -> 0.1200 m/s
+[ 132.16M] sps 8,664 ep_len 3000 falls 0 quiet 0 hard_surv 0.80 | plant 1.00 push 0.120 | kl 0.0298 lr 3.4e-05 std 0.068 vf 0.027 kp 365 kd 3.34
+[ 132.34M] sps 8,768 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.120 | kl 0.0204 lr 3.4e-05 std 0.068 vf 0.028 kp 365 kd 3.34
+[ 132.53M] sps 8,713 ep_len 3000 falls 0 quiet 0 hard_surv 0.62 | plant 1.00 push 0.120 | kl 0.0347 lr 3.4e-05 std 0.068 vf 0.022 kp 364 kd 3.35
+[eval] @ 132,710,400: score 0.825 {'0.00': 0.8125, '0.02': 1.0, '0.05': 0.8125, '0.10': 0.875, '0.15': 0.625} quiet 0  (best 0.975)
+[ 132.71M] sps 8,611 ep_len 3000 falls 0 quiet 0 hard_surv 0.88 | plant 1.00 push 0.120 | kl 0.0174 lr 5.1e-05 std 0.068 vf 0.009 kp 363 kd 3.35
+[ 132.89M] sps 8,453 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.120 | kl 0.0216 lr 3.4e-05 std 0.068 vf 0.009 kp 362 kd 3.35
+[ 133.08M] sps 8,417 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.120 | kl 0.0296 lr 3.4e-05 std 0.068 vf 0.009 kp 361 kd 3.35
+[ 133.26M] sps 8,777 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.120 | kl 0.0138 lr 3.4e-05 std 0.068 vf 0.031 kp 363 kd 3.35
+[ 133.45M] sps 8,497 ep_len 3000 falls 0 quiet 0 hard_surv 0.75 | plant 1.00 push 0.120 | kl 0.0172 lr 3.4e-05 std 0.068 vf 0.027 kp 361 kd 3.35
+[ 133.63M] sps 8,429 ep_len 3000 falls 0 quiet 0 hard_surv 0.71 | plant 1.00 push 0.120 | kl 0.0278 lr 5.1e-05 std 0.068 vf 0.022 kp 362 kd 3.35
+[ 133.82M] sps 8,465 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.120 | kl 0.0141 lr 3.4e-05 std 0.068 vf 0.014 kp 361 kd 3.36
+[ 134.00M] sps 8,433 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.120 | kl 0.0245 lr 5.1e-05 std 0.068 vf 0.021 kp 360 kd 3.36
+[curriculum] @ 134,129,664: push level -> 0.1320 m/s; settled success 0.930
+[ 134.18M] sps 8,508 ep_len 3000 falls 0 quiet 0 hard_surv 0.60 | plant 1.00 push 0.132 | kl 0.0278 lr 7.6e-05 std 0.068 vf 0.029 kp 362 kd 3.37
+[ 134.37M] sps 8,324 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.132 | kl 0.0211 lr 3.4e-05 std 0.068 vf 0.029 kp 362 kd 3.37
+[ 134.55M] sps 8,360 ep_len 2647 falls 0 quiet 0 hard_surv 0.89 | plant 1.00 push 0.132 | kl 0.0278 lr 3.4e-05 std 0.068 vf 0.257 kp 359 kd 3.37
+[curriculum] @ 134,627,328: push level -> 0.1452 m/s; settled success 0.933
+[ 134.74M] sps 8,346 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.145 | kl 0.0272 lr 5.1e-05 std 0.068 vf 0.048 kp 357 kd 3.36
+[ 134.92M] sps 8,391 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.145 | kl 0.0302 lr 5.1e-05 std 0.068 vf 0.088 kp 359 kd 3.35
+[ 135.11M] sps 8,312 ep_len 3000 falls 0 quiet 0 hard_surv 0.88 | plant 1.00 push 0.145 | kl 0.0280 lr 3.4e-05 std 0.068 vf 0.052 kp 359 kd 3.35
+[curriculum] @ 135,180,288: push level -> 0.1500 m/s; settled success 0.919
+[ 135.29M] sps 8,454 ep_len 2759 falls 0 quiet 0 hard_surv 0.86 | plant 1.00 push 0.150 | kl 0.0260 lr 5.1e-05 std 0.068 vf 0.063 kp 359 kd 3.32
+[ 135.48M] sps 8,623 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0210 lr 3.4e-05 std 0.068 vf 0.051 kp 363 kd 3.32
+[ 135.66M] sps 8,561 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0219 lr 3.4e-05 std 0.068 vf 0.047 kp 363 kd 3.31
+[ 135.84M] sps 8,429 ep_len 3000 falls 0 quiet 0 hard_surv 0.75 | plant 1.00 push 0.150 | kl 0.0224 lr 5.1e-05 std 0.068 vf 0.025 kp 362 kd 3.32
+[ 136.03M] sps 8,459 ep_len 2670 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0180 lr 2.3e-05 std 0.068 vf 0.089 kp 362 kd 3.31
+[ 136.21M] sps 8,537 ep_len 3000 falls 0 quiet 0 hard_surv 0.58 | plant 1.00 push 0.150 | kl 0.0329 lr 3.4e-05 std 0.068 vf 0.070 kp 365 kd 3.29
+[ 136.40M] sps 8,706 ep_len 3000 falls 0 quiet 0 hard_surv 0.82 | plant 1.00 push 0.150 | kl 0.0236 lr 5.1e-05 std 0.068 vf 0.031 kp 366 kd 3.33
+[ 136.58M] sps 8,513 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0268 lr 5.1e-05 std 0.068 vf 0.133 kp 365 kd 3.32
+[ 136.77M] sps 8,600 ep_len 3000 falls 0 quiet 0 hard_surv 0.86 | plant 1.00 push 0.150 | kl 0.0362 lr 5.1e-05 std 0.068 vf 0.033 kp 365 kd 3.31
+[ 136.95M] sps 8,546 ep_len 3000 falls 0 quiet 0 hard_surv 0.83 | plant 1.00 push 0.150 | kl 0.0179 lr 3.4e-05 std 0.068 vf 0.107 kp 366 kd 3.33
+[ 137.13M] sps 8,469 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0233 lr 3.4e-05 std 0.068 vf 0.091 kp 365 kd 3.35
+[ 137.32M] sps 8,577 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0254 lr 3.4e-05 std 0.068 vf 0.033 kp 364 kd 3.35
+[ 137.50M] sps 8,471 ep_len 3000 falls 0 quiet 0 hard_surv 0.75 | plant 1.00 push 0.150 | kl 0.0185 lr 3.4e-05 std 0.068 vf 0.031 kp 364 kd 3.35
+[ 137.69M] sps 8,352 ep_len 2423 falls 0 quiet 0 hard_surv 0.57 | plant 1.00 push 0.150 | kl 0.0271 lr 5.1e-05 std 0.068 vf 0.035 kp 362 kd 3.33
+[ 137.87M] sps 8,607 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0250 lr 3.4e-05 std 0.068 vf 0.099 kp 363 kd 3.34
+[ 138.06M] sps 8,547 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0281 lr 5.1e-05 std 0.068 vf 0.024 kp 362 kd 3.35
+[ 138.24M] sps 8,585 ep_len 3000 falls 0 quiet 0 hard_surv 0.50 | plant 1.00 push 0.150 | kl 0.0210 lr 3.4e-05 std 0.068 vf 0.033 kp 363 kd 3.36
+[ 138.42M] sps 8,570 ep_len 3000 falls 0 quiet 0 hard_surv 0.87 | plant 1.00 push 0.150 | kl 0.0226 lr 3.4e-05 std 0.068 vf 0.021 kp 364 kd 3.37
+[ 138.61M] sps 8,666 ep_len 3000 falls 0 quiet 0 hard_surv 0.86 | plant 1.00 push 0.150 | kl 0.0234 lr 3.4e-05 std 0.068 vf 0.034 kp 364 kd 3.37
+[ 138.79M] sps 8,670 ep_len 2799 falls 0 quiet 0 hard_surv 0.88 | plant 1.00 push 0.150 | kl 0.0290 lr 3.4e-05 std 0.068 vf 0.077 kp 363 kd 3.38
+[ 138.98M] sps 8,563 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0197 lr 3.4e-05 std 0.068 vf 0.025 kp 363 kd 3.37
+[ 139.16M] sps 8,541 ep_len 3000 falls 0 quiet 0 hard_surv 0.80 | plant 1.00 push 0.150 | kl 0.0165 lr 2.3e-05 std 0.068 vf 0.062 kp 363 kd 3.36
+[ 139.35M] sps 8,790 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0185 lr 3.4e-05 std 0.068 vf 0.017 kp 365 kd 3.37
+[ 139.53M] sps 8,785 ep_len 3000 falls 0 quiet 0 hard_surv 0.78 | plant 1.00 push 0.150 | kl 0.0399 lr 2.3e-05 std 0.068 vf 0.050 kp 364 kd 3.36
+[ 139.71M] sps 8,731 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0281 lr 5.1e-05 std 0.068 vf 0.060 kp 364 kd 3.38
+[ 139.90M] sps 8,661 ep_len 3000 falls 0 quiet 0 hard_surv 0.43 | plant 1.00 push 0.150 | kl 0.0217 lr 3.4e-05 std 0.068 vf 0.024 kp 364 kd 3.38
+[eval] @ 140,083,200: score 0.825 {'0.00': 1.0, '0.02': 0.8125, '0.05': 0.9375, '0.10': 0.875, '0.15': 0.5} quiet 0  (best 0.975)
+[ 140.08M] sps 8,847 ep_len 3000 falls 0 quiet 0 hard_surv 0.80 | plant 1.00 push 0.150 | kl 0.0272 lr 3.4e-05 std 0.068 vf 0.081 kp 363 kd 3.38
+[ 140.27M] sps 8,560 ep_len 2690 falls 0 quiet 0 hard_surv 0.50 | plant 1.00 push 0.150 | kl 0.0335 lr 3.4e-05 std 0.068 vf 0.101 kp 362 kd 3.39
+[ 140.45M] sps 8,431 ep_len 2437 falls 0 quiet 0 hard_surv 0.83 | plant 1.00 push 0.150 | kl 0.0211 lr 3.4e-05 std 0.068 vf 0.441 kp 361 kd 3.39
+[ 140.64M] sps 8,559 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0228 lr 5.1e-05 std 0.068 vf 0.200 kp 362 kd 3.39
+[ 140.82M] sps 8,701 ep_len 3000 falls 0 quiet 0 hard_surv 0.71 | plant 1.00 push 0.150 | kl 0.0200 lr 3.4e-05 std 0.068 vf 0.020 kp 362 kd 3.39
+[ 141.00M] sps 8,766 ep_len 2810 falls 0 quiet 0 hard_surv 0.73 | plant 1.00 push 0.150 | kl 0.0244 lr 3.4e-05 std 0.068 vf 0.190 kp 364 kd 3.38
+[ 141.19M] sps 8,807 ep_len 2782 falls 0 quiet 0 hard_surv 0.67 | plant 1.00 push 0.150 | kl 0.0230 lr 3.4e-05 std 0.068 vf 0.331 kp 366 kd 3.38
+[ 141.37M] sps 8,704 ep_len 2837 falls 0 quiet 0 hard_surv 0.60 | plant 1.00 push 0.150 | kl 0.0181 lr 3.4e-05 std 0.068 vf 0.039 kp 367 kd 3.39
+[curriculum] @ 141,410,304: push level retreat -> 0.1200 m/s
+[ 141.56M] sps 8,933 ep_len 2658 falls 0 quiet 0 hard_surv 0.50 | plant 1.00 push 0.120 | kl 0.0183 lr 5.1e-05 std 0.068 vf 0.010 kp 367 kd 3.39
+[ 141.74M] sps 8,817 ep_len 2190 falls 0 quiet 0 hard_surv 0.67 | plant 1.00 push 0.120 | kl 0.0244 lr 3.4e-05 std 0.067 vf 0.257 kp 368 kd 3.39
+[curriculum] @ 141,889,536: push level retreat -> 0.0960 m/s
+[ 141.93M] sps 8,877 ep_len 2754 falls 0 quiet 0 hard_surv 0.50 | plant 1.00 push 0.096 | kl 0.0111 lr 2.3e-05 std 0.068 vf 0.020 kp 368 kd 3.39
+[ 142.11M] sps 8,775 ep_len 3000 falls 0 quiet 0 hard_surv 0.57 | plant 1.00 push 0.096 | kl 0.0236 lr 5.1e-05 std 0.068 vf 0.022 kp 368 kd 3.39
+[ 142.30M] sps 8,637 ep_len 3000 falls 0 quiet 0 hard_surv 0.89 | plant 1.00 push 0.096 | kl 0.0175 lr 3.4e-05 std 0.068 vf 0.015 kp 369 kd 3.39
+[ 142.48M] sps 9,003 ep_len 3000 falls 0 quiet 0 hard_surv 0.75 | plant 1.00 push 0.096 | kl 0.0323 lr 3.4e-05 std 0.067 vf 0.015 kp 371 kd 3.39
+[ 142.66M] sps 8,844 ep_len 3000 falls 0 quiet 0 hard_surv 0.75 | plant 1.00 push 0.096 | kl 0.0215 lr 5.1e-05 std 0.067 vf 0.025 kp 370 kd 3.39
+[ 142.85M] sps 8,797 ep_len 3000 falls 0 quiet 0 hard_surv 0.60 | plant 1.00 push 0.096 | kl 0.0299 lr 5.1e-05 std 0.067 vf 0.024 kp 369 kd 3.39
+[curriculum] @ 143,013,888: push level retreat -> 0.0768 m/s
+[ 143.03M] sps 8,882 ep_len 3000 falls 0 quiet 0 hard_surv 0.90 | plant 1.00 push 0.077 | kl 0.0485 lr 2.3e-05 std 0.067 vf 0.049 kp 370 kd 3.39
+[ 143.22M] sps 8,798 ep_len 3000 falls 0 quiet 0 hard_surv 0.60 | plant 1.00 push 0.077 | kl 0.0206 lr 3.4e-05 std 0.067 vf 0.028 kp 370 kd 3.39
+[ 143.40M] sps 8,968 ep_len 3000 falls 0 quiet 0 hard_surv 0.67 | plant 1.00 push 0.077 | kl 0.0208 lr 5.1e-05 std 0.067 vf 0.009 kp 370 kd 3.40
+[ 143.59M] sps 8,776 ep_len 3000 falls 0 quiet 0 hard_surv 0.90 | plant 1.00 push 0.077 | kl 0.0223 lr 5.1e-05 std 0.067 vf 0.019 kp 369 kd 3.40
+[ 143.77M] sps 8,717 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.077 | kl 0.0129 lr 3.4e-05 std 0.067 vf 0.012 kp 369 kd 3.40
+[ 143.95M] sps 8,836 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.077 | kl 0.0163 lr 3.4e-05 std 0.067 vf 0.021 kp 368 kd 3.40
+[ 144.14M] sps 8,728 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.077 | kl 0.0220 lr 5.1e-05 std 0.067 vf 0.023 kp 366 kd 3.40
+[ 144.32M] sps 8,716 ep_len 3000 falls 0 quiet 0 hard_surv 0.67 | plant 1.00 push 0.077 | kl 0.0196 lr 5.1e-05 std 0.067 vf 0.011 kp 367 kd 3.39
+[ 144.51M] sps 8,693 ep_len 3000 falls 0 quiet 0 hard_surv 0.86 | plant 1.00 push 0.077 | kl 0.0233 lr 5.1e-05 std 0.067 vf 0.012 kp 367 kd 3.39
+[ 144.69M] sps 8,790 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.077 | kl 0.0208 lr 5.1e-05 std 0.067 vf 0.016 kp 367 kd 3.39
+[ 144.88M] sps 8,837 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.077 | kl 0.0181 lr 3.4e-05 std 0.067 vf 0.019 kp 367 kd 3.39
+[ 145.06M] sps 8,784 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.077 | kl 0.0175 lr 2.3e-05 std 0.067 vf 0.025 kp 368 kd 3.39
+[ 145.24M] sps 8,835 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.077 | kl 0.0203 lr 5.1e-05 std 0.067 vf 0.014 kp 367 kd 3.39
+[ 145.43M] sps 8,665 ep_len 3000 falls 0 quiet 0 hard_surv 0.86 | plant 1.00 push 0.077 | kl 0.0226 lr 3.4e-05 std 0.067 vf 0.020 kp 366 kd 3.39
+[ 145.61M] sps 8,650 ep_len 2341 falls 0 quiet 1 hard_surv 1.00 | plant 1.00 push 0.077 | kl 0.0233 lr 1.5e-05 std 0.067 vf 0.133 kp 363 kd 3.39
+[ 145.80M] sps 8,575 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.077 | kl 0.0143 lr 3.4e-05 std 0.067 vf 0.024 kp 364 kd 3.39
+[ 145.98M] sps 8,795 ep_len 2669 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.077 | kl 0.0277 lr 5.1e-05 std 0.067 vf 0.082 kp 363 kd 3.39
+[ 146.17M] sps 8,614 ep_len 2188 falls 0 quiet 1 hard_surv 0.86 | plant 1.00 push 0.077 | kl 0.0302 lr 2.3e-05 std 0.067 vf 0.263 kp 364 kd 3.39
+[ 146.35M] sps 8,673 ep_len 3000 falls 0 quiet 0 hard_surv 0.67 | plant 1.00 push 0.077 | kl 0.0325 lr 3.4e-05 std 0.067 vf 0.022 kp 364 kd 3.39
+[ 146.53M] sps 8,674 ep_len 2504 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.077 | kl 0.0359 lr 2.3e-05 std 0.067 vf 0.068 kp 364 kd 3.40
+[ 146.72M] sps 8,609 ep_len 3000 falls 0 quiet 0 hard_surv 0.89 | plant 1.00 push 0.077 | kl 0.0280 lr 3.4e-05 std 0.067 vf 0.014 kp 364 kd 3.39
+[ 146.90M] sps 8,618 ep_len 3000 falls 0 quiet 0 hard_surv 0.88 | plant 1.00 push 0.077 | kl 0.0349 lr 2.3e-05 std 0.067 vf 0.088 kp 363 kd 3.40
+[ 147.09M] sps 8,705 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.077 | kl 0.0158 lr 3.4e-05 std 0.067 vf 0.014 kp 364 kd 3.40
+[ 147.27M] sps 8,695 ep_len 2979 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.077 | kl 0.0299 lr 3.4e-05 std 0.067 vf 0.020 kp 363 kd 3.40
+[eval] @ 147,456,000: score 0.812 {'0.00': 0.625, '0.02': 0.9375, '0.05': 1.0, '0.10': 0.9375, '0.15': 0.5625} quiet 0  (best 0.975)
+[ 147.46M] sps 8,679 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.077 | kl 0.0182 lr 3.4e-05 std 0.067 vf 0.026 kp 364 kd 3.40
+[ 147.64M] sps 8,693 ep_len 3000 falls 0 quiet 0 hard_surv 0.78 | plant 1.00 push 0.077 | kl 0.0216 lr 5.1e-05 std 0.067 vf 0.021 kp 366 kd 3.40
+[ 147.82M] sps 8,837 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.077 | kl 0.0165 lr 5.1e-05 std 0.067 vf 0.021 kp 368 kd 3.40
+[ 148.01M] sps 9,096 ep_len 3000 falls 0 quiet 0 hard_surv 0.82 | plant 1.00 push 0.077 | kl 0.0190 lr 3.4e-05 std 0.067 vf 0.031 kp 369 kd 3.40
+[ 148.19M] sps 8,784 ep_len 3000 falls 0 quiet 0 hard_surv 0.67 | plant 1.00 push 0.077 | kl 0.0152 lr 3.4e-05 std 0.067 vf 0.013 kp 370 kd 3.40
+[ 148.38M] sps 8,843 ep_len 3000 falls 0 quiet 0 hard_surv 0.75 | plant 1.00 push 0.077 | kl 0.0275 lr 5.1e-05 std 0.067 vf 0.019 kp 369 kd 3.40
+[ 148.56M] sps 8,751 ep_len 3000 falls 0 quiet 0 hard_surv 0.80 | plant 1.00 push 0.077 | kl 0.0251 lr 5.1e-05 std 0.067 vf 0.025 kp 369 kd 3.40
+[ 148.75M] sps 8,763 ep_len 2839 falls 0 quiet 0 hard_surv 0.90 | plant 1.00 push 0.077 | kl 0.0139 lr 3.4e-05 std 0.067 vf 0.023 kp 368 kd 3.40
+[curriculum] @ 148,819,968: push level retreat -> 0.0614 m/s
+[ 148.93M] sps 8,783 ep_len 3000 falls 0 quiet 0 hard_surv 0.62 | plant 1.00 push 0.061 | kl 0.0261 lr 5.1e-05 std 0.067 vf 0.018 kp 369 kd 3.40
+[ 149.11M] sps 8,689 ep_len 3000 falls 0 quiet 0 hard_surv 0.22 | plant 1.00 push 0.061 | kl 0.0223 lr 5.1e-05 std 0.067 vf 0.013 kp 371 kd 3.39
+[ 149.30M] sps 8,877 ep_len 3000 falls 0 quiet 0 hard_surv 0.62 | plant 1.00 push 0.061 | kl 0.0173 lr 3.4e-05 std 0.067 vf 0.017 kp 372 kd 3.40
+[curriculum] @ 149,409,792: push level retreat -> 0.0492 m/s
+[ 149.48M] sps 8,747 ep_len 2614 falls 0 quiet 1 hard_surv 0.88 | plant 1.00 push 0.049 | kl 0.0343 lr 5.1e-05 std 0.067 vf 0.199 kp 371 kd 3.39
+[ 149.67M] sps 8,855 ep_len 3000 falls 0 quiet 0 hard_surv 0.75 | plant 1.00 push 0.049 | kl 0.0202 lr 3.4e-05 std 0.067 vf 0.031 kp 371 kd 3.39
+[ 149.85M] sps 8,868 ep_len 3000 falls 0 quiet 0 hard_surv 0.62 | plant 1.00 push 0.049 | kl 0.0192 lr 3.4e-05 std 0.067 vf 0.020 kp 369 kd 3.39
+[curriculum] @ 149,925,888: push level retreat -> 0.0393 m/s
+[ 150.04M] sps 8,776 ep_len 3000 falls 0 quiet 0 hard_surv 0.70 | plant 1.00 push 0.039 | kl 0.0221 lr 5.1e-05 std 0.067 vf 0.009 kp 368 kd 3.39
+[ 150.22M] sps 8,574 ep_len 2770 falls 0 quiet 0 hard_surv 0.67 | plant 1.00 push 0.039 | kl 0.0313 lr 3.4e-05 std 0.067 vf 0.292 kp 368 kd 3.39
+[ 150.41M] sps 8,597 ep_len 3000 falls 0 quiet 0 hard_surv 0.80 | plant 1.00 push 0.039 | kl 0.0192 lr 5.1e-05 std 0.067 vf 0.010 kp 368 kd 3.39
+[ 150.59M] sps 8,769 ep_len 3000 falls 0 quiet 0 hard_surv 0.67 | plant 1.00 push 0.039 | kl 0.0180 lr 3.4e-05 std 0.067 vf 0.019 kp 368 kd 3.39
+[ 150.77M] sps 8,818 ep_len 3000 falls 0 quiet 0 hard_surv 0.83 | plant 1.00 push 0.039 | kl 0.0284 lr 5.1e-05 std 0.067 vf 0.013 kp 369 kd 3.39
+[ 150.96M] sps 9,031 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.039 | kl 0.0226 lr 5.1e-05 std 0.067 vf 0.018 kp 370 kd 3.40
+[ 151.14M] sps 9,044 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.039 | kl 0.0184 lr 5.1e-05 std 0.067 vf 0.020 kp 371 kd 3.40
+[ 151.33M] sps 8,947 ep_len 3000 falls 0 quiet 0 hard_surv 0.70 | plant 1.00 push 0.039 | kl 0.0159 lr 3.4e-05 std 0.067 vf 0.007 kp 371 kd 3.39
+[ 151.51M] sps 8,954 ep_len 3000 falls 0 quiet 0 hard_surv 0.86 | plant 1.00 push 0.039 | kl 0.0302 lr 5.1e-05 std 0.067 vf 0.014 kp 370 kd 3.39
+[ 151.70M] sps 9,047 ep_len 3000 falls 0 quiet 0 hard_surv 0.75 | plant 1.00 push 0.039 | kl 0.0159 lr 3.4e-05 std 0.067 vf 0.017 kp 370 kd 3.39
+[ 151.88M] sps 8,823 ep_len 3000 falls 0 quiet 0 hard_surv 0.83 | plant 1.00 push 0.039 | kl 0.0245 lr 5.1e-05 std 0.067 vf 0.013 kp 369 kd 3.40
+[ 152.06M] sps 9,013 ep_len 2959 falls 0 quiet 0 hard_surv 0.88 | plant 1.00 push 0.039 | kl 0.0226 lr 2.3e-05 std 0.067 vf 0.268 kp 368 kd 3.40
+[ 152.25M] sps 9,007 ep_len 2832 falls 0 quiet 0 hard_surv 0.75 | plant 1.00 push 0.039 | kl 0.0342 lr 2.3e-05 std 0.067 vf 0.233 kp 370 kd 3.40
+[ 152.43M] sps 9,021 ep_len 2976 falls 0 quiet 0 hard_surv 0.67 | plant 1.00 push 0.039 | kl 0.0459 lr 1.5e-05 std 0.067 vf 0.185 kp 370 kd 3.40
+[ 152.62M] sps 9,034 ep_len 3000 falls 0 quiet 0 hard_surv 0.79 | plant 1.00 push 0.039 | kl 0.0140 lr 2.3e-05 std 0.067 vf 0.011 kp 370 kd 3.40
+[ 152.80M] sps 9,107 ep_len 2945 falls 0 quiet 0 hard_surv 0.80 | plant 1.00 push 0.039 | kl 0.0346 lr 1.5e-05 std 0.067 vf 0.445 kp 370 kd 3.40
+[ 152.99M] sps 9,008 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.039 | kl 0.0202 lr 5.1e-05 std 0.067 vf 0.009 kp 372 kd 3.40
+[ 153.17M] sps 8,978 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.039 | kl 0.0258 lr 5.1e-05 std 0.067 vf 0.024 kp 370 kd 3.40
+[ 153.35M] sps 8,987 ep_len 3000 falls 0 quiet 0 hard_surv 0.83 | plant 1.00 push 0.039 | kl 0.0263 lr 5.1e-05 std 0.067 vf 0.033 kp 371 kd 3.40
+[ 153.54M] sps 8,937 ep_len 3000 falls 0 quiet 0 hard_surv 0.75 | plant 1.00 push 0.039 | kl 0.0164 lr 3.4e-05 std 0.067 vf 0.014 kp 370 kd 3.40
+[ 153.72M] sps 9,028 ep_len 3000 falls 0 quiet 0 hard_surv 0.40 | plant 1.00 push 0.039 | kl 0.0161 lr 2.3e-05 std 0.067 vf 0.016 kp 371 kd 3.40
+[ 153.91M] sps 9,094 ep_len 3000 falls 0 quiet 0 hard_surv 0.71 | plant 1.00 push 0.039 | kl 0.0192 lr 3.4e-05 std 0.067 vf 0.008 kp 371 kd 3.40
+[ 154.09M] sps 8,936 ep_len 3000 falls 0 quiet 0 hard_surv 0.80 | plant 1.00 push 0.039 | kl 0.0141 lr 3.4e-05 std 0.067 vf 0.008 kp 371 kd 3.40
+[ 154.28M] sps 8,956 ep_len 3000 falls 0 quiet 0 hard_surv 0.67 | plant 1.00 push 0.039 | kl 0.0366 lr 3.4e-05 std 0.067 vf 0.019 kp 372 kd 3.40
+[ 154.46M] sps 8,845 ep_len 3000 falls 0 quiet 0 hard_surv 0.86 | plant 1.00 push 0.039 | kl 0.0168 lr 3.4e-05 std 0.067 vf 0.025 kp 371 kd 3.40
+[ 154.64M] sps 8,997 ep_len 3000 falls 0 quiet 0 hard_surv 0.80 | plant 1.00 push 0.039 | kl 0.0166 lr 3.4e-05 std 0.067 vf 0.008 kp 370 kd 3.40
+[eval] @ 154,828,800: score 0.550 {'0.00': 1.0, '0.02': 0.25, '0.05': 0.5, '0.10': 0.5, '0.15': 0.5} quiet 0  (best 0.975)
+[ 154.83M] sps 8,932 ep_len 3000 falls 0 quiet 0 hard_surv 0.33 | plant 1.00 push 0.039 | kl 0.0199 lr 3.4e-05 std 0.067 vf 0.022 kp 371 kd 3.40
+[ 155.01M] sps 8,915 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.039 | kl 0.0245 lr 3.4e-05 std 0.067 vf 0.018 kp 371 kd 3.40
+[ 155.20M] sps 8,897 ep_len 3000 falls 0 quiet 0 hard_surv 0.75 | plant 1.00 push 0.039 | kl 0.0152 lr 2.3e-05 std 0.067 vf 0.015 kp 371 kd 3.40
+[ 155.38M] sps 8,684 ep_len 3000 falls 0 quiet 0 hard_surv 0.57 | plant 1.00 push 0.039 | kl 0.0320 lr 5.1e-05 std 0.067 vf 0.022 kp 371 kd 3.40
+[curriculum] @ 155,492,352: push level retreat -> 0.0315 m/s
+[ 155.57M] sps 8,923 ep_len 3000 falls 0 quiet 0 hard_surv 0.29 | plant 1.00 push 0.031 | kl 0.0308 lr 5.1e-05 std 0.067 vf 0.013 kp 371 kd 3.40
+[ 155.75M] sps 8,975 ep_len 3000 falls 0 quiet 0 hard_surv 0.92 | plant 1.00 push 0.031 | kl 0.0275 lr 3.4e-05 std 0.067 vf 0.022 kp 369 kd 3.40
+[ 155.93M] sps 9,085 ep_len 3000 falls 0 quiet 0 hard_surv 0.91 | plant 1.00 push 0.031 | kl 0.0153 lr 3.4e-05 std 0.067 vf 0.010 kp 371 kd 3.40
+[ 156.12M] sps 8,987 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.031 | kl 0.0275 lr 3.4e-05 std 0.067 vf 0.009 kp 371 kd 3.40
+[ 156.30M] sps 8,962 ep_len 3000 falls 0 quiet 0 hard_surv 0.83 | plant 1.00 push 0.031 | kl 0.0175 lr 3.4e-05 std 0.067 vf 0.015 kp 372 kd 3.40
+[ 156.49M] sps 8,898 ep_len 3000 falls 0 quiet 0 hard_surv 0.60 | plant 1.00 push 0.031 | kl 0.0223 lr 3.4e-05 std 0.067 vf 0.015 kp 372 kd 3.40
+[ 156.67M] sps 8,890 ep_len 3000 falls 0 quiet 0 hard_surv 0.91 | plant 1.00 push 0.031 | kl 0.0166 lr 3.4e-05 std 0.067 vf 0.016 kp 370 kd 3.40
+[ 156.86M] sps 8,988 ep_len 3000 falls 0 quiet 0 hard_surv 0.92 | plant 1.00 push 0.031 | kl 0.0172 lr 3.4e-05 std 0.067 vf 0.014 kp 370 kd 3.40
+[ 157.04M] sps 8,841 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.031 | kl 0.0176 lr 3.4e-05 std 0.067 vf 0.017 kp 371 kd 3.40
+[ 157.22M] sps 9,026 ep_len 3000 falls 0 quiet 0 hard_surv 0.88 | plant 1.00 push 0.031 | kl 0.0228 lr 5.1e-05 std 0.067 vf 0.018 kp 371 kd 3.40
+[ 157.41M] sps 8,696 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.031 | kl 0.0208 lr 5.1e-05 std 0.067 vf 0.015 kp 369 kd 3.40
+[ 157.59M] sps 8,711 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.031 | kl 0.0245 lr 5.1e-05 std 0.066 vf 0.011 kp 369 kd 3.40
+[ 157.78M] sps 8,966 ep_len 3000 falls 0 quiet 0 hard_surv 0.89 | plant 1.00 push 0.031 | kl 0.0485 lr 2.3e-05 std 0.066 vf 0.016 kp 371 kd 3.40
+[ 157.96M] sps 8,938 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.031 | kl 0.0206 lr 3.4e-05 std 0.066 vf 0.019 kp 371 kd 3.40
+[ 158.15M] sps 8,884 ep_len 3000 falls 0 quiet 0 hard_surv 0.86 | plant 1.00 push 0.031 | kl 0.0256 lr 3.4e-05 std 0.066 vf 0.015 kp 372 kd 3.40
+[curriculum] @ 158,220,288: push level -> 0.0346 m/s; settled success 0.990
+[ 158.33M] sps 8,954 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.035 | kl 0.0138 lr 3.4e-05 std 0.066 vf 0.016 kp 371 kd 3.40
+[ 158.52M] sps 9,077 ep_len 3000 falls 0 quiet 0 hard_surv 0.83 | plant 1.00 push 0.035 | kl 0.0140 lr 3.4e-05 std 0.066 vf 0.013 kp 371 kd 3.40
+[ 158.70M] sps 8,953 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.035 | kl 0.0182 lr 5.1e-05 std 0.066 vf 0.004 kp 370 kd 3.40
+[curriculum] @ 158,754,816: push level -> 0.0381 m/s; settled success 0.995
+[ 158.88M] sps 9,168 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.038 | kl 0.0188 lr 3.4e-05 std 0.066 vf 0.006 kp 372 kd 3.40
+[ 159.07M] sps 9,092 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.038 | kl 0.0231 lr 2.3e-05 std 0.066 vf 0.021 kp 373 kd 3.40
+[ 159.25M] sps 9,173 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.038 | kl 0.0212 lr 5.1e-05 std 0.066 vf 0.012 kp 371 kd 3.40
+[curriculum] @ 159,363,072: push level -> 0.0419 m/s; settled success 1.000
+[ 159.44M] sps 9,070 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.042 | kl 0.0189 lr 3.4e-05 std 0.066 vf 0.018 kp 369 kd 3.41
+[ 159.62M] sps 8,791 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.042 | kl 0.0325 lr 3.4e-05 std 0.066 vf 0.011 kp 369 kd 3.41
+[ 159.81M] sps 8,925 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.042 | kl 0.0316 lr 5.1e-05 std 0.066 vf 0.013 kp 370 kd 3.41
+[curriculum] @ 159,934,464: push level -> 0.0461 m/s; settled success 1.000
+[ 159.99M] sps 9,202 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.046 | kl 0.0181 lr 3.4e-05 std 0.066 vf 0.014 kp 372 kd 3.40
+[ 160.17M] sps 9,204 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.046 | kl 0.0275 lr 3.4e-05 std 0.066 vf 0.015 kp 371 kd 3.40
+[ 160.36M] sps 9,189 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.046 | kl 0.0300 lr 5.1e-05 std 0.066 vf 0.023 kp 372 kd 3.40
+[curriculum] @ 160,505,856: push level -> 0.0507 m/s; settled success 1.000
+[ 160.54M] sps 9,075 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.051 | kl 0.0177 lr 3.4e-05 std 0.066 vf 0.011 kp 371 kd 3.40
+[ 160.73M] sps 8,886 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.051 | kl 0.0171 lr 3.4e-05 std 0.066 vf 0.013 kp 369 kd 3.40
+[ 160.91M] sps 9,001 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.051 | kl 0.0212 lr 3.4e-05 std 0.066 vf 0.018 kp 369 kd 3.41
+[curriculum] @ 161,040,384: push level -> 0.0557 m/s; settled success 1.000
+[ 161.10M] sps 8,733 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.056 | kl 0.0231 lr 5.1e-05 std 0.066 vf 0.011 kp 368 kd 3.41
+[ 161.28M] sps 8,695 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.056 | kl 0.0253 lr 5.1e-05 std 0.066 vf 0.013 kp 368 kd 3.41
+[ 161.46M] sps 8,751 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.056 | kl 0.0184 lr 3.4e-05 std 0.066 vf 0.019 kp 369 kd 3.41
+[curriculum] @ 161,648,640: push level -> 0.0613 m/s; settled success 0.990
+[ 161.65M] sps 8,697 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.061 | kl 0.0331 lr 5.1e-05 std 0.066 vf 0.029 kp 368 kd 3.41
+[ 161.83M] sps 8,572 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.061 | kl 0.0224 lr 3.4e-05 std 0.066 vf 0.016 kp 367 kd 3.41
+[ 162.02M] sps 8,728 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.061 | kl 0.0180 lr 3.4e-05 std 0.066 vf 0.016 kp 367 kd 3.41
+[curriculum] @ 162,183,168: push level -> 0.0674 m/s; settled success 0.930
+[eval] @ 162,201,600: score 0.787 {'0.00': 0.9375, '0.02': 0.9375, '0.05': 0.8125, '0.10': 0.875, '0.15': 0.375} quiet 0  (best 0.975)
+[ 162.20M] sps 8,736 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.067 | kl 0.0159 lr 3.4e-05 std 0.066 vf 0.014 kp 366 kd 3.41
+[ 162.39M] sps 8,752 ep_len 3000 falls 0 quiet 0 hard_surv 0.75 | plant 1.00 push 0.067 | kl 0.0333 lr 3.4e-05 std 0.066 vf 0.015 kp 366 kd 3.41
+[ 162.57M] sps 8,832 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.067 | kl 0.0488 lr 2.3e-05 std 0.066 vf 0.024 kp 366 kd 3.41
+[ 162.75M] sps 8,793 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.067 | kl 0.0184 lr 2.3e-05 std 0.066 vf 0.020 kp 368 kd 3.41
+[curriculum] @ 162,772,992: push level -> 0.0742 m/s; settled success 0.976
+[ 162.94M] sps 8,748 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.074 | kl 0.0186 lr 5.1e-05 std 0.066 vf 0.015 kp 367 kd 3.41
+[ 163.12M] sps 8,784 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.074 | kl 0.0168 lr 3.4e-05 std 0.066 vf 0.025 kp 367 kd 3.41
+[ 163.31M] sps 8,929 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.074 | kl 0.0235 lr 5.1e-05 std 0.066 vf 0.021 kp 367 kd 3.41
+[curriculum] @ 163,325,952: push level -> 0.0816 m/s; settled success 0.961
+[ 163.49M] sps 8,704 ep_len 3000 falls 0 quiet 0 hard_surv 0.83 | plant 1.00 push 0.082 | kl 0.0230 lr 5.1e-05 std 0.066 vf 0.029 kp 368 kd 3.40
+[ 163.68M] sps 8,814 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.082 | kl 0.0229 lr 5.1e-05 std 0.066 vf 0.017 kp 368 kd 3.40
+[ 163.86M] sps 8,577 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.082 | kl 0.0290 lr 3.4e-05 std 0.066 vf 0.013 kp 368 kd 3.41
+[curriculum] @ 163,878,912: push level -> 0.0898 m/s; settled success 0.990
+[ 164.04M] sps 8,653 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.090 | kl 0.0174 lr 3.4e-05 std 0.066 vf 0.021 kp 367 kd 3.40
+[ 164.23M] sps 8,583 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.090 | kl 0.0206 lr 5.1e-05 std 0.066 vf 0.016 kp 366 kd 3.40
+[ 164.41M] sps 8,584 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.090 | kl 0.0198 lr 3.4e-05 std 0.066 vf 0.025 kp 365 kd 3.41
+[curriculum] @ 164,431,872: push level -> 0.0987 m/s; settled success 0.960
+[ 164.60M] sps 8,736 ep_len 3000 falls 0 quiet 0 hard_surv 0.86 | plant 1.00 push 0.099 | kl 0.0166 lr 3.4e-05 std 0.066 vf 0.014 kp 365 kd 3.40
+[ 164.78M] sps 8,772 ep_len 3000 falls 0 quiet 0 hard_surv 0.67 | plant 1.00 push 0.099 | kl 0.0232 lr 5.1e-05 std 0.066 vf 0.008 kp 366 kd 3.40
+[curriculum] @ 164,929,536: push level -> 0.1086 m/s; settled success 0.941
+[ 164.97M] sps 8,635 ep_len 3000 falls 0 quiet 0 hard_surv 0.83 | plant 1.00 push 0.109 | kl 0.0317 lr 3.4e-05 std 0.066 vf 0.019 kp 366 kd 3.40
+[ 165.15M] sps 8,595 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.109 | kl 0.0230 lr 3.4e-05 std 0.066 vf 0.026 kp 366 kd 3.40
+[ 165.34M] sps 8,636 ep_len 3000 falls 0 quiet 0 hard_surv 0.89 | plant 1.00 push 0.109 | kl 0.0323 lr 3.4e-05 std 0.066 vf 0.019 kp 365 kd 3.41
+[curriculum] @ 165,482,496: push level -> 0.1195 m/s; settled success 0.908
+[ 165.52M] sps 8,587 ep_len 3000 falls 0 quiet 0 hard_surv 0.88 | plant 1.00 push 0.119 | kl 0.0227 lr 3.4e-05 std 0.066 vf 0.017 kp 365 kd 3.41
+[ 165.70M] sps 8,694 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.119 | kl 0.0276 lr 3.4e-05 std 0.066 vf 0.018 kp 365 kd 3.41
+[ 165.89M] sps 8,681 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.119 | kl 0.0265 lr 5.1e-05 std 0.066 vf 0.013 kp 364 kd 3.41
+[curriculum] @ 166,053,888: push level -> 0.1314 m/s; settled success 0.957
+[ 166.07M] sps 8,575 ep_len 3000 falls 0 quiet 0 hard_surv 0.93 | plant 1.00 push 0.131 | kl 0.0221 lr 3.4e-05 std 0.066 vf 0.017 kp 364 kd 3.41
+[ 166.26M] sps 8,635 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.131 | kl 0.0211 lr 3.4e-05 std 0.066 vf 0.017 kp 365 kd 3.41
+[ 166.44M] sps 8,702 ep_len 2818 falls 0 quiet 0 hard_surv 0.93 | plant 1.00 push 0.131 | kl 0.0334 lr 3.4e-05 std 0.066 vf 0.034 kp 366 kd 3.41
+[ 166.63M] sps 8,890 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.131 | kl 0.0173 lr 3.4e-05 std 0.066 vf 0.019 kp 366 kd 3.40
+[ 166.81M] sps 8,913 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.131 | kl 0.0298 lr 5.1e-05 std 0.066 vf 0.022 kp 367 kd 3.40
+[ 166.99M] sps 8,884 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.131 | kl 0.0242 lr 5.1e-05 std 0.066 vf 0.015 kp 366 kd 3.40
+[curriculum] @ 167,141,376: push level -> 0.1445 m/s; settled success 0.922
+[ 167.18M] sps 8,845 ep_len 3000 falls 0 quiet 0 hard_surv 0.88 | plant 1.00 push 0.145 | kl 0.0318 lr 3.4e-05 std 0.066 vf 0.017 kp 367 kd 3.40
+[ 167.36M] sps 8,810 ep_len 3000 falls 0 quiet 0 hard_surv 0.75 | plant 1.00 push 0.145 | kl 0.0227 lr 3.4e-05 std 0.066 vf 0.033 kp 366 kd 3.40
+[ 167.55M] sps 8,900 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.145 | kl 0.0169 lr 3.4e-05 std 0.066 vf 0.059 kp 365 kd 3.40
+[ 167.73M] sps 8,961 ep_len 2407 falls 0 quiet 0 hard_surv 0.89 | plant 1.00 push 0.145 | kl 0.0170 lr 3.4e-05 std 0.066 vf 0.020 kp 364 kd 3.40
+[ 167.92M] sps 8,879 ep_len 3000 falls 0 quiet 0 hard_surv 0.67 | plant 1.00 push 0.145 | kl 0.0309 lr 3.4e-05 std 0.066 vf 0.019 kp 364 kd 3.40
+[ 168.10M] sps 8,773 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.145 | kl 0.0171 lr 2.3e-05 std 0.066 vf 0.023 kp 364 kd 3.40
+[curriculum] @ 168,228,864: push level -> 0.1500 m/s; settled success 0.915
+[ 168.28M] sps 8,808 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0198 lr 3.4e-05 std 0.066 vf 0.026 kp 363 kd 3.40
+[ 168.47M] sps 8,728 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0180 lr 3.4e-05 std 0.066 vf 0.059 kp 364 kd 3.40
+[ 168.65M] sps 8,675 ep_len 3000 falls 0 quiet 0 hard_surv 0.83 | plant 1.00 push 0.150 | kl 0.0150 lr 3.4e-05 std 0.066 vf 0.041 kp 363 kd 3.40
+[ 168.84M] sps 8,647 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0231 lr 3.4e-05 std 0.066 vf 0.046 kp 364 kd 3.40
+[ 169.02M] sps 8,721 ep_len 3000 falls 0 quiet 0 hard_surv 0.71 | plant 1.00 push 0.150 | kl 0.0171 lr 3.4e-05 std 0.066 vf 0.018 kp 364 kd 3.40
+[ 169.21M] sps 8,782 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0170 lr 3.4e-05 std 0.066 vf 0.026 kp 364 kd 3.40
+[ 169.39M] sps 8,713 ep_len 1852 falls 0 quiet 0 hard_surv 0.90 | plant 1.00 push 0.150 | kl 0.0180 lr 3.4e-05 std 0.066 vf 0.067 kp 364 kd 3.40
+[eval] @ 169,574,400: score 0.900 {'0.00': 1.0, '0.02': 1.0, '0.05': 0.9375, '0.10': 0.9375, '0.15': 0.625} quiet 0  (best 0.975)
+[ 169.57M] sps 8,777 ep_len 2667 falls 0 quiet 0 hard_surv 0.56 | plant 1.00 push 0.150 | kl 0.0256 lr 3.4e-05 std 0.066 vf 0.058 kp 364 kd 3.40
+[ 169.76M] sps 8,753 ep_len 3000 falls 0 quiet 0 hard_surv 0.50 | plant 1.00 push 0.150 | kl 0.0161 lr 3.4e-05 std 0.066 vf 0.038 kp 364 kd 3.40
+[ 169.94M] sps 8,580 ep_len 2549 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0254 lr 3.4e-05 std 0.066 vf 0.058 kp 365 kd 3.40
+[ 170.13M] sps 8,917 ep_len 3000 falls 0 quiet 0 hard_surv 0.78 | plant 1.00 push 0.150 | kl 0.0246 lr 5.1e-05 std 0.066 vf 0.030 kp 366 kd 3.39
+[ 170.31M] sps 8,489 ep_len 2984 falls 0 quiet 0 hard_surv 0.78 | plant 1.00 push 0.150 | kl 0.0127 lr 2.3e-05 std 0.066 vf 0.350 kp 367 kd 3.39
+[ 170.50M] sps 8,658 ep_len 3000 falls 0 quiet 0 hard_surv 0.86 | plant 1.00 push 0.150 | kl 0.0247 lr 5.1e-05 std 0.066 vf 0.063 kp 367 kd 3.38
+[ 170.68M] sps 8,824 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0187 lr 3.4e-05 std 0.066 vf 0.025 kp 367 kd 3.38
+[ 170.86M] sps 8,635 ep_len 2588 falls 0 quiet 0 hard_surv 0.81 | plant 1.00 push 0.150 | kl 0.0188 lr 2.3e-05 std 0.066 vf 0.251 kp 368 kd 3.37
+[ 171.05M] sps 8,778 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0403 lr 3.4e-05 std 0.066 vf 0.033 kp 369 kd 3.37
+[ 171.23M] sps 8,676 ep_len 3000 falls 0 quiet 0 hard_surv 0.83 | plant 1.00 push 0.150 | kl 0.0238 lr 3.4e-05 std 0.066 vf 0.025 kp 368 kd 3.37
+[ 171.42M] sps 8,589 ep_len 2980 falls 0 quiet 0 hard_surv 0.75 | plant 1.00 push 0.150 | kl 0.0204 lr 5.1e-05 std 0.066 vf 0.015 kp 368 kd 3.38
+[ 171.60M] sps 8,841 ep_len 3000 falls 0 quiet 0 hard_surv 0.90 | plant 1.00 push 0.150 | kl 0.0234 lr 3.4e-05 std 0.066 vf 0.024 kp 367 kd 3.38
+[ 171.79M] sps 8,723 ep_len 3000 falls 0 quiet 0 hard_surv 0.80 | plant 1.00 push 0.150 | kl 0.0209 lr 3.4e-05 std 0.066 vf 0.013 kp 367 kd 3.38
+[ 171.97M] sps 8,502 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0275 lr 5.1e-05 std 0.066 vf 0.058 kp 367 kd 3.39
+[ 172.15M] sps 8,578 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0325 lr 3.4e-05 std 0.066 vf 0.030 kp 366 kd 3.39
+[ 172.34M] sps 8,689 ep_len 3000 falls 0 quiet 0 hard_surv 0.91 | plant 1.00 push 0.150 | kl 0.0145 lr 2.3e-05 std 0.066 vf 0.072 kp 366 kd 3.39
+[ 172.52M] sps 8,659 ep_len 3000 falls 0 quiet 0 hard_surv 0.75 | plant 1.00 push 0.150 | kl 0.0190 lr 3.4e-05 std 0.066 vf 0.036 kp 366 kd 3.39
+[ 172.71M] sps 8,740 ep_len 3000 falls 0 quiet 0 hard_surv 0.75 | plant 1.00 push 0.150 | kl 0.0239 lr 3.4e-05 std 0.066 vf 0.041 kp 365 kd 3.40
+[ 172.89M] sps 8,780 ep_len 2996 falls 0 quiet 0 hard_surv 0.78 | plant 1.00 push 0.150 | kl 0.0223 lr 3.4e-05 std 0.066 vf 0.017 kp 364 kd 3.39
+[ 173.08M] sps 8,778 ep_len 3000 falls 0 quiet 0 hard_surv 0.83 | plant 1.00 push 0.150 | kl 0.0248 lr 3.4e-05 std 0.066 vf 0.019 kp 367 kd 3.40
+[ 173.26M] sps 8,762 ep_len 3000 falls 0 quiet 0 hard_surv 0.78 | plant 1.00 push 0.150 | kl 0.0352 lr 2.3e-05 std 0.066 vf 0.038 kp 366 kd 3.40
+[ 173.45M] sps 8,627 ep_len 2992 falls 0 quiet 0 hard_surv 0.83 | plant 1.00 push 0.150 | kl 0.0282 lr 3.4e-05 std 0.066 vf 0.028 kp 364 kd 3.40
+[ 173.63M] sps 8,678 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0157 lr 3.4e-05 std 0.066 vf 0.051 kp 366 kd 3.40
+[ 173.81M] sps 8,717 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0172 lr 3.4e-05 std 0.066 vf 0.014 kp 366 kd 3.40
+[ 174.00M] sps 8,844 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0314 lr 5.1e-05 std 0.066 vf 0.035 kp 366 kd 3.41
+[ 174.18M] sps 8,631 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0187 lr 2.3e-05 std 0.066 vf 0.099 kp 366 kd 3.40
+[ 174.37M] sps 8,671 ep_len 3000 falls 0 quiet 0 hard_surv 0.62 | plant 1.00 push 0.150 | kl 0.0246 lr 3.4e-05 std 0.066 vf 0.158 kp 369 kd 3.40
+[ 174.55M] sps 8,714 ep_len 3000 falls 0 quiet 0 hard_surv 0.83 | plant 1.00 push 0.150 | kl 0.0295 lr 5.1e-05 std 0.066 vf 0.040 kp 369 kd 3.40
+[ 174.74M] sps 8,875 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0168 lr 3.4e-05 std 0.066 vf 0.032 kp 368 kd 3.40
+[ 174.92M] sps 8,765 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0210 lr 3.4e-05 std 0.066 vf 0.028 kp 369 kd 3.40
+[ 175.10M] sps 8,666 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0337 lr 5.1e-05 std 0.066 vf 0.017 kp 368 kd 3.40
+[curriculum] @ 175,288,320: push level -> 0.1500 m/s; settled success 0.926
+[ 175.29M] sps 8,754 ep_len 3000 falls 0 quiet 0 hard_surv 0.89 | plant 1.00 push 0.150 | kl 0.0255 lr 3.4e-05 std 0.066 vf 0.015 kp 367 kd 3.40
+[ 175.47M] sps 8,831 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0160 lr 3.4e-05 std 0.066 vf 0.030 kp 367 kd 3.40
+[ 175.66M] sps 8,791 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0181 lr 3.4e-05 std 0.066 vf 0.038 kp 368 kd 3.40
+[ 175.84M] sps 8,790 ep_len 3000 falls 0 quiet 0 hard_surv 0.75 | plant 1.00 push 0.150 | kl 0.0159 lr 3.4e-05 std 0.066 vf 0.034 kp 368 kd 3.40
+[curriculum] @ 175,859,712: push level -> 0.1500 m/s; settled success 0.927
+[ 176.03M] sps 8,548 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0188 lr 3.4e-05 std 0.066 vf 0.023 kp 368 kd 3.40
+[ 176.21M] sps 9,014 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0173 lr 3.4e-05 std 0.066 vf 0.043 kp 368 kd 3.40
+[curriculum] @ 176,394,240: push level -> 0.1500 m/s; settled success 0.906
+[ 176.39M] sps 8,869 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0190 lr 3.4e-05 std 0.066 vf 0.073 kp 368 kd 3.40
+[ 176.58M] sps 8,645 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0188 lr 3.4e-05 std 0.066 vf 0.036 kp 367 kd 3.40
+[ 176.76M] sps 8,667 ep_len 3000 falls 0 quiet 0 hard_surv 0.75 | plant 1.00 push 0.150 | kl 0.0332 lr 2.3e-05 std 0.066 vf 0.026 kp 366 kd 3.41
+[eval] @ 176,947,200: score 0.787 {'0.00': 0.875, '0.02': 0.9375, '0.05': 0.8125, '0.10': 0.75, '0.15': 0.5625} quiet 0  (best 0.975)
+[ 176.95M] sps 8,800 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0220 lr 3.4e-05 std 0.066 vf 0.010 kp 365 kd 3.41
+[ 177.13M] sps 8,716 ep_len 3000 falls 0 quiet 0 hard_surv 0.75 | plant 1.00 push 0.150 | kl 0.0157 lr 2.3e-05 std 0.066 vf 0.016 kp 365 kd 3.40
+[ 177.32M] sps 8,887 ep_len 3000 falls 0 quiet 0 hard_surv 0.71 | plant 1.00 push 0.150 | kl 0.0178 lr 3.4e-05 std 0.066 vf 0.052 kp 365 kd 3.41
+[ 177.50M] sps 8,798 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0391 lr 2.3e-05 std 0.066 vf 0.024 kp 367 kd 3.40
+[ 177.68M] sps 8,906 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0215 lr 3.4e-05 std 0.066 vf 0.042 kp 367 kd 3.40
+[ 177.87M] sps 9,042 ep_len 3000 falls 0 quiet 0 hard_surv 0.86 | plant 1.00 push 0.150 | kl 0.0197 lr 3.4e-05 std 0.066 vf 0.043 kp 366 kd 3.40
+[ 178.05M] sps 8,887 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0278 lr 5.1e-05 std 0.066 vf 0.013 kp 366 kd 3.40
+[ 178.24M] sps 8,799 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0144 lr 2.3e-05 std 0.066 vf 0.023 kp 367 kd 3.40
+[ 178.42M] sps 8,909 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0322 lr 5.1e-05 std 0.066 vf 0.039 kp 367 kd 3.40
+[ 178.61M] sps 9,032 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0229 lr 3.4e-05 std 0.066 vf 0.026 kp 368 kd 3.40
+[ 178.79M] sps 8,891 ep_len 3000 falls 0 quiet 0 hard_surv 0.67 | plant 1.00 push 0.150 | kl 0.0201 lr 3.4e-05 std 0.066 vf 0.028 kp 368 kd 3.39
+[ 178.97M] sps 8,750 ep_len 3000 falls 0 quiet 0 hard_surv 0.89 | plant 1.00 push 0.150 | kl 0.0255 lr 5.1e-05 std 0.066 vf 0.024 kp 368 kd 3.39
+[ 179.16M] sps 8,815 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0191 lr 3.4e-05 std 0.066 vf 0.036 kp 367 kd 3.39
+[ 179.34M] sps 9,041 ep_len 3000 falls 0 quiet 0 hard_surv 0.67 | plant 1.00 push 0.150 | kl 0.0207 lr 3.4e-05 std 0.066 vf 0.046 kp 367 kd 3.38
+[ 179.53M] sps 8,886 ep_len 3000 falls 0 quiet 0 hard_surv 0.67 | plant 1.00 push 0.150 | kl 0.0154 lr 3.4e-05 std 0.066 vf 0.028 kp 367 kd 3.38
+[ 179.71M] sps 8,890 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0264 lr 3.4e-05 std 0.066 vf 0.064 kp 366 kd 3.37
+[ 179.90M] sps 8,723 ep_len 3000 falls 0 quiet 0 hard_surv 0.80 | plant 1.00 push 0.150 | kl 0.0205 lr 5.1e-05 std 0.066 vf 0.040 kp 367 kd 3.38
+[ 180.08M] sps 8,986 ep_len 3000 falls 0 quiet 0 hard_surv 0.83 | plant 1.00 push 0.150 | kl 0.0213 lr 3.4e-05 std 0.066 vf 0.044 kp 366 kd 3.37
+[ 180.26M] sps 8,888 ep_len 3000 falls 0 quiet 0 hard_surv 0.75 | plant 1.00 push 0.150 | kl 0.0255 lr 5.1e-05 std 0.066 vf 0.011 kp 365 kd 3.37
+[ 180.45M] sps 8,839 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0287 lr 3.4e-05 std 0.066 vf 0.038 kp 366 kd 3.37
+[ 180.63M] sps 8,740 ep_len 2783 falls 0 quiet 0 hard_surv 0.25 | plant 1.00 push 0.150 | kl 0.0189 lr 3.4e-05 std 0.066 vf 0.024 kp 366 kd 3.37
+[ 180.82M] sps 8,808 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0172 lr 3.4e-05 std 0.066 vf 0.014 kp 366 kd 3.37
+[ 181.00M] sps 8,790 ep_len 3000 falls 0 quiet 0 hard_surv 0.88 | plant 1.00 push 0.150 | kl 0.0185 lr 3.4e-05 std 0.066 vf 0.047 kp 366 kd 3.38
+[ 181.19M] sps 8,701 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0172 lr 3.4e-05 std 0.066 vf 0.017 kp 365 kd 3.38
+[ 181.37M] sps 8,675 ep_len 3000 falls 0 quiet 0 hard_surv 0.75 | plant 1.00 push 0.150 | kl 0.0147 lr 3.4e-05 std 0.066 vf 0.019 kp 365 kd 3.38
+[ 181.56M] sps 8,731 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0216 lr 3.4e-05 std 0.066 vf 0.030 kp 366 kd 3.38
+[ 181.74M] sps 8,729 ep_len 3000 falls 0 quiet 0 hard_surv 0.50 | plant 1.00 push 0.150 | kl 0.0184 lr 3.4e-05 std 0.066 vf 0.021 kp 367 kd 3.37
+[ 181.92M] sps 8,621 ep_len 3000 falls 0 quiet 0 hard_surv 0.71 | plant 1.00 push 0.150 | kl 0.0292 lr 5.1e-05 std 0.066 vf 0.021 kp 367 kd 3.37
+[ 182.11M] sps 8,518 ep_len 2883 falls 0 quiet 0 hard_surv 0.88 | plant 1.00 push 0.150 | kl 0.0232 lr 3.4e-05 std 0.066 vf 0.019 kp 368 kd 3.36
+[ 182.29M] sps 8,665 ep_len 3000 falls 0 quiet 0 hard_surv 0.90 | plant 1.00 push 0.150 | kl 0.0237 lr 3.4e-05 std 0.066 vf 0.059 kp 368 kd 3.36
+[ 182.48M] sps 8,826 ep_len 2930 falls 1 quiet 0 hard_surv 0.85 | plant 1.00 push 0.150 | kl 0.0226 lr 3.4e-05 std 0.066 vf 0.024 kp 367 kd 3.35
+[ 182.66M] sps 8,936 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0379 lr 2.3e-05 std 0.066 vf 0.037 kp 368 kd 3.36
+[ 182.85M] sps 8,765 ep_len 3000 falls 0 quiet 0 hard_surv 0.88 | plant 1.00 push 0.150 | kl 0.0287 lr 5.1e-05 std 0.066 vf 0.019 kp 370 kd 3.36
+[ 183.03M] sps 8,837 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0262 lr 3.4e-05 std 0.066 vf 0.038 kp 369 kd 3.35
+[ 183.21M] sps 8,829 ep_len 3000 falls 0 quiet 0 hard_surv 0.67 | plant 1.00 push 0.150 | kl 0.0235 lr 3.4e-05 std 0.066 vf 0.036 kp 368 kd 3.36
+[ 183.40M] sps 8,864 ep_len 3000 falls 0 quiet 0 hard_surv 0.89 | plant 1.00 push 0.150 | kl 0.0160 lr 3.4e-05 std 0.066 vf 0.035 kp 367 kd 3.35
+[ 183.58M] sps 8,848 ep_len 3000 falls 0 quiet 0 hard_surv 0.83 | plant 1.00 push 0.150 | kl 0.0244 lr 5.1e-05 std 0.066 vf 0.028 kp 367 kd 3.34
+[ 183.77M] sps 8,814 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0225 lr 3.4e-05 std 0.066 vf 0.061 kp 365 kd 3.34
+[ 183.95M] sps 8,774 ep_len 3000 falls 0 quiet 0 hard_surv 0.90 | plant 1.00 push 0.150 | kl 0.0306 lr 3.4e-05 std 0.066 vf 0.048 kp 365 kd 3.34
+[ 184.14M] sps 8,725 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0237 lr 3.4e-05 std 0.066 vf 0.054 kp 364 kd 3.35
+[eval] @ 184,320,000: score 0.825 {'0.00': 0.8125, '0.02': 0.9375, '0.05': 0.9375, '0.10': 0.875, '0.15': 0.5625} quiet 0  (best 0.975)
+[ 184.32M] sps 8,644 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0242 lr 3.4e-05 std 0.066 vf 0.056 kp 365 kd 3.34
+[ 184.50M] sps 8,664 ep_len 3000 falls 0 quiet 0 hard_surv 0.75 | plant 1.00 push 0.150 | kl 0.0318 lr 5.1e-05 std 0.066 vf 0.018 kp 365 kd 3.34
+[ 184.69M] sps 8,644 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0187 lr 3.4e-05 std 0.066 vf 0.026 kp 366 kd 3.35
+[ 184.87M] sps 8,656 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0216 lr 3.4e-05 std 0.066 vf 0.027 kp 365 kd 3.35
+[ 185.06M] sps 8,392 ep_len 2897 falls 0 quiet 0 hard_surv 0.80 | plant 1.00 push 0.150 | kl 0.0245 lr 3.4e-05 std 0.066 vf 0.207 kp 365 kd 3.36
+[curriculum] @ 185,131,008: push level -> 0.1500 m/s; settled success 0.927
+[ 185.24M] sps 8,350 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0363 lr 2.3e-05 std 0.066 vf 0.035 kp 369 kd 3.36
+[ 185.43M] sps 8,337 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0325 lr 3.4e-05 std 0.066 vf 0.038 kp 369 kd 3.37
+[ 185.61M] sps 8,419 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0207 lr 5.1e-05 std 0.066 vf 0.031 kp 370 kd 3.39
+[curriculum] @ 185,647,104: push level -> 0.1500 m/s; settled success 0.970
+[ 185.79M] sps 8,421 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0258 lr 5.1e-05 std 0.066 vf 0.021 kp 371 kd 3.40
+[ 185.98M] sps 8,419 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0225 lr 3.4e-05 std 0.066 vf 0.043 kp 371 kd 3.40
+[ 186.16M] sps 8,382 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0178 lr 3.4e-05 std 0.066 vf 0.039 kp 371 kd 3.39
+[curriculum] @ 186,200,064: push level -> 0.1500 m/s; settled success 0.955
+[ 186.35M] sps 8,263 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0172 lr 3.4e-05 std 0.066 vf 0.029 kp 371 kd 3.37
+[ 186.53M] sps 8,256 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0161 lr 3.4e-05 std 0.066 vf 0.020 kp 370 kd 3.36
+[curriculum] @ 186,697,728: push level -> 0.1500 m/s; settled success 0.950
+[ 186.72M] sps 8,147 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0277 lr 3.4e-05 std 0.066 vf 0.022 kp 371 kd 3.36
+[ 186.90M] sps 8,258 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0178 lr 3.4e-05 std 0.066 vf 0.026 kp 371 kd 3.37
+[ 187.08M] sps 8,293 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0188 lr 3.4e-05 std 0.066 vf 0.017 kp 371 kd 3.37
+[curriculum] @ 187,232,256: push level -> 0.1500 m/s; settled success 0.941
+[ 187.27M] sps 8,331 ep_len 2440 falls 0 quiet 0 hard_surv 0.86 | plant 1.00 push 0.150 | kl 0.0244 lr 3.4e-05 std 0.066 vf 0.012 kp 372 kd 3.36
+[ 187.45M] sps 8,387 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0162 lr 3.4e-05 std 0.066 vf 0.034 kp 371 kd 3.36
+[ 187.64M] sps 8,472 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0310 lr 3.4e-05 std 0.066 vf 0.023 kp 370 kd 3.37
+[curriculum] @ 187,785,216: push level -> 0.1500 m/s; settled success 0.947
+[ 187.82M] sps 8,434 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0235 lr 3.4e-05 std 0.066 vf 0.030 kp 370 kd 3.37
+[ 188.01M] sps 8,344 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0197 lr 3.4e-05 std 0.066 vf 0.035 kp 370 kd 3.37
+[ 188.19M] sps 8,305 ep_len 2867 falls 0 quiet 0 hard_surv 0.86 | plant 1.00 push 0.150 | kl 0.0243 lr 3.4e-05 std 0.066 vf 0.012 kp 371 kd 3.37
+[curriculum] @ 188,319,744: push level -> 0.1500 m/s; settled success 0.970
+[ 188.38M] sps 8,256 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0261 lr 5.1e-05 std 0.066 vf 0.023 kp 371 kd 3.37
+[ 188.56M] sps 8,343 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0205 lr 3.4e-05 std 0.066 vf 0.014 kp 370 kd 3.37
+[ 188.74M] sps 8,282 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0200 lr 3.4e-05 std 0.066 vf 0.023 kp 370 kd 3.38
+[curriculum] @ 188,872,704: push level -> 0.1500 m/s; settled success 0.985
+[ 188.93M] sps 8,335 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0311 lr 5.1e-05 std 0.066 vf 0.018 kp 371 kd 3.38
+[ 189.11M] sps 8,300 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0152 lr 3.4e-05 std 0.066 vf 0.020 kp 370 kd 3.39
+[ 189.30M] sps 8,331 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0179 lr 3.4e-05 std 0.066 vf 0.015 kp 370 kd 3.38
+[curriculum] @ 189,444,096: push level -> 0.1500 m/s; settled success 0.995
+[ 189.48M] sps 8,420 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0214 lr 3.4e-05 std 0.066 vf 0.026 kp 369 kd 3.38
+[ 189.67M] sps 8,382 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0204 lr 3.4e-05 std 0.066 vf 0.031 kp 369 kd 3.39
+[ 189.85M] sps 8,354 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0179 lr 3.4e-05 std 0.066 vf 0.036 kp 370 kd 3.39
+[curriculum] @ 190,033,920: push level -> 0.1500 m/s; settled success 0.985
+[ 190.03M] sps 8,354 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0216 lr 3.4e-05 std 0.066 vf 0.033 kp 369 kd 3.39
+[ 190.22M] sps 8,348 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0199 lr 3.4e-05 std 0.066 vf 0.017 kp 368 kd 3.39
+[ 190.40M] sps 8,301 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0149 lr 2.3e-05 std 0.066 vf 0.028 kp 367 kd 3.39
+[curriculum] @ 190,550,016: push level -> 0.1500 m/s; settled success 1.000
+[ 190.59M] sps 8,289 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0210 lr 5.1e-05 std 0.066 vf 0.023 kp 369 kd 3.40
+[ 190.77M] sps 8,210 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0316 lr 5.1e-05 std 0.066 vf 0.019 kp 370 kd 3.39
+[ 190.96M] sps 8,254 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0264 lr 5.1e-05 std 0.066 vf 0.026 kp 369 kd 3.39
+[curriculum] @ 191,047,680: push level -> 0.1500 m/s; settled success 0.976
+[ 191.14M] sps 8,325 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0295 lr 5.1e-05 std 0.066 vf 0.026 kp 370 kd 3.39
+[ 191.32M] sps 8,200 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0219 lr 5.1e-05 std 0.066 vf 0.013 kp 371 kd 3.39
+[ 191.51M] sps 8,264 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0157 lr 3.4e-05 std 0.066 vf 0.021 kp 368 kd 3.39
+[curriculum] @ 191,637,504: push level -> 0.1500 m/s; settled success 0.985
+[eval] @ 191,692,800: score 0.950 {'0.00': 1.0, '0.02': 1.0, '0.05': 1.0, '0.10': 1.0, '0.15': 0.75} quiet 0  (best 0.975)
+[ 191.69M] sps 8,431 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0250 lr 3.4e-05 std 0.066 vf 0.031 kp 368 kd 3.39
+[ 191.88M] sps 8,272 ep_len 2724 falls 0 quiet 0 hard_surv 0.90 | plant 1.00 push 0.150 | kl 0.0207 lr 3.4e-05 std 0.066 vf 0.021 kp 368 kd 3.39
+[ 192.06M] sps 8,337 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0168 lr 3.4e-05 std 0.066 vf 0.025 kp 367 kd 3.39
+[curriculum] @ 192,245,760: push level -> 0.1500 m/s; settled success 0.966
+[ 192.25M] sps 8,314 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0218 lr 3.4e-05 std 0.066 vf 0.024 kp 369 kd 3.38
+[ 192.43M] sps 8,437 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0211 lr 5.1e-05 std 0.066 vf 0.030 kp 368 kd 3.38
+[ 192.61M] sps 8,533 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0265 lr 5.1e-05 std 0.066 vf 0.023 kp 369 kd 3.38
+[curriculum] @ 192,743,424: push level -> 0.1500 m/s; settled success 0.967
+[ 192.80M] sps 8,464 ep_len 2747 falls 0 quiet 0 hard_surv 0.88 | plant 1.00 push 0.150 | kl 0.0303 lr 5.1e-05 std 0.066 vf 0.025 kp 369 kd 3.38
+[ 192.98M] sps 8,455 ep_len 2421 falls 0 quiet 0 hard_surv 0.80 | plant 1.00 push 0.150 | kl 0.0271 lr 5.1e-05 std 0.066 vf 0.024 kp 370 kd 3.37
+[ 193.17M] sps 8,442 ep_len 2696 falls 0 quiet 0 hard_surv 0.83 | plant 1.00 push 0.150 | kl 0.0199 lr 5.1e-05 std 0.066 vf 0.020 kp 369 kd 3.37
+[curriculum] @ 193,259,520: push level -> 0.1500 m/s; settled success 0.970
+[ 193.35M] sps 8,426 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0228 lr 5.1e-05 std 0.066 vf 0.022 kp 369 kd 3.38
+[ 193.54M] sps 8,326 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0309 lr 3.4e-05 std 0.066 vf 0.013 kp 369 kd 3.38
+[ 193.72M] sps 8,377 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0167 lr 3.4e-05 std 0.066 vf 0.003 kp 369 kd 3.37
+[curriculum] @ 193,794,048: push level -> 0.1500 m/s; settled success 0.980
+[ 193.90M] sps 8,448 ep_len 2706 falls 0 quiet 0 hard_surv 0.89 | plant 1.00 push 0.150 | kl 0.0219 lr 3.4e-05 std 0.066 vf 0.029 kp 370 kd 3.36
+[ 194.09M] sps 8,381 ep_len 3000 falls 0 quiet 0 hard_surv 0.89 | plant 1.00 push 0.150 | kl 0.0226 lr 5.1e-05 std 0.066 vf 0.019 kp 371 kd 3.34
+[ 194.27M] sps 8,181 ep_len 2918 falls 0 quiet 0 hard_surv 0.80 | plant 1.00 push 0.150 | kl 0.0241 lr 3.4e-05 std 0.066 vf 0.259 kp 370 kd 3.33
+[curriculum] @ 194,291,712: push level -> 0.1500 m/s; settled success 0.926
+[ 194.46M] sps 8,338 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0252 lr 5.1e-05 std 0.066 vf 0.024 kp 371 kd 3.32
+[ 194.64M] sps 8,480 ep_len 2782 falls 0 quiet 0 hard_surv 0.83 | plant 1.00 push 0.150 | kl 0.0314 lr 5.1e-05 std 0.066 vf 0.077 kp 369 kd 3.31
+[curriculum] @ 194,826,240: push level -> 0.1500 m/s; settled success 0.905
+[ 194.83M] sps 8,412 ep_len 3000 falls 0 quiet 0 hard_surv 0.75 | plant 1.00 push 0.150 | kl 0.0259 lr 3.4e-05 std 0.066 vf 0.095 kp 370 kd 3.31
+[ 195.01M] sps 8,472 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0205 lr 5.1e-05 std 0.066 vf 0.042 kp 369 kd 3.31
+[ 195.19M] sps 8,618 ep_len 3000 falls 0 quiet 0 hard_surv 0.75 | plant 1.00 push 0.150 | kl 0.0310 lr 3.4e-05 std 0.066 vf 0.033 kp 368 kd 3.30
+[ 195.38M] sps 8,822 ep_len 2619 falls 0 quiet 0 hard_surv 0.62 | plant 1.00 push 0.150 | kl 0.0320 lr 3.4e-05 std 0.066 vf 0.027 kp 366 kd 3.27
+[ 195.56M] sps 8,980 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0175 lr 3.4e-05 std 0.066 vf 0.055 kp 364 kd 3.24
+[ 195.75M] sps 8,991 ep_len 3000 falls 0 quiet 0 hard_surv 0.86 | plant 1.00 push 0.150 | kl 0.0236 lr 3.4e-05 std 0.066 vf 0.035 kp 365 kd 3.23
+[ 195.93M] sps 8,617 ep_len 3000 falls 0 quiet 0 hard_surv 0.86 | plant 1.00 push 0.150 | kl 0.0173 lr 5.1e-05 std 0.066 vf 0.012 kp 365 kd 3.21
+[ 196.12M] sps 8,759 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.150 | kl 0.0135 lr 2.3e-05 std 0.066 vf 0.025 kp 366 kd 3.22
+[ 196.30M] sps 8,914 ep_len 2987 falls 0 quiet 0 hard_surv 0.70 | plant 1.00 push 0.150 | kl 0.0234 lr 3.4e-05 std 0.066 vf 0.058 kp 366 kd 3.20
+[ 196.49M] sps 8,755 ep_len 2852 falls 0 quiet 0 hard_surv 0.67 | plant 1.00 push 0.150 | kl 0.0151 lr 2.3e-05 std 0.066 vf 0.031 kp 367 kd 3.17
+[ 196.67M] sps 8,766 ep_len 2221 falls 0 quiet 0 hard_surv 0.83 | plant 1.00 push 0.150 | kl 0.0232 lr 5.1e-05 std 0.066 vf 0.013 kp 367 kd 3.15
+[ 196.85M] sps 8,973 ep_len 2593 falls 0 quiet 0 hard_surv 0.75 | plant 1.00 push 0.150 | kl 0.0202 lr 3.4e-05 std 0.065 vf 0.046 kp 366 kd 3.10
+[curriculum] @ 196,927,488: push level retreat -> 0.1200 m/s
+[ 197.04M] sps 8,826 ep_len 3000 falls 0 quiet 0 hard_surv 0.62 | plant 1.00 push 0.120 | kl 0.0177 lr 3.4e-05 std 0.065 vf 0.016 kp 366 kd 3.08
+[ 197.22M] sps 8,782 ep_len 3000 falls 0 quiet 0 hard_surv 0.71 | plant 1.00 push 0.120 | kl 0.0217 lr 3.4e-05 std 0.066 vf 0.026 kp 366 kd 3.08
+[ 197.41M] sps 8,559 ep_len 3000 falls 0 quiet 0 hard_surv 0.67 | plant 1.00 push 0.120 | kl 0.0120 lr 3.4e-05 std 0.066 vf 0.022 kp 366 kd 3.12
+[ 197.59M] sps 8,715 ep_len 3000 falls 0 quiet 0 hard_surv 0.20 | plant 1.00 push 0.120 | kl 0.0286 lr 5.1e-05 std 0.066 vf 0.018 kp 366 kd 3.14
+[ 197.78M] sps 8,655 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.120 | kl 0.0148 lr 2.3e-05 std 0.065 vf 0.034 kp 367 kd 3.13
+[ 197.96M] sps 8,663 ep_len 2902 falls 0 quiet 0 hard_surv 0.57 | plant 1.00 push 0.120 | kl 0.0159 lr 3.4e-05 std 0.065 vf 0.010 kp 365 kd 3.16
+[ 198.14M] sps 8,559 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.120 | kl 0.0160 lr 2.3e-05 std 0.065 vf 0.017 kp 366 kd 3.17
+[ 198.33M] sps 8,771 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.120 | kl 0.0175 lr 3.4e-05 std 0.065 vf 0.013 kp 367 kd 3.17
+[ 198.51M] sps 8,763 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.120 | kl 0.0205 lr 5.1e-05 std 0.065 vf 0.014 kp 366 kd 3.15
+[ 198.70M] sps 8,658 ep_len 3000 falls 0 quiet 0 hard_surv 0.75 | plant 1.00 push 0.120 | kl 0.0175 lr 3.4e-05 std 0.065 vf 0.012 kp 367 kd 3.16
+[ 198.88M] sps 8,779 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.120 | kl 0.0245 lr 5.1e-05 std 0.065 vf 0.017 kp 366 kd 3.20
+[eval] @ 199,065,600: score 0.838 {'0.00': 0.875, '0.02': 0.875, '0.05': 0.875, '0.10': 0.8125, '0.15': 0.75} quiet 0  (best 0.975)
+[ 199.07M] sps 8,597 ep_len 3000 falls 0 quiet 0 hard_surv 0.93 | plant 1.00 push 0.120 | kl 0.0181 lr 3.4e-05 std 0.065 vf 0.011 kp 365 kd 3.23
+[ 199.25M] sps 8,630 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.120 | kl 0.0334 lr 3.4e-05 std 0.065 vf 0.032 kp 366 kd 3.25
+[ 199.43M] sps 8,504 ep_len 3000 falls 0 quiet 0 hard_surv 1.00 | plant 1.00 push 0.120 | kl 0.0192 lr 3.4e-05 std 0.065 vf 0.020 kp 367 kd 3.27
+[curriculum] @ 199,600,128: push level -> 0.1320 m/s; settled success 0.966
+[ 199.62M] sps 8,587 ep_len 3000 falls 0 quiet 0 hard_surv 0.83 | plant 1.00 push 0.132 | kl 0.0178 lr 3.4e-05 std 0.065 vf 0.012 kp 366 kd 3.27
+[ 199.80M] sps 8,567 ep_len 3000 falls 0 quiet 0 hard_surv 0.71 | plant 1.00 push 0.132 | kl 0.0165 lr 2.3e-05 std 0.065 vf 0.023 kp 366 kd 3.26
+[ 199.99M] sps 8,706 ep_len 3000 falls 0 quiet 0 hard_surv 0.91 | plant 1.00 push 0.132 | kl 0.0190 lr 3.4e-05 std 0.065 vf 0.013 kp 367 kd 3.25
+[train] done: 200,005,632 steps in 7.17 h

@@ -1,5 +1,242 @@
 # Work log and next questions
 
+2026-11-11 posture-return preparation: user clarified same body/joint posture
+at recovered location, without returning to original floor XY. Implemented
+opt-inreturn_v1/v2/xshape presets with fixed validated quiet targets from each
+STAND-04 best replay trial0; selected actualmedoid frames15.1/12.8/14.5s,
+100/100sampled quietframes within configuredtolerances. Featuresactualmotorq,
+torso gravity, soles inbodyframe,heightoverfeet; no globalXY/heading target,
+no actorinputdimensionchange. Newstate sequence3s regain supported balance
+(250msdwell),4s tobegin referencepose hold,5s continuousquiet. Allow corrective
+steps throughoutreturn; commitfootprint onceafterfinalhold, immutabledeadlines.
+Posturescore rampsafterbalance, replacing broadweakpose tiebreaker. Added
+phase/error/timing logs and25sevaluation.23native/logic tests pluscompilation
+andisolatedSCITASabstractreference/reset/step/eval tracespass. NoGPUlearning
+ortrainingjobsubmitted. OldX.20pushclip passesoldtask but ends~7.78degqRMS/
+130mmsole-relativeerror fromquietref; newtargetrejectsthis. V1/V2pushedclips
+fail6.90/6.80s, not recoveredposes. STAND-04media workerfinishedallthree
+videos/replays; pipelinecomplete. Seereport/standing05-pose-return.md.
+
+2026-11-11 STAND-04 media preparation: archived raw training/probe/evaluation
+logs, best weights, config/parent/final/baseline records and scheduler receipts
+underreport/data/standing04/results. Generated comparison and three model-specific
+convergence figures PNG/PDF/SVG, evaluation CSVs, push-strength CSV and hashes.
+Final levels .1327996/.02/.02m/s-equivalent; best checkpoint levels
+.0997743/.0262144/.02. At100ms final upper levels mean19.06/2.92/2.91N.
+Archived successful trials with a detected landing:0/60,0/52,2/71; do not claim
+general recovery stepping. Submitted replay-only array3248509 with frozen source
+and checkpoint hashes,80trialprotocol,preselected quiet0/+X.20trial48,stage3
+fullvariety. Queue estimate19:38CET; reduced allocation30→10min for backfill.
+Started bounded hidden fetch/render helper PID2308, 120s polls, max8h, no training
+or job resubmission, logs/status underreport/data/standing04. Helper needs machine
+awake/connected; publishes MP4s/provenance and rebuilds standing04-videos.html
+automatically after each completion. At preparation time no new video is ready;
+gallery explicitly shows pending status and auto-refreshes. Outcome/provenance
+auto-updated inreport/standing04-media.md. No training source/model changes.
+
+2026-11-11 STAND-04 status check: all preflights3247598 and training3247599
+COMPLETED exit0; each finishes200,005,632 additional steps. Scheduler durations
+V1 8h37m35, V2 10h27m56, X-shape10h29m37. Same new-protocol baseline→best→final
+task passes:58→60→49/80,48→52→37/80,60→71→66/80. Selected best additional steps
+169.57M/58.98M/132.71M; all best quiet16/16. V1 maximum probed level.1611, stage3,
+ends.1328; V2 stage2 and Xstage1 both end.02minimum, so curriculum not completed.
+V2 lastprobe quiet82.5% blocks promotion despite97%pushsuccess. Structured status
+underreport/data/standing04/status-20261111.json; progress/submission records
+updated. No new training/replay/video submitted; next visual assessment remains
+outstanding rather than inferred from task scores.
+
+2026-11-10 STAND-04 implementation/launch: user approved stronger pushes and
+recovery stepping, requested runs (plural). Prepared three model-specific
+continuations from STAND-03 best V1 81.10M / V2 73.73M / X-shape 29.49M. Retain
+weights/normalizer, reset optimizer/curriculum/counters; 200M additional/model,
+seed1. Added opt-in recovery task, actual pulse-duration deadlines, candidate
+footprint freeze and one-time commit after5s quiet, external-push-only recovery,
+whole-foot step/chatter/travel costs and extra-step cost after3landings. Planted
+legacy task preserved. Shared reward plus one-time settling bonus; no stepping
+income. Added 240-trial independent greedy probes: 40quiet +200near-level,
+25persector, two passing batches required; staged duration/elevation/COM offsets
+before10% impulse promotions to.30m/s; retreat on quiet or push regressions.
+Fixed checkpoint evaluator always uses full variety and final5s quiet for every
+trial, so scores are not directly equivalent to STAND-03. Sixteen local tests
+and compilation pass. Frozen94file model/mesh/parent snapshot hashed/uploaded.
+Submitted GPU preflight array3247598 (baseline, balancedprobe,32-update pilot)
+and training array3247599 afterok with cancellation on failure; pilots discarded.
+At submission preflight queued, no long training progress observed. See
+report/standing04-progress.md for implemented weights, limits, gates and provenance.
+Additional abstract JAX reset/step tracing passed on SCITAS for all three
+models (no physics rollout/learning); the GPU pilot remains a mandatory gate.
+
+2026-11-10: checked STAND-03 array 3246822; all three preflights/training tasks
+COMPLETED, exit 0. Each training run finishes 200,005,632 steps. Scheduler times:
+V1 7h11m14, V2 9h33m12, X-shape 9h30m43. Archived raw logs, evaluations, configs,
+best weights/normalization, completion and scheduler receipts under
+report/data/standing03/results. Selected best steps 81.10M / 73.73M / 29.49M;
+task passes 78/80, 69/80, 70/80 versus final 74/80, 53/80, 56/80. Added comparison
+and per-model learning figures (PNG/PDF/SVG), CSV evaluation tables and hashes.
+Reward plateau does not establish stable task convergence. Explicitly documented
+quiet-end-window versus push-recovery-window scoring distinction and survival
+versus quiet-task failures. Submitted replay-only array 3247563: completed all
+three, no training. Reloaded frozen best checkpoints and normalization, repeated
+80 first episodes, full noise, seed1234. All aggregate scores match; X-shape quiet
+12→13/16 and strongest-push 12→11/16, retained as an unresolved replay variation.
+Recorded fixed trials 0/48, quiet/+X0.10m/s at5s, before outcomes. Native rendering
+of MJX trajectories: two independent trials side by side, 20s at1x, annotated
+termination with no reset splicing. V2 pushed trial falls at6.50s; other selected
+trials pass. User requested outputs confined to report/. Gallery/results:
+report/standing03-videos.html and report/standing03-results.md.
+
+2026-11-09 implementation after user approval: user clarified one continuous
+original sole versus two separate V2/X-shape pads. Built three isolated floating
+standing plants; V1 boxes merged into the exact old sole union, V2 pads retained,
+X-shape pads extracted using world-down in its rotated exported foot frame.
+Corrected X-shape mass 14.537322 kg is provisional on changed parts. Solved loaded
+reference equilibria with actual six-motor holding commands, no base fixture.
+Added opt-in standing task: >=2 N contacts, sole markers, actual contact-point
+slip, loaded support hull, quiet standing, planted-rule termination, and measured
+recovery plus five-second settling gates. Fixed model adapter loop names and
+nominal-friction preservation; disabled incompatible old angle symmetry prior
+equally across all models. Physical DR/reflex/hold off; sensor noise ramps after
+quiet unlock. Six native tests pass locally; GPU preflight array 3246816 submitted
+for three models. Same fresh-policy budget 200M/model, one seed, one GPU each;
+24 h allocation / 22.5 h save reserve. Submitted long training array **3246822**
+at 13:47 CET, with whole-array afterok:3246816 dependency and cancellation on
+failed dependency. V1 preflight passes 16/16 two-second fixed-PD trials plus
+finite PPO; V2 running and X-shape queued at 13:48. Training execution awaits
+all three gates; no training steps claimed or continuous monitoring begun.
+Frozen 80-file source/mesh snapshot hashed
+and verified on SCITAS. Added reproducible contact plot (PNG/SVG/PDF). Full
+submission receipt/results tracked in docs/experiments/stand03_20261109_v1/STATUS.md.
+No hardware result or recovery-step policy is claimed.
+
+2026-11-09: user requested a three-CAD standing comparison, with reward review
+before launch. Models identified: original V1, articulated-foot V2, and new
+`xshape_closed/EXPORT_assembly-v8_closed.xml`. User clarified planted feet first,
+recovery steps only at later difficulty. Audited compiled V1/V2 plants and raw
+exports without physics rollouts. V1/V2 masses 14.356/14.594154 kg; new raw
+5.315278 kg, fixed base, no actuators/contact collisions. Nine raw local inertials
+match V2; six changed thigh/foot/Achilles parts do not. Proposed changed-part
+density transfer gives about 14.537322 kg with 1 kg torso allowance, explicitly
+provisional, not measured. Draft tensors are physically valid; source files
+unchanged. No corrected XML generated.
+Prepared `docs/three-model-standing-plan.md`: identical reward coefficients and
+mass-normalized force pulses, model-specific standing pose/height/sole geometry;
+dedicated BalanceRL task, strong quiet/foot-anchor terms, no walking incentives.
+Identified inherited BalanceRL issues: body-origin foot motion (V1 pad body
+origin at 0.495 m), penetration-only contact, invented support without contact,
+two-loop name assumptions, loop-breaking noise, and push-survival promotion
+without settling. Review proposal fixes these before any port or training.
+Initial push level 0.02 m/s equivalent, 100 ms pulses, 2 s recovery +5 s quiet,
+later step-enabled task separated. Audit, CSV/draft inertials and machine-readable
+identical reward sets saved under `report/data/standing03/`. No SCITAS access,
+training, new deployment or existing model/reward-code changes in this turn.
+
+2026-11-02: user requested the latest best-policy video and convergence graph.
+Submitted short replay job 3238862 (no training), completed 3m01s on i48. Recorded
+the selected CLEARANCE-02 132.71M checkpoint at 1.50 m/s, nominal batch 12, seed
+1000, retaining the saved reset command. Preselected trial 0 completes 25 s,
+80/80 cycles, tracking error 0.0360 m/s. Rendered 1280x720 H.264, two camera views,
+20 fps, anatomical foot colors, no reset splicing. Source model/checkpoint
+hashes checked; all trial metadata retained. Fresh recording has 9/12 completions:
+trials 1/4/5 fall at 0.70/0.95/0.95 s, unlike archived 12/12 full evaluation.
+Compilation/recording differences have not been isolated as a cause. Discrepancy
+is explicit in gallery/report. Generated PNG/SVG/PDF convergence plot from all
+29 archived evaluations and 10,851 updates; raw points, 100-update reward block
+means, per-trial height ranges, selected-candidate marker. Original metrics and
+training snapshot unchanged. See `report/clearance02-videos.html` and replay
+provenance. No training or hardware test launched.
+
+2026-11-02: explicit status check of latest SCITAS job 3232851 found COMPLETED,
+exit 0:0, full 200,005,632 additional steps in 11h07m53s; ended 28 October
+00:36:40 Zurich on ixl01. User queue empty. Archived raw training/evaluations,
+best/final/baseline metrics, existing training plot, log and passing startup
+checks. Final 1.50 m/s: 12/12 full 30 s, mean lift 15.82/18.20 mm, mid-swing
+>=10 mm coverage 100%/100%, error 0.0271 m/s. All twelve trials pass every
+qualification component except the <=26 mm peak bound (max 31.75/34.74 mm).
+No checkpoint qualifies across 29 evaluations. Best unqualified candidate at
+132.71M has lower excess-height measures than final (mean 16.94/20.06 mm,
+max peaks 30.22/30.04 mm). Updated experiment report/status and context. No new
+training or replay submitted, no videos generated, no hardware claims.
+
+2026-10-28: revised slides 14/15 of the user's final controller presentation,
+using Tim Kobler's supplied `DASH-01 midterm_V2.pptx`, slides 14/15 and notes.
+Observed findings reported by Tim: Achilles tension at the heel, insufficient
+printed-part load capacity and leg play; stable standing is blocked. Proposed
+repair: toe attachment, above-knee anchor and two rods to resist foot torsion.
+Controller slides now distinguish these observations from uncharacterized
+structural flex, joint play and real contact response. Next sequence is repair,
+revised CAD/model/closed-loop checks, supported tests and logging, then retraining
+and progressive transfer. No physical parameter measurement or model-code change
+is claimed. Delivered `DASH01_controller_midterm_final_mechanical_update.pptx`;
+only two slide parts and their notes change. Existing media/user edits and both
+input presentations are preserved. Markdown notes updated for 14/15. Native
+PowerPoint renders checked, no text overflow; input/output hashes recorded.
+
+2026-10-28: user selected the illustrated state-of-the-art slide 4 and had already
+removed the thesis alternative in PowerPoint. Updated `speaker-notes_updated.md`
+to the actual 22-slide order, preserving the user's existing paragraphs, adding
+the selected literature overview and stopping-failure script, removing obsolete
+speed-tracking-slide notes, and correcting the Challenges/Objectives ordering.
+19 main slides + three hidden backups, planned 580 s (9m40). Synced embedded notes
+and corrected 18 stale footer numbers. Source could not be replaced, so delivered a separate
+`DASH01_controller_midterm_speaker_notes_updated.pptx`. All remaining visual
+content/media bytes are preserved; notes match and footer/slide counts pass checks.
+Original deck and notes backed up under ignored `preview/notes-update-originals/`.
+No training status check, new results or content changes to other slides.
+
+2026-10-28: added two alternative state-of-the-art slides to a separate midterm
+deck, `DASH01_controller_midterm_state_of_art_options.pptx`. User clarified that
+Nathann's presentation is unavailable and requested one independent overview
+and one thesis-based option to choose between. Slides 4/5 follow the Context
+divider: attributed Cassie/ANYmal/Digit research figures, and Morand Chapter 2
+(pp. 9–12) motor-interface/gait-prior/curriculum comparison. Primary publication
+links, 30-second notes, paper/image hashes and figure crops are recorded. Current
+DASH-01 column is our interpretation of the code, not a hardware validation claim.
+Direct package graft preserves all original slide content except page numbers,
+all existing media bytes, theme, hidden backups and user source deck. Verified
+all internal links and the imported figures against the source hashes. No
+training, cluster access or changes to user-edited external speaker notes.
+
+2026-10-28: updated the user's latest reordered midterm presentation in a separate
+`DASH01_controller_midterm_reordered_stopping.pptx`. Replaced former slide 9 with
+embedded STOP-01B abrupt failure and the same policy with the STOP-02 ramp,
+then swapped slides 8/9: stopping failures at 8, original walking comparison at 9.
+Labels distinguish the previous robot, command-only ramp diagnostic and differing
+playback speeds (0.5x / 1x). Updated the affected embedded speaker notes. Package
+validation checks slide order, native media, movie hashes and all internal links;
+115 original package parts remain byte-identical. The source reordered deck and
+user-edited external speaker notes are preserved. No training or cluster access.
+
+2026-10-27: generated [learning curves and budget analysis](learning-curves.md)
+from the archived WALK-01 and flat-feet 200M runs and CLEARANCE-01 50M fine-tuning.
+Five figures exported as PNG/SVG/PDF, raw evaluation/milestone CSVs, a summary
+with 12 input SHA-256 hashes, and a reproducible local script. Verified pooled
+step/update counts and selected checkpoint metrics. Archived evaluator inspection
+shows periodic `alive_frac = 1 - physical_falls/n`, so the plots explicitly use
+"without physical falls" rather than certify full-duration survival. Selected
+keepers have maximum mean post-warmup duration (2,500 ticks), supporting all
+28 trials lasting 30 s there. Flat-feet keeper at 184.32M; command range still
+widens beyond 180M. CLEARANCE-01 remains unqualified and changes late in the run.
+These justify experiment budgets, not proven convergence or optimal sample counts.
+Raw input files and user-edited presentation/notes untouched. No cluster access.
+
+2026-10-27: user authorized CLEARANCE-02 retry. Submitted **job 3232851** in
+`clearance02_20261027_v2`, with the exact previous 200M-step configuration and
+flat-feet best 184.32M parent. No reward or learning settings changed. Added a
+60 s NVIDIA query, 180 s JAX GPU/kernel probe, 300 s CPU test bound, 1,200 s
+GPU smoke bound with stage JSON/logs and repeated stack dumps. Timeouts send
+TERM then KILL after 20 s. Isolated per-job CUDA/JAX caches and excluded i39
+as a precaution; root cause of the previous stall remains unestablished.
+All 27 tests pass on SCITAS; verified 93 source hashes, parent and archive, and
+proved timeout exit 124 using a sleeping child. GPU checks run inside allocation;
+no training monitoring after submission. User-edited slides/notes untouched.
+
+2026-10-27: explicit CLEARANCE-02 status check found job 3231747 TIMEOUT at
+24 h. Source/checkpoint verification and 27 tests passed, but GPU preflight did
+not finish; no smoke result/directory and no main training run/checkpoint exist.
+Archived the 438-byte log. Cause remains unestablished from available output;
+do not attribute the failure to the clearance reward. Next action is bounded,
+instrumented preflight diagnosis before retrying. No new training submitted.
+
 2026-10-27: prepared repository cleanup and publication of the clearance work
 and current Tim-template presentation. Removed unused imports, made repeated
 presentation builds reset their section state, and added local report

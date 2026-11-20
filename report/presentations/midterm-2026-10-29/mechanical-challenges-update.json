@@ -1,0 +1,32 @@
+{
+  "date": "2026-10-28",
+  "source": "DASH01_controller_midterm_final.pptx",
+  "source_sha256": "006b82255e360324222cc77940625c160729d277c5f93a54e8cccb181673d0b1",
+  "reference": "C:\\Users\\LeoPaul\\Downloads\\DASH-01 midterm_V2.pptx",
+  "reference_sha256": "194d03ad8fba457b2339b47584985187c3206bacfd4e8954d3a2000068cb4595",
+  "reference_slides": [
+    14,
+    15
+  ],
+  "output": "DASH01_controller_midterm_final_mechanical_update.pptx",
+  "output_sha256": "fc3261e0dc632913e63fe6ddc9e586d55861e866e24e2439f0dc95c7bcc84b1a",
+  "changed_slides": [
+    14,
+    15
+  ],
+  "changed_parts": [
+    "ppt/slides/slide14.xml",
+    "ppt/notesSlides/notesSlide14.xml",
+    "ppt/slides/slide15.xml",
+    "ppt/notesSlides/notesSlide15.xml"
+  ],
+  "all_other_parts_byte_identical": true,
+  "sources_preserved": true,
+  "observations_separated_from_unmeasured_effects": true,
+  "native_powerpoint_open_verified": true,
+  "rendered_slides": [
+    14,
+    15
+  ],
+  "text_overflow_count": 0
+}

@@ -1,4 +1,21 @@
-# CLEARANCE-02: submitted — job 3231747
+# CLEARANCE-02: timed out before training — job 3231747
+
+Checked on explicit user request, **27 October 2026**. Slurm reports **TIMEOUT**
+after the full **24 h allocation**; the batch step was terminated by SIGTERM.
+Source/parent hash verification and all 27 tests passed. The next GPU preflight
+did not complete: no `validation/clearance-preflight.json` or `validation/smoke/`
+directory exists, and the main `RLframework/runs/cad_v2_clearance02_s0/`
+directory does not exist. **No main training or trained checkpoint was produced.**
+
+The 438-byte log contains only validation success, optional Warp import warnings
+and Slurm's time-limit termination. It does not identify the exact hang location
+or cause. Resource accounting: node i39, one Volta GPU, total CPU 23h56m23s,
+maximum batch RSS 722,464 KB. These counters alone do not establish the cause.
+Archived log: `cad-v2-clearance02-3231747.out`.
+
+Next step: diagnose/instrument the preflight and give it a separate timeout
+before retrying. No replacement job was submitted during this status check.
+Historical submission notes follow.
 
 Successfully submitted on 26 October 2026. Receipt: `submission.txt`.
 All **27 tests passed on SCITAS**, including synthetic evaluator tests. All 92

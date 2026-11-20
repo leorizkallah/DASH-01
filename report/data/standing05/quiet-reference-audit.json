@@ -1,0 +1,23 @@
+{
+  "v1": {
+    "checkpoint_step": 169574400,
+    "selected_time_s": 15.1,
+    "selected_quiet_streak_s": 15.100250244140625,
+    "candidate_samples": 100,
+    "candidate_match_fraction": 1.0
+  },
+  "v2": {
+    "checkpoint_step": 58982400,
+    "selected_time_s": 12.8,
+    "selected_quiet_streak_s": 12.80019760131836,
+    "candidate_samples": 100,
+    "candidate_match_fraction": 1.0
+  },
+  "xshape": {
+    "checkpoint_step": 132710400,
+    "selected_time_s": 14.5,
+    "selected_quiet_streak_s": 14.500236511230469,
+    "candidate_samples": 100,
+    "candidate_match_fraction": 1.0
+  }
+}

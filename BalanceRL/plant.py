@@ -21,6 +21,8 @@ Every draw is a multiplier or offset on the nominal with the range narrowed by `
 sets one axis and leaves the rest NaN = draw).
 """
 from pathlib import Path
+import hashlib
+import json
 from typing import NamedTuple
 
 import numpy as np
@@ -57,7 +59,11 @@ class Plant:
         self.base_bid = mujoco.mj_name2id(m, O.mjOBJ_BODY, "torso")
         self.floor_gid = mujoco.mj_name2id(m, O.mjOBJ_GEOM, "floor")
         self.foot_gids = np.array([mujoco.mj_name2id(m, O.mjOBJ_GEOM, f"foot_{s}_col") for s in "LR"])
-        self.heel_gids = np.array([mujoco.mj_name2id(m, O.mjOBJ_GEOM, f"heel_{s}_col") for s in "LR"])
+        single = cfg.standing_compare and cfg.contact_regions_per_foot == 1
+        self.heel_gids = (self.foot_gids.copy() if single else
+                          np.array([mujoco.mj_name2id(m, O.mjOBJ_GEOM, f"heel_{s}_col") for s in "LR"]))
+        if min(self.base_bid, self.floor_gid, *self.foot_gids, *self.heel_gids) < 0:
+            raise ValueError("Missing required torso/floor/sole geometry")
         self.foot_bids = np.array([int(m.geom_bodyid[g]) for g in self.foot_gids])
         # The sole pads are BOXES, so their support below the geom origin depends on orientation:
         # |R[2, :]| . half_extents, not a single radius.  Keep the half-extents and let the env
@@ -90,10 +96,16 @@ class Plant:
                                         if m.jnt_bodyid[j] != self.base_bid])
         self.leg_dofs = np.array([int(m.jnt_dofadr[j]) for j in range(m.njnt)
                                   if m.jnt_bodyid[j] != self.base_bid])
-        self.loop_sites = np.array([mujoco.mj_name2id(m, O.mjOBJ_SITE, n)
-                                    for n in ("rod_tip_L", "leg_anchor_L", "rod_tip_R", "leg_anchor_R")])
+        loop_names = [f"{stem}_{side}" for side in "LR" for stem in
+                      (("rod_tip", "leg_anchor", "achilles_tip", "foot_anchor")
+                       if cfg.standing_compare and m.neq == 4 else ("rod_tip", "leg_anchor"))]
+        self.loop_sites = np.array([mujoco.mj_name2id(m, O.mjOBJ_SITE, n) for n in loop_names])
+        if np.any(self.loop_sites < 0):
+            raise ValueError("Missing closed-loop sites")
         # keyframe + nominal targets
         self.key_id = mujoco.mj_name2id(m, O.mjOBJ_KEY, cfg.keyframe)
+        if self.key_id < 0:
+            raise ValueError("Missing standing keyframe")
         self.key_qpos = m.key_qpos[self.key_id].copy()
         # The gait is centred on the COMMAND that holds the stance, not on the pose it holds.  A
         # position loop only makes torque from error, so centring on the pose leaves the leg with
@@ -118,6 +130,8 @@ class Plant:
         d = mujoco.MjData(m)
         mujoco.mj_resetDataKeyframe(m, d, self.key_id)
         mujoco.mj_forward(m, d)
+        if cfg.standing_compare:
+            self.height_stand = float(d.xpos[self.base_bid, 2])
         base, R = d.xpos[self.base_bid], d.xmat[self.base_bid].reshape(3, 3)
         self.ws_ref = np.array([R.T @ (d.geom_xpos[g] - base) for g in self.foot_gids])
         self.data0 = mjx.put_data(m, d)
@@ -138,6 +152,12 @@ class Plant:
         self.loop_site_mask[self.loop_sites] = True
         self.ncon = int(self.data0._impl.contact.dist.shape[0]) if hasattr(self.data0, "_impl") \
             else int(self.data0.contact.dist.shape[0])
+        if cfg.recovery_pose_return:
+            reference = json.loads(Path(resolve(cfg.quiet_reference_path)).read_text())
+            assert reference['model_sha256'] == hashlib.sha256(Path(resolve(cfg.model_path)).read_bytes()).hexdigest(), 'posture reference belongs to a different model'
+            self.quiet_reference = reference['features']
+            assert np.shape(self.quiet_reference['motor_q']) == (6,)
+            assert np.shape(self.quiet_reference['soles_body']) == (2, 3)
 
     def actuator_names(self):
         return list(ACT_NAMES)
@@ -234,6 +254,9 @@ def draw_plant(key, cfg, plant: Plant, dr_scale, ov: Override = None) -> PlantDr
     # ---- friction (absolute range contracted toward 1.0)
     lo, hi = cfg.dr_friction_range
     f = jax.random.uniform(ks[5], (), minval=1.0 + (lo - 1.0) * s, maxval=1.0 + (hi - 1.0) * s)
+    if cfg.standing_compare:
+        nominal_friction = float(plant.n_geom_friction[plant.floor_gid, 0])
+        f = nominal_friction + (f - 1.0)
     f = _ov(ov.friction, f)
     nf = jnp.asarray(plant.n_geom_friction)
     geom_friction = nf.at[:, 0].set(nf[:, 0] * f / jnp.maximum(nf[:, 0].max(), 1e-9))
@@ -262,6 +285,8 @@ def draw_plant(key, cfg, plant: Plant, dr_scale, ov: Override = None) -> PlantDr
     delay = _ov(ov.delay_ms, delay)
     # ---- measurement chain
     noise_on = 1.0 if cfg.obs_noise_enable else 0.0
+    if cfg.standing_compare:
+        noise_on *= dr_scale
     joint_zero = (s * jnp.deg2rad(cfg.dr_joint_zero_deg)
                   * jax.random.uniform(ks[13], (6,), minval=-1.0, maxval=1.0)) * noise_on
     vel_bias = jax.random.normal(ks[14], (6,)) * 0.05 * noise_on

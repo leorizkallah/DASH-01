@@ -1,0 +1,34 @@
+{
+  "passed": true,
+  "preset": "cad_v2_clearance02",
+  "device": "cuda:0",
+  "parent_sha256": "b1d82e549c8402b185fb90eb5665ebe4d334838f65b81b55e3268443c693f3cc",
+  "warm_start_step_reset": true,
+  "updates": [
+    {
+      "train/loss_pg": 9.313225746154785e-08,
+      "train/loss_vf": 68.7362060546875,
+      "train/approx_kl": 2.2289392553886955e-12,
+      "rollout/reward_mean": -0.5,
+      "reward_terms/low_swing_clearance": -7.595350742340088,
+      "reward_terms/extra_swing_clearance": 0.0,
+      "reward_terms/excess_swing_clearance": 0.0,
+      "clearance/left_mean_air_mm": 0.09477009065449238,
+      "clearance/right_mean_air_mm": 0.0
+    },
+    {
+      "train/loss_pg": 2.9802322387695312e-08,
+      "train/loss_vf": 92.5185546875,
+      "train/approx_kl": 5.351830090205567e-13,
+      "rollout/reward_mean": 0.19875338673591614,
+      "reward_terms/low_swing_clearance": -2.4520411491394043,
+      "reward_terms/extra_swing_clearance": 0.0,
+      "reward_terms/excess_swing_clearance": 0.0,
+      "clearance/left_mean_air_mm": 0.3248843550682068,
+      "clearance/right_mean_air_mm": 7.117424322211225
+    }
+  ],
+  "smoke_steps": 256,
+  "elapsed_s": 176.62315397895873,
+  "note": "Temporary 16x8, one epoch; real training initializes again from the unchanged parent."
+}

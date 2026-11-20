@@ -1,0 +1,43 @@
+{
+  "date": "2026-10-28",
+  "source": "DASH01_controller_midterm_reordered.pptx",
+  "source_sha256": "ba60a2fe1362295ccd517bdd890054ce41047c8b2ef05f604b2a37cd260a17df",
+  "output": "DASH01_controller_midterm_reordered_stopping.pptx",
+  "output_sha256": "20f161107a4701bf4abd4c7b16cfabd87b7bbd6e59a243121dd6ccaf24c408ac",
+  "new_slide8": "Failed stopping trials with two embedded videos",
+  "new_slide9": "Previous slide 8 walking comparison, unchanged except page number",
+  "changed_package_parts": [
+    "ppt/slides/slide9.xml",
+    "ppt/slides/_rels/slide9.xml.rels",
+    "ppt/slides/slide8.xml",
+    "ppt/presentation.xml",
+    "ppt/notesSlides/notesSlide9.xml"
+  ],
+  "movies": [
+    {
+      "source": "report/videos/stop01_abrupt_failure.mp4",
+      "embedded_part": "ppt/media/stop01_abrupt_failure.mp4",
+      "sha256": "a30b9006d126cc645e8b3913f8f24c3b61882c08c48c469335516f6e9857fa66",
+      "duration_s": 10.1,
+      "fps": 30.0,
+      "recorded_playback": 0.5
+    },
+    {
+      "source": "report/videos/stop02_ramp_failure.mp4",
+      "embedded_part": "ppt/media/stop02_ramp_failure.mp4",
+      "sha256": "2632e713fc8601170f234b9a27b98453e2db41f8d4c41beadcbd06a776308a2f",
+      "duration_s": 7.77,
+      "fps": 30.0,
+      "recorded_playback": 1.0
+    }
+  ],
+  "unchanged_original_parts": 115,
+  "all_internal_relationships_resolve": true,
+  "source_preserved": true,
+  "powerpoint_native_open_verified": true,
+  "powerpoint_preview_slides": [
+    8,
+    9
+  ],
+  "powerpoint_text_overflow_count": 0
+}

@@ -1,11 +1,116 @@
 # DASH-01 project context
 
-Updated **27 October 2026**, Europe/Zurich. This is a project handoff, not a new
+Updated **9 November 2026**, Europe/Zurich. This is a project handoff, not a new
 training instruction. Read this first, then the linked experiment records.
 
 ## Current state
 
-- Latest authorized training: **CLEARANCE-02**, `clearance02_20261026_v1`,
+- **Posture-return objective implemented/prepared, 11 November.** User confirmed
+  regain the quiet posture at the recovered floor location, no original globalXY
+  return. Opt-inreturn_v1/v2/xshape uses actual validated quiet reference snapshots
+  from STAND-04besttrial0 (JSONs BalanceRL/model/quiet_*.json). Target motorq,
+  torso gravity, soles inbodyframe,heightoverfeet; translation/heading invariant.
+  New phases: regain supportwithin3s(250msdwell),4s tobeginreturnhold,5scontinuous
+  quiet at reference. Steps legal throughreturn, footprintcommitonlyafterhold.
+  Posturescoregatedafterbalance, newphase/errorlogs,25seval.23native/logic tests
+  andisolatedSCITASabstractreset/step/eval tracespass. No new GPU pilot/training
+  submitted. [Implementation](report/standing05-pose-return.md). Existing KL/
+  curriculum concerns inSTAND-04assessment remain separate/unfixed.
+  **STAND-04 videos now complete**, all three: workerpipelinecomplete. Gallery
+  auto-updated replay totals59/80(V1),52/80(V2),72/80(X) versusarchive60/52/71;
+  keep variations visible. Fixed.20pushtrialV1/V2fail6.90/6.80s;Xpasses20swith
+  no detectedlanding but~7.78degjointRMS and130mmsole-relativeerrorfromquietref.
+  [Video gallery](report/standing04-videos.html). No need to restart media worker.
+
+- **STAND-04 media pending automatic video completion, 11 November.**
+  [Gallery](report/standing04-videos.html) and PNG/PDF/SVG learning curves plus
+  final push CSV are ready. Replay-only array **3248509** queued (estimate19:38CET,
+  can change),10min allocations. Frozen best policies; same80trial stage3 protocol;
+  quiet0 and+X.20trial48 fixed before outcomes. Hidden bounded local helper
+  PID2308 polls120s/max8h, fetches traces, renders localMP4s and rebuilds gallery
+  andreport/standing04-media.md without further Codex calls. Machine must stay
+  awake/connected. [Pipeline state](report/data/standing04/video-pipeline.json),
+  logs and PIDfile inreport/data/standing04. Check this before starting duplicate
+  replay/render work. Final curriculum .1327996/.02/.02, best levels
+  .0997743/.0262144/.02; neither is a measured capability. Archived passing trials
+  with landings0/60,0/52,2/71. No new training submitted.
+
+- **STAND-04 completed, checked 11 November.** All preflights3247598 and
+  training3247599 exit0; 200,005,632 additional transitions/model. Scheduler times
+  V1 8h37m35 / V2 10h27m56 / X10h29m37. Same new-protocol parent?best?final
+  passes58?60?49,48?52?37,60?71?66 outof80. Best additional steps169.57M/58.98M/
+  132.71M; all best quiet16/16. V1 reaches stage3 and maxprobe.1611m/s; V2stage2
+  and Xstage1 end at.02minimum. Do not claim completed .30m/s curriculum.
+  [Results](report/standing04-progress.md), [status data](report/data/standing04/status-20261111.json).
+  No new training/replay/video during this check. Submission details below are historical.
+
+- **STAND-04 submitted, 10 November 2026.** User approved recovery stepping,
+  stronger pushes and runs (plural). Training array **3247599**, indices 0=V1,
+  1=V2, 2=X-shape, 200M additional steps/model, seed1, 24h ceiling/22.5h reserve.
+  Own STAND-03 best parents at 81.10M/73.73M/29.49M: weights + normalizer kept,
+  optimizer/curriculum/counters reset. Sixteen local tests pass. Long tasks wait
+  on all of GPU preflight array **3247598** (baseline, 240-trial probe, 32-update
+  finite pilot); cancellation on invalid dependency, pilot weights discarded.
+  At submission preflight queued; no long-run progress or learned result claimed.
+  [Implemented contract](report/standing04-progress.md),
+  [status/source](docs/experiments/stand04_20261110_v1/STATUS.md).
+  Recovery only after external push, fixed3s-to-start +5s quiet, one footprint
+  commit, step/chatter/travel/slip costs, no stepping bonuses. Independent greedy
+  probes require quiet retention and all-direction success before staged duration,
+  elevation/offset randomness and10% impulse increases to.30m/s. New evaluation
+  requires final5s quiet on every trial; do not equate scores with STAND-03.
+  Original V1 continuous soles; V2/X-shape two pads unchanged; X masses provisional.
+
+- **STAND-03 completed:** all three training tasks3246822 pass200,005,632 steps,
+  durations7h11/9h33/9h31. Own best parent task scores78/80,69/80,70/80, earlier
+  than finals74/80,53/80,56/80. [Videos/graphs](report/standing03-videos.html),
+  [results/metric caveats](report/standing03-results.md). Replay3247563 reproduces
+  totals; X quiet12?13/16 and strongest push12?11/16 variation unexplained.
+  Fixed V2 +X.10m/s trial falls6.50s and is visibly retained. No hardware result.
+
+- **CLEARANCE-02 video/curves ready:** [gallery](report/clearance02-videos.html),
+  best candidate 132.71M, 25 s at 1.50 m/s, two views. Replay job 3238862
+  completed 3m01s; trial 0 chosen in advance. Fresh batch replay is **9/12**,
+  with three early falls, versus archived 12/12 full-duration evaluation. The
+  discrepancy remains unexplained; do not claim reliable startup. All trial
+  metadata and graph sources retained. No new training or hardware test.
+
+- **CLEARANCE-02 completed**, job **3232851**, checked 2 November. Finished
+  28 October 00:36:40 Zurich, exit 0:0, **11h07m53s**, full **200,005,632 extra
+  steps**. Final at 1.50 m/s: 12/12 full 30 s trials, mean lift **15.82/18.20 mm**,
+  100%/100% scheduled mid-swing >=10 mm coverage, speed error **0.0271 m/s**.
+  Peaks **31.75/34.74 mm** exceed the <=26 mm acceptance bound; **0/12 qualify**.
+  No checkpoint qualifies across 29 evaluations. Best unqualified candidate at
+  **132.71M**, mean **16.94/20.06 mm**, peaks **30.22/30.04 mm**. Raw metrics,
+  log, startup checks and existing training graph archived in
+  [retry results](docs/experiments/clearance02_20261027_v2/STATUS.md).
+  User queue empty. No new training/replay submitted; no new videos generated,
+  no hardware validation or resolution of the prior standalone-startup discrepancy.
+
+- **Learning curves prepared locally:** [analysis and slide-ready figures](report/learning-curves.md)
+  cover WALK-01/flat-feet 200M and CLEARANCE-01 50M, including reward, episode
+  duration, evaluations and gated curricula. Raw tables and source hashes saved.
+  Important metric correction: periodic `alive_frac` counts trials without
+  physical falls, including possible early symmetry endings. Only selected
+  keepers have maximum recorded mean duration supporting all 28 full trials.
+  No convergence or optimal-budget claim; presentations untouched, no cluster check.
+
+- Historical submission: **CLEARANCE-02 retry job 3232851**, 27 October, experiment
+  `clearance02_20261027_v2`. Same original flat-feet best 184.32M parent,
+  unchanged 200M-step / 1.50 m/s / 10–25 mm training configuration. Startup
+  changes: GPU/driver probes, strict GPU backend, per-job caches, detailed smoke
+  stage logs/stack dumps and process timeouts (GPU probe 180 s; smoke 1,200 s).
+  Node i39 excluded as a precaution, not an established cause. All 27 tests
+  passed on SCITAS; source/parent hashes and real timeout behavior verified.
+  [Receipt and exact retry changes](docs/experiments/clearance02_20261027_v2/STATUS.md).
+  No monitoring after successful submission. User-edited presentation/notes
+  were left untouched; do not restore the deleted original speaker-notes file.
+
+- First CLEARANCE-02 attempt: `clearance02_20261026_v1`,
+  **job 3231747 TIMEOUT after 24 h**, checked on explicit request 27 October.
+  Hash checks and 27 tests pass, but GPU preflight never completes; no main run
+  directory or checkpoint is produced. Exact cause not logged. Instrument and
+  time-bound preflight before retrying; no replacement job submitted in this check.
   `cad_v2_clearance02_s0`, submitted as **job 3231747**. All 27 tests pass on
   SCITAS; source/parent hashes verified. No post-submission monitoring.
   Start again from **flat-feet best 184.32M**, not
@@ -18,7 +123,7 @@ training instruction. Read this first, then the linked experiment records.
   [submission/status](docs/experiments/clearance02_20261026_v1/STATUS.md).
   Stop after successful submission; user explicitly requested no repeated monitoring.
 
-- Latest completed training: **CLEARANCE-01**, job **3230928**, 50,006,016
+- Previous completed training: **CLEARANCE-01**, job **3230928**, 50,006,016
   additional steps, 3h30m21s, exit 0:0. Final is also the best clearance candidate.
   Twelve nominal 30 s trials at 1.50 m/s all survive; mean airborne height
   **23.62/20.91 mm**, speed error **0.0292 m/s**. No checkpoint qualifies:

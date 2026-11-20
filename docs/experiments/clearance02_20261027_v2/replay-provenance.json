@@ -1,0 +1,83 @@
+{
+  "training_job": 3232851,
+  "replay_job": 3238862,
+  "checkpoint_step": 132710400,
+  "checkpoint_sha256": "3465b06b08398c43835e8a851c2e083c801a3e68fa67ecdf0757231052c105b8",
+  "date": "2026-11-02",
+  "selected_trial": 0,
+  "original_batch_size": 12,
+  "command_protocol": "saved reset command",
+  "replay_trial": {
+    "target": 1.5,
+    "ticks": 2500,
+    "seconds": 25.0,
+    "fell": false,
+    "mean_speed_after_5s": 1.5288742780685425,
+    "speed_error_after_5s": 0.03596799448132515,
+    "flight_fraction": 0.09495999664068222,
+    "symmetry_terminated": false,
+    "outcome": "25 s completed",
+    "toe_mean_after_5s": [
+      0.2485,
+      0.2405
+    ],
+    "heel_mean_after_5s": [
+      0.467,
+      0.4745
+    ],
+    "grounded_mean_after_5s": [
+      0.467,
+      0.4745
+    ],
+    "flat_mean_after_5s": [
+      0.2485,
+      0.2405
+    ],
+    "slip_mean_after_5s": [
+      0.13254640996456146,
+      0.14952613413333893
+    ],
+    "error_mean_after_5s": 0.03252365067601204,
+    "gate_mean_after_5s": 1.0,
+    "completed_steps_after_5s": [
+      80,
+      80
+    ]
+  },
+  "video": {
+    "duration_s": 25.0,
+    "fps": 20.0,
+    "size": [
+      1280,
+      720
+    ],
+    "codec": "h264"
+  },
+  "files_sha256": {
+    "docs/experiments/clearance02_20261027_v2/clearance02_trace_best_eval12.npz": "2b714170817c342ea5805871562631de6b87ddf4da9fad72228b32647d7b2c5f",
+    "docs/experiments/clearance02_20261027_v2/clearance02_trace_best_eval12.json": "7c59ccb2dd6b23a62f2eaa44fb718b0827b314a016eff041e218113a1762135b",
+    "docs/experiments/clearance02_20261027_v2/clearance02_trace_best_trial0.npz": "aaaa15ad28b2ec501a928168e3aefa8ebd21f35cd557bdc0d983e9a37cecba78",
+    "RLframework/model/dash01_cad_v2_homing.xml": "5506c13600e0acb168c7573a6b999fdfae79cca7e9a6d3bc155dd5794257183a",
+    "report/videos/clearance02_best_1.50mps.mp4": "e4b31ecdbbdd7bc50dfe5fd179fedb72efdacd3278369fe6203f1fba26ad5cb1",
+    "RLframework/tools/gait_video.py": "74b37daebaf54ee51d8165dce50eced2835edc8a40ed605645451f868286aec6",
+    "report/scripts/render_clearance02_best.py": "ee3f9112c39d7ebc22ea2c31d6f25f1f59477e88fa690ab9085d3135a051fe86"
+  },
+  "limitations": "Nominal replay, not hardware validation. One preselected trial shown; all 12 trial metadata retained. Independent standalone startup discrepancy not tested by this recording.",
+  "completed_25s_trials": 9,
+  "early_fall_trials": [
+    {
+      "trial": 1,
+      "seconds": 0.7000000000000001
+    },
+    {
+      "trial": 4,
+      "seconds": 0.9500000000000001
+    },
+    {
+      "trial": 5,
+      "seconds": 0.9500000000000001
+    }
+  ],
+  "archived_evaluation_survival_trials": 12,
+  "recording_discrepancy": "Fresh recorder: 9/12 complete 25 s, versus archived evaluation 12/12 complete 30 s; cause not isolated."
+}

@@ -1,0 +1,10 @@
+{
+  "selected_step": 132710400,
+  "smoothing": "Non-overlapping means of 100 PPO updates (1.8432M transitions); final partial block retained",
+  "evaluation_points": "Raw; lines connect sparse checkpoints without interpolation or fitted convergence model",
+  "inputs_sha256": {
+    "docs/experiments/clearance02_20261027_v2/progress.csv": "895b009ad18dcaeaa8f6f0986831686eff73bcd056c8015684e4c4818a15c414",
+    "docs/experiments/clearance02_20261027_v2/clearance_evaluations.jsonl": "b66a889bee039c5e8c0cff5f564338a6808c5ed68f74e09ed432d792193414ef",
+    "docs/experiments/clearance02_20261027_v2/best_clearance_candidate_eval.json": "998faaf2e9897cdf60560c98646476cdeb77668a5bd10bddb38b7fc592590289"
+  }
+}

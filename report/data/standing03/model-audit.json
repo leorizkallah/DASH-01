@@ -1,0 +1,83 @@
+{
+  "date": "2026-11-09",
+  "mujoco_version": "3.13.0",
+  "models": {
+    "v1": {
+      "source": "RLframework/model/dash01_free.xml",
+      "mass_kg": 14.355999999999998,
+      "nq": 16,
+      "nv": 16,
+      "actuators": 6,
+      "equalities": 2,
+      "keyframes": [
+        "stand"
+      ],
+      "max_loop_gap_mm": 7.597683319291872e-08,
+      "loops_mm": {
+        "loop_L": 2.580664282131249e-08,
+        "loop_R": 7.597683319291872e-08
+      }
+    },
+    "v2": {
+      "source": "RLframework/model/dash01_cad_v2_homing.xml",
+      "mass_kg": 14.594154,
+      "nq": 20,
+      "nv": 20,
+      "actuators": 6,
+      "equalities": 4,
+      "keyframes": [
+        "homing"
+      ],
+      "max_loop_gap_mm": 0.0027135319422159714,
+      "loops_mm": {
+        "loop_EXPORT_pushrod_left-v3_1": 0.001916307216749543,
+        "loop_EXPORT_pushrod_right-v2_1": 0.0019177518031667344,
+        "loop_EXPORT_achilles_left-v7_1": 0.0027135319422159714,
+        "loop_EXPORT_achilles_right-v4_1": 0.0027049514718614307
+      }
+    },
+    "v2_raw": {
+      "source": "dash-01CAD-v2/EXPORT_assembly_closed/EXPORT_assembly-v34_closed.xml",
+      "mass_kg": 5.360706753427105,
+      "nq": 14,
+      "nv": 14,
+      "actuators": 0,
+      "equalities": 4,
+      "keyframes": [],
+      "max_loop_gap_mm": 0.0004734601422672458,
+      "loops_mm": {
+        "loop_EXPORT_pushrod_left-v3_1": 0.0002731062937531925,
+        "loop_EXPORT_pushrod_right-v2_1": 0.000196487078864118,
+        "loop_EXPORT_achilles_left-v7_1": 0.0004734601422672458,
+        "loop_EXPORT_achilles_right-v4_1": 0.00020754359746056773
+      }
+    },
+    "xshape_raw": {
+      "source": "xshape_closed/EXPORT_assembly-v8_closed.xml",
+      "mass_kg": 5.3152779811011115,
+      "nq": 14,
+      "nv": 14,
+      "actuators": 0,
+      "equalities": 4,
+      "keyframes": [],
+      "max_loop_gap_mm": 8.579522858084065e-07,
+      "loops_mm": {
+        "loop_knee_R": 1.2746270695486395e-07,
+        "loop_knee_L": 1.201843777392293e-07,
+        "loop_achilles_R": 1.138700380152118e-07,
+        "loop_achilles_L": 8.579522858084065e-07
+      }
+    }
+  },
+  "proposed_xshape_mass_kg": 14.537322008016323,
+  "source_sha256": {
+    "RLframework/model/dash01_free.xml": "9551d8891e493f9f898b701dd2c4999f18f596834d16934fb1d11dee5ac7469f",
+    "RLframework/model/dash01_cad_v2_homing.xml": "5506c13600e0acb168c7573a6b999fdfae79cca7e9a6d3bc155dd5794257183a",
+    "dash-01CAD-v2/EXPORT_assembly_closed/EXPORT_assembly-v34_closed.xml": "2737e36ccd3a981b2b04a757184c15c66bcb62eecf3533999016e9a543153d56",
+    "xshape_closed/EXPORT_assembly-v8_closed.xml": "1b85450d17240a47f84e12e5350c53f535bf58c522367921cf12208ea3110045",
+    "dash-01CAD-v2/properties/body_mapping.json": "cb0d5b5529645d6a83fd41e43af88ebfb379b6c4eb7d089df7ee0dd142c833a0",
+    "dash-01CAD-v2/properties/mass_properties.json": "0cd605ac74a0853204784a1b3f4760dfbee364a086dc568e61f92bc43180ff01"
+  },
+  "simulation_steps_run": 0,
+  "training_jobs_submitted": 0
+}

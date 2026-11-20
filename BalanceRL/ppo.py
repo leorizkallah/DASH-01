@@ -100,7 +100,11 @@ class Trainer:
         assert len(self.devices) == self.n_dev, f"asked for {self.n_dev} devices, have {jax.local_devices()}"
         assert cfg.n_envs % self.n_dev == 0
         self.env = BalanceEnv(cfg, cfg.n_envs // self.n_dev)
-        self.eval_env = BalanceEnv(cfg, n_eval) if n_eval else None
+        if cfg.standing_compare and n_eval:
+            from dataclasses import replace
+            self.eval_env = BalanceEnv(replace(cfg, push_interval_s=(100., 100.)), n_eval)
+        else:
+            self.eval_env = BalanceEnv(cfg, n_eval) if n_eval else None
         env = self.env
         self.n_steps = int(cfg.n_steps)
         self.batch_dev = env.n_envs * self.n_steps
@@ -135,12 +139,18 @@ class Trainer:
     # ---------------------------------------------------------------- curriculum
     def env_params(self):
         return EnvParams(plant_scale=float(self.cur["plant_scale"]), push_level=float(self.cur["push_level"]),
-                         push_on=1.0)
+                         push_on=(1. if self.cfg.recovery_steps else
+                                  float(self.cur.get('standing_unlocked', False)) if self.cfg.standing_compare else 1.0),
+                         push_stage=float(self.cur.get('push_stage', 0)))
 
     def update_curricula(self, ev):
         """Two gated ladders, in order: widen the plant (CoM shift + DR) while the robot keeps from
         falling on its own, then grow the pushes while it survives them."""
         c, cur = self.cfg, self.cur
+        if c.standing_compare:
+            if c.recovery_steps:
+                return None  # independent greedy direction-balanced probes own promotion
+            return self.update_standing_curriculum(ev)
         cur["n_ep"] += ev["episodes"]
         cur["quiet"] += ev["quiet_falls"]
         cur["n_hard"] += ev["n_hard"]
@@ -166,6 +176,38 @@ class Trainer:
                 cur["push_level"] = max(c.push_level_start, cur["push_level"] * c.push_level_down)
                 moved = (moved or "") + f" push_level RETREAT -> {cur['push_level']:.3f} ({rate:.3f})"
             cur["n_hard"] = cur["ok_hard"] = 0
+        return moved
+
+    def update_standing_curriculum(self, ev):
+        c, cur = self.cfg, self.cur
+        cur['standing_quiet_n'] = cur.get('standing_quiet_n', 0) + ev['quiet_trials']
+        cur['standing_quiet_ok'] = cur.get('standing_quiet_ok', 0) + ev['quiet_successes']
+        moved = None
+        if cur['standing_quiet_n'] >= 200:
+            rate = cur['standing_quiet_ok']/cur['standing_quiet_n']
+            cur['standing_quiet_rate'] = rate
+            cur['standing_quiet_n'] = cur['standing_quiet_ok'] = 0
+            if rate >= .95 and not cur.get('standing_unlocked', False):
+                cur['standing_unlocked'] = True
+                cur['standing_unlocked_step'] = self.step
+                moved = 'quiet standing passed; enable 0.02 m/s pushes and independent noise ramp'
+        if cur.get('standing_unlocked', False):
+            cur['plant_scale'] = min(1., (self.step-cur['standing_unlocked_step'])/20_000_000)
+        else:
+            cur['plant_scale'] = 0.
+        cur['n_hard'] += ev['n_hard']
+        cur['ok_hard'] += ev['ok_hard']
+        if cur['n_hard'] >= c.push_gate_min_n:
+            rate = cur['ok_hard']/cur['n_hard']
+            cur['push_ema'] = rate
+            if rate >= .90 and cur.get('standing_quiet_rate', 0.) >= .95:
+                cur['push_level'] = min(.15, cur['push_level']*1.10)
+                cur['n_promote'] += 1
+                moved = f"push level -> {cur['push_level']:.4f} m/s; settled success {rate:.3f}"
+            elif rate < .70:
+                cur['push_level'] = max(.01, cur['push_level']*.80)
+                moved = f"push level retreat -> {cur['push_level']:.4f} m/s"
+            cur['n_hard'] = cur['ok_hard'] = 0
         return moved
 
     # ---------------------------------------------------------------- jitted pieces
@@ -205,6 +247,20 @@ class Trainer:
                     mu_abs=jnp.abs(mu).mean(), reward=r.mean(),
                     terms=jax.tree_util.tree_map(lambda x: x.mean(), info["reward_terms"]),
                 )
+                if cfg.standing_compare:
+                    m.update(quiet_trials=info['quiet_trial'].sum(), quiet_successes=info['quiet_success'].sum(),
+                             task_violations=info['task_violation'].sum())
+                if cfg.recovery_steps:
+                    m.update(recovery_step_events=info['step_event'].sum(),
+                             sole_path=info['path_increment'].sum(),
+                             recovery_timeouts=info['recovery_timeout'].sum())
+                if cfg.recovery_pose_return:
+                    m.update(balance_events=info['balance_recovered'].sum(),
+                             pose_ok=info['pose_ok'].mean(), returning=info['returning'].mean(),
+                             pose_joint_rms=info['pose_joint_rms'].mean(),
+                             pose_foot_error=info['pose_foot_error'].mean(),
+                             pose_tilt_error=info['pose_tilt_error'].mean(),
+                             pose_height_error=info['pose_height_error'].mean())
                 return (env_state, obs2, key), (tr, m, obs)
             (env_state, obs, key), (tr, m, raw) = jax.lax.scan(one, (env_state, obs, key), None,
                                                                length=self.n_steps)
@@ -350,6 +406,8 @@ class Trainer:
         tot = lambda k: float(M[k].sum())
         ev = dict(episodes=int(tot("episodes")), quiet_falls=int(tot("quiet_falls")),
                   n_hard=int(tot("n_hard")), ok_hard=int(tot("ok_hard")))
+        if cfg.standing_compare:
+            ev.update(quiet_trials=int(tot('quiet_trials')), quiet_successes=int(tot('quiet_successes')))
         ok_bin = M["ok_bin"].reshape(-1, N_BINS).sum(0)
         fail_bin = M["fail_bin"].reshape(-1, N_BINS).sum(0)
         self._bins = getattr(self, "_bins", np.zeros((2, N_BINS)))
@@ -370,6 +428,19 @@ class Trainer:
             "train/lr": self.lr, "train/est_loss": est_loss,
             "train/std_mean": float(np.exp(np.asarray(self.params["params"]["log_std"])).mean()),
         }
+        if cfg.standing_compare:
+            log['rollout/task_violations'] = int(tot('task_violations'))
+            log['rollout/quiet_trials'] = ev['quiet_trials']
+            log['rollout/quiet_successes'] = ev['quiet_successes']
+        if cfg.recovery_steps:
+            log['rollout/recovery_steps'] = int(tot('recovery_step_events'))
+            log['rollout/sole_path_m'] = float(tot('sole_path'))
+            log['rollout/recovery_timeouts'] = int(tot('recovery_timeouts'))
+            log['curriculum/push_stage'] = self.cur.get('push_stage', 0)
+        if cfg.recovery_pose_return:
+            log['rollout/balance_recoveries'] = int(tot('balance_events'))
+            for metric in ('pose_ok','returning','pose_joint_rms','pose_foot_error','pose_tilt_error','pose_height_error'):
+                log['diag/'+metric] = float(M[metric].mean())
         for kk in auxs[0]:
             log[f"train/{kk}"] = float(np.mean([a[kk] for a in auxs]))
         for kk, v in M["terms"].items():
@@ -392,6 +463,12 @@ class Trainer:
         """Greedy push ladder: every env gets pushes of ONE fixed size from random directions, on the
         full-width plant (CoM +-3 cm included) with the sensor noise on. Returns survival per rung
         (a push counts once its verdict is in) and the quiet-fall share."""
+        if self.cfg.recovery_steps:
+            import recovery_eval
+            return recovery_eval.evaluate(self, params=params, stats=stats, seed=seed)
+        if self.cfg.standing_compare:
+            from standing_eval import evaluate
+            return evaluate(self, params=params, stats=stats, seed=seed)
         env = self.eval_env
         params = self.params if params is None else params
         stats = self.stats if stats is None else stats
@@ -426,6 +503,26 @@ class Trainer:
         return dict(survival=out, score=score, quiet_falls=int(quiet.sum()))
 
     # ---------------------------------------------------------------- persistence
+    def initialize_from(self, path):
+        """Fine-tune weights/normalizer only; keep new optimizer, task and counters."""
+        import hashlib
+        path = Path(path)
+        side = json.loads(path.with_suffix('.json').read_text())
+        for name in ('model_path', 'keyframe', 'policy_hidden', 'est_hidden', 'q_scale', 'drive_kp', 'drive_kd'):
+            old, new = side['config'][name], config_to_dict(self.cfg)[name]
+            assert json.dumps(old) == json.dumps(new), f'incompatible parent {name}'
+        self.params = serialization.from_bytes(self.params, path.with_suffix('.msgpack').read_bytes())
+        s = side['stats']
+        self.stats = ObsStats(mean=jnp.asarray(s['mean'], jnp.float32), var=jnp.asarray(s['var'], jnp.float32),
+                              count=jnp.asarray(s['count'], jnp.float32))
+        self.cur.update(standing_unlocked=True, plant_scale=1., push_stage=0, probe_streak=0)
+        self.cur['parent_step'] = side['step']
+        record = dict(parent=str(path), parent_step=side['step'],
+                      weights_sha256=hashlib.sha256(path.with_suffix('.msgpack').read_bytes()).hexdigest(),
+                      initialization='weights + observation normalization; new optimizers/curriculum/counters')
+        (self.run/'parent.json').write_text(json.dumps(record, indent=2)+'\n')
+        return record
+
     def save(self, tag, extra=None):
         base = self.run / tag
         base.with_suffix(".msgpack").write_bytes(serialization.to_bytes(self.params))

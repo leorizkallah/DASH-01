@@ -1,5 +1,84 @@
 # CLEARANCE-02: 10–25 mm swing-height band from the flat-feet baseline
 
+## Selected-policy video and convergence — 2 November 2026
+
+[Video and graph gallery](../report/clearance02-videos.html) shows the **132.71M
+best candidate**, with a dotted checkpoint marker on the archived learning curves.
+PNG/SVG/PDF exports include mean reward, speed error, mean/peak airborne height,
+scheduled mid-swing >=10 mm coverage, duration survival and full qualification.
+Raw evaluation points and 100-update block-smoothed training reward are separate.
+No convergence guarantee or repeated-seed statistical claim is made.
+
+Short replay job **3238862** completed in **3m01s**, without training. The video
+shows trial 0, selected in advance, from a retained nominal batch of twelve:
+25 s, error 0.0360 m/s after 5 s, 80/80 completed cycles. Both cameras show the
+same instant; no reset trajectory is spliced into the clip.
+
+The fresh recorder exposes **three early falls** (trials 1/4/5 at
+0.70/0.95/0.95 s), giving **9/12 25 s completions**, unlike archived evaluation
+12/12 full 30 s. Batch size and saved reset-command convention match, but the
+compiled recording computation differs and the cause remains unisolated.
+This is further evidence that stable startup is not established. The full
+metadata and failure outcomes remain available beside the displayed clip.
+No hardware validation or new training has been performed.
+
+## Retry completed — checked 2 November 2026
+
+Job **3232851 completed**, exit 0:0, on **28 October at 00:36:40 Europe/Zurich**,
+after **11h07m53s**. Full **200,005,632 additional steps**, stopped at the step
+limit. Startup GPU probe, 27 tests and warm-start smoke passed on `ixl01`.
+
+Final 1.50 m/s nominal evaluation: **12/12 full 30 s trials**, mean airborne
+height **15.82/18.20 mm** left/right, scheduled mid-swing >=10 mm coverage
+**100%/100%**, speed error **0.0271 m/s**. Largest sampled peaks are
+**31.75/34.74 mm**; every trial fails the <=26 mm peak acceptance limit.
+All other individual duration/tracking/height/coverage/cycle criteria pass.
+Thus **0/12 qualify**, and none of the 29 recorded checkpoint evaluations qualifies.
+
+Saved best clearance candidate: **132.71M additional steps**, mean lift
+**16.94/20.06 mm**, peaks **30.22/30.04 mm**, error **0.0357 m/s**, 12/12 full
+duration, also unqualified. It reduces height excess relative to final. The
+minimum lift objective is achieved in these nominal tests; the soft upper cost
+does not enforce the full height band. More training was not monotonically better.
+
+[Detailed outcome and archived evidence](experiments/clearance02_20261027_v2/STATUS.md).
+No new replay or video assessment, no hardware validation, no new job submission.
+The earlier standalone-replay startup discrepancy is not resolved by this check.
+
+## Authorized retry — 27 October 2026
+
+**Resubmitted successfully as job 3232851.** All 27 tests passed on SCITAS;
+93 source hashes and the original baseline checkpoint were verified. A real
+sleeping-process test confirmed timeout exit 124. Frozen archive SHA256:
+`4554e966eaa9836350443081b59eba1b40e44d166811d544899e4ef90daf741c`.
+No post-submission training monitoring was performed.
+
+The user authorized a new submission after the failed attempt below.
+New isolated experiment: `clearance02_20261027_v2`, same preset and exact
+200M-step training configuration, same original flat-feet best parent.
+Only startup diagnostics and guards change: 60 s NVIDIA query, 180 s GPU
+backend/kernel probe, 300 s CPU unit tests, 1,200 s GPU smoke with stage logs and
+stack dumps. Each bounded command receives a 20 s TERM-to-KILL grace. Temporary
+per-job CUDA/JAX caches isolate this attempt; existing caches are not deleted.
+Node i39 is excluded as a precaution, not a confirmed diagnosis.
+
+[Retry snapshot, verification and receipt](experiments/clearance02_20261027_v2/STATUS.md).
+GPU initialization and physics smoke checks remain in-allocation requirements.
+No result is claimed from a submission alone. No continuous monitoring requested.
+
+## Job outcome — checked 27 October 2026
+
+Job **3231747 timed out after 24 hours before main training started**.
+Hash verification and all 27 tests passed, but the GPU smoke/preflight did not
+finish. Neither the preflight result nor the main run/checkpoint directory exists.
+The log does not reveal the exact blocking operation, so a driver, hardware or
+reward-code cause is not established. No 200M-step result or gait improvement
+can be claimed for this attempt. The original flat-feet parent is unchanged.
+
+[Archived status and log](experiments/clearance02_20261026_v1/STATUS.md).
+Diagnose and time-bound the preflight before a retry; no new job was launched
+during this status check. The original training contract below is retained.
+
 Prepared **26 October 2026**, Europe/Zurich. User authorized one **200-million-step**
 fine-tuning job, then no repeated monitoring. Experiment `clearance02_20261026_v1`,
 preset `cad_v2_clearance02`, run `cad_v2_clearance02_s0`, seed 0.

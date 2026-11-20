@@ -1,5 +1,87 @@
 # DASH-01 report workspace
 
+**Posture-return objective prepared, 11 November:** [STAND-05 implementation and reference poses](standing05-pose-return.md).
+Recover balance, return to each policy's validated quiet-standing posture at the
+new floor location, then hold five seconds. Steps remain legal during return.
+23 tests and all three abstract JAX reset/step/evaluation checks pass; no new
+training submitted. **STAND-04 videos are now complete:** [gallery](standing04-videos.html).
+
+**STAND-04 media:** [best-policy videos, convergence graphs and final push levels](standing04-videos.html),
+[replay details](standing04-media.md). Graphs and strength tables are ready;
+the gallery automatically adds videos from replay array **3248509** as SCITAS
+finishes them. [Live local pipeline state](data/standing04/video-pipeline.json).
+Final training Δv: V1 **0.1328**, V2 **0.0200**, X-shape **0.0200 m/s-equivalent**.
+The videos use earlier saved best checkpoints and a common 0.20 m/s challenge.
+
+**STAND-04 completed, checked 11 November:** [results and curriculum progress](standing04-progress.md).
+All models finish 200.01M additional steps, exit 0. Best task passes: V1 **60/80**,
+V2 **52/80**, X-shape **71/80**, versus same-protocol parents 58/80, 48/80, 60/80.
+All best checkpoints pass 16/16 quiet trials; final policies are weaker. V1
+reaches full disturbance variety; V2/X-shape end at minimum push strength.
+No new videos or training submitted during this status check.
+
+**STAND-04 submitted, 10 November:** [recovery stepping and stronger pushes](standing04-progress.md).
+Array **3247599**, 200M additional transitions per model from each model's own
+STAND-03 best, waits for complete GPU preflight/pilot array **3247598**. No long
+training steps observed at submission. Bounded recovery, five-second settling,
+continuous anti-shuffling costs, direction-balanced promotion and staged 3D
+disturbances. Sixteen local tests pass; [status/source](../docs/experiments/stand04_20261110_v1/STATUS.md).
+
+**STAND-03 completed, checked 10 November:** [three videos and convergence graphs](standing03-videos.html),
+[results and metric definitions](standing03-results.md). All three models finish
+200.01M transitions, exit 0. Saved best task scores: V1 **78/80**, V2 **69/80**,
+X-shape **70/80**; final checkpoints are weaker. Independent replays reproduce
+the same totals, with small per-level X-shape differences retained. Each video
+shows fixed quiet/+X-push trials; V2's pushed trial falls at 6.50 s. PNG/PDF/SVG
+plots, raw logs, selected checkpoints, trajectories and provenance are under
+`report/`. No new training launched.
+
+**New direction, 9 November:** [three-model planted-standing reward/curriculum](../docs/three-model-standing-plan.md)
+for V1, V2 and the new X-shape CAD. Identical reward weights; planted feet first,
+recovery steps later. [Read-only audit](data/standing03/model-audit.json),
+[provisional new mass transfer](data/standing03/mass-transfer-draft.csv).
+Implemented with separate corrected plants and shared reward. Six native contact
+tests pass; training array **3246822** is submitted (200M/model), pending all
+GPU preflights passing. V1 preflight passed; V2/X-shape remain running/queued
+at submission. [Submission record](../docs/experiments/stand03_20261109_v1/STATUS.md).
+[Contact-layout figure](figures/standing03_contact_layout.png): one continuous
+original sole versus two separate pads on V2 and X-shape. No learned results yet.
+
+**CLEARANCE-02 best candidate:** [video and convergence curves](clearance02-videos.html).
+25 s two-camera clip at 1.50 m/s, selected 132.71M checkpoint; learning curves
+mark that candidate. Fresh replay completes 9/12 trials, with three early falls,
+despite archived evaluation 12/12; trial 0 is shown and all outcomes retained.
+Upper-height criterion and reliable startup remain unresolved.
+
+**CLEARANCE-02 completed, checked 2 November:** [outcome](../docs/experiments/clearance02_20261027_v2/STATUS.md)
+and [experiment report](../docs/clearance02-experiment-report.md). Job 3232851
+finished 200.01M additional steps in 11h08m. Final mean lift 15.82/18.20 mm at
+1.50 m/s, 12/12 full-duration trials; peak heights still exceed the upper target,
+so no checkpoint fully qualifies. Best unqualified candidate is at 132.71M.
+No new replay or video generated during this check.
+
+**Final presentation, latest revision:** [mechanical challenges update](presentations/midterm-2026-10-29/DASH01_controller_midterm_final_mechanical_update.pptx).
+Slides 14/15 focus on Tim's hardware findings, unmodeled effects and the repair/model/test sequence;
+[speaker notes](presentations/midterm-2026-10-29/speaker-notes_updated.md) updated.
+
+**Selected midterm presentation:** [PowerPoint](presentations/midterm-2026-10-29/DASH01_controller_midterm_speaker_notes_updated.pptx)
+and [updated speaker notes](presentations/midterm-2026-10-29/speaker-notes_updated.md).
+Illustrated state-of-the-art slide 4 retained; notes and footer numbers follow
+the 22-slide order (19 main + three hidden backups), about 9m40 planned speaking.
+
+**Latest midterm deck:** [two state-of-the-art alternatives](presentations/midterm-2026-10-29/DASH01_controller_midterm_state_of_art_options.pptx)
+at slides 4/5; choose either the illustrated research overview or Nathann's
+thesis-based design comparison. Existing stopping/walking clips remain embedded.
+[Notes and sources](presentations/midterm-2026-10-29/state-of-art-notes.md).
+
+**Learning curves and step-budget evidence:** [analysis and presentation wording](learning-curves.md),
+[slide-ready overview](figures/learning_curves_overview.png),
+[vector PDF](figures/learning_curves_overview.pdf).
+Fresh WALK-01/flat-feet 200M runs and the 50M clearance fine-tuning, with reward,
+episode duration, nominal evaluation and curriculum plots. Includes source hashes
+and CSV tables. Periodic `alive_frac` means no physical fall; it can include
+early symmetry terminations and is not a full-duration survival measure.
+
 **Controller midterm presentation — Tim’s template:** [PowerPoint](presentations/midterm-2026-10-29/DASH01_controller_midterm_Tim_template.pptx),
 [PDF preview](presentations/midterm-2026-10-29/DASH01_controller_midterm_Tim_template.pdf),
 [speaker notes and sources](presentations/midterm-2026-10-29/README.md).
@@ -10,6 +92,8 @@ architecture, experiments, demo and early treadmill/sim-to-real roadmap.
 [submission status](../docs/experiments/clearance02_20261026_v1/STATUS.md).
 At 1.50 m/s: 10 mm minimum scheduled mid-swing height, bonus capped at 25 mm,
 explicit excess-height cost above 25 mm. Symmetry, flat support and slip retained.
+First attempt timed out in startup; [retry job 3232851](../docs/experiments/clearance02_20261027_v2/STATUS.md)
+was submitted with bounded GPU checks and startup stage logging.
 
 **CLEARANCE-01 completed:** [videos and foot-clearance graphs](clearance01-videos.html),
 [experiment report](../docs/clearance01-experiment-report.md).

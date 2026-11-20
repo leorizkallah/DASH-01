@@ -121,5 +121,9 @@ legacy_trainer_to_port/**/__pycache__/
 # current Tim-template PPTX/PDF, assets, sources and speaker notes in Git.
 /report/presentations/**/preview/
 /report/presentations/**/reference-preview/
+/report/presentations/**/.stopping-preview/
+# Downloaded research-paper cache; attributed crops and source hashes are retained.
+/report/presentations/**/assets/state-of-art/*.pdf
+/report/presentations/**/assets/state-of-art/*-page*.png
 /report/presentations/midterm-2026-10-29/DASH01_controller_midterm.pptx
 /report/presentations/midterm-2026-10-29/DASH01_controller_midterm.pdf

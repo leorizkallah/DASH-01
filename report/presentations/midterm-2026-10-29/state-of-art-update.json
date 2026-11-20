@@ -1,0 +1,109 @@
+{
+  "date": "2026-10-28",
+  "source": "DASH01_controller_midterm_reordered_stopping.pptx",
+  "source_sha256": "20f161107a4701bf4abd4c7b16cfabd87b7bbd6e59a243121dd6ccaf24c408ac",
+  "output": "DASH01_controller_midterm_state_of_art_options.pptx",
+  "output_sha256": "66efe61a8c566c56bc16645edb3ee6bda71f2a29e951e487f4f96d3e7d69c624",
+  "alternatives": {
+    "4": "Selected research advances: Cassie / ANYmal / Digit",
+    "5": "Adapted from Morand's thesis: motor interface / gait prior / curriculum"
+  },
+  "instruction": "Choose one alternative; delete the other. Each is planned for about 30 seconds.",
+  "source_thesis": "C:\\Users\\LeoPaul\\Downloads\\Master_Thesis__Nathann_Morand-5.pdf",
+  "thesis_sha256": "4b852f2cb6264b938fd7786b075494c61b006e502ba860dbdf3cc806b2fee5c4",
+  "thesis_pages": [
+    9,
+    10,
+    11,
+    12
+  ],
+  "papers": [
+    {
+      "key": "siekmann2021",
+      "title": "Sim-to-Real Learning of All Common Bipedal Gaits via Periodic Reward Composition",
+      "citation": "Siekmann et al., ICRA 2021",
+      "url": "https://arxiv.org/abs/2011.01387",
+      "figure": "Fig. 1: cropped Cassie photograph",
+      "page": 0,
+      "crop": [
+        487,
+        264,
+        556,
+        375
+      ],
+      "pdf_sha256": "8a463e21e5e59bdbc8a3a8bf1c078e4daebcec4f07c803fe846924416b28bddb",
+      "image_sha256": "79e65aab2f8ec8d6f37d9df4f62eeb310e4a2963dfd11dd072c5ce6df8289275"
+    },
+    {
+      "key": "rudin2022",
+      "title": "Learning to Walk in Minutes Using Massively Parallel Deep Reinforcement Learning",
+      "citation": "Rudin et al., CoRL 2021 / PMLR 2022",
+      "url": "https://proceedings.mlr.press/v164/rudin22a.html",
+      "figure": "Fig. 1: parallel simulation",
+      "page": 0,
+      "crop": [
+        117.9,
+        432.3,
+        494.1,
+        577.3
+      ],
+      "pdf_sha256": "420fc2ac08a7b3d04894e4ad36266e3c7cfc66f6fdc5662e5fcc2931715fdb10",
+      "image_sha256": "97b571e6a02ec34c70a487ed922c11342b3be86dacf4abdc5c9b5fb1debd8985"
+    },
+    {
+      "key": "radosavovic2024",
+      "title": "Real-world humanoid locomotion with reinforcement learning",
+      "citation": "Radosavovic et al., Science Robotics 2024",
+      "url": "https://doi.org/10.1126/scirobotics.adi9579",
+      "figure": "Fig. 1: cropped outdoor deployment examples",
+      "page": 1,
+      "crop": [
+        36,
+        61,
+        557,
+        323
+      ],
+      "pdf_sha256": "fcf5930bc6401764d54e2ac87840b9708b95bea4cf02ce9d3395c081c8f844f1",
+      "image_sha256": "cac4145378c157f027333c03c3a9ee885c45e1c4a93078de1d04c5142a91c6d3"
+    }
+  ],
+  "added_parts": [
+    "ppt/slides/slide22.xml",
+    "ppt/slides/_rels/slide22.xml.rels",
+    "ppt/notesSlides/notesSlide22.xml",
+    "ppt/notesSlides/_rels/notesSlide22.xml.rels",
+    "ppt/slides/slide23.xml",
+    "ppt/slides/_rels/slide23.xml.rels",
+    "ppt/notesSlides/notesSlide23.xml",
+    "ppt/notesSlides/_rels/notesSlide23.xml.rels",
+    "ppt/media/sota_siekmann2021.png",
+    "ppt/media/sota_rudin2022.png",
+    "ppt/media/sota_radosavovic2024.png"
+  ],
+  "modified_parts": [
+    "ppt/slides/slide4.xml",
+    "ppt/slides/slide5.xml",
+    "ppt/slides/slide6.xml",
+    "ppt/slides/slide7.xml",
+    "ppt/slides/slide10.xml",
+    "ppt/slides/slide11.xml",
+    "ppt/slides/slide18.xml",
+    "ppt/slides/slide19.xml",
+    "ppt/slides/slide20.xml",
+    "ppt/slides/slide21.xml",
+    "ppt/presentation.xml",
+    "ppt/_rels/presentation.xml.rels",
+    "[Content_Types].xml",
+    "docProps/app.xml"
+  ],
+  "original_media_byte_identical": true,
+  "original_slide_content_preserved_except_page_numbers": true,
+  "source_presentation_preserved": true,
+  "all_internal_relationships_resolve": true,
+  "native_powerpoint_open_verified": true,
+  "rendered_slides": [
+    4,
+    5
+  ],
+  "text_overflow_count": 0
+}

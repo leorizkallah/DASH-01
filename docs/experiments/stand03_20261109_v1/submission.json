@@ -1,0 +1,23 @@
+{
+  "submitted_at": "2026-11-09T13:47:41+01:00",
+  "checked_at": "2026-11-09T13:48:03+01:00",
+  "host": "izar.hpc.epfl.ch",
+  "remote_root": "/home/rizkalla/running_robot/experiments/stand03_20261109_v1",
+  "preflight_array": 3246816,
+  "training_array": 3246822,
+  "dependency": "afterok:3246816",
+  "cancel_on_invalid_dependency": true,
+  "state_at_submission_check": "PENDING (Dependency)",
+  "model_by_array_index": {"0": "v1", "1": "v2", "2": "xshape"},
+  "max_concurrent_tasks": 3,
+  "gpus_per_task": 1,
+  "steps_per_model": 200000000,
+  "seed": 0,
+  "initialization": "fresh weights and optimizer",
+  "allocation_hours": 24,
+  "training_reserve_cutoff_hours": 22.5,
+  "contacts": "one continuous V1 sole; two separate V2/X-shape pads per foot",
+  "preflight_at_check": {"v1": "passed", "v2": "running", "xshape": "pending"},
+  "source_archive_sha256": "b799fd8edc2073a54e9770e5f1ec59e2b5ffdd7312aa31f54ca67b6d61017aa2",
+  "training_monitoring": "none after submission verification"
+}

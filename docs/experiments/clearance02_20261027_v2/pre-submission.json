@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "files_verified": 93,
+  "parent_step": 184320000,
+  "parent_sha256": "b1d82e549c8402b185fb90eb5665ebe4d334838f65b81b55e3268443c693f3cc",
+  "timeout_guard_exit_code": 124,
+  "timeout_guard_elapsed_s": 0.20200396329164505,
+  "training_steps": 200000000,
+  "excluded_node": "i39",
+  "archive_sha256": "4554e966eaa9836350443081b59eba1b40e44d166811d544899e4ef90daf741c",
+  "note": "Source, parent, syntax and real timeout behavior verified. GPU probe/smoke execute only inside the allocation."
+}

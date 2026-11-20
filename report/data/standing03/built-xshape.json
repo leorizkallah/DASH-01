@@ -1,0 +1,33 @@
+{
+  "model": "xshape",
+  "mass_kg": 14.537322008016325,
+  "foot_contacts": [
+    {
+      "regions": 2,
+      "native_contact_points": 8,
+      "normal_force_n": 71.43626507855313
+    },
+    {
+      "regions": 2,
+      "native_contact_points": 8,
+      "normal_force_n": 71.17486398816574
+    }
+  ],
+  "equilibrium": {
+    "nfev": 700,
+    "max_acceleration": 1.894289116526671e-07,
+    "max_pose_adjustment_rad": 1.087088190173063e-05
+  },
+  "holding_torque_nm": [
+    -3.5113746622738726,
+    14.04943720590802,
+    5.470638073694963,
+    3.51602636471929,
+    -14.072176230545741,
+    -5.491623846454117
+  ],
+  "xml_sha256": "eeb12762c8fedc2878040daf98bb650d5745cc67c9ef1be690d89200132e9934",
+  "contact_definition": "two separated mesh-derived pads",
+  "all_base_dofs_free": true,
+  "mass_estimates_provisional": true
+}

@@ -40,13 +40,13 @@ def fs(values):
     return " ".join(f"{v:.12g}" for v in values)
 
 
-def sole_patches():
+def sole_patches(path=None, down_local=None):
     """Find the two coplanar rectangular sole faces in the identical foot meshes.
 
     Collision boxes extend 2 mm inward from the actual sole, adding no pad below
     CAD geometry and no contact across the gap between heel and toe.
     """
-    path = cad.SOURCE.parent / "meshes/EXPORT_foot-v4_1.stl"
+    path = cad.SOURCE.parent / "meshes/EXPORT_foot-v4_1.stl" if path is None else Path(path)
     raw = path.read_bytes()
     triangles = np.frombuffer(raw, offset=84, dtype=np.dtype([
         ("n", "<f4", 3), ("v", "<f4", (3, 3)), ("a", "<u2")]))["v"].astype(float) * .001
@@ -54,7 +54,8 @@ def sole_patches():
     area = np.linalg.norm(cross, axis=1) / 2
     normals = cross / np.maximum(2 * area[:, None], 1e-20)
     groups = {}
-    for i in np.flatnonzero(normals[:, 2] < -.8):
+    down = np.array([0., 0., -1.]) if down_local is None else np.asarray(down_local)
+    for i in np.flatnonzero(normals @ down > .8):
         key = tuple(np.round(np.r_[normals[i], normals[i] @ triangles[i, 0]], 5))
         groups.setdefault(key, []).append(i)
     indices = max(groups.values(), key=lambda ix: area[ix].sum())
@@ -203,7 +204,7 @@ def solve_pose(model, root, com_offset=0.):
                                  height_m=float(data.qpos[z]), com_world_m=data.subtree_com[1].tolist())
 
 
-def solve_loaded_stance(model, qpos):
+def solve_loaded_stance(model, qpos, initial_torque=None):
     """Find gravity/contact equilibrium, instead of sampling a moving settle.
 
     Translational XY and yaw gauges are fixed. Remaining coordinates and six
@@ -224,7 +225,8 @@ def solve_loaded_stance(model, qpos):
         mujoco.mj_forward(model, data)
         return np.r_[data.qacc/100, (data.qpos[qadr]-pose)*.01, data.qpos[3:5]*.01]
 
-    initial = np.r_[qpos[indices], [-.3, 12, 3.5, .3, -12, -3.5]]
+    initial = np.r_[qpos[indices], ([-.3, 12, 3.5, .3, -12, -3.5]
+                                  if initial_torque is None else initial_torque)]
     lower, upper = np.r_[qpos[indices]-.05, -model.actuator_forcerange[:, 1]], np.r_[qpos[indices]+.05, model.actuator_forcerange[:, 1]]
     result = least_squares(residual, initial, bounds=(lower, upper), x_scale="jac",
                            diff_step=1e-5, xtol=1e-9, ftol=1e-9, gtol=1e-9, max_nfev=700)

@@ -1,0 +1,26 @@
+{
+  "model": "v1",
+  "replay_job": 3247563,
+  "checkpoint_step": 81100800,
+  "selected_trials": [
+    0,
+    48
+  ],
+  "batch_size": 80,
+  "video": {
+    "fps": 20.0,
+    "size": [
+      1280,
+      720
+    ],
+    "duration_s": 20.0,
+    "codec": "h264"
+  },
+  "sha256": {
+    "videos/standing03_v1_best.mp4": "dbb9d714c12baa103b4bc97c4e094b23e0f0824c241f0b745c5bf43ae568b32c",
+    "data/standing03/results/v1/trace.npz": "83aabe0e58fb8cfc2ca41fea8b690139bb083899e54153e59ce452243998172b",
+    "data/standing03/results/v1/replay.json": "24831965ccd221bd38da4a4bcae85f6e55459d51b9007f7b5b8c94da4573d2cc",
+    "scripts/render_standing03_best.py": "b4f393026f02ec40f0259caf7f1a5f468f67e851d71156897a9aeba0cea1610e"
+  },
+  "note": "20 s at 1x. Two independent trials, fixed before outcomes. Native rendering of MJX states; no physics rerun or reset splicing."
+}

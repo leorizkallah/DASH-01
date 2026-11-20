@@ -21,8 +21,9 @@ left/right; mid-swing coverage and standalone startup remain unresolved.
 [Videos and graphs](report/clearance01-videos.html).
 
 **CLEARANCE-02 submitted:** 200M additional steps from the original flat-feet
-best checkpoint, targeting a lower 10–25 mm swing band. Job `3231747`; no later
-status is claimed here. [Training contract](docs/clearance02-experiment-report.md).
+best checkpoint, targeting a lower 10–25 mm swing band. First attempt `3231747`
+timed out before training; retry **`3232851`** adds bounded startup diagnostics.
+No retry result is claimed here. [Training contract](docs/clearance02-experiment-report.md).
 
 [Controller midterm slides, PDF and notes](report/presentations/midterm-2026-10-29/README.md)
 use Tim’s actual presentation template. Local report tools:

@@ -1,0 +1,6 @@
+{
+  "parent": "parents/v2/best",
+  "parent_step": 73728000,
+  "weights_sha256": "f7e154fc65b9113a65f9b76be8268a0f2ae5f5885c61718502963574d52c235e",
+  "initialization": "weights + observation normalization; new optimizers/curriculum/counters"
+}

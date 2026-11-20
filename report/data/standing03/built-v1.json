@@ -1,0 +1,33 @@
+{
+  "model": "v1",
+  "mass_kg": 14.355999999999998,
+  "foot_contacts": [
+    {
+      "regions": 1,
+      "native_contact_points": 4,
+      "normal_force_n": 70.68086417538677
+    },
+    {
+      "regions": 1,
+      "native_contact_points": 4,
+      "normal_force_n": 70.15154097332544
+    }
+  ],
+  "equilibrium": {
+    "nfev": 562,
+    "max_acceleration": 0.0001166028792835012,
+    "max_pose_adjustment_rad": 0.00022755205235416853
+  },
+  "holding_torque_nm": [
+    -2.2013091444627584,
+    22.37663649063623,
+    18.284015008516622,
+    2.2690641981877304,
+    -17.64023637291645,
+    -15.337325481926516
+  ],
+  "xml_sha256": "f50dd110a8232019cfe75c9f230dc0571962f4028598c7bf16fd41a2dac3b589",
+  "contact_definition": "one continuous sole",
+  "all_base_dofs_free": true,
+  "mass_estimates_provisional": false
+}

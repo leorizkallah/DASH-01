@@ -39,6 +39,9 @@ def main():
     ap.add_argument("--devices", type=int, default=1)
     ap.add_argument("--eval-envs", type=int, default=240)
     ap.add_argument("--resume", default=None, help="'auto' or a checkpoint path (no suffix)")
+    ap.add_argument('--initialize-from', type=Path, default=None,
+                    help='fine-tune weights + normalizer; reset optimizers/curriculum/step counters')
+    ap.add_argument("--walltime-hours", type=float, default=None)
     ap.add_argument("--set", nargs="*", default=[], help="config overrides key=value (python literal)")
     a = ap.parse_args()
 
@@ -59,6 +62,12 @@ def main():
     from ppo import Trainer
     run = HERE / "runs" / a.name
     tr = Trainer(cfg, run, seed=a.seed, n_devices=a.devices, n_eval=a.eval_envs)
+    if a.initialize_from is not None:
+        if a.resume:
+            raise ValueError('Choose resume or initialize-from, not both')
+        if any(run.glob('ckpt_*.json')) or (run/'final.json').exists():
+            raise ValueError('Fine-tuning initialization requires a new run directory')
+        print('[train] fine-tuning', tr.initialize_from(a.initialize_from), flush=True)
     if a.resume:
         ck = newest_ckpt(run) if a.resume == "auto" else Path(a.resume)
         if ck is not None:
@@ -73,20 +82,49 @@ def main():
           f"obs {tr.env.obs_dim}, action {tr.env.action_dim}, budget {cfg.total_steps:,}")
     prog = open(run / "progress.jsonl", "a")
     t_start = time.time()
+    def consider_best(ev):
+        if not cfg.recovery_steps:
+            if ev['score'] > tr.cur['best_score']:
+                tr.cur['best_score'] = ev['score']
+                tr.save('best', extra=dict(eval=ev))
+            return
+        qualified = ev.get('qualified', True)
+        previous_qualified = tr.cur.get('best_qualified', False)
+        if ((qualified and not previous_qualified) or
+            (qualified == previous_qualified and ev['score'] > tr.cur['best_score'])):
+            tr.cur['best_score'] = ev['score']
+            tr.cur['best_qualified'] = qualified
+            tr.save('best', extra=dict(eval=ev))
+
+    if cfg.recovery_steps and a.initialize_from is not None:
+        baseline = tr.evaluate()
+        (run/'baseline_eval.json').write_text(json.dumps(baseline, indent=2))
+        tr.save('baseline', extra=dict(eval=baseline))
+        consider_best(baseline)
     while tr.step < cfg.total_steps:
         log, moved = tr.iterate()
         n = tr.rollout_n
         if moved:
             print(f"[curriculum] @ {tr.step:,}: {moved.strip()}")
+        if cfg.recovery_steps and n % cfg.recovery_probe_every == 0:
+            import recovery_eval
+            number = int(tr.cur.get('probe_number', 0))
+            probe = recovery_eval.evaluate(tr, seed=910000+number, probe=True)
+            tr.cur['probe_number'] = number+1
+            changed = recovery_eval.update_curriculum(tr, probe)
+            log.update({'probe/hard_rate':probe['hard_rate'], 'probe/quiet_rate':probe['quiet_rate'],
+                        'probe/worst_sector':min(probe['sector_rates']),
+                        'curriculum/push_level':tr.cur['push_level'],
+                        'curriculum/push_stage':tr.cur.get('push_stage', 0)})
+            print(f"[probe] {tr.step:,}: hard {probe['hard_rate']:.3f}, quiet {probe['quiet_rate']:.3f}, "
+                  f"worst sector {min(probe['sector_rates']):.3f}; {changed}", flush=True)
         if n % cfg.eval_every == 0 and tr.eval_env is not None:
             ev = tr.evaluate()
             log["eval/score"] = ev["score"]
             log["eval/quiet_falls"] = ev["quiet_falls"]
             for k, v in ev["survival"].items():
                 log[f"eval/surv_{k}"] = v
-            if ev["score"] > tr.cur["best_score"]:
-                tr.cur["best_score"] = ev["score"]
-                tr.save("best", extra=dict(eval=ev))
+            consider_best(ev)
             print(f"[eval] @ {tr.step:,}: score {ev['score']:.3f} {ev['survival']} quiet {ev['quiet_falls']}"
                   f"  (best {tr.cur['best_score']:.3f})")
         log["curriculum/bins"] = tr.survival_bins()
@@ -101,7 +139,17 @@ def main():
                   f"kd {log['diag/kd_mean']:.2f}", flush=True)
         if n % cfg.ckpt_every == 0:
             tr.save(f"ckpt_{tr.step}")
+        if a.walltime_hours is not None and time.time()-t_start >= a.walltime_hours*3600:
+            print('[train] wall-time save reserve reached', flush=True)
+            break
+    if cfg.standing_compare and tr.eval_env is not None:
+        ev = tr.evaluate()
+        (run/'final_eval.json').write_text(json.dumps(ev, indent=2))
+        consider_best(ev)
     tr.save("final")
+    (run/'completion.json').write_text(json.dumps(dict(steps=tr.step,
+        reason='step_limit' if tr.step >= cfg.total_steps else 'walltime_reserve',
+        elapsed_s=time.time()-t_start), indent=2))
     print(f"[train] done: {tr.step:,} steps in {(time.time() - t_start) / 3600:.2f} h")
 
 

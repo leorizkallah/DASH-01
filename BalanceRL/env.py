@@ -45,6 +45,7 @@ class EnvParams(NamedTuple):
     plant_scale: float = 1.0        # width of the plant draw, CoM shift included
     push_level: float = 1.0         # m/s: the top of the push draw
     push_on: float = 1.0            # 0 = no pushes at all (the eval's "quiet" condition)
+    push_stage: float = 0.0         # recovery: timing/duration, elevation, COM offsets
 
 
 @struct.dataclass
@@ -87,6 +88,7 @@ class EnvState:
     release_v: jnp.ndarray          # (3,) velocity imparted at the release tick
     ep_return: jnp.ndarray
     ep_len: jnp.ndarray
+    standing: object = None
 
 
 def _impl(d):
@@ -211,6 +213,10 @@ class BalanceEnv:
 
     def _contacts(self, data):
         """(toe_down[2], heel_down[2], floor_violation) from the MJX contact array."""
+        if self.cfg.standing_compare:
+            import standing
+            metrics = standing.contacts(data, self.plant, self.cfg)
+            return metrics['toe'], metrics['heel'], metrics['floor_violation']
         con = _impl(data).contact
         p = self.plant
         g, dist = con.geom, con.dist
@@ -230,6 +236,9 @@ class BalanceEnv:
         return jnp.stack(toe), jnp.stack(heel), viol
 
     def _foot_xy(self, data):
+        if self.cfg.standing_compare:
+            import standing
+            return standing.sole_centers(data, self.plant)[:, :2]
         return data.xpos[jnp.asarray(self.plant.foot_bids)][:, :2]
 
     def _com_xy(self, data):
@@ -258,6 +267,8 @@ class BalanceEnv:
         accel = (v_body - state.prev_vel_body) / self.control_dt
         k1, k2, k3, k4, k5, k6, k7 = jax.random.split(key, 7)
         on = 1.0 if c.obs_noise_enable else 0.0
+        if c.standing_compare:
+            on = on * state.standing['noise_scale']
         gyro_bias = dr.gyro_bias0 + state.gyro_bias
         gyro_bias_walk = state.gyro_bias + on * c.noise_gyro_walk * jax.random.normal(k1, (3,))
         mp = q - dr.joint_zero + on * c.noise_encoder * jax.random.normal(k2, (6,))
@@ -289,7 +300,10 @@ class BalanceEnv:
         p, d = self.plant, state.draw
         R = self._R(data)
         base = data.xpos[p.base_bid]
-        feet = jnp.stack([(R.T @ (data.xpos[b] - base))[:2] for b in p.foot_bids]).reshape(-1)
+        feet_world = self._foot_xy(data)
+        feet = (jnp.stack([(R.T @ (jnp.r_[feet_world[i], base[2]] - base))[:2] for i in range(2)]).reshape(-1)
+                if self.cfg.standing_compare else
+                jnp.stack([(R.T @ (data.xpos[b] - base))[:2] for b in p.foot_bids]).reshape(-1))
         active = (state.push_left > 0).astype(jnp.float32)
         return jnp.concatenate([
             v_body,                                                        # the estimator's target
@@ -360,13 +374,19 @@ class BalanceEnv:
             ema_g=jnp.zeros(2), ema_gm=jnp.zeros(2), ema_w=jnp.zeros(2), ema_q=jnp.zeros(6),
             ema_t=jnp.zeros(6),
             hold_s=hold_s, hold_qpos=hold_qpos, release_v=release_v,
-            push_countdown=self._interval(k_push, c.push_first_s),
+            push_countdown=self._interval(k_push, (
+                jnp.where(params.push_stage >= 1, c.push_first_s[0], 5.),
+                jnp.where(params.push_stage >= 1, c.push_first_s[1], 5.))
+                if c.recovery_steps else c.push_first_s),
             push_left=jnp.zeros((), jnp.int32), push_force=jnp.zeros(3), push_point=jnp.zeros(3),
             push_dv=jnp.zeros(()), push_hard=jnp.zeros((), bool), push_pending=jnp.zeros((), bool),
             push_since=jnp.full((), 99.0), calm_t=jnp.full((), 99.0),
             push_fix=jnp.stack([jnp.asarray(ov.push_dv, jnp.float32), jnp.asarray(ov.push_az, jnp.float32),
                                 jnp.asarray(ov.push_el, jnp.float32)]),
             ep_return=jnp.zeros(()), ep_len=jnp.zeros((), jnp.int32))
+        if c.standing_compare:
+            import standing
+            state = state.replace(standing=standing.initial(self, data, params, ov, k_push))
         # the first frame carries zero torque and a zero previous action, as the runtime's start()
         frame, ns, v_body, meas = self._frame(data, jnp.zeros(6), jnp.zeros(ACTION_DIM), state, k_frame)
         # the slow channels start AT the first measurement, not at zero: an EMA seeded at zero would
@@ -383,12 +403,20 @@ class BalanceEnv:
         c = self.cfg
         k_dir, k_el, k_band, k_dv, k_dur, k_pt, k_next = jax.random.split(key, 7)
         due = (state.push_countdown <= 1) & (params.push_on > 0.0) & (state.t >= state.hold_s)
+        if c.standing_compare:
+            due = due & state.standing['episode_push_on'] & ~state.push_pending
+        if c.recovery_steps:
+            due = due & (~state.standing['has_pushed'] | (state.standing['quiet_s'] >= c.recovery_quiet_s))
         L = params.push_level
         easy = jax.random.uniform(k_band) < c.push_easy_frac
         u = jax.random.uniform(k_dv)
         dv = jnp.where(easy, 0.5 * L * u, L * (0.5 + 0.5 * u))
+        if c.recovery_steps:
+            dv = jnp.where(easy, .5*L*u, L*(.9+.1*u))
         az = jax.random.uniform(k_dir, (), minval=0.0, maxval=TWO_PI)
         el = jnp.deg2rad(c.push_elev_deg) * jax.random.uniform(k_el, (), minval=-1.0, maxval=1.0)
+        if c.recovery_steps:
+            el = jnp.where(params.push_stage >= 2, jnp.deg2rad(c.recovery_elev_deg)*jax.random.uniform(k_el, (), minval=-1., maxval=1.), 0.)
         fix = state.push_fix
         dv = jnp.where(jnp.isnan(fix[0]), dv, fix[0])
         easy = jnp.where(jnp.isnan(fix[0]), easy, False)
@@ -396,11 +424,25 @@ class BalanceEnv:
         el = jnp.where(jnp.isnan(fix[2]), el, fix[2])
         direction = jnp.array([jnp.cos(el) * jnp.cos(az), jnp.cos(el) * jnp.sin(az), jnp.sin(el)])
         dur = jax.random.uniform(k_dur, (), minval=c.push_dur_s[0], maxval=c.push_dur_s[1])
+        if c.recovery_steps:
+            dur = jnp.where(params.push_stage >= 1, jax.random.uniform(k_dur, (),
+                minval=c.recovery_dur_s[0], maxval=c.recovery_dur_s[1]), .1)
         n_ticks = jnp.maximum(1, jnp.round(dur / self.control_dt)).astype(jnp.int32)
         # the impulse is M dv, delivered over the ROUNDED duration so the level is exact
-        force = direction * self.m_total * dv / (n_ticks * self.control_dt)
+        total_mass = jnp.sum(state.draw.fields.body_mass) if c.standing_compare else self.m_total
+        force = direction * total_mass * dv / (n_ticks * self.control_dt)
+        if c.recovery_steps:
+            magnitude = jnp.minimum(total_mass*dv/(n_ticks*self.control_dt), c.recovery_force_max_n)
+            force = direction*magnitude
+            dv = magnitude*n_ticks*self.control_dt/total_mass
         box = jnp.asarray(c.push_point_box)
         point = box[:, 0] + (box[:, 1] - box[:, 0]) * jax.random.uniform(k_pt, (3,))
+        if c.standing_compare:
+            # Apply at the torso COM, not at a CAD-origin-dependent lever arm.
+            point = self._R(state.data).T @ (state.data.xipos[self.plant.base_bid] - state.data.xpos[self.plant.base_bid])
+            if c.recovery_steps:
+                point = point + jnp.where(params.push_stage >= 3,
+                    c.recovery_point_m*jax.random.uniform(k_pt, (3,), minval=-1., maxval=1.), jnp.zeros(3))
         new = dict(
             push_countdown=jnp.where(due, self._interval(k_next, c.push_interval_s), state.push_countdown - 1),
             push_left=jnp.where(due, n_ticks, state.push_left),
@@ -411,6 +453,9 @@ class BalanceEnv:
             push_pending=state.push_pending | due,
             push_since=jnp.where(due, 0.0, state.push_since),
         )
+        if c.recovery_steps:
+            new['push_duration'] = n_ticks*self.control_dt
+            new['push_sector'] = jnp.floor(jnp.mod(az, TWO_PI)/(TWO_PI/8)).astype(jnp.int32)
         return new, due
 
     def _step_one(self, state: EnvState, action, params: EnvParams):
@@ -477,6 +522,11 @@ class BalanceEnv:
         for i, n in enumerate(("x", "y", "z")):
             qv = qv.at[p.base_d[n]].add(jnp.where(released, state.release_v[i], 0.0))
         data = data.replace(qvel=qv)
+        if c.standing_compare:
+            import standing
+            return standing.finish(self, state, data, action, params, pf, started,
+                                   target, tvel, kp, kd, cmd_buf, tau_last, tau_sq,
+                                   key, k_frame, k_reset)
         # ---- push bookkeeping after the tick
         push_left = jnp.maximum(pf["push_left"] - 1, 0)
         push_since = pf["push_since"] + dt

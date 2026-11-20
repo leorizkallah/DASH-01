@@ -1,0 +1,16 @@
+{
+  "submitted_at": "2026-11-10T13:58:55+01:00",
+  "host": "izar.hpc.epfl.ch",
+  "preflight_array": 3247598,
+  "training_array": 3247599,
+  "dependency": "afterok:3247598",
+  "cancel_on_invalid_dependency": true,
+  "submission_state": "PENDING (Dependency)",
+  "model_by_index": {"0": "v1", "1": "v2", "2": "xshape"},
+  "additional_steps_per_model": 200000000,
+  "seed": 1,
+  "initialization": "own STAND-03 best weights + normalizer; fresh optimizers/curriculum/counters",
+  "source_archive_sha256": "bd3b6004ab5077ebbf4f014fb29d2cc5a4220f5d31b909f1bc0bf68c22f56fe3",
+  "remote_root": "/home/rizkalla/running_robot/experiments/stand04_20261110_v1",
+  "training_monitoring": "none after submission verification"
+}

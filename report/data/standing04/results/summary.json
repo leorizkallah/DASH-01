@@ -1,0 +1,149 @@
+[
+  {
+    "model": "v1",
+    "best_step": 169574400,
+    "best_passes": 60,
+    "best_quiet_passes": 16,
+    "baseline_passes": 58,
+    "final_passes": 49,
+    "final_push_level": 0.1327996139571201,
+    "final_stage": 3,
+    "best_checkpoint_training_level": 0.09977431552000006,
+    "best_checkpoint_stage": 3,
+    "max_logged_training_level": 0.16105100000000006,
+    "max_probed_level": 0.16105100000000006,
+    "best_rates": {
+      "0.00": 1.0,
+      "0.10": 1.0,
+      "0.15": 0.875,
+      "0.20": 0.5625,
+      "0.30": 0.3125
+    },
+    "mass_kg": 14.355999999999998,
+    "final_impulse_ns": 1.9064712579684158,
+    "final_force_100ms_n": 19.064712579684155,
+    "passing_trials_with_landings": 0,
+    "replay_passes": 59,
+    "replay_rates": {
+      "0.00": 0.9375,
+      "0.10": 1.0,
+      "0.15": 0.875,
+      "0.20": 0.5625,
+      "0.30": 0.3125
+    },
+    "video_trials": [
+      {
+        "passed": true,
+        "duration_s": 20.0,
+        "steps": 0,
+        "physical_fall": false,
+        "task_violation": false
+      },
+      {
+        "passed": false,
+        "duration_s": 6.9,
+        "steps": 0,
+        "physical_fall": false,
+        "task_violation": true
+      }
+    ]
+  },
+  {
+    "model": "v2",
+    "best_step": 58982400,
+    "best_passes": 52,
+    "best_quiet_passes": 16,
+    "baseline_passes": 48,
+    "final_passes": 37,
+    "final_push_level": 0.02,
+    "final_stage": 2,
+    "best_checkpoint_training_level": 0.026214400000000013,
+    "best_checkpoint_stage": 1,
+    "max_logged_training_level": 0.1,
+    "max_probed_level": 0.1,
+    "best_rates": {
+      "0.00": 1.0,
+      "0.10": 0.9375,
+      "0.15": 0.625,
+      "0.20": 0.5,
+      "0.30": 0.1875
+    },
+    "mass_kg": 14.594154,
+    "final_impulse_ns": 0.29188308,
+    "final_force_100ms_n": 2.9188308,
+    "passing_trials_with_landings": 0,
+    "replay_passes": 52,
+    "replay_rates": {
+      "0.00": 1.0,
+      "0.10": 0.9375,
+      "0.15": 0.5625,
+      "0.20": 0.5625,
+      "0.30": 0.1875
+    },
+    "video_trials": [
+      {
+        "passed": true,
+        "duration_s": 20.0,
+        "steps": 0,
+        "physical_fall": false,
+        "task_violation": false
+      },
+      {
+        "passed": false,
+        "duration_s": 6.8,
+        "steps": 0,
+        "physical_fall": false,
+        "task_violation": true
+      }
+    ]
+  },
+  {
+    "model": "xshape",
+    "best_step": 132710400,
+    "best_passes": 71,
+    "best_quiet_passes": 16,
+    "baseline_passes": 60,
+    "final_passes": 66,
+    "final_push_level": 0.02,
+    "final_stage": 1,
+    "best_checkpoint_training_level": 0.02,
+    "best_checkpoint_stage": 1,
+    "max_logged_training_level": 0.1,
+    "max_probed_level": 0.1,
+    "best_rates": {
+      "0.00": 1.0,
+      "0.10": 0.875,
+      "0.15": 0.9375,
+      "0.20": 0.9375,
+      "0.30": 0.6875
+    },
+    "mass_kg": 14.537322008016325,
+    "final_impulse_ns": 0.2907464401603265,
+    "final_force_100ms_n": 2.907464401603265,
+    "passing_trials_with_landings": 2,
+    "replay_passes": 72,
+    "replay_rates": {
+      "0.00": 1.0,
+      "0.10": 0.875,
+      "0.15": 0.9375,
+      "0.20": 0.9375,
+      "0.30": 0.75
+    },
+    "video_trials": [
+      {
+        "passed": true,
+        "duration_s": 20.0,
+        "steps": 0,
+        "physical_fall": false,
+        "task_violation": false
+      },
+      {
+        "passed": true,
+        "duration_s": 20.0,
+        "steps": 0,
+        "physical_fall": false,
+        "task_violation": false
+      }
+    ]
+  }
+]

@@ -1,0 +1,16 @@
+{
+  "training_array": 3247599,
+  "replay_array": 3248509,
+  "inputs_sha256": {
+    "data/standing04/results/v1/progress.jsonl": "b26e354684e3bf41543a5dd70470495d2cef3243eb701b49291dcb7e04e5f4b0",
+    "data/standing04/results/v1/recovery_curriculum_probes.jsonl": "c80f03b1ca599f106d779e88b43b4cac43cf744b4432158535cced311276568d",
+    "data/standing04/results/v1/recovery_evaluations.jsonl": "452dbe0897e9562207f5d7ed2130bb2facf8e587636ccfd42e7476a80ad4a5fa",
+    "data/standing04/results/v2/progress.jsonl": "086b33490cc0555bf20a3bd9dfe60a428b35b30bba52c66931dc6a5d80e9c37e",
+    "data/standing04/results/v2/recovery_curriculum_probes.jsonl": "10671eb9e39773a8c5ea157c68cf89b4b109ebbd2095e035486063fb16ef729b",
+    "data/standing04/results/v2/recovery_evaluations.jsonl": "1f47551f0d2f36768720193585953870ad929f1b3258a82356525d53e680496e",
+    "data/standing04/results/xshape/progress.jsonl": "54523d3eccf9947f3b7361697e4bf0f28d4dd13845794b0542c8727e2b1d861c",
+    "data/standing04/results/xshape/recovery_curriculum_probes.jsonl": "2bb720b3f94e17f141f9529231e5136ab6830d407f3c24ea1299aaf71dee9070",
+    "data/standing04/results/xshape/recovery_evaluations.jsonl": "aca0da5738b859ccfbc788909e929a0a4ac2a8362a22c312c3aec372ddfc41dd"
+  },
+  "smoothing": "Training curves: nonoverlapping 100-update means. Evaluation/probe points: raw."
+}

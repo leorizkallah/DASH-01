@@ -1,0 +1,108 @@
+{
+  "date": "2026-10-28",
+  "deck": "DASH01_controller_midterm_speaker_notes_updated.pptx",
+  "source_deck_sha256": "63f489f02b49e5c873a58f305239de68221496f691a470bd8db6940185ea8520",
+  "final_deck_sha256": "5c231ce1d44e7573985c241cafeae63b92a331404f32a0b4fcbbeac8ccaed7e5",
+  "original_notes_sha256": "d58f66c0b6d92d4d3f3889c3768f4357e1e9449139d69a07a4e2fb1d6a620e43",
+  "notes_sha256": "e722372d4044df7bbcbbf55a4b5c66abdccfa8065f41b77ef04e1a22eafcc5ed",
+  "selected_state_of_art_slide": 4,
+  "slides": 22,
+  "main_slides": 19,
+  "hidden_backups": 3,
+  "planned_speaking_seconds": 580,
+  "footer_updates": [
+    {
+      "slide": 5,
+      "previous": "6",
+      "now": "5"
+    },
+    {
+      "slide": 6,
+      "previous": "7",
+      "now": "6"
+    },
+    {
+      "slide": 7,
+      "previous": "8",
+      "now": "7"
+    },
+    {
+      "slide": 8,
+      "previous": "9",
+      "now": "8"
+    },
+    {
+      "slide": 9,
+      "previous": "8",
+      "now": "9"
+    },
+    {
+      "slide": 10,
+      "previous": "9",
+      "now": "10"
+    },
+    {
+      "slide": 11,
+      "previous": "12",
+      "now": "11"
+    },
+    {
+      "slide": 12,
+      "previous": "13",
+      "now": "12"
+    },
+    {
+      "slide": 13,
+      "previous": "12",
+      "now": "13"
+    },
+    {
+      "slide": 14,
+      "previous": "13",
+      "now": "14"
+    },
+    {
+      "slide": 15,
+      "previous": "14",
+      "now": "15"
+    },
+    {
+      "slide": 16,
+      "previous": "15",
+      "now": "16"
+    },
+    {
+      "slide": 17,
+      "previous": "16",
+      "now": "17"
+    },
+    {
+      "slide": 18,
+      "previous": "17",
+      "now": "18"
+    },
+    {
+      "slide": 19,
+      "previous": "20",
+      "now": "19"
+    },
+    {
+      "slide": 20,
+      "previous": "21",
+      "now": "20"
+    },
+    {
+      "slide": 21,
+      "previous": "22",
+      "now": "21"
+    },
+    {
+      "slide": 22,
+      "previous": "23",
+      "now": "22"
+    }
+  ],
+  "slide_content_preserved_except_footer_numbers": true,
+  "embedded_notes_match_markdown": true,
+  "backup_folder": "preview\\notes-update-originals"
+}

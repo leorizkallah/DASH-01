@@ -1,0 +1,24 @@
+{
+  "job": 3248509,
+  "status": "complete",
+  "completed_models": [
+    "v1",
+    "v2",
+    "xshape"
+  ],
+  "expected_start_cet": "11 November, around 19:38 CET (scheduler estimate, may change)",
+  "max_hours": 8.0,
+  "requires": "This computer must stay awake and connected for local automatic fetching/rendering.",
+  "updated_utc": "2026-11-11T16:04:12.121050+00:00",
+  "scheduler": [
+    "3248509_0|COMPLETED|0:0",
+    "3248509_0.batch|COMPLETED|0:0",
+    "3248509_0.extern|COMPLETED|0:0",
+    "3248509_1|COMPLETED|0:0",
+    "3248509_1.batch|COMPLETED|0:0",
+    "3248509_1.extern|COMPLETED|0:0",
+    "3248509_2|COMPLETED|0:0",
+    "3248509_2.batch|COMPLETED|0:0",
+    "3248509_2.extern|COMPLETED|0:0"
+  ]
+}
