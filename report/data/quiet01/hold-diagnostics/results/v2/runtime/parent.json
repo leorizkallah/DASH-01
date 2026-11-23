@@ -1,0 +1,6 @@
+{
+  "parent": "/home/rizkalla/running_robot/experiments/quiet01_20261122_v1/parents/v2/best",
+  "parent_step": 58982400,
+  "weights_sha256": "7d949b801023423f62c8ea719dafafbe37ec0c251fcd88dc17a4f3a478eeee89",
+  "initialization": "weights + observation normalization; new optimizers/curriculum/counters"
+}

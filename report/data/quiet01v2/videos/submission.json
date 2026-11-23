@@ -1,0 +1,16 @@
+{
+  "job": "3264005",
+  "backend": "cpu",
+  "submitted_utc": "2026-11-23T12:50:20.526343+00:00",
+  "purpose": "Four selected MJX trials with original per-env keys; no training",
+  "replaced_full_batch_job": 3263994,
+  "selected_trials": [
+    0,
+    48,
+    64,
+    80
+  ],
+  "seed": 1234,
+  "seed_source_batch_size": 96,
+  "batch_size": 4
+}

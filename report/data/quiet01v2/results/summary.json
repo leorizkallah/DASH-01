@@ -1,0 +1,92 @@
+[
+  {
+    "model": "v1",
+    "steps": 100012032,
+    "elapsed_h": 4.379392342964808,
+    "baseline_passes": 59,
+    "best_passes": 71,
+    "final_passes": 68,
+    "best_step": 66355200,
+    "best_reference_passes": 16,
+    "best_retention_reference_passes": 16,
+    "best_retention_passes": 62,
+    "final_retention_passes": 67,
+    "best_rates": {
+      "reference": 1.0,
+      "0": 1.0,
+      "1": 1.0,
+      "2": 0.6875,
+      "3": 0.5,
+      "4": 0.25
+    },
+    "final_level": 2,
+    "nonfinite_diagnostics": {
+      "rollout/reward_mean": 0,
+      "train/kl": 0,
+      "train/vf": 0,
+      "train/est_loss": 0,
+      "diag/pose_joint_rms": 0,
+      "diag/pose_foot_error": 0
+    }
+  },
+  {
+    "model": "v2",
+    "steps": 100012032,
+    "elapsed_h": 5.9537110859817926,
+    "baseline_passes": 37,
+    "best_passes": 85,
+    "final_passes": 85,
+    "best_step": 100012032,
+    "best_reference_passes": 16,
+    "best_retention_reference_passes": 15,
+    "best_retention_passes": 78,
+    "final_retention_passes": 78,
+    "best_rates": {
+      "reference": 1.0,
+      "0": 1.0,
+      "1": 1.0,
+      "2": 1.0,
+      "3": 0.875,
+      "4": 0.4375
+    },
+    "final_level": 3,
+    "nonfinite_diagnostics": {
+      "rollout/reward_mean": 0,
+      "train/kl": 0,
+      "train/vf": 0,
+      "train/est_loss": 0,
+      "diag/pose_joint_rms": 0,
+      "diag/pose_foot_error": 0
+    }
+  },
+  {
+    "model": "xshape",
+    "steps": 100012032,
+    "elapsed_h": 5.01952412294017,
+    "baseline_passes": 45,
+    "best_passes": 89,
+    "final_passes": 85,
+    "best_step": 58982400,
+    "best_reference_passes": 16,
+    "best_retention_reference_passes": 16,
+    "best_retention_passes": 78,
+    "final_retention_passes": 71,
+    "best_rates": {
+      "reference": 1.0,
+      "0": 1.0,
+      "1": 1.0,
+      "2": 1.0,
+      "3": 0.875,
+      "4": 0.6875
+    },
+    "final_level": 3,
+    "nonfinite_diagnostics": {
+      "rollout/reward_mean": 0,
+      "train/kl": 0,
+      "train/vf": 0,
+      "train/est_loss": 0,
+      "diag/pose_joint_rms": 0,
+      "diag/pose_foot_error": 0
+    }
+  }
+]

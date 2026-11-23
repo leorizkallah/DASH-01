@@ -1,5 +1,51 @@
 # DASH-01 report workspace
 
+**Push-only evaluation, 23 November:** [videos](quiet-push01-videos.html),
+[results and response graphs](quiet-push01-results.md). Best quiet-pose policies,
+198 simulations, 100 ms pulses up to 60 N in four directions; no training.
+Survival and return to quiet posture are measured separately. Large lateral
+pushes reveal slipping even when the robot stays upright.
+
+[QUIET-01 v2 video gallery](quiet01v2-videos.html): selected best policies, quiet
+and three disturbed-start cases. [Media provenance and preparation status](quiet01v2-media.md).
+
+[QUIET-01 v2 assessment](quiet01-v2-assessment.md): baseline-to-best learning,
+return versus retention, harder-pose failures and remaining validation limits.
+
+**QUIET-01 v2 completed,23November:** [results and convergence curves](quiet01-v2-results.md).
+All three models finish100.01M steps, exit0. Best test passes: V1 **71/96**,
+V2 **85/96**, X-shape **89/96**; all best policies pass16/16 quiet-reference
+return trials. Separate20s quiet-reference retention16/16,15/16,16/16.
+Raw logs and checkpoints archived. [Comparison graph](figures/quiet01v2_convergence.png).
+Historical hold diagnostic3263170 also completed and its trace plots are added
+to[the diagnosis](quiet01-hold-diagnosis.md). No new training/video jobs submitted.
+
+**QUIET-01 v2 corrected/resubmitted,22November17:08CET:**
+[changes and validation](quiet01-v2-pose-tracking.md).
+Completed five-second hold stays completed; separate20s retention test.
+Same reward/tolerances; matched-seed physical/numerical preflight permits learning
+the new target. 33local tests and sixSCITAS tracing checks pass.
+Preflight **3263184**, dependent three-model training **3263185**,100M steps/model.
+No GPU outcomes monitored after submission.
+
+**QUIET-01 hold diagnosis, 22 November:** [confirmed acceptance issue and error plots](quiet01-hold-diagnosis.md).
+V2 completes15/16 five-second holds but final acceptance is10/16; X-shape11/16
+versus10/16. No reference-trial falls. Detailed frozen-parent diagnostic3263170
+queued, with bounded local automatic archive/plot completion; no new training.
+
+**QUIET-01 preflight checked, 22 November:** [results and failure details](quiet01-pose-tracking.md#status-check-22-november-2026-1618-cet).
+V1 passes; V2/X-shape each achieve 10/16 reference holds, below the 12/16
+preflight minimum. Training array **3263104 cancelled before starting**.
+No resubmission yet; this supersedes the submission-only status below.
+
+**QUIET-01 submitted, 22 November:** [quiet-pose tracking experiment](quiet01-pose-tracking.md).
+Return from feasible randomized initial postures to each model's learned quiet pose;
+no pushes, zero initial velocity, five-second hold. Three models, 100M additional
+transitions each. GPU preflight **3263103**, dependent training array **3263104**.
+29 local tests and SCITAS abstract tracing pass; GPU/training outcomes not yet checked.
+[Measured reset curriculum](figures/quiet01_reset_difficulty.png),
+[status and source receipt](../docs/experiments/quiet01_20261122_v1/STATUS.md).
+
 **Posture-return objective prepared, 11 November:** [STAND-05 implementation and reference poses](standing05-pose-return.md).
 Recover balance, return to each policy's validated quiet-standing posture at the
 new floor location, then hold five seconds. Steps remain legal during return.

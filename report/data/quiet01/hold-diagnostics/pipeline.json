@@ -1,0 +1,7 @@
+{
+  "status": "complete",
+  "job": "3263170",
+  "updated_utc": "2026-11-23T12:21:05.363458+00:00",
+  "accounting": "JobID|State\n3263170_0|COMPLETED\n3263170_0.batch|COMPLETED\n3263170_0.extern|COMPLETED\n3263170_1|COMPLETED\n3263170_1.batch|COMPLETED\n3263170_1.extern|COMPLETED\n3263170_2|COMPLETED\n3263170_2.batch|COMPLETED\n3263170_2.extern|COMPLETED\n",
+  "report": "report/quiet01-hold-diagnosis.md"
+}

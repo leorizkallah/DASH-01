@@ -1,0 +1,7 @@
+Failed to import warp: No module named 'warp'
+Failed to import mujoco_warp: No module named 'warp'
+xshape reference_noise 10 /16
+xshape reference_clean 16 /16
+xshape keyframe_noise 1 /16
+xshape keyframe_clean 0 /16
+xshape DIAGNOSTICS COMPLETE

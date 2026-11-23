@@ -1,0 +1,30 @@
+{
+  "date": "2026-11-23",
+  "sources": "Captured CPU-MJX traces; native MuJoCo forward kinematics for sole-center drift and clearance. No dynamics resimulation.",
+  "xshape_trial48": {
+    "initial_hold_start_s": 0.5900135040283203,
+    "longest_quiet_s": 12.050180435180664,
+    "final_quiet_s": 0.0,
+    "final_sole_relative_error_mm": 20.5634822845459,
+    "final_five_seconds_peak_sole_relative_error_mm": 21.35224723815918,
+    "sole_relative_limit_mm": 20.0,
+    "physical_fall": false,
+    "task_violation": false,
+    "duration_s": 20.0
+  },
+  "v1_trial48": {
+    "initial_motor_rms_deg": 2.1920246900475555,
+    "duration_s": 1.5399999618530273,
+    "initial_hold_completed": false,
+    "final_sole_center_drift_mm_LR": [54.61918111842118, 8.450443713985088],
+    "sole_center_drift_limit_mm": 50.0,
+    "physical_fall": false,
+    "task_violation": true
+  },
+  "v1_trial64": {
+    "initial_motor_rms_deg": 2.578232074930492,
+    "peak_sole_center_drift_mm_LR": [2.736048240511093, 10.72513524962724],
+    "final_quiet_s": 10.250139236450195,
+    "passed": true
+  }
+}

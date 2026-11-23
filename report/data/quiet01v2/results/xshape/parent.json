@@ -1,0 +1,6 @@
+{
+  "parent": "parents/xshape/best",
+  "parent_step": 132710400,
+  "weights_sha256": "ac4aa3e8f994d275dd4947b83a4d90a6242ed7b2fd1ec029496a28b0a2a59748",
+  "initialization": "weights + observation normalization; new optimizers/curriculum/counters"
+}

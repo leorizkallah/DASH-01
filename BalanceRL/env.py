@@ -46,6 +46,8 @@ class EnvParams(NamedTuple):
     push_level: float = 1.0         # m/s: the top of the push draw
     push_on: float = 1.0            # 0 = no pushes at all (the eval's "quiet" condition)
     push_stage: float = 0.0         # recovery: timing/duration, elevation, COM offsets
+    pose_level: float = 0.0         # quiet-pose reset curriculum, independent of pushes/noise
+    pose_split: float = 0.0         # 0 train, 1 probe, 2 held-out test
 
 
 @struct.dataclass
@@ -351,6 +353,9 @@ class BalanceEnv:
         qpos = jnp.asarray(p.key_qpos)
         noise = c.reset_joint_noise * jax.random.uniform(k_pose, (p.leg_hinge_qadr.size,), minval=-1.0, maxval=1.0)
         qpos = qpos.at[jnp.asarray(p.leg_hinge_qadr)].add(noise)
+        if c.quiet_pose_tracking:
+            import quiet_tracking
+            qpos, pose_level, pose_index = quiet_tracking.reset_pose(self,k_pose,params,ov)
         data = p.data0.replace(qpos=qpos, qvel=jnp.zeros(p.nv), ctrl=jnp.zeros(p.nu),
                                qfrc_applied=jnp.zeros(p.nv),
                                xfrc_applied=jnp.zeros_like(p.data0.xfrc_applied), time=jnp.zeros(()))
@@ -387,6 +392,8 @@ class BalanceEnv:
         if c.standing_compare:
             import standing
             state = state.replace(standing=standing.initial(self, data, params, ov, k_push))
+        if c.quiet_pose_tracking:
+            state = state.replace(standing=dict(state.standing, pose_level=pose_level, pose_index=pose_index))
         # the first frame carries zero torque and a zero previous action, as the runtime's start()
         frame, ns, v_body, meas = self._frame(data, jnp.zeros(6), jnp.zeros(ACTION_DIM), state, k_frame)
         # the slow channels start AT the first measurement, not at zero: an EMA seeded at zero would
@@ -401,6 +408,10 @@ class BalanceEnv:
     def _push(self, state, key, params):
         """Start a push if one is due. Returns the updated push fields and the force this tick."""
         c = self.cfg
+        if c.quiet_pose_tracking:
+            return dict(push_countdown=state.push_countdown, push_left=jnp.zeros((),jnp.int32),
+                push_force=jnp.zeros(3),push_point=jnp.zeros(3),push_dv=jnp.zeros(()),
+                push_hard=jnp.zeros((),bool),push_pending=jnp.zeros((),bool),push_since=state.push_since), jnp.asarray(False)
         k_dir, k_el, k_band, k_dv, k_dur, k_pt, k_next = jax.random.split(key, 7)
         due = (state.push_countdown <= 1) & (params.push_on > 0.0) & (state.t >= state.hold_s)
         if c.standing_compare:

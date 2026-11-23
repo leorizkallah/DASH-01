@@ -1,0 +1,13 @@
+{
+  "job": "3263991",
+  "submitted_utc": "2026-11-23T12:39:06.363165+00:00",
+  "purpose": "Replay and video only; frozen best policies; no training",
+  "selected_trials": [
+    0,
+    48,
+    64,
+    80
+  ],
+  "seed": 1234,
+  "batch_size": 96
+}

@@ -1,0 +1,29 @@
+{
+  "job": "3264033",
+  "submitted_utc": "2026-11-23T13:10:31.730100+00:00",
+  "purpose": "No learning: frozen best policies, force sweep",
+  "trials_per_model": 66,
+  "force_n": [
+    0,
+    2,
+    5,
+    10,
+    15,
+    20,
+    30,
+    40,
+    60
+  ],
+  "directions": [
+    "forward",
+    "backward",
+    "left",
+    "right"
+  ],
+  "repeats": 2,
+  "pulse_s": 0.1,
+  "push_at_s": 6,
+  "episode_s": 20,
+  "backend": "cpu",
+  "parent_experiment": "quiet01_20261122_v2"
+}

@@ -1,0 +1,21 @@
+{
+  "model": "v1",
+  "checkpoint_step": 66355200,
+  "selected_trials": [
+    0,
+    48,
+    64,
+    80
+  ],
+  "backend": "cpu",
+  "fps": 20.0,
+  "duration_s": 20.0,
+  "size": [
+    1280,
+    960
+  ],
+  "codec": "h264",
+  "video_sha256": "996f4726ec8ddb6fb621ca9dae906fbb085a32e1faaf42c13e51063ed7ee446a",
+  "trace_sha256": "fc891b5ba9efe8cb37d0c991adf5b88f581d5e06786f413a36041a2d11a54417",
+  "note": "Native rendering of captured MJX states, no motion resimulation,1x, no reset splicing; fixed cases0/48/64/80."
+}

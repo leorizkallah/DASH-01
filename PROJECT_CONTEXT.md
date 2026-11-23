@@ -1,9 +1,116 @@
 # DASH-01 project context
 
-Updated **9 November 2026**, Europe/Zurich. This is a project handoff, not a new
+Updated **23 November 2026**, Europe/Zurich. This is a project handoff, not a new
 training instruction. Read this first, then the linked experiment records.
 
 ## Current state
+
+- **Push-only evaluation completed, 23 November.** No training or policy updates.
+  Best QUIET-01v2 checkpoint for each model, 66 independent trials each (198 total).
+  Torso-COM horizontal pulses: 0/2/5/10/15/20/30/40/60 N for 100 ms at 6 s;
+  four directions, two paired sensor-noise realizations, 20 s horizon.
+  Foot movement permitted; survival, regained five-second hold and final quiet
+  window scored separately. CPU array 3264033 completed all models, exit 0;
+  unchanged policy hashes verified. Six four-panel videos and response plots:
+  [gallery](report/quiet-push01-videos.html), [results](report/quiet-push01-results.md).
+  V2 returns reliably under moderate pushes; X-shape survives 60 N lateral
+  pulses but does not regain quiet posture. Strong lateral survival includes
+  grounded slipping, not demonstrated recovery steps. V1 zero-force final hold
+  is only 1/2; V2/X are 2/2. These two-repeat results are exploratory, not limits.
+  Raw traces, CSV, hashes and completed pipeline: report/data/quiet_push01/.
+
+- **QUIET-01v2 videos prepared23November.** Galleryreport/quiet01v2-videos.html,
+  MP4report/videos/quiet01v2_{v1,v2,xshape}_best.mp4. Bestreturncheckpoints;20s
+  retention clips withfourfixedcases0/48/64/80, original96-member PRNGkeys,
+  onlyfourindependentenvssimulated. CPU MJX selectedreplay3264005 completedexit0
+  in~80–88s/model;selectedPASS/FAILparitytrueallmodels againstGPUarchive.
+  V1selected2/4,V2/X3/4. BackendCPUexplicitlylabeled; cannotinferfull96score
+  fromthese4cases. NativeMuJoCo renderofcapturedstates,20fps,1280x960,H264,1x;
+  coloredfeet,quiettimer,joint/soleerrors, terminalfreeze,noresetsplices.
+  PendingGPU3263991 andfull96CPU3263994 werecancelledforqueue/efficiency before
+  producingvideos. Rawtraces/meta/provenance/submissions/pipelinejson under
+  report/data/quiet01v2/videos/. Media detailsreport/quiet01v2-media.md.
+  No trainingorpolicychangesforthismediarequest.
+
+- **QUIET-01 v2 assessed,23November:** [interpretation](report/quiet01-v2-assessment.md).
+  Selected-checkpoint20s all-bankretention baseline->best53->62(V1),21->78(V2),
+  40->78(X), independently supportinglearning beyondacceptancefix. Bestreturn
+  smallbanks0.5/1.5deg16/16all,3deg11/16(V1),16/16(V2/X);5deg8/14/14;8deg4/7/11.
+  Bestreturnfailureclasses exclusive: V1falls14+task11,V2falls2+task9,Xfalls1+task6.
+  V2eight/Xeleven retentionmisses reach20swithoutfailure butmissfinalhold.
+  Lastprobe frontier8/16V1,13/16V2/X below15/16promotion. Actualnoiseafterprojection
+  differs permodel; do notclaimCADintrinsicsuperiority. Samefixedtestbankusedfor
+  checkpointselection; freshseeds/poses+videos recommendedbeforebiggerdifficulty.
+  No newtraining/simulation during assessment; numericassessmentmetrics archived.
+
+- **QUIET-01 v2 completed, checked23November.** Preflight3263184 and training3263185
+  allCOMPLETED/exit0; no jobsrunning. Each100,012,032additionalsteps (step_limit).
+  RuntimeV1=4h23,V2=5h58,X=5h02. Baseline/best/final testpasses outof96:
+  V1=59/71/68,V2=37/85/85,X=45/89/85. Beststep66.3552M/100.012032M/58.9824M.
+  Bestexactreference return16/16all; independent20srefretentionV1=16,V2=15,X=16.
+  Bestall96retention62/78/78. Finalcurriculumlevel2(V1),3(V2/X); hardestrequested8deg
+  bank passes4/16,7/16,11/16 atbest. No loggednonfinite reward/KL/vf/est/posturediag.
+  Rawmetrics+best/finalweights+receipts archivedreport/data/quiet01v2/results/.
+  Comparison+permodel PNG/PDF/SVG curvesready. [Results](report/quiet01-v2-results.md).
+  No newtraining/videoreplayjobs inthisstatuscheck. One-seedtests do notproveconvergence.
+  Historicalhold diagnostic3263170 also allcompleted. Restartedboundedfetcheronce
+  afterprior8htimeout; nowpipelinecomplete, alltraces/CSV/plotsaddedtodiagnosis.
+  V2replay11/16 vsold10/16 (parityfalse),V1/Xparitytrue; retainvariation.
+  Noise-offcontrolsnotuniformlybetter; historicalcontrolsarenotnewpolicyoutcomes.
+
+- **QUIET-01 v2 corrected/resubmitted, 22 November17:08CET.** User authorized fix
+  and rerun. Training success now latches first timely valid5s hold; all12s still
+  simulated, laterfall/taskviolationstillfails. No early-success termination or
+  second deadline-boundfinalhold. Separate20s retention requires initialtimelyhold
+  AND final5squiet, with no first-returndeadline applied tofinalwindow.
+  Same rewards/tolerances/resetbanks/noise/models. Physical/numerical preflight
+  replaces new-task75% parentmastery assertion; physical no-fallrate>=75% retained,
+  veryearlyreferenceend/nonfinite checks. Matchedseed1234 baseline/pilot+retention,
+  discarded24-updatepilot, GPUhorizon-latch integrationregression. 33localtests+
+  sixSCITASabstractreset/stepchecks pass. Preflight3263184, dependenttraining3263185,
+ 100M additional/model,12hallocation/10.5hcutoff. Frozenquiet01_20261122_v2;
+  runsquiet01v2_{model}_s2, ownSTAND04best+normalizer/newoptimizers. NoGPUresults
+  monitoredafter submission. Oldv1/diagnostic3263170 unchanged. See
+  [v2 report](report/quiet01-v2-pose-tracking.md) and its status/source receipt.
+
+- **QUIET-01 hold diagnosis, 22 November.** Archived settling_s proves V2 completed
+  15/16 valid5s holds, but final verdict10/16; X11/16 versus10/16. No reference
+  physical falls. Final quiet_ok combines currentstreak>=5 with streakstart<=6
+  at12s, effectively >=6s finalcontinuoushold; initialsuccesslatch insufficient.
+  Synthetic10ms break6.5s then5.5sperfecthold stillfails, reproduced fromcode.
+  V2failed terminalsole-relativeerrors20.29/23.19/23.53mm; X22.63–34.33mm for
+  five timeouttrials. These are torso-relativeerrors, not footclearance/slip.
+  No taskchanges/resubmission. Diagnostic-only array3263170 queued, four paired
+  reset/noise cases with frozenparents+seed1234/layout96. Hidden local helper
+  fetches every120s/max8h, appends traceanalysis automatically whenready; keepPCawake.
+  State report/data/quiet01/hold-diagnostics/pipeline.json. Reportquiet01-hold-diagnosis.md.
+
+- **QUIET-01 status checked 22 November, 16:18 CET: full training never started.**
+  GPU preflight3263103: V1 passed (7m35s, discarded49,152-step pilot); V2/X-shape
+  failed baseline reference gate10/16=62.5%, required>=75%. All29 native tests and
+  GPU reset/no-push checks passed; no physical falls among exact-reference trials.
+  Task violationsV2=1,X=5; other misses concern final pose/hold. Dependent array
+  **3263104 cancelled, zero main training steps**. V1 postpilot12/16 reference
+  at different noise seed, so no controlled progress conclusion. No resubmission
+  or task-code changes during status check. Report quiet01-pose-tracking.md and
+  docs/experiments/quiet01_20261122_v1/STATUS.md updated; raw logs archived.
+
+- **QUIET-01 submitted, 22 November, 13:33 CET.** User prioritizes quiet-pose tracking
+  before pushes or recovery stepping. New opt-in `quiet_v1/v2/xshape` presets:
+  each own STAND-04 best + normalizer, fresh optimizer/counters; feasible zero-velocity
+  posture resets around existing quiet references, no pushes/hold/reflex/physical DR,
+  sensor noise retained. Train/probe/test pose banks disjoint; 1,440 accepted poses.
+  Five-second continuous target hold beginning by 6 s, final valid hold at 12 s.
+  Motor RMS/max 1.5/3 degrees, gravity 1.5 degrees, sole-relative 20 mm, height 10 mm.
+  Small heel/toe rocking legal; no whole-foot lift >5 mm for >100 ms or drift >50 mm.
+  Gate reset difficulty on two passing independent probes, not on push strength.
+  Local 29 tests and all-model SCITAS abstract reset/step checks pass.
+  GPU preflight array **3263103**, dependent three-model training **3263104**,
+  100M additional transitions/model, 12 h allocation / 10.5 h save cutoff.
+  Do not claim GPU validation or training outcomes: none monitored after submission.
+  Stable log-ratio KL diagnostic fixed; quiet mode adds finite guards / epoch stopping.
+  [Report](report/quiet01-pose-tracking.md),
+  [status/source](docs/experiments/quiet01_20261122_v1/STATUS.md).
 
 - **Posture-return objective implemented/prepared, 11 November.** User confirmed
   regain the quiet posture at the recovered floor location, no original globalXY

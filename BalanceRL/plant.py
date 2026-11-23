@@ -152,12 +152,20 @@ class Plant:
         self.loop_site_mask[self.loop_sites] = True
         self.ncon = int(self.data0._impl.contact.dist.shape[0]) if hasattr(self.data0, "_impl") \
             else int(self.data0.contact.dist.shape[0])
-        if cfg.recovery_pose_return:
+        if cfg.recovery_pose_return or cfg.quiet_pose_tracking:
             reference = json.loads(Path(resolve(cfg.quiet_reference_path)).read_text())
             assert reference['model_sha256'] == hashlib.sha256(Path(resolve(cfg.model_path)).read_bytes()).hexdigest(), 'posture reference belongs to a different model'
             self.quiet_reference = reference['features']
             assert np.shape(self.quiet_reference['motor_q']) == (6,)
             assert np.shape(self.quiet_reference['soles_body']) == (2, 3)
+        if cfg.quiet_pose_tracking:
+            from quiet_reset import validate_bank
+            arrays, reference_qpos, self.quiet_bank_meta = validate_bank(
+                resolve(cfg.quiet_pose_bank),resolve(cfg.model_path),resolve(cfg.quiet_reference_path))
+            self.quiet_bank_counts = np.array([len(a[0]) for a in arrays.values()])
+            width = max(self.quiet_bank_counts)
+            self.quiet_bank = np.stack([a[:,np.arange(width)%a.shape[1]] for a in arrays.values()])
+            self.quiet_start_qpos = reference_qpos
 
     def actuator_names(self):
         return list(ACT_NAMES)
@@ -208,6 +216,8 @@ class Override(NamedTuple):
     push_dv: jnp.ndarray = jnp.nan   # every push of the episode is exactly this size (m/s)
     push_az: jnp.ndarray = jnp.nan   # ... and comes from this azimuth (rad, 0 = from behind: +x)
     push_el: jnp.ndarray = jnp.nan   # ... and this elevation (rad)
+    pose_level: jnp.ndarray = jnp.nan    # quiet tracking: -1 exact reference; 0..4 bank rungs
+    pose_index: jnp.ndarray = jnp.nan    # deterministic held-out evaluation member
 
 
 def _ov(ov_val, drawn):

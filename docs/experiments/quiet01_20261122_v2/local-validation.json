@@ -1,0 +1,9 @@
+{
+  "date": "2026-11-22",
+  "tests_passed": 33,
+  "test_suite": "python -m unittest discover -s BalanceRL/tests -v",
+  "compilation_passed": true,
+  "whitespace_check_passed": true,
+  "source_archive_sha256": "9fd599d9bccbf0470160b3c40951c0583533506abe0bff90e4c23989e47da5fe",
+  "note": "Local native/logic validation. GPU numerical preflight must pass separately."
+}

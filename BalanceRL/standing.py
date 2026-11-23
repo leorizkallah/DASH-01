@@ -31,11 +31,17 @@ def initial(env, data, params, override, key):
     if env.cfg.recovery_pose_return:
         from pose_reference import initial_phase
         result.update(initial_phase(jnp))
+    if env.cfg.quiet_pose_tracking:
+        result.update(pose_succeeded=jnp.asarray(False),settling_s=jnp.asarray(-1.))
     return result
 
 
 def finish(env, state, data, action, params, pf, started, target, tvel, kp, kd, cmd_buf,
            tau_last, tau_sq, key, k_frame, k_reset):
+    if env.cfg.quiet_pose_tracking:
+        import quiet_tracking
+        return quiet_tracking.finish(env,state,data,action,params,pf,started,target,tvel,kp,kd,
+                                     cmd_buf,tau_last,tau_sq,key,k_frame,k_reset)
     if env.cfg.recovery_steps:
         import recovery
         return recovery.finish(env, state, data, action, params, pf, started, target, tvel,

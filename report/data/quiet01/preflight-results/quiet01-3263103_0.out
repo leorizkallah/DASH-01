@@ -1,0 +1,61 @@
+Frozen source, models, references, reset banks and parents verified
+[gpu-probe] importing JAX
+[gpu-probe] initializing CUDA backend
+E1122 13:58:59.400120  605056 numa_hwloc.cc:121] Call to hwloc_set_cpubind() failed: Invalid argument [22]
+[gpu-probe] devices: [CudaDevice(id=0)]
+{
+  "passed": true,
+  "jax_version": "0.11.1",
+  "devices": [
+    {
+      "platform": "gpu",
+      "kind": "Tesla V100-PCIE-32GB",
+      "id": 0
+    }
+  ],
+  "elapsed_s": 23.409868881106377,
+  "job_id": "3263122",
+  "node": "i16"
+}
+test_each_saved_reference_is_an_actual_model_pose (test_pose_return.PoseFeatureTests.test_each_saved_reference_is_an_actual_model_pose) ... ok
+test_floor_translation_and_heading_do_not_change_target (test_pose_return.PoseFeatureTests.test_floor_translation_and_heading_do_not_change_target) ... ok
+test_wrong_joint_or_foot_posture_cannot_pass_by_standing_still (test_pose_return.PoseFeatureTests.test_wrong_joint_or_foot_posture_cannot_pass_by_standing_still) ... ok
+test_pose_match_without_regaining_support_cannot_complete (test_pose_return.PosePhaseTests.test_pose_match_without_regaining_support_cannot_complete) ... ok
+test_recovering_in_an_unfamiliar_stance_is_not_success (test_pose_return.PosePhaseTests.test_recovering_in_an_unfamiliar_stance_is_not_success) ... ok
+test_steps_are_still_legal_while_returning_then_final_hold_commits (test_pose_return.PosePhaseTests.test_steps_are_still_legal_while_returning_then_final_hold_commits) ... ok
+test_unreturned_pose_has_fixed_deadline (test_pose_return.PosePhaseTests.test_unreturned_pose_has_fixed_deadline) ... ok
+test_five_seconds_and_real_loading_required (test_quiet_tracking.QuietHoldTests.test_five_seconds_and_real_loading_required) ... ok
+test_late_return_cannot_extend_fixed_deadline (test_quiet_tracking.QuietHoldTests.test_late_return_cannot_extend_fixed_deadline) ... ok
+test_motion_or_wrong_posture_resets_hold (test_quiet_tracking.QuietHoldTests.test_motion_or_wrong_posture_resets_hold) ... ok
+test_promotion_needs_frontier_and_reference_retention_twice (test_quiet_tracking.QuietHoldTests.test_promotion_needs_frontier_and_reference_retention_twice) ... ok
+test_banks_have_valid_linkages_floor_and_limits (test_quiet_tracking.QuietResetTests.test_banks_have_valid_linkages_floor_and_limits) ... ok
+test_quiet_goal_is_not_the_model_keyframe_or_floor_location (test_quiet_tracking.QuietResetTests.test_quiet_goal_is_not_the_model_keyframe_or_floor_location) ... ok
+test_actual_pulse_duration_controls_quiet_start (test_recovery.RecoveryTests.test_actual_pulse_duration_controls_quiet_start) ... ok
+test_chatter_and_subthreshold_travel_are_not_free (test_recovery.RecoveryTests.test_chatter_and_subthreshold_travel_are_not_free) ... ok
+test_crossing_or_walking_away_is_invalid (test_recovery.RecoveryTests.test_crossing_or_walking_away_is_invalid) ... ok
+test_one_pad_rocking_does_not_make_a_whole_foot_step (test_recovery.RecoveryTests.test_one_pad_rocking_does_not_make_a_whole_foot_step) ... ok
+test_promotion_needs_two_passes_and_all_directions (test_recovery.RecoveryTests.test_promotion_needs_two_passes_and_all_directions) ... ok
+test_relocated_footprint_commits_once_after_real_settling (test_recovery.RecoveryTests.test_relocated_footprint_commits_once_after_real_settling) ... ok
+test_same_quiet_state_cannot_succeed_twice (test_recovery.RecoveryTests.test_same_quiet_state_cannot_succeed_twice) ... ok
+test_shuffling_cannot_extend_deadline (test_recovery.RecoveryTests.test_shuffling_cannot_extend_deadline) ... ok
+test_small_in_place_steps_are_counted_and_repetition_costs_more (test_recovery.RecoveryTests.test_small_in_place_steps_are_counted_and_repetition_costs_more) ... ok
+test_variety_changes_separately_and_quiet_regression_retreats (test_recovery.RecoveryTests.test_variety_changes_separately_and_quiet_regression_retreats) ... ok
+test_exact_physical_regions_and_force_without_double_count (test_standing.StandingContactTests.test_exact_physical_regions_and_force_without_double_count) ... ok
+test_friction_and_free_base_match (test_standing.StandingContactTests.test_friction_and_free_base_match) ... ok
+test_hover_does_not_count_as_support (test_standing.StandingContactTests.test_hover_does_not_count_as_support) ... ok
+test_slip_uses_contact_velocity_not_body_origin_velocity (test_standing.StandingContactTests.test_slip_uses_contact_velocity_not_body_origin_velocity) ... ok
+test_sole_markers_are_at_floor_not_body_origin (test_standing.StandingContactTests.test_sole_markers_are_at_floor_not_body_origin) ... ok
+test_support_hull_and_degenerate_cases (test_standing.StandingContactTests.test_support_hull_and_degenerate_cases) ... ok
+
+----------------------------------------------------------------------
+Ran 29 tests in 2.435s
+
+OK
+Failed to import warp: No module named 'warp'
+Failed to import mujoco_warp: No module named 'warp'
+E1122 13:59:18.269746  606567 numa_hwloc.cc:121] Call to hwloc_set_cpubind() failed: Invalid argument [22]
+v1 reset and no-push checks passed; parent evaluation
+v1 pilot 8 /24
+v1 pilot 16 /24
+v1 pilot 24 /24
+v1 PREFLIGHT PASSED

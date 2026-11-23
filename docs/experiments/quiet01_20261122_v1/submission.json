@@ -1,0 +1,17 @@
+{
+  "experiment": "quiet01_20261122_v1",
+  "submitted_utc": "2026-11-22T12:33:55.961925+00:00",
+  "preflight_array": "3263103",
+  "training_array": "3263104",
+  "models": {
+    "0": "v1",
+    "1": "v2",
+    "2": "xshape"
+  },
+  "additional_steps_per_model": 100000000,
+  "dependency": "afterok:3263103",
+  "preflight_required": true,
+  "training_outcomes_checked": false,
+  "root": "/home/rizkalla/running_robot/experiments/quiet01_20261122_v1",
+  "source_archive_sha256": "e0a6be8a9a2fd1a44a62581ee535822918e43dec666cbfb657f16748635ea1d3"
+}

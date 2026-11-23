@@ -1,0 +1,119 @@
+{
+  "v1": {
+    "best_step": 66355200,
+    "baseline_return": 59,
+    "best_return": 71,
+    "baseline_retention": 53,
+    "best_retention": 62,
+    "return_counts": {
+      "reference": 16,
+      "0": 16,
+      "1": 16,
+      "2": 11,
+      "3": 8,
+      "4": 4
+    },
+    "retention_counts": {
+      "reference": 16,
+      "0": 12,
+      "1": 15,
+      "2": 10,
+      "3": 6,
+      "4": 3
+    },
+    "return_failure_classes": {
+      "physical_falls": 14,
+      "nonfall_task_violations": 11,
+      "other": 0
+    },
+    "full_duration_retention_failures": 9,
+    "successful_perturbed_streak_start_median_s": 0.33000755310058594,
+    "successful_perturbed_streak_start_max_s": 2.070047378540039,
+    "late_test_passes_after_75M": [
+      70,
+      58,
+      65,
+      68
+    ],
+    "successful_terminal_joint_rms_median_deg": 0.45276459562197696,
+    "successful_terminal_sole_error_median_mm": 11.93593256175518
+  },
+  "v2": {
+    "best_step": 100012032,
+    "baseline_return": 37,
+    "best_return": 85,
+    "baseline_retention": 21,
+    "best_retention": 78,
+    "return_counts": {
+      "reference": 16,
+      "0": 16,
+      "1": 16,
+      "2": 16,
+      "3": 14,
+      "4": 7
+    },
+    "retention_counts": {
+      "reference": 15,
+      "0": 16,
+      "1": 14,
+      "2": 13,
+      "3": 13,
+      "4": 7
+    },
+    "return_failure_classes": {
+      "physical_falls": 2,
+      "nonfall_task_violations": 9,
+      "other": 0
+    },
+    "full_duration_retention_failures": 8,
+    "successful_perturbed_streak_start_median_s": 0.3000068664550781,
+    "successful_perturbed_streak_start_max_s": 3.830087184906006,
+    "late_test_passes_after_75M": [
+      76,
+      78,
+      83,
+      85
+    ],
+    "successful_terminal_joint_rms_median_deg": 0.41034391819304095,
+    "successful_terminal_sole_error_median_mm": 8.070331998169422
+  },
+  "xshape": {
+    "best_step": 58982400,
+    "baseline_return": 45,
+    "best_return": 89,
+    "baseline_retention": 40,
+    "best_retention": 78,
+    "return_counts": {
+      "reference": 16,
+      "0": 16,
+      "1": 16,
+      "2": 16,
+      "3": 14,
+      "4": 11
+    },
+    "retention_counts": {
+      "reference": 16,
+      "0": 16,
+      "1": 15,
+      "2": 12,
+      "3": 10,
+      "4": 9
+    },
+    "return_failure_classes": {
+      "physical_falls": 1,
+      "nonfall_task_violations": 6,
+      "other": 0
+    },
+    "full_duration_retention_failures": 11,
+    "successful_perturbed_streak_start_median_s": 0.3000068664550781,
+    "successful_perturbed_streak_start_max_s": 4.880111217498779,
+    "late_test_passes_after_75M": [
+      79,
+      87,
+      83,
+      85
+    ],
+    "successful_terminal_joint_rms_median_deg": 0.5782820748648021,
+    "successful_terminal_sole_error_median_mm": 10.989529080688953
+  }
+}

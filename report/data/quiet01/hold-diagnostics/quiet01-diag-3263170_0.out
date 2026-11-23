@@ -1,0 +1,9 @@
+Failed to import warp: No module named 'warp'
+Failed to import mujoco_warp: No module named 'warp'
+E1122 18:42:30.974833   30939 numa_hwloc.cc:121] Call to hwloc_set_cpubind() failed: Invalid argument [22]
+W1122 18:43:17.399588   30947 cuda_timer.cc:88] Delay kernel timed out: measured time has sub-optimal accuracy. There may be a missing warmup execution, please investigate in Nsight Systems.
+v1 reference_noise 16 /16
+v1 reference_clean 0 /16
+v1 keyframe_noise 9 /16
+v1 keyframe_clean 0 /16
+v1 DIAGNOSTICS COMPLETE

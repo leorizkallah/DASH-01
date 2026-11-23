@@ -59,6 +59,17 @@ class Config:
     return_foot_scale_m: float = .040
     return_height_scale_m: float = .030
     return_pose_weight: float = 1.0
+    # Isolated quiet-pose tracking: no pushes, zero initial velocity, feasible reset bank.
+    quiet_pose_tracking: bool = False
+    quiet_pose_bank: str = ''
+    quiet_pose_hold_s: float = 5.
+    quiet_pose_max_start_s: float = 6.
+    quiet_pose_level_start: int = 0
+    quiet_pose_probe_every: int = 200
+    quiet_pose_weight: float = 3.
+    quiet_pose_max_foot_drift_m: float = .05
+    quiet_pose_retention_eval: bool = False  # separate longer diagnostic; never used for PPO
+    quiet_pose_retention_s: float = 20.
 
     # ----- the operator hold (how this robot is really started) -----------------------------------
     # The base is supported for the first hold_s of the episode, then let go -- the bring-up the
@@ -313,6 +324,13 @@ for _name in ('v1', 'v2', 'xshape'):
         lr_max=1e-4, total_steps=200_000_000)
     PRESETS['return_'+_name] = dict(PRESETS['recover_'+_name], recovery_pose_return=True,
                                   quiet_reference_path=f'model/quiet_{_name}.json')
+    PRESETS['quiet_'+_name] = dict(PRESETS['stand_'+_name], quiet_pose_tracking=True,
+        quiet_reference_path=f'model/quiet_{_name}.json',
+        quiet_pose_bank=f'model/quiet_resets_{_name}.npz', episode_s=12.,
+        plant_scale_start=1., learning_rate=3e-5, lr_max=1e-4,
+        eval_every=400, total_steps=100_000_000,
+        return_joint_rms_rad=.02617993878, return_joint_max_rad=.05235987756,
+        return_tilt_rad=.02617993878, return_foot_error_m=.020, return_height_error_m=.010)
 
 
 def get_config(name="balance", **over) -> Config:

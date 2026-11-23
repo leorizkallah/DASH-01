@@ -82,8 +82,16 @@ def main():
           f"obs {tr.env.obs_dim}, action {tr.env.action_dim}, budget {cfg.total_steps:,}")
     prog = open(run / "progress.jsonl", "a")
     t_start = time.time()
+    def evaluate_task():
+        ev=tr.evaluate()
+        if cfg.quiet_pose_tracking:
+            import quiet_tracking_eval
+            retained=quiet_tracking_eval.evaluate(tr,seed=1234,retention=True)
+            ev['retention_score']=retained['score']
+            ev['retention_reference_rate']=retained['quiet_rate']
+        return ev
     def consider_best(ev):
-        if not cfg.recovery_steps:
+        if not (cfg.recovery_steps or cfg.quiet_pose_tracking):
             if ev['score'] > tr.cur['best_score']:
                 tr.cur['best_score'] = ev['score']
                 tr.save('best', extra=dict(eval=ev))
@@ -96,8 +104,8 @@ def main():
             tr.cur['best_qualified'] = qualified
             tr.save('best', extra=dict(eval=ev))
 
-    if cfg.recovery_steps and a.initialize_from is not None:
-        baseline = tr.evaluate()
+    if (cfg.recovery_steps or cfg.quiet_pose_tracking) and a.initialize_from is not None:
+        baseline = evaluate_task()
         (run/'baseline_eval.json').write_text(json.dumps(baseline, indent=2))
         tr.save('baseline', extra=dict(eval=baseline))
         consider_best(baseline)
@@ -106,6 +114,15 @@ def main():
         n = tr.rollout_n
         if moved:
             print(f"[curriculum] @ {tr.step:,}: {moved.strip()}")
+        if cfg.quiet_pose_tracking and n % cfg.quiet_pose_probe_every == 0:
+            import quiet_tracking_eval
+            from quiet_tracking_math import promote
+            number=int(tr.cur.get('pose_probe_number',0))
+            probe=quiet_tracking_eval.evaluate(tr,seed=920000+number,probe=True)
+            tr.cur['pose_probe_number']=number+1
+            changed=promote(tr.cur,probe)
+            log.update({'probe/pose_rates':probe['rates'],'curriculum/pose_level':tr.cur['pose_level']})
+            print(f"[pose probe] {tr.step:,}: {probe['rates']}; {changed}",flush=True)
         if cfg.recovery_steps and n % cfg.recovery_probe_every == 0:
             import recovery_eval
             number = int(tr.cur.get('probe_number', 0))
@@ -119,9 +136,12 @@ def main():
             print(f"[probe] {tr.step:,}: hard {probe['hard_rate']:.3f}, quiet {probe['quiet_rate']:.3f}, "
                   f"worst sector {min(probe['sector_rates']):.3f}; {changed}", flush=True)
         if n % cfg.eval_every == 0 and tr.eval_env is not None:
-            ev = tr.evaluate()
+            ev = evaluate_task()
             log["eval/score"] = ev["score"]
             log["eval/quiet_falls"] = ev["quiet_falls"]
+            if cfg.quiet_pose_tracking:
+                log['eval/retention_score']=ev['retention_score']
+                log['eval/retention_reference_rate']=ev['retention_reference_rate']
             for k, v in ev["survival"].items():
                 log[f"eval/surv_{k}"] = v
             consider_best(ev)
@@ -143,7 +163,7 @@ def main():
             print('[train] wall-time save reserve reached', flush=True)
             break
     if cfg.standing_compare and tr.eval_env is not None:
-        ev = tr.evaluate()
+        ev = evaluate_task()
         (run/'final_eval.json').write_text(json.dumps(ev, indent=2))
         consider_best(ev)
     tr.save("final")

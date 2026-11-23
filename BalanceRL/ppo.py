@@ -133,11 +133,15 @@ class Trainer:
         self.cur = dict(plant_scale=float(cfg.plant_scale_start), push_level=float(cfg.push_level_start),
                         n_hard=0, ok_hard=0, n_ep=0, quiet=0, best_score=-1.0,
                         push_ema=float("nan"), n_promote=0)
+        if cfg.quiet_pose_tracking:
+            self.cur.update(pose_level=cfg.quiet_pose_level_start,pose_gate_streak=0,push_level=0.)
         self.env_state = self.obs = None
         self._build()
 
     # ---------------------------------------------------------------- curriculum
     def env_params(self):
+        if self.cfg.quiet_pose_tracking:
+            return EnvParams(plant_scale=1.,push_level=0.,push_on=0.,pose_level=float(self.cur['pose_level']))
         return EnvParams(plant_scale=float(self.cur["plant_scale"]), push_level=float(self.cur["push_level"]),
                          push_on=(1. if self.cfg.recovery_steps else
                                   float(self.cur.get('standing_unlocked', False)) if self.cfg.standing_compare else 1.0),
@@ -147,6 +151,8 @@ class Trainer:
         """Two gated ladders, in order: widen the plant (CoM shift + DR) while the robot keeps from
         falling on its own, then grow the pushes while it survives them."""
         c, cur = self.cfg, self.cur
+        if c.quiet_pose_tracking:
+            return None  # held-out posture probes own promotion, no pushes or DR ramp
         if c.standing_compare:
             if c.recovery_steps:
                 return None  # independent greedy direction-balanced probes own promotion
@@ -261,6 +267,10 @@ class Trainer:
                              pose_foot_error=info['pose_foot_error'].mean(),
                              pose_tilt_error=info['pose_tilt_error'].mean(),
                              pose_height_error=info['pose_height_error'].mean())
+                if cfg.quiet_pose_tracking:
+                    m.update(pose_ok=info['pose_ok'].mean(),pose_timeouts=info['pose_timeout'].sum(),
+                        pose_joint_rms=info['pose_joint_rms'].mean(),pose_foot_error=info['pose_foot_error'].mean(),
+                        pose_tilt_error=info['pose_tilt_error'].mean(),pose_height_error=info['pose_height_error'].mean())
                 return (env_state, obs2, key), (tr, m, obs)
             (env_state, obs, key), (tr, m, raw) = jax.lax.scan(one, (env_state, obs, key), None,
                                                                length=self.n_steps)
@@ -287,7 +297,8 @@ class Trainer:
             else:
                 sym = jnp.zeros(())
             total = pg + cfg.vf_coef * vf - cfg.ent_coef * ent + cfg.w_bound * bound + cfg.w_sym * sym
-            kl = jnp.mean((ratio - 1.0) - jnp.log(ratio))
+            # Use the original log-ratio: exp(log_ratio) may underflow to zero.
+            kl = jnp.mean(jnp.expm1(lp-old_lp) - (lp-old_lp))
             clipfrac = jnp.mean((jnp.abs(ratio - 1.0) > cfg.clip_range).astype(jnp.float32))
             return total, dict(pg=pg, vf=vf, ent=ent, bound=bound, sym=sym, kl=kl, clipfrac=clipfrac)
 
@@ -335,6 +346,8 @@ class Trainer:
         self._est_p = jax.pmap(est_epoch, axis_name="dev", in_axes=(0, 0, 0, 0), devices=devs)
         self._reset_p = jax.pmap(lambda k, prm: env.reset(k, prm), in_axes=(0, None), devices=devs)
         self._greedy = jax.jit(lambda params, nobs: net.apply(params, nobs, method=net.actor_mean))
+        self._finite = jax.jit(lambda tree: jnp.stack([
+            jnp.isfinite(x).all() for x in jax.tree_util.tree_leaves(tree)]).all())
 
     def _rep(self, tree):
         return jax.device_put_replicated(tree, self.devices) if hasattr(jax, "device_put_replicated") \
@@ -361,6 +374,8 @@ class Trainer:
         (self.env_state, self.obs, tr, adv, ret, m, (b_mean, b_var)) = self._rollout_p(
             p_rep, self.stats, self.env_state, self.obs, jax.random.split(k, self.n_dev), self.env_params())
         jax.block_until_ready(ret)
+        if cfg.quiet_pose_tracking and not bool(self._finite((tr,adv,ret))):
+            raise FloatingPointError('Non-finite quiet-pose rollout; refusing PPO update')
         t_roll = time.time() - t0
         t1 = time.time()
         flat = lambda x: x.reshape((self.n_dev, self.batch_dev) + x.shape[3:])
@@ -376,6 +391,8 @@ class Trainer:
             p_rep, opt_rep, aux = self._update_p(p_rep, opt_rep, self.stats, data, perm, self.lr * warm)
             self.n_upd += self.n_mb
             aux = {kk: float(np.asarray(v)[0]) for kk, v in aux.items()}
+            if cfg.quiet_pose_tracking and not all(np.isfinite(v) for v in aux.values()):
+                raise FloatingPointError('Non-finite PPO loss/diagnostics; update not saved')
             auxs.append(aux)
             # adaptive step size, per epoch
             if cfg.target_kl > 0 and warm >= 1.0:
@@ -383,6 +400,8 @@ class Trainer:
                     self.lr = max(cfg.lr_min, self.lr / 1.5)
                 elif aux["kl"] < 0.5 * cfg.target_kl:
                     self.lr = min(cfg.lr_max, self.lr * 1.5)
+            if cfg.quiet_pose_tracking and cfg.target_kl>0 and aux['kl']>2.*cfg.target_kl:
+                break  # stop further epochs on this rollout
         est_rep = self._rep(self.est_opt_state)
         est_loss = float("nan")
         for _ in range(cfg.est_epochs):
@@ -391,6 +410,8 @@ class Trainer:
             p_rep, est_rep, el = self._est_p(p_rep, est_rep, data[0], perm)
             est_loss = float(np.asarray(el)[0])
         un = lambda t: jax.tree_util.tree_map(lambda x: x[0], t)
+        if cfg.quiet_pose_tracking and not bool(self._finite((p_rep,opt_rep,est_rep))):
+            raise FloatingPointError('Non-finite policy/optimizer; refusing checkpoint')
         self.params, self.opt_state, self.est_opt_state = un(p_rep), un(opt_rep), un(est_rep)
         jax.block_until_ready(self.params)
         t_upd = time.time() - t1
@@ -441,6 +462,11 @@ class Trainer:
             log['rollout/balance_recoveries'] = int(tot('balance_events'))
             for metric in ('pose_ok','returning','pose_joint_rms','pose_foot_error','pose_tilt_error','pose_height_error'):
                 log['diag/'+metric] = float(M[metric].mean())
+        if cfg.quiet_pose_tracking:
+            log['rollout/pose_timeouts']=int(tot('pose_timeouts'))
+            log['curriculum/pose_level']=self.cur['pose_level']
+            for metric in ('pose_ok','pose_joint_rms','pose_foot_error','pose_tilt_error','pose_height_error'):
+                log['diag/'+metric]=float(M[metric].mean())
         for kk in auxs[0]:
             log[f"train/{kk}"] = float(np.mean([a[kk] for a in auxs]))
         for kk, v in M["terms"].items():
@@ -463,6 +489,9 @@ class Trainer:
         """Greedy push ladder: every env gets pushes of ONE fixed size from random directions, on the
         full-width plant (CoM +-3 cm included) with the sensor noise on. Returns survival per rung
         (a push counts once its verdict is in) and the quiet-fall share."""
+        if self.cfg.quiet_pose_tracking:
+            import quiet_tracking_eval
+            return quiet_tracking_eval.evaluate(self,params=params,stats=stats,seed=seed)
         if self.cfg.recovery_steps:
             import recovery_eval
             return recovery_eval.evaluate(self, params=params, stats=stats, seed=seed)

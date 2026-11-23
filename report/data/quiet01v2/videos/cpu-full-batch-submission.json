@@ -1,0 +1,15 @@
+{
+  "job": "3263994",
+  "backend": "cpu",
+  "submitted_utc": "2026-11-23T12:44:27.611723+00:00",
+  "purpose": "CPU MJX replay of unchanged best weights; no training",
+  "replaced_pending_gpu_job": 3263991,
+  "selected_trials": [
+    0,
+    48,
+    64,
+    80
+  ],
+  "seed": 1234,
+  "batch_size": 96
+}

@@ -1,0 +1,482 @@
+{
+  "model": "xshape",
+  "checkpoint_step": 58982400,
+  "checkpoint_sha256": "3bcacd67c04175bb0a4dd6024180f3c34a774c5c256016af775f855bcf301e61",
+  "model_path": "model/stand_xshape.xml",
+  "model_sha256": "eeb12762c8fedc2878040daf98bb650d5745cc67c9ef1be690d89200132e9934",
+  "mass_kg": 14.537322008016325,
+  "dt": 0.01,
+  "push_onset_s": 6.0,
+  "pulse_s": 0.1,
+  "duration_s": 20.0,
+  "cases": [
+    {
+      "index": 0,
+      "force_n": 0.0,
+      "direction": "control",
+      "azimuth_rad": 0.0,
+      "repeat": 0
+    },
+    {
+      "index": 1,
+      "force_n": 0.0,
+      "direction": "control",
+      "azimuth_rad": 0.0,
+      "repeat": 1
+    },
+    {
+      "index": 2,
+      "force_n": 2.0,
+      "direction": "forward",
+      "azimuth_rad": 0.0,
+      "repeat": 0
+    },
+    {
+      "index": 3,
+      "force_n": 2.0,
+      "direction": "forward",
+      "azimuth_rad": 0.0,
+      "repeat": 1
+    },
+    {
+      "index": 4,
+      "force_n": 2.0,
+      "direction": "backward",
+      "azimuth_rad": 3.141592653589793,
+      "repeat": 0
+    },
+    {
+      "index": 5,
+      "force_n": 2.0,
+      "direction": "backward",
+      "azimuth_rad": 3.141592653589793,
+      "repeat": 1
+    },
+    {
+      "index": 6,
+      "force_n": 2.0,
+      "direction": "left",
+      "azimuth_rad": 1.5707963267948966,
+      "repeat": 0
+    },
+    {
+      "index": 7,
+      "force_n": 2.0,
+      "direction": "left",
+      "azimuth_rad": 1.5707963267948966,
+      "repeat": 1
+    },
+    {
+      "index": 8,
+      "force_n": 2.0,
+      "direction": "right",
+      "azimuth_rad": -1.5707963267948966,
+      "repeat": 0
+    },
+    {
+      "index": 9,
+      "force_n": 2.0,
+      "direction": "right",
+      "azimuth_rad": -1.5707963267948966,
+      "repeat": 1
+    },
+    {
+      "index": 10,
+      "force_n": 5.0,
+      "direction": "forward",
+      "azimuth_rad": 0.0,
+      "repeat": 0
+    },
+    {
+      "index": 11,
+      "force_n": 5.0,
+      "direction": "forward",
+      "azimuth_rad": 0.0,
+      "repeat": 1
+    },
+    {
+      "index": 12,
+      "force_n": 5.0,
+      "direction": "backward",
+      "azimuth_rad": 3.141592653589793,
+      "repeat": 0
+    },
+    {
+      "index": 13,
+      "force_n": 5.0,
+      "direction": "backward",
+      "azimuth_rad": 3.141592653589793,
+      "repeat": 1
+    },
+    {
+      "index": 14,
+      "force_n": 5.0,
+      "direction": "left",
+      "azimuth_rad": 1.5707963267948966,
+      "repeat": 0
+    },
+    {
+      "index": 15,
+      "force_n": 5.0,
+      "direction": "left",
+      "azimuth_rad": 1.5707963267948966,
+      "repeat": 1
+    },
+    {
+      "index": 16,
+      "force_n": 5.0,
+      "direction": "right",
+      "azimuth_rad": -1.5707963267948966,
+      "repeat": 0
+    },
+    {
+      "index": 17,
+      "force_n": 5.0,
+      "direction": "right",
+      "azimuth_rad": -1.5707963267948966,
+      "repeat": 1
+    },
+    {
+      "index": 18,
+      "force_n": 10.0,
+      "direction": "forward",
+      "azimuth_rad": 0.0,
+      "repeat": 0
+    },
+    {
+      "index": 19,
+      "force_n": 10.0,
+      "direction": "forward",
+      "azimuth_rad": 0.0,
+      "repeat": 1
+    },
+    {
+      "index": 20,
+      "force_n": 10.0,
+      "direction": "backward",
+      "azimuth_rad": 3.141592653589793,
+      "repeat": 0
+    },
+    {
+      "index": 21,
+      "force_n": 10.0,
+      "direction": "backward",
+      "azimuth_rad": 3.141592653589793,
+      "repeat": 1
+    },
+    {
+      "index": 22,
+      "force_n": 10.0,
+      "direction": "left",
+      "azimuth_rad": 1.5707963267948966,
+      "repeat": 0
+    },
+    {
+      "index": 23,
+      "force_n": 10.0,
+      "direction": "left",
+      "azimuth_rad": 1.5707963267948966,
+      "repeat": 1
+    },
+    {
+      "index": 24,
+      "force_n": 10.0,
+      "direction": "right",
+      "azimuth_rad": -1.5707963267948966,
+      "repeat": 0
+    },
+    {
+      "index": 25,
+      "force_n": 10.0,
+      "direction": "right",
+      "azimuth_rad": -1.5707963267948966,
+      "repeat": 1
+    },
+    {
+      "index": 26,
+      "force_n": 15.0,
+      "direction": "forward",
+      "azimuth_rad": 0.0,
+      "repeat": 0
+    },
+    {
+      "index": 27,
+      "force_n": 15.0,
+      "direction": "forward",
+      "azimuth_rad": 0.0,
+      "repeat": 1
+    },
+    {
+      "index": 28,
+      "force_n": 15.0,
+      "direction": "backward",
+      "azimuth_rad": 3.141592653589793,
+      "repeat": 0
+    },
+    {
+      "index": 29,
+      "force_n": 15.0,
+      "direction": "backward",
+      "azimuth_rad": 3.141592653589793,
+      "repeat": 1
+    },
+    {
+      "index": 30,
+      "force_n": 15.0,
+      "direction": "left",
+      "azimuth_rad": 1.5707963267948966,
+      "repeat": 0
+    },
+    {
+      "index": 31,
+      "force_n": 15.0,
+      "direction": "left",
+      "azimuth_rad": 1.5707963267948966,
+      "repeat": 1
+    },
+    {
+      "index": 32,
+      "force_n": 15.0,
+      "direction": "right",
+      "azimuth_rad": -1.5707963267948966,
+      "repeat": 0
+    },
+    {
+      "index": 33,
+      "force_n": 15.0,
+      "direction": "right",
+      "azimuth_rad": -1.5707963267948966,
+      "repeat": 1
+    },
+    {
+      "index": 34,
+      "force_n": 20.0,
+      "direction": "forward",
+      "azimuth_rad": 0.0,
+      "repeat": 0
+    },
+    {
+      "index": 35,
+      "force_n": 20.0,
+      "direction": "forward",
+      "azimuth_rad": 0.0,
+      "repeat": 1
+    },
+    {
+      "index": 36,
+      "force_n": 20.0,
+      "direction": "backward",
+      "azimuth_rad": 3.141592653589793,
+      "repeat": 0
+    },
+    {
+      "index": 37,
+      "force_n": 20.0,
+      "direction": "backward",
+      "azimuth_rad": 3.141592653589793,
+      "repeat": 1
+    },
+    {
+      "index": 38,
+      "force_n": 20.0,
+      "direction": "left",
+      "azimuth_rad": 1.5707963267948966,
+      "repeat": 0
+    },
+    {
+      "index": 39,
+      "force_n": 20.0,
+      "direction": "left",
+      "azimuth_rad": 1.5707963267948966,
+      "repeat": 1
+    },
+    {
+      "index": 40,
+      "force_n": 20.0,
+      "direction": "right",
+      "azimuth_rad": -1.5707963267948966,
+      "repeat": 0
+    },
+    {
+      "index": 41,
+      "force_n": 20.0,
+      "direction": "right",
+      "azimuth_rad": -1.5707963267948966,
+      "repeat": 1
+    },
+    {
+      "index": 42,
+      "force_n": 30.0,
+      "direction": "forward",
+      "azimuth_rad": 0.0,
+      "repeat": 0
+    },
+    {
+      "index": 43,
+      "force_n": 30.0,
+      "direction": "forward",
+      "azimuth_rad": 0.0,
+      "repeat": 1
+    },
+    {
+      "index": 44,
+      "force_n": 30.0,
+      "direction": "backward",
+      "azimuth_rad": 3.141592653589793,
+      "repeat": 0
+    },
+    {
+      "index": 45,
+      "force_n": 30.0,
+      "direction": "backward",
+      "azimuth_rad": 3.141592653589793,
+      "repeat": 1
+    },
+    {
+      "index": 46,
+      "force_n": 30.0,
+      "direction": "left",
+      "azimuth_rad": 1.5707963267948966,
+      "repeat": 0
+    },
+    {
+      "index": 47,
+      "force_n": 30.0,
+      "direction": "left",
+      "azimuth_rad": 1.5707963267948966,
+      "repeat": 1
+    },
+    {
+      "index": 48,
+      "force_n": 30.0,
+      "direction": "right",
+      "azimuth_rad": -1.5707963267948966,
+      "repeat": 0
+    },
+    {
+      "index": 49,
+      "force_n": 30.0,
+      "direction": "right",
+      "azimuth_rad": -1.5707963267948966,
+      "repeat": 1
+    },
+    {
+      "index": 50,
+      "force_n": 40.0,
+      "direction": "forward",
+      "azimuth_rad": 0.0,
+      "repeat": 0
+    },
+    {
+      "index": 51,
+      "force_n": 40.0,
+      "direction": "forward",
+      "azimuth_rad": 0.0,
+      "repeat": 1
+    },
+    {
+      "index": 52,
+      "force_n": 40.0,
+      "direction": "backward",
+      "azimuth_rad": 3.141592653589793,
+      "repeat": 0
+    },
+    {
+      "index": 53,
+      "force_n": 40.0,
+      "direction": "backward",
+      "azimuth_rad": 3.141592653589793,
+      "repeat": 1
+    },
+    {
+      "index": 54,
+      "force_n": 40.0,
+      "direction": "left",
+      "azimuth_rad": 1.5707963267948966,
+      "repeat": 0
+    },
+    {
+      "index": 55,
+      "force_n": 40.0,
+      "direction": "left",
+      "azimuth_rad": 1.5707963267948966,
+      "repeat": 1
+    },
+    {
+      "index": 56,
+      "force_n": 40.0,
+      "direction": "right",
+      "azimuth_rad": -1.5707963267948966,
+      "repeat": 0
+    },
+    {
+      "index": 57,
+      "force_n": 40.0,
+      "direction": "right",
+      "azimuth_rad": -1.5707963267948966,
+      "repeat": 1
+    },
+    {
+      "index": 58,
+      "force_n": 60.0,
+      "direction": "forward",
+      "azimuth_rad": 0.0,
+      "repeat": 0
+    },
+    {
+      "index": 59,
+      "force_n": 60.0,
+      "direction": "forward",
+      "azimuth_rad": 0.0,
+      "repeat": 1
+    },
+    {
+      "index": 60,
+      "force_n": 60.0,
+      "direction": "backward",
+      "azimuth_rad": 3.141592653589793,
+      "repeat": 0
+    },
+    {
+      "index": 61,
+      "force_n": 60.0,
+      "direction": "backward",
+      "azimuth_rad": 3.141592653589793,
+      "repeat": 1
+    },
+    {
+      "index": 62,
+      "force_n": 60.0,
+      "direction": "left",
+      "azimuth_rad": 1.5707963267948966,
+      "repeat": 0
+    },
+    {
+      "index": 63,
+      "force_n": 60.0,
+      "direction": "left",
+      "azimuth_rad": 1.5707963267948966,
+      "repeat": 1
+    },
+    {
+      "index": 64,
+      "force_n": 60.0,
+      "direction": "right",
+      "azimuth_rad": -1.5707963267948966,
+      "repeat": 0
+    },
+    {
+      "index": 65,
+      "force_n": 60.0,
+      "direction": "right",
+      "azimuth_rad": -1.5707963267948966,
+      "repeat": 1
+    }
+  ],
+  "backend": "cpu",
+  "weights_unchanged": true,
+  "learning_updates": 0,
+  "protocol": "Isolated fresh quiet-reference starts; identical noise per repeat across all strengths/directions; torso-COM horizontal pulse; only physical/numerical/contact failure terminates. Foot movement observed, not prohibited.",
+  "elapsed_s": 310.689550292911,
+  "recorder_sha256": "db0dc5e562c0b3d99bb4f08bea2d9f8e80320e1fc8b178b3a571393c53c32d61"
+}

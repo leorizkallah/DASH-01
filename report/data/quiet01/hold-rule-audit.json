@@ -1,0 +1,32 @@
+{
+  "archived_summary": {
+    "v1": {
+      "accepted": 16,
+      "completed_hold": 16,
+      "failed_after_completed_hold": 0,
+      "never_completed_hold": 0,
+      "physical_falls": 0
+    },
+    "v2": {
+      "accepted": 10,
+      "completed_hold": 15,
+      "failed_after_completed_hold": 5,
+      "never_completed_hold": 1,
+      "physical_falls": 0
+    },
+    "xshape": {
+      "accepted": 10,
+      "completed_hold": 11,
+      "failed_after_completed_hold": 1,
+      "never_completed_hold": 5,
+      "physical_falls": 0
+    }
+  },
+  "synthetic_timing_test": {
+    "scenario": "Single 10ms quiet interruption at6.50s; otherwise quiet and loaded throughout12s",
+    "ever_accepted": true,
+    "final_quiet_s": 5.499999999999927,
+    "final_streak_start_s": 6.500000000000073,
+    "final_accepted": false
+  }
+}

@@ -1,0 +1,4 @@
+model,steps,elapsed_h,baseline_passes,best_passes,final_passes,best_step,best_reference_passes,best_retention_reference_passes,best_retention_passes,final_retention_passes,final_level
+v1,100012032,4.379392342964808,59,71,68,66355200,16,16,62,67,2
+v2,100012032,5.9537110859817926,37,85,85,100012032,16,15,78,78,3
+xshape,100012032,5.01952412294017,45,89,85,58982400,16,16,78,71,3

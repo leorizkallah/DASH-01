@@ -1,0 +1,11 @@
+{
+  "job": 3264033,
+  "status": "complete",
+  "completed_models": [
+    "v1",
+    "v2",
+    "xshape"
+  ],
+  "updated_utc": "2026-11-23T13:18:23.048313+00:00",
+  "accounting": "JobID|State|ExitCode\n3264033_0|COMPLETED|0:0\n3264033_0.batch|COMPLETED|0:0\n3264033_0.extern|COMPLETED|0:0\n3264033_1|COMPLETED|0:0\n3264033_1.batch|COMPLETED|0:0\n3264033_1.extern|COMPLETED|0:0\n3264033_2|COMPLETED|0:0\n3264033_2.batch|COMPLETED|0:0\n3264033_2.extern|COMPLETED|0:0\n"
+}

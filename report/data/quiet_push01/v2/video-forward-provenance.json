@@ -1,0 +1,18 @@
+{
+  "case_indices": [
+    0,
+    10,
+    34,
+    58
+  ],
+  "repeat": 0,
+  "video_sha256": "ae6b4c3666a87d5298bc1ee37ef3f1646facc74da201f6e94270e3052d9f9553",
+  "trace_sha256": "f79380e01237ae920c44a96f611182f8356a79deb73de3d46d21d09e631e41e3",
+  "duration_s": 20.0,
+  "fps": 20.0,
+  "size": [
+    1280,
+    960
+  ],
+  "backend": "cpu"
+}
